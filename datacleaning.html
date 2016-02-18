@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="[en]">
+<head>
+        <meta charset="utf-8" />
+        <title>DataCleaning</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">YD's Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/diary.html">Diary</a></li>
+                    <li class="active"><a href="/category/r.html">R</a></li>
+                    <li><a href="/category/scala.html">Scala</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/datacleaning.html" rel="bookmark"
+           title="Permalink to DataCleaning">DataCleaning</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-02-10T12:00:00+08:00">
+                Published: 三 10 2月 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2016-02-18T00:00:00+08:00">
+                Updated: 四 18 2月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/r.html">R</a>.</p>
+
+</footer><!-- /.post-info -->      <p>前陣子幫台大圖書館館員寫了一個格式轉換的腳本，應該可以讓他們花更少時間在轉檔的冗事上。</p>
+<p><code><pre>
+badPub &lt;- c("Cram101 Incorporated",
+            "Academic Internet Publishers Incorporated",
+            "Cram101 Textbook Outlines",
+            "BiblioBazaar",
+            "BiblioLife",
+            "Blatter Press",
+            "General Books LLC",
+            "Kessinger Publishing",
+            "Nabu Press",
+            "The Lawbook Exchange, Ltd."
+            )
+direction &lt;- c("A",
+               "B",
+               "C"
+               )
+fileClean &lt;- function(path,direction="",year="",department="",host=""){</p>
+<p>storage &lt;- data.frame()
+  for(fileIdx in 1:length(list.files(path))){</p>
+<div class="highlight"><pre><span class="nx">tempFile</span> <span class="o">&lt;-</span> <span class="nx">read</span><span class="p">.</span><span class="nx">csv</span><span class="p">(</span><span class="nx">paste</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="nx">list</span><span class="p">.</span><span class="nx">files</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span><span class="cp">[</span><span class="nx">fileIdx</span><span class="cp">]</span><span class="p">,</span><span class="nx">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">),</span><span class="nx">header</span><span class="o">=</span><span class="nx">T</span><span class="p">,</span><span class="nx">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="nx">row</span><span class="p">.</span><span class="nx">names</span> <span class="o">=</span> <span class="nx">NULL</span><span class="p">)</span>
+<span class="err">#</span><span class="k">in</span> <span class="k">case</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">wrong</span> <span class="nx">header</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">length</span><span class="p">(</span><span class="nx">colnames</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">))</span><span class="o">&gt;</span><span class="mi">16</span><span class="p">)</span><span class="nx">colnames</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nx">colnames</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span><span class="cp">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">17</span><span class="cp">]</span>
+
+<span class="nx">tempFile$Note</span> <span class="o">&lt;-</span> <span class="nx">unlist</span><span class="p">(</span><span class="nx">strsplit</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">files</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span><span class="cp">[</span><span class="nx">fileIdx</span><span class="cp">]</span><span class="p">,</span><span class="s2">&quot;</span><span class="cp">[</span><span class="nx">.</span><span class="cp">]</span><span class="s2">&quot;</span><span class="p">))</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="err">#</span><span class="nx">add</span> <span class="nx">keyword</span> <span class="nx">to</span> <span class="nx">Note</span><span class="p">,</span> <span class="nx">warnning</span><span class="o">:</span> <span class="s1">&#39;split&#39;</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">regexp</span>
+<span class="nx">tempFile</span> <span class="o">&lt;-</span> <span class="nx">subset</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">,</span><span class="nx">is</span><span class="p">.</span><span class="nx">na</span><span class="p">(</span><span class="nx">match</span><span class="p">(</span><span class="nx">Publisher</span><span class="p">,</span><span class="nx">badPub</span><span class="p">)))</span> <span class="err">#</span><span class="nx">tempFile</span><span class="cp">[</span><span class="na">-which</span><span class="p">(</span><span class="o">!</span><span class="nx">is.na</span><span class="p">(</span><span class="k">match</span><span class="p">(</span><span class="nx">tempFile</span><span class="nv">$Publisher</span><span class="p">,</span><span class="nx">badPub</span><span class="p">))),</span><span class="cp">]</span><span class="err">#</span><span class="nx">remove</span> <span class="nx">badPub</span>
+<span class="nx">tempFile$PriceType</span> <span class="o">&lt;-</span> <span class="nx">sapply</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="nx">length</span><span class="p">(</span><span class="nx">tempFile$Price</span><span class="p">),</span><span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">){</span><span class="nx">temp</span> <span class="o">&lt;-</span> <span class="nx">strsplit</span><span class="p">(</span><span class="nx">as</span><span class="p">.</span><span class="nx">character</span><span class="p">(</span><span class="nx">tempFile$Price</span><span class="cp">[</span><span class="nx">x</span><span class="cp">]</span><span class="p">),</span><span class="nx">split</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="cp">[</span><span class="err">[</span><span class="mi">1</span><span class="cp">]</span><span class="p">]</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="p">;</span><span class="nx">gsub</span><span class="p">(</span><span class="s2">&quot;</span><span class="cp">[</span><span class="p">^</span><span class="err">[</span><span class="p">:</span><span class="nx">alpha</span><span class="p">:</span><span class="cp">]</span><span class="s2">]&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nx">temp</span><span class="p">)})</span><span class="err">#</span><span class="nx">add</span> <span class="nx">price</span> <span class="nx">type</span>
+<span class="nx">tempFile$PriceType</span><span class="cp">[</span><span class="nx">which</span><span class="p">(</span><span class="nx">tempFile</span><span class="nv">$PriceType</span><span class="o">==</span><span class="s2">&quot;Contact&quot;</span><span class="p">)</span><span class="cp">]</span> <span class="o">&lt;-</span> <span class="s2">&quot;&quot;</span><span class="err">#</span><span class="nx">Contact</span> <span class="nx">to</span> <span class="nx">NULL</span>
+<span class="nx">tempFile$Price</span> <span class="o">&lt;-</span> <span class="nx">sapply</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="nx">length</span><span class="p">(</span><span class="nx">tempFile$Price</span><span class="p">),</span><span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">){</span><span class="nx">temp</span> <span class="o">&lt;-</span> <span class="nx">strsplit</span><span class="p">(</span><span class="nx">as</span><span class="p">.</span><span class="nx">character</span><span class="p">(</span><span class="nx">tempFile$Price</span><span class="cp">[</span><span class="nx">x</span><span class="cp">]</span><span class="p">),</span><span class="nx">split</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="cp">[</span><span class="err">[</span><span class="mi">1</span><span class="cp">]</span><span class="p">]</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="p">;</span><span class="nx">gsub</span><span class="p">(</span><span class="s2">&quot;</span><span class="cp">[</span><span class="p">^</span><span class="err">[</span><span class="p">:</span><span class="nx">digit</span><span class="p">:</span><span class="cp">]</span><span class="s2">.]&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nx">temp</span><span class="p">)})</span><span class="err">#</span><span class="nx">price</span> <span class="nx">tranformation</span><span class="p">,</span> <span class="nx">gsub</span><span class="p">()</span><span class="nx">濾掉不等於digit但保留</span><span class="s2">&quot;.&quot;</span>
+<span class="nx">tempFile$Publication</span><span class="p">.</span><span class="nb">Date</span> <span class="o">&lt;-</span> <span class="nx">sapply</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="nx">length</span><span class="p">(</span><span class="nx">tempFile$Publication</span><span class="p">.</span><span class="nb">Date</span><span class="p">),</span><span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="nx">strsplit</span><span class="p">(</span><span class="nx">as</span><span class="p">.</span><span class="nx">character</span><span class="p">(</span><span class="nx">tempFile$Publication</span><span class="p">.</span><span class="nb">Date</span><span class="cp">[</span><span class="nx">x</span><span class="cp">]</span><span class="p">),</span><span class="nx">split</span><span class="o">=</span><span class="s2">&quot;</span><span class="cp">[</span><span class="err">[</span><span class="p">:</span><span class="nx">punct</span><span class="p">:</span><span class="cp">]</span><span class="s2">]&quot;</span><span class="p">)</span><span class="cp">[</span><span class="err">[</span><span class="mi">1</span><span class="cp">]</span><span class="p">]</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="p">)</span><span class="err">#</span><span class="nx">date</span> <span class="nx">transformation</span>
+<span class="err">#</span><span class="nx">remove</span> <span class="nx">undesirable</span> <span class="nx">cols</span>
+<span class="err">#</span><span class="nx">tempFile</span> <span class="o">&lt;-</span> <span class="nx">tempFile</span><span class="cp">[</span><span class="p">,</span><span class="nx">colSums</span><span class="p">(</span><span class="o">!</span><span class="nx">is.na</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">))</span><span class="o">==</span><span class="nx">nrow</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span><span class="cp">]</span>
+<span class="err">#</span><span class="nx">add</span> <span class="nx">columns</span>
+<span class="nx">tempFile$老師自訂方向</span> <span class="o">&lt;-</span> <span class="nx">direction</span>
+<span class="nx">tempFile$年度</span> <span class="o">&lt;-</span> <span class="nx">year</span>
+<span class="nx">tempFile$主題</span> <span class="o">&lt;-</span> <span class="s2">&quot;topic&quot;</span>
+<span class="nx">tempFile$學門</span> <span class="o">&lt;-</span> <span class="nx">department</span>
+<span class="nx">tempFile$藏書館</span> <span class="o">&lt;-</span> <span class="s2">&quot;xxxx&quot;</span>
+<span class="nx">tempFile$計畫主持</span> <span class="o">&lt;-</span> <span class="nx">host</span>
+<span class="nx">tempFile$版次</span> <span class="o">&lt;-</span> <span class="s2">&quot;&quot;</span>
+<span class="nx">tempFile$備註</span> <span class="o">&lt;-</span> <span class="s2">&quot;&quot;</span>
+<span class="nx">tempFile$來源</span> <span class="o">&lt;-</span> <span class="s2">&quot;&quot;</span>
+<span class="err">#</span><span class="nx">change</span> <span class="nx">colnames</span>
+<span class="nx">colnames</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span><span class="cp">[</span><span class="nx">which</span><span class="p">(</span><span class="nx">names</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;ISBN.13&quot;</span><span class="p">)</span><span class="cp">]</span> <span class="o">&lt;-</span> <span class="s2">&quot;ISBN&quot;</span>
+<span class="nx">colnames</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span><span class="cp">[</span><span class="nx">which</span><span class="p">(</span><span class="nx">names</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Title&quot;</span><span class="p">)</span><span class="cp">]</span> <span class="o">&lt;-</span> <span class="s2">&quot;題名&quot;</span>
+<span class="nx">colnames</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span><span class="cp">[</span><span class="nx">which</span><span class="p">(</span><span class="nx">names</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Contributor&quot;</span><span class="p">)</span><span class="cp">]</span> <span class="o">&lt;-</span> <span class="s2">&quot;著者&quot;</span>
+<span class="nx">colnames</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span><span class="cp">[</span><span class="nx">which</span><span class="p">(</span><span class="nx">names</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Publisher&quot;</span><span class="p">)</span><span class="cp">]</span> <span class="o">&lt;-</span> <span class="s2">&quot;出版者&quot;</span>
+<span class="nx">colnames</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span><span class="cp">[</span><span class="nx">which</span><span class="p">(</span><span class="nx">names</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Publication.Date&quot;</span><span class="p">)</span><span class="cp">]</span> <span class="o">&lt;-</span> <span class="s2">&quot;出版日期&quot;</span>
+<span class="nx">colnames</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span><span class="cp">[</span><span class="nx">which</span><span class="p">(</span><span class="nx">names</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Note&quot;</span><span class="p">)</span><span class="cp">]</span> <span class="o">&lt;-</span> <span class="s2">&quot;關鍵字&quot;</span>
+<span class="nx">colnames</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span><span class="cp">[</span><span class="nx">which</span><span class="p">(</span><span class="nx">names</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;PriceType&quot;</span><span class="p">)</span><span class="cp">]</span> <span class="o">&lt;-</span> <span class="s2">&quot;幣別&quot;</span>
+<span class="nx">colnames</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span><span class="cp">[</span><span class="nx">which</span><span class="p">(</span><span class="nx">names</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Price&quot;</span><span class="p">)</span><span class="cp">]</span> <span class="o">&lt;-</span> <span class="s2">&quot;價格&quot;</span>
+<span class="err">#</span><span class="nx">reordering</span> <span class="nx">data</span><span class="p">.</span><span class="nx">frame</span>
+<span class="nx">colnames</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">)</span>
+<span class="nx">tempFile</span> <span class="o">&lt;-</span> <span class="nx">tempFile</span><span class="cp">[</span><span class="nx">c</span><span class="p">(</span><span class="s2">&quot;年度&quot;</span><span class="p">,</span><span class="s2">&quot;學門&quot;</span><span class="p">,</span><span class="s2">&quot;主題&quot;</span><span class="p">,</span><span class="s2">&quot;ISBN&quot;</span><span class="p">,</span><span class="s2">&quot;題名&quot;</span><span class="p">,</span><span class="s2">&quot;版次&quot;</span><span class="p">,</span><span class="s2">&quot;著者&quot;</span><span class="p">,</span><span class="s2">&quot;出版者&quot;</span><span class="p">,</span><span class="s2">&quot;出版日期&quot;</span><span class="p">,</span><span class="s2">&quot;藏書館&quot;</span><span class="p">,</span><span class="s2">&quot;計畫主持&quot;</span><span class="p">,</span><span class="s2">&quot;備註&quot;</span><span class="p">,</span><span class="s2">&quot;關鍵字&quot;</span><span class="p">,</span><span class="s2">&quot;幣別&quot;</span><span class="p">,</span><span class="s2">&quot;價格&quot;</span><span class="p">,</span><span class="s2">&quot;來源&quot;</span><span class="p">,</span><span class="s2">&quot;老師自訂方向&quot;</span><span class="p">,</span><span class="s2">&quot;ISBN.10&quot;</span><span class="p">)</span><span class="cp">]</span>
+<span class="nx">storage</span> <span class="o">&lt;-</span> <span class="nx">rbind</span><span class="p">(</span><span class="nx">storage</span><span class="p">,</span><span class="nx">tempFile</span><span class="p">)</span>
+</pre></div>
+
+
+<p>}
+  return(storage)
+}
+</pre><code></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://aady5566.bitbucket.org/">YD's Web</a></li>
+                            <li><a href="mailto:ydhuang@ntu.edu.tw">Contact YD</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://tw.linkedin.com/in/yd-huang-735358aa">LinkedIn</a></li>
+                            <li><a href="https://github.com/aady5566">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

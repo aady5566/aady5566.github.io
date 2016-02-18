@@ -2,7 +2,7 @@
 <html lang="[en]">
 <head>
         <meta charset="utf-8" />
-        <title>YD's Blog - YD</title>
+        <title>YD's Blog - Scala</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -16,68 +16,13 @@
                 <nav><ul>
                     <li><a href="/category/diary.html">Diary</a></li>
                     <li><a href="/category/r.html">R</a></li>
-                    <li><a href="/category/scala.html">Scala</a></li>
+                    <li class="active"><a href="/category/scala.html">Scala</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/graduation.html">Graduation</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2016-02-18T12:00:00+08:00">
-                Published: 四 18 2月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-02-18T00:00:00+08:00">
-                Updated: 四 18 2月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/diary.html">Diary</a>.</p>
-
-</footer><!-- /.post-info --><p>給自己一個新的空間上傳自己的想法心得、或是一些筆記。</p>
-<p>待補：</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/datacleaning.html" rel="bookmark"
-                           title="Permalink to DataCleaning">DataCleaning</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-02-10T12:00:00+08:00">
-                Published: 三 10 2月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-02-18T00:00:00+08:00">
-                Updated: 四 18 2月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/r.html">R</a>.</p>
-
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/datacleaning.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/scala-for-the-impatient-ch1.html" rel="bookmark"
-                           title="Permalink to Scala for the impatient: ch1">Scala for the impatient: ch1</a></h1>
-                </header>
-
-                <div class="entry-content">
+                    <h1 class="entry-title"><a href="/scala-for-the-impatient-ch1.html">Scala for the impatient: ch1</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2016-02-10T12:00:00+08:00">
                 Published: 三 10 2月 2016
@@ -92,10 +37,58 @@
         </address>
 <p>In <a href="/category/scala.html">Scala</a>.</p>
 
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/scala-for-the-impatient-ch1.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+</footer><!-- /.post-info --><p>a 方法 b 等同於 a.方法(b)<br />
+未提供++或--（不可變動性），但可以用counter +=1 將counter遞增。scala設計者認為不值得為少按一個鍵而增加特例。<br />
+有type: BigInt , BigDecimal  </p>
+<ul>
+<li>BIGINT provides 8 bytes of storage for integer values.  </li>
+</ul>
+<p>沒有靜態的方法，但有類似的特性，叫做單例對象(singleton object)，通常一個類對應會有一個伴生對象(companion object)。<br />
+不帶參數的方法可以不使用圓括號：  </p>
+<ul>
+<li>"hello".distinct  </li>
+</ul>
+<p>若s為一個字串，s(i)就是該字串的第i個字符  </p>
+<ul>
+<li>
+<p>"hello"(4)  </p>
+<ul>
+<li>()當作是操作符的重載形式，背後的實現原理是apply的方法，StringOps內有個方法 def apply(n:Int): char。因此，"hello"(4)等同於"hello".apply(4)。  </li>
+</ul>
+</li>
+</ul>
+<p>BigInt("1234567890")  </p>
+<ul>
+<li>
+<p>創造出一個新的BigInt物件  </p>
+</li>
+<li>
+<p>等同於BigInt.apply("1234567890")  </p>
+</li>
+</ul>
+<p>Scaladoc: http://www.scala-lang.org/  </p>
+<ul>
+<li>C: class, O: object  </li>
+</ul>
+<p>tips:<br />
+  * 數值類型查詢：RichInt, RichDouble  </p>
+<ul>
+<li>
+<p>字串類型查詢：SpringOps  </p>
+</li>
+<li>
+<p>數學函數：scala.math package中  </p>
+</li>
+</ul>
+<p>"Harry".patch(1,"ung",2)，將產出Hungry<br />
+def patch(from:Int, that:GenSeq[Char], replaced: Int ):StringOps[A]<br />
+比大小max(a,b) max c<br />
+probablePrime(2,Random)：回傳一個bit長度為二的質數(type:BigInt)  </p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
 
             <li><article class="hentry">
                 <header>
@@ -148,11 +141,33 @@
                 <a class="readmore" href="/scala-for-the-impatient-ch2.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/scala-for-the-impatient-ch8.html" rel="bookmark"
+                           title="Permalink to Scala for the impatient: ch8">Scala for the impatient: ch8</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-02-10T12:00:00+08:00">
+                Published: 三 10 2月 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2016-02-18T00:00:00+08:00">
+                Updated: 四 18 2月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/scala.html">Scala</a>.</p>
+
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/scala-for-the-impatient-ch8.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
                 </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 3
-        <a href="/author/yd2.html">&raquo;</a>
-</p>
                 </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">

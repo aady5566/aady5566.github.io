@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="[en]">
+<head>
+        <meta charset="utf-8" />
+        <title>JSON2CSV</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">YD's Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/diary.html">Diary</a></li>
+                    <li><a href="/category/plot.html">Plot</a></li>
+                    <li class="active"><a href="/category/scala.html">Scala</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/json2csv.html" rel="bookmark"
+           title="Permalink to JSON2CSV">JSON2CSV</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-02-18T00:00:00+08:00">
+                Published: 四 18 2月 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2016-02-18T00:00:00+08:00">
+                Updated: 四 18 2月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/scala.html">Scala</a>.</p>
+
+</footer><!-- /.post-info -->      <pre><code>
+ Created by YD on 16/2/17.
+
+object mouseTracking_Json2CSV {
+  import spray.json._
+  import spray.json.DefaultJsonProtocol
+  case class mouseTracking(windowSizeWidth:Int, ip:String, ele_value:String, ele_selector:String,
+                           url:String, event:String, mousePosY:Int, version_server:String, version_client:String,
+                           userAgent:String, version:String, client:String, windowSizeHeight:Int, datetimeClient:String,
+                           referrer:String, datetimeServer:String, ele_class:String, mousePosX:Int, ele_id:String)
+  object YDJsonProtocol extends DefaultJsonProtocol{
+    implicit val mouseFormat = jsonFormat19(mouseTracking)
+  }
+
+
+  def main(args: Array[String]) {
+    import scala.io.Source
+    val source = Source.fromFile("/Users/apple/Desktop/1477.txt").getLines.toArray//read source
+    import java.io.File
+    val f = new File("/Users/apple/Desktop/out.csv") //create csv file
+    import com.github.tototoshi.csv._
+    val writer = CSVWriter.open(f)
+    writer.writeRow(List("windowSizeWidth",
+      "ip",
+      "ele_value",
+      "ele_selector",
+      "url",
+      "event",
+      "mousePosY",
+      "version_server",
+      "version_client",
+      "userAgent",
+      "version",
+      "client",
+      "windowSizeHeight",
+      "datetimeClient",
+      "referrer",
+      "datetimeServer",
+      "ele_class",
+      "mousePosX",
+      "ele_id"))//header
+    for(i <- 0.until(source.length)){
+      import YDJsonProtocol._
+      val tempjsonAst = source(i).parseJson //parseJson Protocol
+      val tempObject = tempjsonAst.convertTo[mouseTracking]
+      writer.writeRow(List(tempObject.windowSizeWidth,
+        tempObject.ip,
+        tempObject.ele_value,
+        tempObject.ele_selector,
+        tempObject.url,
+        tempObject.event,
+        tempObject.mousePosY,
+        tempObject.version_server,
+        tempObject.version_client,
+        tempObject.userAgent,
+        tempObject.version,
+        tempObject.client,
+        tempObject.windowSizeHeight,
+        tempObject.datetimeClient,
+        tempObject.referrer,
+        tempObject.datetimeServer,
+        tempObject.ele_class,
+        tempObject.mousePosX,
+        tempObject.ele_id
+      ))
+    }
+    writer.close()
+  }
+
+}
+</code></pre>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://aady5566.bitbucket.org/">YD's Web</a></li>
+                            <li><a href="mailto:ydhuang@ntu.edu.tw">Contact YD</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://tw.linkedin.com/in/yd-huang-735358aa">LinkedIn</a></li>
+                            <li><a href="https://github.com/aady5566">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

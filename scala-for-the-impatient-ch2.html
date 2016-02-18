@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="[en]">
+<head>
+        <meta charset="utf-8" />
+        <title>Scala for the impatient: ch2</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">YD's Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/diary.html">Diary</a></li>
+                    <li><a href="/category/r.html">R</a></li>
+                    <li class="active"><a href="/category/scala.html">Scala</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/scala-for-the-impatient-ch2.html" rel="bookmark"
+           title="Permalink to Scala for the impatient: ch2">Scala for the impatient: ch2</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-02-10T12:00:00+08:00">
+                Published: 三 10 2月 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2016-02-18T00:00:00+08:00">
+                Updated: 四 18 2月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/scala.html">Scala</a>.</p>
+
+</footer><!-- /.post-info -->      <p>val s= if (x&gt;0) 1 else -1<br />
+val s= if (x&gt;0) "positive" else -1<br />
+此為公共超類型 (型態為Any)<br />
+if (x&gt;0) 1  </p>
+<ul>
+<li>若為 else的結果，仍會回傳一個類型為Unit的（無有用值，void in JAVA，意即 if (x&gt;0) 1 else ()  </li>
+</ul>
+<p>printf("hello, %s! you're %d years old.\n","andy",25)  </p>
+<ul>
+<li>C格式的字串符  </li>
+</ul>
+<p>for (i in 0 until s.length)是在0至(n-1)的區間，意即不包含上限值<br />
+var sum=0; for (ch &lt;- "hello") sum+=ch<br />
+若要退出循環，建議使用  </p>
+<ul>
+<li>Boolean型控制變量  </li>
+<li>使用嵌套件函數  </li>
+<li>使用breaks對象中的break方法：  </li>
+</ul>
+<p>import scala.util.control.Break._ （但盡量避免用此方法）
+高級for循環  </p>
+<p>for(i &lt;- 1 to 2; j&lt;- 1 to 3 if i!=j ) print((10*i+j)+ " ")  </p>
+<ul>
+<li>可多生成器，又可帶一個判斷（守衛）  </li>
+</ul>
+<p>for(i &lt;- 1 to 3; from=4-i; j &lt;- from to 3) print((10*i+j)+" ")  </p>
+<ul>
+<li>可以任意定義循環  </li>
+</ul>
+<p>for(i &lt;- 1 to 10) yield i % 3  </p>
+<ul>
+<li>以 yield開始，再循環構造一個集合，每次迭代生成集合的一個值  </li>
+<li>此循環稱為for推導式  </li>
+<li>跑出來的結果會變成一個vector  </li>
+</ul>
+<p>盡量不要使用return，因為會使用大量匿名函數。把return當作是函數版的break<br />
+對於遞迴函數，必須對指定返回類型<br />
+能夠推斷遞迴函數類型的算法為Hindley-Milner
+變長參數
+<code><pre>
+def sum(args:Int*)={
+  var result=0
+  for (arg&lt;-args) result +=arg
+  result
+}
+val x= sum(111,2,3,4,5)
+</pre></code>  </p>
+<p>如果是傳入區間<code>（希望變數區間當作參數序列處理，則需追加:_*)</code><br />
+<code>val s= sum(1 to 5:_*)</code>    </p>
+<p>如果函數沒有回傳值，則回傳類型為Unit，此函數又被稱為「procedure」<br />
+若不返回任何回傳值，可以省去=號<br />
+def box(s:String) {...}<br />
+但還是建議寫<br />
+def box(s:String):Unit ={...}<br />
+當變數被宣告為lazy時，它的初始化會被延遲到首次對他取值時。<br />
+lazy val words= scala.io.Source.fromFile("/Users/apple/Desktop/sss.txt").mkString<br />
+可以把懶值當作是介於val和def的中間狀態<br />
+val word= ... //定義時就取值<br />
+val lazy word= ... //在word被首次使用時取值<br />
+def word=...//每次呼叫word時取值<br />
+每次訪問懶值時會調用某個方法來檢查該值是否被初始化，因此會有額外開銷。<br />
+異常<br />
+<code><pre>
+var in = new   URL("http://4.bp.blogspot.com/-s3DB3ryqocE/UvvhsovCC7I/AAAAAAAANnI/EENAw5YFXPE/s1600/lingerie+forever+(5).jpg").openStream()<br />
+try{
+  in.toString()
+}catch{
+  case _: ...
+  case er: ...
+}
+finally{
+  in.close()
+}
+finally無論try有無拋出異常都會執行
+try/catch通常是處理異常
+try/finally是異常沒被處理形況下執行某種動作(e.g. 清理工作)
+</pre><code></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://aady5566.bitbucket.org/">YD's Web</a></li>
+                            <li><a href="mailto:ydhuang@ntu.edu.tw">Contact YD</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://tw.linkedin.com/in/yd-huang-735358aa">LinkedIn</a></li>
+                            <li><a href="https://github.com/aady5566">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="[en]">
+<head>
+        <meta charset="utf-8" />
+        <title>Bayes Classifier</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">YD's Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/diary.html">Diary</a></li>
+                    <li class="active"><a href="/category/r.html">R</a></li>
+                    <li><a href="/category/scala.html">Scala</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/bayes-classifier.html" rel="bookmark"
+           title="Permalink to Bayes Classifier">Bayes Classifier</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-02-05T12:00:00+08:00">
+                Published: 五 05 2月 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2016-02-18T00:00:00+08:00">
+                Updated: 四 18 2月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/r.html">R</a>.</p>
+
+</footer><!-- /.post-info -->      <p><img class="alignnone size-large wp-image-133" src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="airbnb" width="330" height="100" />  </p>
+<p>因為一場面試讓我參加了一場<a href="https://www.kaggle.com/">kaggle</a>的比賽，是有關aribnb舉辦的。
+了解規則後，就上網去看一下，想說手刻一個簡單的bayes classifier。預測力不是很好，但之前都沒接觸分類法，之後真的要找時間學一下。</p>
+<p>原始資料的"age"會除了包含歲數外，也會有西元年的資訊，在我的naive bayes classifier，會把西元年的資訊去除。所以對於事後預測的部分若有含西元年的資訊，會有偏誤的情形。<br />
+naive bayes的特色是運算非常快速，缺點是資料的前處理，以及它有個強大的假設，就是變項間彼此獨立。所以遇到變項有相依情形時（e.g. 變項“使用語系”, ”居住地"），就不適合用該方法。但在我們的原始變項中，個人覺得沒有高相關的變項（但也許”language”和使用的瀏覽器會在地域有相關，如東歐或俄羅斯可能常用Yandex etc…）。如果排除獨立性其實也不難，就讓兩個變項多個聯合條件機率進行即可（概念不難，但寫起來好像也很麻煩）。  </p>
+<p>在我這個模型我建了兩個方法，method="default”是原始的naive bayes，submit之後得到0.85065的分數。另外一個方法是用method="softmax”（都寫在<a href="https://github.com/aady5566/airbnb/blob/master/bayesClassifier.R">bayesClassifier</a>），softmax基本概念就是將各情形的總和為1的方法（機率的概念），但發現經轉換後效果反而不如原始的naive bayes好。這邊尚待釐清。不過若要精進method="default”預測力也不難，因為我跑randomforest發現importance dection於變項”age”佔有一席之地，所以我應該要把西元的資料撈回training set中，重新建模，應該會得到更佳的預測效果。  </p>
+<p>另外他們的檢定是Normalized Discounted Cumulative Gain (nDCG)，也稍微看了一下背後的檢驗邏輯。雖然比DCG多增加排序的評分權重，但並沒有為排序錯誤進行扣分的動作（照理說應該預測錯誤要給予懲罰），這概念就好比估計參數時用了比較多的參數理當預測力變好，誤差變小，但同樣也是需要有penalty（例如Akaike information criterion (AIC), Bayesian information criterion (BIC))。 例如可以使用Discounted Cumulative Margin Penalty (DCMP)，考量排錯位時的懲處。</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://aady5566.bitbucket.org/">YD's Web</a></li>
+                            <li><a href="mailto:ydhuang@ntu.edu.tw">Contact YD</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://tw.linkedin.com/in/yd-huang-735358aa">LinkedIn</a></li>
+                            <li><a href="https://github.com/aady5566">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

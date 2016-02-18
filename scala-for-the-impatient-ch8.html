@@ -2,7 +2,7 @@
 <html lang="[en]">
 <head>
         <meta charset="utf-8" />
-        <title>Graduation</title>
+        <title>Scala for the impatient: ch8</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -14,23 +14,23 @@
         <header id="banner" class="body">
                 <h1><a href="/">YD's Blog </a></h1>
                 <nav><ul>
-                    <li class="active"><a href="/category/diary.html">Diary</a></li>
+                    <li><a href="/category/diary.html">Diary</a></li>
                     <li><a href="/category/r.html">R</a></li>
-                    <li><a href="/category/scala.html">Scala</a></li>
+                    <li class="active"><a href="/category/scala.html">Scala</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="/graduation.html" rel="bookmark"
-           title="Permalink to Graduation">Graduation</a></h1>
+        <a href="/scala-for-the-impatient-ch8.html" rel="bookmark"
+           title="Permalink to Scala for the impatient: ch8">Scala for the impatient: ch8</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-02-18T12:00:00+08:00">
-                Published: 四 18 2月 2016
+        <abbr class="published" title="2016-02-10T12:00:00+08:00">
+                Published: 三 10 2月 2016
         </abbr>
 		<br />
         <abbr class="modified" title="2016-02-18T00:00:00+08:00">
@@ -40,10 +40,31 @@
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/yd.html">YD</a>
         </address>
-<p>In <a href="/category/diary.html">Diary</a>.</p>
+<p>In <a href="/category/scala.html">Scala</a>.</p>
 
-</footer><!-- /.post-info -->      <p>給自己一個新的空間上傳自己的想法心得、或是一些筆記。</p>
-<p>待補：</p>
+</footer><!-- /.post-info -->      <p>類擴展 extends
+將類定義為final，則他就不能被擴展
+單個方法或字段也可聲明為final (類似scala val)
+調用超類的方法 super.<def>
+<pre><code>class Employee(defId:Int,defName:String){
+  val name=defName
+  val id=defId
+}
+val p1=new Employee(1,"ANDY")
+p1.isInstanceOf[Employee]//可檢查某個對象是否為一個給定的類
+p1.getClass==classOf[Employee]//測試p1指向一個對象但又不是其子類
+</code></pre>
+但通常類型檢查或轉換相比，模式匹配會是更好的選擇
+[protected] 只能被子類訪問
+class Person(name:String,age:Int)
+class Employee(name:String,age:Int,val salary:Double) extends Person(name,age)
+上述代碼定義了一個子類語調用一個超類構造器得主構造器class
+Square(x:Int,y:Int,width:Int) extends java.awt.Rectangle(x,y,width,width)
+scala類擴展java類，他的主構造器需要調用java超類的某個構造方法
+若class內有非完整定義的方法，就必須宣告為abstract
+abstract class Person(val name:String){
+  def id:Int//為被完整定義
+}</p>
     </div><!-- /.entry-content -->
 
   </article>
