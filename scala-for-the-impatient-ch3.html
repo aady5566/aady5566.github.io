@@ -2,7 +2,7 @@
 <html lang="[en]">
 <head>
         <meta charset="utf-8" />
-        <title>Scala for the impatient: ch11</title>
+        <title>Scala for the impatient: ch3</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -23,8 +23,8 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="/scala-for-the-impatient-ch11.html" rel="bookmark"
-           title="Permalink to Scala for the impatient: ch11">Scala for the impatient: ch11</a></h1>
+        <a href="/scala-for-the-impatient-ch3.html" rel="bookmark"
+           title="Permalink to Scala for the impatient: ch3">Scala for the impatient: ch3</a></h1>
     </header>
 
     <div class="entry-content">
@@ -42,21 +42,63 @@
         </address>
 <p>In <a href="/category/scala.html">Scala</a>.</p>
 
-</footer><!-- /.post-info -->      <p>變量、函數、類稱為指標符。<br />
-在scala, unicode字符都可以是指標符<br />
-apply經常被用於伴生對象中<br />
-<code><pre>
-class Fraction(n:Int,d:Int){
-   var num=0
-   var den=0
-   def <em>(other:Fraction)=new Fraction(num</em>other.num,den*other.den)
- }
-object Fraction{
-  def apply(n:Int,d:Int)= new Fraction(n,d)//這樣就不用一直new Frction()
-}
-val result =Fraction(1,2) * Fraction(3,4)
-</pre></code><br />
-例類(case class)自動具備apply, unapply的方法</p>
+</footer><!-- /.post-info -->      <p>定長數組用Array, 不定長數組用ArrayBuffer<br />
+在ArrayBuffer尾端添加或移除元素是高效操作(amortized constant time)  </p>
+<ul>
+<li>+= , ++= , .trimEnd()  </li>
+<li>也可以從中插入元素，但因為所有元素會平移，因此效率變低  <ul>
+<li>.insert(<index>,<val>), .remove(<index>,<numberOfVal>)  </li>
+</ul>
+</li>
+</ul>
+<p>定長數組與不定長數組轉換  </p>
+<ul>
+<li>.toBuffer, .toArray  </li>
+</ul>
+<p>for loop要窮盡所有element用until 配 .length而不是to 配 .length (原因:index從0開始)  </p>
+<ul>
+<li>0 until 10 // 0.until(10)</li>
+<li>0 to 10  </li>
+</ul>
+<p>for loop  </p>
+<ul>
+<li>
+<p>for(i &lt;- 區間)  </p>
+<ul>
+<li>for(i &lt;- 0 until a.length) //窮盡所有i</li>
+<li>for(i &lt;- 0 until (a.length,2) ) //兩個一跳</li>
+<li>for(i &lt;- (0 until a.length).reverse ) //尾端開始窮盡</li>
+<li>
+<p>for(ele &lt;-  a) //不用額外下標，直接訪問數組元素  </p>
+</li>
+<li>
+<p>val aa = Array(2,3,5,7,11); val result = for(ele &lt;- aa) yield 2 * ele</p>
+</li>
+<li>
+<p>yield 循環會創建一個與原始集合相同的新集合，此例新集合為Arrary  </p>
+</li>
+<li>
+<p>for(ele &lt;- a if ele%%2==0) yield ele*2 //針對ele做判斷  </p>
+</li>
+<li>
+<p>如同a.filter(<em>%2==0).map(2*</em>)  </p>
+</li>
+<li>
+<p>val first = true; for(i &lt;- 0.until(a.length if a(i)&gt;0 || <condition2>)) yield {if(a(i)&lt;0) first=false;i}  </p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Array ArrayBuffer運算：  </p>
+<ul>
+<li>ArrayBuffer("a","b")+="c"--=Array("a","b") //新增一個c然後刪除含「首度出現a,b」的元素</li>
+<li>Array(1,7,2,9).sum</li>
+<li>Array("aaaa","a","bbbbbbbbb")</li>
+<li>Array.min</li>
+<li>Array.sortWith(<em>&gt;</em>)</li>
+<li>Array.mkString("&lt;",",""&gt;") //前綴、中間分隔符號、後綴</li>
+<li>Array.toString //只報告類型</li>
+</ul>
     </div><!-- /.entry-content -->
 
   </article>
