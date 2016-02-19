@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="[en]">
+<head>
+        <meta charset="utf-8" />
+        <title>Scala for the impatient: ch4</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">YD's Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/diary.html">Diary</a></li>
+                    <li><a href="/category/r.html">R</a></li>
+                    <li class="active"><a href="/category/scala.html">Scala</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/scala-for-the-impatient-ch4.html" rel="bookmark"
+           title="Permalink to Scala for the impatient: ch4">Scala for the impatient: ch4</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-02-10T12:00:00+08:00">
+                Published: 三 10 2月 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2016-02-19T00:00:00+08:00">
+                Updated: 五 19 2月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/scala.html">Scala</a>.</p>
+
+</footer><!-- /.post-info -->      <p>映射是key-value(對偶)的集合。
+對偶是元組(tuple)最簡單的型態</p>
+<ul>
+<li>(1,3.14,"Fred") //元組由圓括號構成, Tuple3[Int,Double,java.lang.String]</li>
+<li>
+<p>val t= (1,3.14,"Fred")</p>
+<ul>
+<li><code>t._2</code> //訪問第二個元組值</li>
+</ul>
+</li>
+<li>
+<p>元組的各組元從1開始</p>
+</li>
+<li>
+<p>val (first, second, third) =t //獲取元組值</p>
+<ul>
+<li>val (first, _ , third) =t //只取1,3元組值  </li>
+</ul>
+</li>
+<li>
+<p><code>"New York".partition(_isUpper)</code> //輸出對偶(符合條件,不符條件)，元組可以用於需要返回不只一個值的情況</p>
+</li>
+</ul>
+<p>val scores = Map("Alice"-&gt;10,"Bob"-&gt;3) //Map[String,Int]其值無法變</p>
+<ul>
+<li>
+<p>val scores = Map(("Alice",60),("Bob",30)) //效果同上  </p>
+<ul>
+<li>val newScores= scores+ ("Bob"-&gt;30,"Fred"-&gt;7) //新增另外一個映射  </li>
+<li>var scores =... //改成var也可更新  </li>
+</ul>
+</li>
+<li>
+<p>val scores= scala.collection.mutable.Map("Alice"-&gt;10,"Bob"-&gt;3) //Map[String,Int]其值變  </p>
+<ul>
+<li>scores("Fred")=5 //新增映射值</li>
+<li>scores+=("andy"-&gt;15,"aaaa"-&gt;6)  </li>
+<li>scores-=("andy) //移除某鍵(不會有重複的鍵)  </li>
+</ul>
+</li>
+</ul>
+<p>val scores= new scala.collection.mutable.HashMap[String,Int]<br />
+val bobScore=scores("Bob") //查找某個鍵對應的值<br />
+確認有無此鍵 scores.contains("Bob")  </p>
+<ul>
+<li>scores.getOrElse("Bob",0) //若包含Bob則返回對應值，否則0  </li>
+</ul>
+<p>for((k,v) &lt;- <map>) //遍歷所有對偶  </p>
+<ul>
+<li>
+<p>for ((k,v) &lt;- <map>) yield (v,k) //交換位置  </p>
+<ul>
+<li>map(v) //若為Int仍為原始形態  </li>
+</ul>
+</li>
+</ul>
+<p>scores.keySet //抓出key的集合<br />
+scores.values //抓出value的集合<br />
+操作映射時，默認情況下scala是按照哈希表  </p>
+<ul>
+<li>
+<p>若要得到一個不可變的樹形映射(TreeMap)可用  </p>
+<ul>
+<li>scala.collections.immutable.SortedMap  </li>
+</ul>
+</li>
+<li>
+<p>若要按插入順序訪問所有的鍵  </p>
+<ul>
+<li>scala.collection.mutable.LinkedHashMap()  </li>
+</ul>
+</li>
+</ul>
+<p>JAVA互動  </p>
+<ul>
+<li>import scala.collection.JavaConversions.mapAsScala.Map  </li>
+<li>val scores: scala.collection.mutable.Map[String,Int]= new java.util.TreeMap[String,Int]  </li>
+</ul>
+<p>拉鍊操作  </p>
+<ul>
+<li>val symbols= Array("&lt;","-","&gt;"); val counts =Array(2,10,3); val pairs= symbols.zip(counts);for ((s,n) &lt;- pairs) print(s*n) //可讓對偶同時被操作  </li>
+<li><key>.zip(<value>).toMap //如果分別有<key>, <value>兩個集合，就可以用.toMap轉成映射  </li>
+</ul>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://aady5566.bitbucket.org/">YD's Web</a></li>
+                            <li><a href="mailto:ydhuang@ntu.edu.tw">Contact YD</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://tw.linkedin.com/in/yd-huang-735358aa">LinkedIn</a></li>
+                            <li><a href="https://github.com/aady5566">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
