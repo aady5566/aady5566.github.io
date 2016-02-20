@@ -13,9 +13,9 @@
 @import url("pygment.css");
 @import url("typogrify.css");
 @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&subset=latin);
-@import url(https://fonts.googleapis.com/css?family=Istok+Web&subset=latin);
+@import url(https://fonts.googleapis.com/css?family=Fredoka+One&subset=latin);
 @import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css);
-@import url(https://fonts.googleapis.com/css?family=Righteous&subset=latin);
+
 /***** Global *****/
 /* Body */
 body {
@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 	line-height: 1.1;
 	margin-bottom: .8em;
-    font-family: 'Istok Web', arial, serif;
+    font-family: 'Fredoka One', arial, serif;
 }
 
 h3, h4, h5, h6 { margin-top: .8em; }
