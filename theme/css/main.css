@@ -14,15 +14,16 @@
 @import url("typogrify.css");
 @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&subset=latin);
 @import url(https://fonts.googleapis.com/css?family=Fredoka+One&subset=latin);
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand|Averia+Sans+Libre|Sniglet|NTR&subset=latin);
 @import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css);
 
 /***** Global *****/
 /* Body */
 body {
-    background: #F5F4EF;
-    color: #000305;
+    background: rgb(212,189,166);
+    color: rgb(60,60,60);/*text color*/
     font-size: 87.5%; /* Base font size: 14px */
-    font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'cwtexyen', Arial, sans-serif;
+    font-family: 'NTR', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'cwtexyen', Arial, sans-serif;
     line-height: 1.429;
     margin: 0;
     padding: 0;
@@ -41,8 +42,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 	line-height: 1.1;
 	margin-bottom: .8em;
-    font-family: 'Fredoka One' , 'cwtexyen', arial, sans-serif;
+    font-family: 'NTR' , 'cwtexyen', arial, sans-serif;
 }
+
+
 
 h3, h4, h5, h6 { margin-top: .8em; }
 
@@ -52,15 +55,15 @@ hr { border: 2px solid #EEEEEE; }
 a {outline: 0;}
 a img {border: 0px; text-decoration: none;}
 a:link, a:visited {
-	color: #C74350;
+	color: #C74350;/*title color*/
 	padding: 0 1px;
-	text-decoration: underline;
+	text-decoration: none; /*remove underline*/
 }
 a:hover, a:active {
-	background-color: #C74350;
-	color: #fff;
+	background-color: rgb(255,255,255);
+	color: rgb(255,164,20);/*hover title color*/
 	text-decoration: none;
-	text-shadow: 1px 1px 1px #333;
+	/*text-shadow: 1px 1px 1px #333;*/ /*remove shadow*/
 }
 
 h1 a:hover {
@@ -164,15 +167,17 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	/* Banner */
 	#banner h1 {font-size: 3.571em; line-height: 0;}
 	#banner h1 a:link, #banner h1 a:visited {
-		color: #000305;
+    font-family: 'Sniglet' , arial, sans-serif;
+		color: rgb(120,107,94);
 		display: block;
-		font-weight: bold;
-		margin: 0 0 .6em .2em;
+		/*font-weight: bold;*/
+		margin: 0 0 .8em .2em;
 		text-decoration: none;
 	}
 	#banner h1 a:hover, #banner h1 a:active {
+    font-family: 'Sniglet' , arial, sans-serif;
 		background: none;
-		color: #C74350;
+		color: rgb(120,107,94); /*hover banner*/
 		text-shadow: none;
 	}
 
@@ -180,7 +185,7 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 
 	/* Main Nav */
 	#banner nav {
-		background: #000305;
+		background: rgb(82,73,64);
 		font-size: 1.143em;
 		height: 40px;
 		line-height: 30px;
@@ -206,7 +211,7 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	}
 	#banner nav a:hover, #banner nav a:active,
 	#banner nav .active a:link, #banner nav .active a:visited {
-		background: #C74451;
+		background: rgb(255,164,20); /*hover banner navigation color*/
 		color: #fff;
 		text-shadow: none !important;
 	}
@@ -287,7 +292,7 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	padding: .3em .25em;
 }
 
-#extras a:hover, #extras a:active {color: #fff;}
+#extras a:hover, #extras a:active {color: rgb(255,164,20);} /*hover color*/
 
 	/* Blogroll */
 	#extras .blogroll {
