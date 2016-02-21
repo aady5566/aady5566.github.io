@@ -19,9 +19,13 @@
 
 /***** Global *****/
 /*image*/
-.img-circle {
-    border-radius: 5%;
+.shaped {
+  border: none;
+  border-radius: 10px;
 }
+
+
+a:hover .shaped { border: solid 1px #CCC; -moz-box-shadow: 1px 1px 5px #999; -webkit-box-shadow: 1px 1px 5px #999; box-shadow: 1px 1px 5px #999; }
 /* Body */
 body {
     background: rgb(212,189,166);
