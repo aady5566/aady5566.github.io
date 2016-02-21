@@ -18,6 +18,10 @@
 @import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css);
 
 /***** Global *****/
+/*image*/
+.img-circle {
+    border-radius: 5%;
+}
 /* Body */
 body {
     background: rgb(212,189,166);
