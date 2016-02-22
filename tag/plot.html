@@ -22,7 +22,7 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/shuo-lun-kou-shi-qian-de-nao-ren-hua-tu.html">碩論口試前的惱人畫圖</a></h1>
+                    <h1 class="entry-title"><a href="/zi-liao-fen-xi-dao-qian-duan.html">資料分析到前端</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2016-02-22T00:00:00+08:00">
                 Published: 一 22 2月 2016
@@ -37,130 +37,231 @@
         </address>
 <p>In <a href="/category/r.html">R</a>.</p>
 <p>tags: <a href="/tag/plot.html">Plot</a> </p>
-</footer><!-- /.post-info --><iframe srcdoc=' &lt;!doctype HTML&gt;
+</footer><!-- /.post-info --><p>現在想想真的是，收穫總是在有目標（工作）的情況下獲得比較快。  </p>
+<p>在口試前一週，前前後後畫了4x張吧orz...  </p>
+<p>現在終於搞定接上自己的blog並呈現動態圖表了真開心!  </p>
+<iframe srcdoc=' &lt;!doctype HTML&gt;
 &lt;meta charset = &#039;utf-8&#039;&gt;
 &lt;html&gt;
   &lt;head&gt;
+    &lt;link rel=&#039;stylesheet&#039; href=&#039;//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css&#039;&gt;
 
-    &lt;script src=&#039;//code.jquery.com/jquery-1.9.1.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
-    &lt;script src=&#039;//code.highcharts.com/highcharts.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
-    &lt;script src=&#039;//code.highcharts.com/highcharts-more.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
-    &lt;script src=&#039;//code.highcharts.com/modules/exporting.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    &lt;script src=&#039;//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    &lt;script src=&#039;//d3js.org/d3.v3.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    &lt;script src=&#039;//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    &lt;script src=&#039;//nvd3.org/assets/lib/fisheye.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
 
     &lt;style&gt;
     .rChart {
       display: block;
       margin-left: auto;
       margin-right: auto;
-      width: 400px;
-      height: 200px;
+      width: 600px;
+      height: 300px;
     }  
     &lt;/style&gt;
 
   &lt;/head&gt;
   &lt;body &gt;
 
-    &lt;div id = &#039;chart403e592d6ef&#039; class = &#039;rChart highcharts&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chart403e354f74d8&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
     &lt;script type=&#039;text/javascript&#039;&gt;
-    (function($){
-        $(function () {
-            var chart = new Highcharts.Chart({
- &quot;dom&quot;: &quot;chart403e592d6ef&quot;,
-&quot;width&quot;:            400,
-&quot;height&quot;:            200,
-&quot;credits&quot;: {
- &quot;href&quot;: null,
-&quot;text&quot;: null
+ $(document).ready(function(){
+      drawchart403e354f74d8()
+    });
+    function drawchart403e354f74d8(){  
+      var opts = {
+ &quot;dom&quot;: &quot;chart403e354f74d8&quot;,
+&quot;width&quot;:    600,
+&quot;height&quot;:    300,
+&quot;x&quot;: &quot;t&quot;,
+&quot;y&quot;: &quot;var&quot;,
+&quot;group&quot;: &quot;type&quot;,
+&quot;type&quot;: &quot;stackedAreaChart&quot;,
+&quot;id&quot;: &quot;chart403e354f74d8&quot;,
+&quot;title&quot;: &quot;x月囤貨量與銷量變化&quot;
 },
-&quot;exporting&quot;: {
- &quot;enabled&quot;: false
-},
-&quot;title&quot;: {
- &quot;text&quot;: &quot;各通路銷售量&quot;,
-&quot;align&quot;: &quot;center&quot;,
-&quot;verticalAlign&quot;: &quot;middle&quot;,
-&quot;y&quot;:             50
-},
-&quot;yAxis&quot;: [
+        data = [
  {
- &quot;title&quot;: {
- &quot;text&quot;: &quot;SALESUNITS&quot;
+ &quot;t&quot;: 1,
+&quot;var&quot;: 254333,
+&quot;type&quot;: &quot;SALESUNITS&quot;
+},
+{
+ &quot;t&quot;: 2,
+&quot;var&quot;: 171041,
+&quot;type&quot;: &quot;SALESUNITS&quot;
+},
+{
+ &quot;t&quot;: 3,
+&quot;var&quot;: 158322,
+&quot;type&quot;: &quot;SALESUNITS&quot;
+},
+{
+ &quot;t&quot;: 4,
+&quot;var&quot;: 128823,
+&quot;type&quot;: &quot;SALESUNITS&quot;
+},
+{
+ &quot;t&quot;: 5,
+&quot;var&quot;: 147442,
+&quot;type&quot;: &quot;SALESUNITS&quot;
+},
+{
+ &quot;t&quot;: 6,
+&quot;var&quot;: 123880,
+&quot;type&quot;: &quot;SALESUNITS&quot;
+},
+{
+ &quot;t&quot;: 7,
+&quot;var&quot;: 167531,
+&quot;type&quot;: &quot;SALESUNITS&quot;
+},
+{
+ &quot;t&quot;: 8,
+&quot;var&quot;: 138999,
+&quot;type&quot;: &quot;SALESUNITS&quot;
+},
+{
+ &quot;t&quot;: 9,
+&quot;var&quot;: 179673,
+&quot;type&quot;: &quot;SALESUNITS&quot;
+},
+{
+ &quot;t&quot;: 10,
+&quot;var&quot;: 253453,
+&quot;type&quot;: &quot;SALESUNITS&quot;
+},
+{
+ &quot;t&quot;: 11,
+&quot;var&quot;: 237546,
+&quot;type&quot;: &quot;SALESUNITS&quot;
+},
+{
+ &quot;t&quot;: 12,
+&quot;var&quot;: 322593,
+&quot;type&quot;: &quot;SALESUNITS&quot;
+},
+{
+ &quot;t&quot;: 1,
+&quot;var&quot;: 245781,
+&quot;type&quot;: &quot;STOCKUNITS&quot;
+},
+{
+ &quot;t&quot;: 2,
+&quot;var&quot;: 236149,
+&quot;type&quot;: &quot;STOCKUNITS&quot;
+},
+{
+ &quot;t&quot;: 3,
+&quot;var&quot;: 198516,
+&quot;type&quot;: &quot;STOCKUNITS&quot;
+},
+{
+ &quot;t&quot;: 4,
+&quot;var&quot;: 246962,
+&quot;type&quot;: &quot;STOCKUNITS&quot;
+},
+{
+ &quot;t&quot;: 5,
+&quot;var&quot;: 229947,
+&quot;type&quot;: &quot;STOCKUNITS&quot;
+},
+{
+ &quot;t&quot;: 6,
+&quot;var&quot;: 238163,
+&quot;type&quot;: &quot;STOCKUNITS&quot;
+},
+{
+ &quot;t&quot;: 7,
+&quot;var&quot;: 211170,
+&quot;type&quot;: &quot;STOCKUNITS&quot;
+},
+{
+ &quot;t&quot;: 8,
+&quot;var&quot;: 180810,
+&quot;type&quot;: &quot;STOCKUNITS&quot;
+},
+{
+ &quot;t&quot;: 9,
+&quot;var&quot;: 209650,
+&quot;type&quot;: &quot;STOCKUNITS&quot;
+},
+{
+ &quot;t&quot;: 10,
+&quot;var&quot;: 253180,
+&quot;type&quot;: &quot;STOCKUNITS&quot;
+},
+{
+ &quot;t&quot;: 11,
+&quot;var&quot;: 288565,
+&quot;type&quot;: &quot;STOCKUNITS&quot;
+},
+{
+ &quot;t&quot;: 12,
+&quot;var&quot;: 256025,
+&quot;type&quot;: &quot;STOCKUNITS&quot;
 }
-}
-],
-&quot;series&quot;: [
- {
- &quot;data&quot;: [
- [
- &quot;CSSOER&quot;,
-319131
-],
-[
- &quot;DEPTSM&quot;,
-1230445
-],
-[
- &quot;HYPERC&quot;,
-864078
-],
-[
- &quot;TECSUP&quot;,
-3549080
-],
-[
- &quot;TRA&quot;,
-1197334
 ]
-],
-&quot;type&quot;: &quot;pie&quot;,
-&quot;marker&quot;: {
- &quot;radius&quot;:              3
-}
-}
-],
-&quot;legend&quot;: {
- &quot;enabled&quot;: false
-},
-&quot;xAxis&quot;: [
- {
- &quot;title&quot;: {
- &quot;text&quot;: &quot;channel&quot;
-},
-&quot;categories&quot;: [ &quot;CSSOER&quot;, &quot;DEPTSM&quot;, &quot;HYPERC&quot;, &quot;TECSUP&quot;, &quot;TRA&quot; ]
-}
-],
-&quot;subtitle&quot;: {
- &quot;text&quot;: null
-},
-&quot;plotOptions&quot;: {
- &quot;pie&quot;: {
- &quot;innerSize&quot;: &quot;80%&quot;,
-&quot;startAngle&quot;:            -90,
-&quot;endAngle&quot;:             90,
-&quot;center&quot;: [
- &quot;50%&quot;,
-&quot;75%&quot;
-]
-}
-},
-&quot;tooltip&quot;: {
- &quot;formatter&quot;:  function() {return &#039;銷售量:&#039; + this.y + &#039;; 佔比:&#039; +Highcharts.numberFormat(this.percentage, 1)+&#039;%&#039;;}  
-},
-&quot;id&quot;: &quot;chart403e592d6ef&quot;,
-&quot;chart&quot;: {
- &quot;renderTo&quot;: &quot;chart403e592d6ef&quot;
-}
-});
-        });
-    })(jQuery);
+
+      var data = d3.nest()
+        .key(function(d){
+          return opts.group === undefined ? &#039;main&#039; : d[opts.group]
+        })
+        .entries(data)
+
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .x(function(d) { return d[opts.x] })
+          .y(function(d) { return d[opts.y] })
+          .width(opts.width)
+          .height(opts.height)
+
+        chart
+  .margin({
+ &quot;left&quot;:    100
+})
+
+        chart.xAxis
+  .axisLabel(&quot;月份&quot;)
+
+
+
+        chart.yAxis
+  .axisLabel(&quot;&quot;)
+
+       d3.select(&quot;#&quot; + opts.id)
+        .append(&#039;svg&#039;)
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+
+      //add our title with html
+      //might be better with svg
+      d3.select(&quot;#&quot; + opts.id).insert(&quot;h3&quot;,&quot;svg&quot;)
+        .text(opts.title);
+        //if desired, could change styling with css or with d3
+        //some examples here http://tympanus.net/codrops/2012/11/02/heading-set-styling-with-css/
+        //will use example
+        //.style(&quot;float&quot;,&quot;right&quot;);
+        //.style(&quot;text-shadow&quot;, &quot;0 -1px 1px rgba(0,0,0,0.4)&quot;)
+        //.style(&quot;font-size&quot;,&quot;22px&quot;)
+        //.style(&quot;line-height&quot;, &quot;40px&quot;)
+        //.style(&quot;color&quot;, &quot;#355681&quot;)
+        //.style(&quot;ext-transform&quot;, &quot;uppercase&quot;)
+        //.style(&quot;border-bottom&quot;, &quot;1px solid rgba(53,86,129, 0.3)&quot;);
+    };
 &lt;/script&gt;
 
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  highcharts  ' id='iframe-chart403e592d6ef'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart403e354f74d8'> </iframe>
 
-<p><style>iframe.rChart{ width: 100%; height: 400%;}</style></p>
-<p>畫了4x張這種圖orz...</p>                </article>
+<p><style>iframe.rChart{ width: 100%; height: 400px;}</style></p>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="social">
