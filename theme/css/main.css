@@ -30,7 +30,7 @@ a:hover .shaped { border: solid 1px #CCC; -moz-box-shadow: 1px 1px 5px #999; -we
 body {
     background: rgb(212,189,166);
     color: rgb(60,60,60);/*text color*/
-    font-size: 16px; /* Base font size: 14px */
+    font-size: 20px; /* Base font size: 14px */
     font-family: 'NTR', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'cwtexyen', Arial, sans-serif;
     line-height: 1.429;
     margin: 0;
