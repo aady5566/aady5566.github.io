@@ -17,19 +17,20 @@
                     <li><a href="/category/diary.html">Diary</a></li>
                     <li><a href="/category/r.html">R</a></li>
                     <li class="active"><a href="/category/scala.html">Scala</a></li>
+                    <li><a href="/category/worknote.html">WorkNote</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/scala-for-the-impatient-ch1.html">Scala for the impatient: ch1</a></h1>
+                    <h1 class="entry-title"><a href="/scala-for-the-impatient-ch13.html">Scala for the impatient: ch13</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2016-02-10T12:00:00+08:00">
-                Published: 三 10 2月 2016
+        <abbr class="published" title="2016-02-24T12:00:00+08:00">
+                Published: 三 24 2月 2016
         </abbr>
 		<br />
-        <abbr class="modified" title="2016-02-24T00:00:00+08:00">
-                Updated: 三 24 2月 2016
+        <abbr class="modified" title="2016-02-26T00:00:00+08:00">
+                Updated: 五 26 2月 2016
         </abbr>
 
         <address class="vcard author">
@@ -37,54 +38,87 @@
         </address>
 <p>In <a href="/category/scala.html">Scala</a>.</p>
 
-</footer><!-- /.post-info --><p>a 方法 b 等同於 a.方法(b)<br />
-未提供++或--（不可變動性），但可以用counter +=1 將counter遞增。scala設計者認為不值得為少按一個鍵而增加特例。<br />
-有type: BigInt , BigDecimal  </p>
+</footer><!-- /.post-info --><p>所有集合都擴展自Iterable trait  </p>
+<p>scala 中每個集合特質或類都帶有apply的伴生對象，此為統一創建原則  </p>
 <ul>
-<li>BIGINT provides 8 bytes of storage for integer values.  </li>
+<li>Iterable(0xFF,0xFF00,0xFF0000)</li>
+<li>Set(Color.RED,Color.Green)</li>
+<li>Map(Color.RED-&gt;0xFF0000)</li>
+<li>SortedSet("Hello","World")  </li>
 </ul>
-<p>沒有靜態的方法，但有類似的特性，叫做單例對象(singleton object)，通常一個類對應會有一個伴生對象(companion object)。<br />
-不帶參數的方法可以不使用圓括號：  </p>
+<p>可變不可變集合都來自collection  </p>
 <ul>
-<li>"hello".distinct  </li>
-</ul>
-<p>若s為一個字串，s(i)就是該字串的第i個字符  </p>
-<ul>
+<li>scala.collection.immutable.Map, scala.collection.mutable.Map 來自 scala.collection.Map</li>
+<li>scala.collection.Map 會優先採用不可變集合</li>
 <li>
-<p>"hello"(4)  </p>
+<p>vector 為ArrayBuffer不可變的版本：以樹形結構實現，每個節點不得超過32個子節點。  </p>
 <ul>
-<li>()當作是操作符的重載形式，背後的實現原理是apply的方法，StringOps內有個方法 def apply(n:Int): char。因此，"hello"(4)等同於"hello".apply(4)。  </li>
+<li>對於一個100萬個元素的向量，我們只需要四層節點（32^4約莫100萬）。所以要訪問該向量的某個元素只需要四跳，但如果是鏈表(e.g. List)，則需要50000跳  </li>
 </ul>
 </li>
 </ul>
-<p>BigInt("1234567890")  </p>
+<p><code><pre>
+  val l= mutable.LinkedList(-1,-2,4,7)//LinkedList 可用.elem及.next迴圈
+  var curr=l
+  while(curr!=Nil){
+    if(curr.elem&lt;0) curr.elem=0
+    curr = curr.next
+  }
+  var curr2=l
+  while(curr2 != Nil &amp;&amp; curr2.next !=Nil ){//去除每兩個元素中的一個
+    curr2.next=curr2.next.next
+    curr2= curr2.next
+  }
+  curr2
+  //注意：若要讓最後一筆變成Nil,在LinkedList中要設為LinkedList.empty
+</pre></code>  </p>
+<p>集是不重複元素的集合  </p>
+<blockquote>
+<p>Set(1,3,2,4)+1//+1無效  </p>
+</blockquote>
 <ul>
 <li>
-<p>創造出一個新的BigInt物件  </p>
+<p>集是不保留元素的順序，是以哈希集來看  </p>
+<ul>
+<li>Set(1,2,3,4,5,6)，則元素被訪問的的順序為5,1,6,2,3,4</li>
+<li>哈希集查找元素比起數組或列表快很快</li>
+</ul>
 </li>
 <li>
-<p>等同於BigInt.apply("1234567890")  </p>
+<p>位集(bit set)是集的一種實現</p>
 </li>
-</ul>
-<p>Scaladoc: http://www.scala-lang.org/  </p>
-<ul>
-<li>C: class, O: object  </li>
-</ul>
-<p>tips:  </p>
-<ul>
-<li>數值類型查詢：RichInt, RichDouble  </li>
-<li>字串類型查詢：SpringOps  </li>
-<li>數學函數：scala.math package中  </li>
-</ul>
-<p>"Harry".patch(1,"ung",2)，將產出Hungry<br />
-def patch(from:Int, that:GenSeq[Char], replaced: Int ):StringOps[A]<br />
-比大小max(a,b) max c<br />
-probablePrime(2,Random)：回傳一個bit長度為二的質數(type:BigInt)  </p>                </article>
+</ul>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/scala-for-the-impatient-ch1.html" rel="bookmark"
+                           title="Permalink to Scala for the impatient: ch1">Scala for the impatient: ch1</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-02-10T12:00:00+08:00">
+                Published: 三 10 2月 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2016-02-26T00:00:00+08:00">
+                Updated: 五 26 2月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/scala.html">Scala</a>.</p>
+
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/scala-for-the-impatient-ch1.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -98,8 +132,8 @@ probablePrime(2,Random)：回傳一個bit長度為二的質數(type:BigInt)  </p
                 Published: 三 10 2月 2016
         </abbr>
 		<br />
-        <abbr class="modified" title="2016-02-24T00:00:00+08:00">
-                Updated: 三 24 2月 2016
+        <abbr class="modified" title="2016-02-26T00:00:00+08:00">
+                Updated: 五 26 2月 2016
         </abbr>
 
         <address class="vcard author">
@@ -124,8 +158,8 @@ probablePrime(2,Random)：回傳一個bit長度為二的質數(type:BigInt)  </p
                 Published: 三 10 2月 2016
         </abbr>
 		<br />
-        <abbr class="modified" title="2016-02-24T00:00:00+08:00">
-                Updated: 三 24 2月 2016
+        <abbr class="modified" title="2016-02-26T00:00:00+08:00">
+                Updated: 五 26 2月 2016
         </abbr>
 
         <address class="vcard author">
@@ -150,8 +184,8 @@ probablePrime(2,Random)：回傳一個bit長度為二的質數(type:BigInt)  </p
                 Published: 三 10 2月 2016
         </abbr>
 		<br />
-        <abbr class="modified" title="2016-02-24T00:00:00+08:00">
-                Updated: 三 24 2月 2016
+        <abbr class="modified" title="2016-02-26T00:00:00+08:00">
+                Updated: 五 26 2月 2016
         </abbr>
 
         <address class="vcard author">
@@ -161,32 +195,6 @@ probablePrime(2,Random)：回傳一個bit長度為二的質數(type:BigInt)  </p
 
 </footer><!-- /.post-info -->                
                 <a class="readmore" href="/scala-for-the-impatient-ch3.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/scala-for-the-impatient-ch4.html" rel="bookmark"
-                           title="Permalink to Scala for the impatient: ch4">Scala for the impatient: ch4</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-02-10T12:00:00+08:00">
-                Published: 三 10 2月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-02-24T00:00:00+08:00">
-                Updated: 三 24 2月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/scala.html">Scala</a>.</p>
-
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/scala-for-the-impatient-ch4.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
