@@ -24,7 +24,7 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/dockergai-nian.html">Docker概念</a></h1>
+                    <h1 class="entry-title"><a href="/dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html">Docker基礎概念、建立映像檔與下載實作</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2016-03-04T00:00:00+08:00">
                 Published: 五 04 3月 2016
@@ -58,21 +58,20 @@
 <li>容器是從映像檔建立執行的「實例」</li>
 <li>容器可是一個簡易版的Linux環境，和映像檔的差別是容器啟動後是建立一層寫層作為最上層  </li>
 </ul>
-<p><code>docker pull registry.hub.docker.com/ubuntu:12.04</code> 命令，即從註冊服務器 <code>registry.hub.docker.com</code> 中的 <code>ubuntu</code> 倉庫來下載標記為 <code>12.04</code> 的映像檔。<br />
-<code>docker run -t -i ubuntu:14.04 /bin/bash</code> 即可隨時使用該映像檔了，例如建立一個容器，讓其中執行 bash。<br />
-<code>docker images</code> 顯示已有的映像檔<br />
-<code>docker run -d -P --name web nginx</code> run指令只有打開容器並結束。 <code>-d</code> 是讓容器在run後繼續在背景執行，而 <code>-P</code> 是接收容器埠到本機， <code>--name</code> 後面給容器一個命名(此例為web)。
-<code>docker ps</code> 查看目前容器狀態</p>
-<p>以Dockerfile建立映像檔：</p>
-<p>進入VM後，先建立一個空的資料夾，內部放入Dockerfile及其相依套件之.sh檔，接著cd至該目錄後，輸入指令
-<code>docker build -t "&lt;repositoryName&gt;:&lt;tag&gt;" .</code> <code>-t</code>為標記此映像檔的信息（給使用者），<code>.</code> 為目前所在路徑，即Dockerfile的路徑。  </p>
-<p>上傳映像檔上傳hub：<br />
-一旦image建好後，可用<code>docker images</code> 查看。接著可以更改
-<code>docker tag 7d9495d03763 &lt;account&gt;/&lt;repositoryName&gt;:&lt;tag&gt;</code> 接著再看<code>docker images</code>會發現有兩個同樣images id。<br />
-<code>docker login --username &lt;user name&gt; --email &lt;mail&gt;</code> 後輸入密碼，登入成功輸入
-<code>docker push &lt;repositoryName&gt;</code> 就成功了！<br />
-<code>docker rmi -f &lt;image id&gt;</code> <code>-f</code>強制刪除映像檔指令<br />
-<code>docker run &lt;repositoryName&gt;</code> 等同於 docker pull and run <repositoryName></p>                </article>
+<p><code>docker pull registry.hub.docker.com/ubuntu:12.04</code> 命令，即從註冊服務器 <code>registry.hub.docker.com</code> 中的 <code>ubuntu</code> 倉庫來下載標記為 <code>12.04</code> 的映像檔。</p>
+<p><code>docker run -t -i ubuntu:14.04 /bin/bash</code> 即可隨時使用該映像檔了，例如建立一個容器，讓其中執行 bash。  </p>
+<p><code>docker images</code> 顯示已有的映像檔  </p>
+<p><code>docker run -d -P --name web nginx</code> run指令只有打開容器並結束。 <code>-d</code> 是讓容器在run後繼續在背景執行，而 <code>-P</code> 是接收容器埠到本機， <code>--name</code> 後面給容器一個命名(此例為web)。  </p>
+<p><code>docker ps</code> 查看目前容器狀態  </p>
+<p>以Dockerfile建立映像檔：  </p>
+<ul>
+<li>進入VM後，先建立一個空的資料夾，內部放入Dockerfile及其相依套件之.sh檔，接著cd至該目錄後，輸入指令<code>docker build -t "&lt;repositoryName&gt;:&lt;tag&gt;" .</code> <code>-t</code>為標記此映像檔的信息（給使用者），<code>.</code> 為目前所在路徑，即Dockerfile的路徑。  </li>
+</ul>
+<p>上傳映像檔上傳hub：  </p>
+<ul>
+<li>一旦image建好後，可用<code>docker images</code> 查看。接著可以更改
+  <code>docker tag 7d9495d03763 &lt;account&gt;/&lt;repositoryName&gt;:&lt;tag&gt;</code> 接著再看<code>docker images</code>會發現有兩個同樣images id。<code>docker login --username &lt;user name&gt; --email &lt;mail&gt;</code> 後輸入密碼，登入成功輸入 <code>docker push &lt;repositoryName&gt;</code> 就成功了！<code>docker rmi -f &lt;image id&gt;</code> <code>-f</code>強制刪除映像檔指令<code>docker run &lt;repositoryName&gt;</code> 等同於 docker pull and run <repositoryName></li>
+</ul>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>

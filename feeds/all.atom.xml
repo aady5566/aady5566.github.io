@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-03-04T00:00:00+08:00</updated><entry><title>Docker概念</title><link href="/dockergai-nian.html" rel="alternate"></link><updated>2016-03-04T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-04:dockergai-nian.html</id><summary type="html">&lt;p&gt;Docker 的基礎是 Linux 容器（LXC）等技術。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-03-04T00:00:00+08:00</updated><entry><title>Docker基礎概念、建立映像檔與下載實作</title><link href="/dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html" rel="alternate"></link><updated>2016-03-04T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-04:dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html</id><summary type="html">&lt;p&gt;Docker 的基礎是 Linux 容器（LXC）等技術。&lt;/p&gt;
 &lt;p&gt;容器是在作業系統層面上實作虛擬化，直接使用本地主機的作業系統，而傳統方式則是在硬體層面實作。&lt;/p&gt;
 &lt;p&gt;容器除了執行其中應用外，基本不消耗額外的系統資源，使得應用的效能很高，同時系統資源消耗更少。傳統虛擬機方式執行 10 個不同的應用就要啟動 10 個虛擬機，而 Docker 只需要啟動 10 個隔離的應用即可。&lt;/p&gt;
 &lt;p&gt;在O SX系統下，docker daemon(container) 的執行位置是在Linux VM下(docker-machine)，而VM完全是在RAM下運作。因此在container映射的埠應為docker-machine的ip而非本地端的80。  &lt;/p&gt;
@@ -22,21 +22,20 @@
 &lt;li&gt;容器是從映像檔建立執行的「實例」&lt;/li&gt;
 &lt;li&gt;容器可是一個簡易版的Linux環境，和映像檔的差別是容器啟動後是建立一層寫層作為最上層  &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;docker pull registry.hub.docker.com/ubuntu:12.04&lt;/code&gt; 命令，即從註冊服務器 &lt;code&gt;registry.hub.docker.com&lt;/code&gt; 中的 &lt;code&gt;ubuntu&lt;/code&gt; 倉庫來下載標記為 &lt;code&gt;12.04&lt;/code&gt; 的映像檔。&lt;br /&gt;
-&lt;code&gt;docker run -t -i ubuntu:14.04 /bin/bash&lt;/code&gt; 即可隨時使用該映像檔了，例如建立一個容器，讓其中執行 bash。&lt;br /&gt;
-&lt;code&gt;docker images&lt;/code&gt; 顯示已有的映像檔&lt;br /&gt;
-&lt;code&gt;docker run -d -P --name web nginx&lt;/code&gt; run指令只有打開容器並結束。 &lt;code&gt;-d&lt;/code&gt; 是讓容器在run後繼續在背景執行，而 &lt;code&gt;-P&lt;/code&gt; 是接收容器埠到本機， &lt;code&gt;--name&lt;/code&gt; 後面給容器一個命名(此例為web)。
-&lt;code&gt;docker ps&lt;/code&gt; 查看目前容器狀態&lt;/p&gt;
-&lt;p&gt;以Dockerfile建立映像檔：&lt;/p&gt;
-&lt;p&gt;進入VM後，先建立一個空的資料夾，內部放入Dockerfile及其相依套件之.sh檔，接著cd至該目錄後，輸入指令
-&lt;code&gt;docker build -t "&amp;lt;repositoryName&amp;gt;:&amp;lt;tag&amp;gt;" .&lt;/code&gt; &lt;code&gt;-t&lt;/code&gt;為標記此映像檔的信息（給使用者），&lt;code&gt;.&lt;/code&gt; 為目前所在路徑，即Dockerfile的路徑。  &lt;/p&gt;
-&lt;p&gt;上傳映像檔上傳hub：&lt;br /&gt;
-一旦image建好後，可用&lt;code&gt;docker images&lt;/code&gt; 查看。接著可以更改
-&lt;code&gt;docker tag 7d9495d03763 &amp;lt;account&amp;gt;/&amp;lt;repositoryName&amp;gt;:&amp;lt;tag&amp;gt;&lt;/code&gt; 接著再看&lt;code&gt;docker images&lt;/code&gt;會發現有兩個同樣images id。&lt;br /&gt;
-&lt;code&gt;docker login --username &amp;lt;user name&amp;gt; --email &amp;lt;mail&amp;gt;&lt;/code&gt; 後輸入密碼，登入成功輸入
-&lt;code&gt;docker push &amp;lt;repositoryName&amp;gt;&lt;/code&gt; 就成功了！&lt;br /&gt;
-&lt;code&gt;docker rmi -f &amp;lt;image id&amp;gt;&lt;/code&gt; &lt;code&gt;-f&lt;/code&gt;強制刪除映像檔指令&lt;br /&gt;
-&lt;code&gt;docker run &amp;lt;repositoryName&amp;gt;&lt;/code&gt; 等同於 docker pull and run &lt;repositoryName&gt;&lt;/p&gt;</summary><category term="docker"></category></entry><entry><title>家聚</title><link href="/jia-ju.html" rel="alternate"></link><updated>2016-03-04T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-01:jia-ju.html</id><summary type="html">&lt;p&gt;履行上學期答應提早畢業請客，來到公館附近一間低調的「巫雲」，進到屋內完全忘了自己到雲南餐廳，很有個性的裝潢。以黑膠唱片當菜單，輕爵士當背景音樂，黃澄澄的桌燈，扎實的木板凳與木桌，感覺特別溫馨。八個人圍著桌子聽著各方報告近況、系上的八卦、聊工作狀況、台灣現況，多數是生活的碎嘴，不過覺得大家都有自己明確的方向，其實這樣就很不錯了。但我想這種聚會會隨著時間的推演被壓縮，縮到不能再縮。當工作、生活是為自己的時候，閒聊個兩三個小時會是件非常奢侈的事，加上我自己是個不太喜歡社交場合的運作，這樣的頻率肯定會低更低。  &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker pull registry.hub.docker.com/ubuntu:12.04&lt;/code&gt; 命令，即從註冊服務器 &lt;code&gt;registry.hub.docker.com&lt;/code&gt; 中的 &lt;code&gt;ubuntu&lt;/code&gt; 倉庫來下載標記為 &lt;code&gt;12.04&lt;/code&gt; 的映像檔。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker run -t -i ubuntu:14.04 /bin/bash&lt;/code&gt; 即可隨時使用該映像檔了，例如建立一個容器，讓其中執行 bash。  &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker images&lt;/code&gt; 顯示已有的映像檔  &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker run -d -P --name web nginx&lt;/code&gt; run指令只有打開容器並結束。 &lt;code&gt;-d&lt;/code&gt; 是讓容器在run後繼續在背景執行，而 &lt;code&gt;-P&lt;/code&gt; 是接收容器埠到本機， &lt;code&gt;--name&lt;/code&gt; 後面給容器一個命名(此例為web)。  &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker ps&lt;/code&gt; 查看目前容器狀態  &lt;/p&gt;
+&lt;p&gt;以Dockerfile建立映像檔：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;進入VM後，先建立一個空的資料夾，內部放入Dockerfile及其相依套件之.sh檔，接著cd至該目錄後，輸入指令&lt;code&gt;docker build -t "&amp;lt;repositoryName&amp;gt;:&amp;lt;tag&amp;gt;" .&lt;/code&gt; &lt;code&gt;-t&lt;/code&gt;為標記此映像檔的信息（給使用者），&lt;code&gt;.&lt;/code&gt; 為目前所在路徑，即Dockerfile的路徑。  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上傳映像檔上傳hub：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一旦image建好後，可用&lt;code&gt;docker images&lt;/code&gt; 查看。接著可以更改
+  &lt;code&gt;docker tag 7d9495d03763 &amp;lt;account&amp;gt;/&amp;lt;repositoryName&amp;gt;:&amp;lt;tag&amp;gt;&lt;/code&gt; 接著再看&lt;code&gt;docker images&lt;/code&gt;會發現有兩個同樣images id。&lt;code&gt;docker login --username &amp;lt;user name&amp;gt; --email &amp;lt;mail&amp;gt;&lt;/code&gt; 後輸入密碼，登入成功輸入 &lt;code&gt;docker push &amp;lt;repositoryName&amp;gt;&lt;/code&gt; 就成功了！&lt;code&gt;docker rmi -f &amp;lt;image id&amp;gt;&lt;/code&gt; &lt;code&gt;-f&lt;/code&gt;強制刪除映像檔指令&lt;code&gt;docker run &amp;lt;repositoryName&amp;gt;&lt;/code&gt; 等同於 docker pull and run &lt;repositoryName&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="docker"></category></entry><entry><title>家聚</title><link href="/jia-ju.html" rel="alternate"></link><updated>2016-03-04T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-01:jia-ju.html</id><summary type="html">&lt;p&gt;履行上學期答應提早畢業請客，來到公館附近一間低調的「巫雲」，進到屋內完全忘了自己到雲南餐廳，很有個性的裝潢。以黑膠唱片當菜單，輕爵士當背景音樂，黃澄澄的桌燈，扎實的木板凳與木桌，感覺特別溫馨。八個人圍著桌子聽著各方報告近況、系上的八卦、聊工作狀況、台灣現況，多數是生活的碎嘴，不過覺得大家都有自己明確的方向，其實這樣就很不錯了。但我想這種聚會會隨著時間的推演被壓縮，縮到不能再縮。當工作、生活是為自己的時候，閒聊個兩三個小時會是件非常奢侈的事，加上我自己是個不太喜歡社交場合的運作，這樣的頻率肯定會低更低。  &lt;/p&gt;
 &lt;p&gt;可能有蠻多人羨慕我現在的工作型態(不是薪水)，其實我也是做中學，然後覺得是公司內目前最弱的角色無誤，先把被交付的工作做好，然後多請教多學，加把勁，起步慢總比不動好。&lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>苗栗九華山</title><link href="/miao-li-jiu-hua-shan.html" rel="alternate"></link><updated>2016-03-04T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-02-28:miao-li-jiu-hua-shan.html</id><summary type="html">&lt;p&gt;&lt;img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/ninehuamountain.jpg" width="384" height="288" /&gt;  &lt;/p&gt;
 &lt;p&gt;雖然早已習慣台北低溫冷漠的氣候，但是能在好天氣時踏青親近大自然絕對是更棒的體驗。非常幸運的是，這次來苗栗有機會吹著冷風享受日光浴眺望遠方海岸，不知道從幾何時，自己就有點害怕看到純色系的風景，好比藍天，馬上就能感受到眼球玻璃體內細碎的&lt;a href="https://www.youtube.com/watch?v=z0olyZrcBx4"&gt;飛蚊&lt;/a&gt;，每看每覺得心裡總是毛毛的。不過這倒是提醒我，工作再忙，身體還是要好好保養。  &lt;/p&gt;
 &lt;p&gt;&lt;img class='shaped'

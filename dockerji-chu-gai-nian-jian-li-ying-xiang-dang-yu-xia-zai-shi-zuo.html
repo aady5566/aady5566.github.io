@@ -2,7 +2,7 @@
 <html lang="[en]">
 <head>
         <meta charset="utf-8" />
-        <title>YD's Blog</title>
+        <title>Docker基礎概念、建立映像檔與下載實作</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="YD's Blog Atom Feed" />
 
@@ -18,13 +18,18 @@
                     <li><a href="/category/diary.html">Diary</a></li>
                     <li><a href="/category/r.html">R</a></li>
                     <li><a href="/category/scala.html">Scala</a></li>
-                    <li><a href="/category/worknote.html">WorkNote</a></li>
+                    <li class="active"><a href="/category/worknote.html">WorkNote</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html" rel="bookmark"
+           title="Permalink to Docker基礎概念、建立映像檔與下載實作">Docker基礎概念、建立映像檔與下載實作</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html">Docker基礎概念、建立映像檔與下載實作</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-03-04T00:00:00+08:00">
                 Published: 五 04 3月 2016
@@ -35,7 +40,7 @@
         </address>
 <p>In <a href="/category/worknote.html">WorkNote</a>.</p>
 <p>tags: <a href="/tag/docker.html">docker</a> </p>
-</footer><!-- /.post-info --><p>Docker 的基礎是 Linux 容器（LXC）等技術。</p>
+</footer><!-- /.post-info -->      <p>Docker 的基礎是 Linux 容器（LXC）等技術。</p>
 <p>容器是在作業系統層面上實作虛擬化，直接使用本地主機的作業系統，而傳統方式則是在硬體層面實作。</p>
 <p>容器除了執行其中應用外，基本不消耗額外的系統資源，使得應用的效能很高，同時系統資源消耗更少。傳統虛擬機方式執行 10 個不同的應用就要啟動 10 個虛擬機，而 Docker 只需要啟動 10 個隔離的應用即可。</p>
 <p>在O SX系統下，docker daemon(container) 的執行位置是在Linux VM下(docker-machine)，而VM完全是在RAM下運作。因此在container映射的埠應為docker-machine的ip而非本地端的80。  </p>
@@ -71,122 +76,11 @@
 <ul>
 <li>一旦image建好後，可用<code>docker images</code> 查看。接著可以更改
   <code>docker tag 7d9495d03763 &lt;account&gt;/&lt;repositoryName&gt;:&lt;tag&gt;</code> 接著再看<code>docker images</code>會發現有兩個同樣images id。<code>docker login --username &lt;user name&gt; --email &lt;mail&gt;</code> 後輸入密碼，登入成功輸入 <code>docker push &lt;repositoryName&gt;</code> 就成功了！<code>docker rmi -f &lt;image id&gt;</code> <code>-f</code>強制刪除映像檔指令<code>docker run &lt;repositoryName&gt;</code> 等同於 docker pull and run <repositoryName></li>
-</ul>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</ul>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/jia-ju.html" rel="bookmark"
-                           title="Permalink to 家聚">家聚</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-03-01T00:00:00+08:00">
-                Published: 二 01 3月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-03-04T00:00:00+08:00">
-                Updated: 五 04 3月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/diary.html">Diary</a>.</p>
-<p>tags: <a href="/tag/life.html">Life</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/jia-ju.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/miao-li-jiu-hua-shan.html" rel="bookmark"
-                           title="Permalink to 苗栗九華山">苗栗九華山</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-02-28T00:00:00+08:00">
-                Published: 日 28 2月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-03-04T00:00:00+08:00">
-                Updated: 五 04 3月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/diary.html">Diary</a>.</p>
-<p>tags: <a href="/tag/life.html">Life</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/miao-li-jiu-hua-shan.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/cmdzhi-ling.html" rel="bookmark"
-                           title="Permalink to CMD指令">CMD指令</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-02-26T00:00:00+08:00">
-                Published: 五 26 2月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-03-04T00:00:00+08:00">
-                Updated: 五 04 3月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/cmd.html">cmd</a> <a href="/tag/aws.html">aws</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/cmdzhi-ling.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/dockerzhi-ling.html" rel="bookmark"
-                           title="Permalink to Docker指令">Docker指令</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-02-26T00:00:00+08:00">
-                Published: 五 26 2月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-03-04T00:00:00+08:00">
-                Updated: 五 04 3月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/docker.html">docker</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/dockerzhi-ling.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 6
-        <a href="/index2.html">&raquo;</a>
-</p>
-                </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="social">
                         <h2>social</h2>
