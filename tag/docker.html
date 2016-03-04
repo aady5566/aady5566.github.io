@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title>YD's Blog - docker</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
+        <link href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="YD's Blog Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -23,14 +24,10 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/dockerzhi-ling.html">Docker指令</a></h1>
+                    <h1 class="entry-title"><a href="/dockergai-nian.html">Docker概念</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2016-02-26T00:00:00+08:00">
                 Published: 五 26 2月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-03-03T00:00:00+08:00">
-                Updated: 四 03 3月 2016
         </abbr>
 
         <address class="vcard author">
@@ -38,32 +35,74 @@
         </address>
 <p>In <a href="/category/worknote.html">WorkNote</a>.</p>
 <p>tags: <a href="/tag/docker.html">docker</a> </p>
-</footer><!-- /.post-info --><p>docker  </p>
+</footer><!-- /.post-info --><p>Docker 的基礎是 Linux 容器（LXC）等技術。</p>
+<p>容器是在作業系統層面上實作虛擬化，直接使用本地主機的作業系統，而傳統方式則是在硬體層面實作。</p>
+<p>容器除了執行其中應用外，基本不消耗額外的系統資源，使得應用的效能很高，同時系統資源消耗更少。傳統虛擬機方式執行 10 個不同的應用就要啟動 10 個虛擬機，而 Docker 只需要啟動 10 個隔離的應用即可。</p>
+<p>Docker三元素：  </p>
 <ul>
-<li>docker kill &lt;container id&gt;</li>
-<li>docker ps</li>
-<li>docker restart &lt;container id&gt;</li>
-<li>docker start &lt;container id&gt;</li>
-<li>docker logs &lt;container id&gt;</li>
-<li>docker exec -it &lt;container id&gt;<ul>
-<li>bash 進到&lt;container id&gt;container -it:互動模式 以bash  </li>
+<li>image 映像檔</li>
+<li>container 容器</li>
+<li>repository 倉庫 （儲存映像檔的場所）  </li>
 </ul>
-</li>
-</ul>
-<p>docker-machine</p>
+<p>映像檔：  </p>
 <ul>
-<li>docker-machine ls  </li>
-</ul>                </article>
+<li>唯讀模板，可包含一個完整的作業系統環境(ubuntu)，裡面僅安裝Apache及使用者自訂的應用程式。</li>
+<li>用來建立容器  </li>
+</ul>
+<p>容器：</p>
+<ul>
+<li>容器是從映像檔建立執行的「實例」</li>
+<li>容器可是一個簡易版的Linux環境，和映像檔的差別是容器啟動後是建立一層寫層作為最上層  </li>
+</ul>
+<p><code>docker pull registry.hub.docker.com/ubuntu:12.04</code> 命令，即從註冊服務器 <code>registry.hub.docker.com</code> 中的 <code>ubuntu</code> 倉庫來下載標記為 <code>12.04</code> 的映像檔。  </p>
+<p><code>docker run -t -i ubuntu:14.04 /bin/bash</code> 即可隨時使用該映像檔了，例如建立一個容器，讓其中執行 bash。  </p>
+<p><code>docker images</code> 顯示已有的映像檔  </p>
+<p><code>docker run -d -P --name web nginx</code> run指令只有打開容器並結束。 <code>-d</code> 是讓容器在run後繼續在背景執行，而 <code>-P</code> 是接收容器埠到本機</p>
+<p><code>docker ps</code> 查看目前容器狀態</p>                </article>
             </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/dockerzhi-ling.html" rel="bookmark"
+                           title="Permalink to Docker指令">Docker指令</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-02-26T00:00:00+08:00">
+                Published: 五 26 2月 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2016-03-04T00:00:00+08:00">
+                Updated: 五 04 3月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
+<p>tags: <a href="/tag/docker.html">docker</a> </p>
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/dockerzhi-ling.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="social">
                         <h2>social</h2>
                         <ul>
+                            <li><a href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
                             <li><a href="http://aady5566.bitbucket.org/" target="_blank">YD's Web</a></li>
                             <li><a href="https://tw.linkedin.com/in/yd-huang-735358aa" target="_blank">LinkedIn</a></li>
                             <li><a href="https://github.com/aady5566" target="_blank">GitHub</a></li>
                             <li><a href="mailto:ydhuang@ntu.edu.tw" target="_blank">Contact YD</a></li>
+                            <li><a href="feeds/%s.rss.xml" target="_blank">RSS</a></li>
                         </ul>
                 </div><!-- /.social -->
         </section><!-- /#extras -->
