@@ -24,7 +24,45 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/jing-yang-dui-xiang.html">景仰對象</a></h1>
+                    <h1 class="entry-title"><a href="/k-means.html">K-means</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-03-12T09:00:00+08:00">
+                Published: 六 12 3月 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2016-03-12T00:00:00+08:00">
+                Updated: 六 12 3月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
+<p>tags: <a href="/tag/stat.html">stat</a> </p>
+</footer><!-- /.post-info --><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<div style="font-size:200%;color:7A5953;">
+$$J=\sum_{i=1}^{k}\sum_{x_j \in S_i}(x_j-\mu_i)$$
+</div>
+
+<p><br></p>
+<p>簡單來說一下公式的意義，若欲分類k組，隨機選取k筆資料當做初始群中心並計算每個資料xi對應到的最短距離的群中心。再利用分類完的k群重新計算群中心。<br />
+因此不難察覺，K-means的侷限為初始值，同一筆資料跑了n次的結果可能都不一樣，所以初始值落點不好可能會造成糟糕的結果。<br />
+K-means當然也不只是分群及找出群中心如此而已還是有其他用途。基於資料的群中心被找出後，我們可以把這個群中心的結果當成分類器的指標，也就是說，若有新的一筆同一屬性資料進來，找出最短距離的群中心，我們就可以將這筆資料進行分類(預測)。<br />
+另外也可以作為判斷此資料是否適合做為分類的判斷，因為有些特徵(feature)不適合做為分類依據。對此，我們可以先根據特徵取得群中心後，將資料找出距離最短特徵的群中心分類後，檢視分類情況，以確保該特徵為分類的是適切性。</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/jing-yang-dui-xiang.html" rel="bookmark"
+                           title="Permalink to 景仰對象">景仰對象</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-03-10T23:51:00+08:00">
                 Published: 四 10 3月 2016
@@ -35,15 +73,10 @@
         </address>
 <p>In <a href="/category/diary.html">Diary</a>.</p>
 
-</footer><!-- /.post-info --><p>今天被問到「有沒有景仰的對象」這件事，我第一個直覺是&lt;&lt;等一個人咖啡&gt;&gt;內的阿拓。<br />
-我欣賞他憨厚直爽的態度，他待人真誠，且時時保有「盡一己之力又何妨」的態度對待需要幫助的周遭朋友。
-另外就是有一個觀念真的很棒，「生氣?過了一天、一年或甚至十年之後，還會記得此事嗎?如果不會，那幹嘛生氣?」，真的很欣賞他。儘管是小說角色，從國中以來就很羨慕這樣樂天的態度。  <br />
-如果要說現實中景仰的對象，不如說我對是認真、持之以恆的態度在過生活的人特別欣賞，也一直努力保持這樣的態度過生活。但通常認真的人往往會忽略自己身體的健康，例如挑燈半夜讀書、睡眠時間不固定、飲食不正常等，這種生活態度我就不欣賞了，除非到要命時刻否則不熬夜！這邊要特別講一下，前年在新訓單位擔任輔導長一職時，幾乎11點前準時睡覺(除非查哨)，還不是平安退伍了。沒有什麼比健康更重要的事，一旦生病，什麼事做起來都不開心。</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/jing-yang-dui-xiang.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -108,32 +141,6 @@
 <p>tags: <a href="/tag/docker.html">docker</a> </p>
 </footer><!-- /.post-info -->                
                 <a class="readmore" href="/dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/jia-ju.html" rel="bookmark"
-                           title="Permalink to 家聚">家聚</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-03-01T00:00:00+08:00">
-                Published: 二 01 3月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-03-11T00:00:00+08:00">
-                Updated: 五 11 3月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/diary.html">Diary</a>.</p>
-<p>tags: <a href="/tag/life.html">Life</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/jia-ju.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->

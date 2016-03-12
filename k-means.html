@@ -2,7 +2,7 @@
 <html lang="[en]">
 <head>
         <meta charset="utf-8" />
-        <title>YD's Blog - cmd</title>
+        <title>K-means</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="YD's Blog Atom Feed" />
 
@@ -18,16 +18,21 @@
                     <li><a href="/category/diary.html">Diary</a></li>
                     <li><a href="/category/r.html">R</a></li>
                     <li><a href="/category/scala.html">Scala</a></li>
-                    <li><a href="/category/worknote.html">WorkNote</a></li>
+                    <li class="active"><a href="/category/worknote.html">WorkNote</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/k-means.html" rel="bookmark"
+           title="Permalink to K-means">K-means</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/cmdzhi-ling.html">CMD指令</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-02-26T00:00:00+08:00">
-                Published: 五 26 2月 2016
+        <abbr class="published" title="2016-03-12T09:00:00+08:00">
+                Published: 六 12 3月 2016
         </abbr>
 		<br />
         <abbr class="modified" title="2016-03-12T00:00:00+08:00">
@@ -38,21 +43,22 @@
                 By                         <a class="url fn" href="/author/yd.html">YD</a>
         </address>
 <p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/cmd.html">cmd</a> <a href="/tag/aws.html">aws</a> </p>
-</footer><!-- /.post-info --><p>要登入ec2要有key(private key, 副檔名為.pem)</p>
-<ul>
-<li>ssh -i &lt;private key&gt; ec2-user@&lt;ip&gt;  </li>
-</ul>
-<p>本地端若要傳檔至ec2  </p>
-<ul>
-<li>
-<p>scp -r -i &lt;private key&gt; &lt;local file path&gt; ec2-user@&lt;ip&gt;:/home/ec2-user/    </p>
-<ul>
-<li>(/home/ec2-user為存放位置)  </li>
-</ul>
-</li>
-</ul>                </article>
-            </aside><!-- /#featured -->
+<p>tags: <a href="/tag/stat.html">stat</a> </p>
+</footer><!-- /.post-info -->      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<div style="font-size:200%;color:7A5953;">
+$$J=\sum_{i=1}^{k}\sum_{x_j \in S_i}(x_j-\mu_i)$$
+</div>
+
+<p><br></p>
+<p>簡單來說一下公式的意義，若欲分類k組，隨機選取k筆資料當做初始群中心並計算每個資料xi對應到的最短距離的群中心。再利用分類完的k群重新計算群中心。<br />
+因此不難察覺，K-means的侷限為初始值，同一筆資料跑了n次的結果可能都不一樣，所以初始值落點不好可能會造成糟糕的結果。<br />
+K-means當然也不只是分群及找出群中心如此而已還是有其他用途。基於資料的群中心被找出後，我們可以把這個群中心的結果當成分類器的指標，也就是說，若有新的一筆同一屬性資料進來，找出最短距離的群中心，我們就可以將這筆資料進行分類(預測)。<br />
+另外也可以作為判斷此資料是否適合做為分類的判斷，因為有些特徵(feature)不適合做為分類依據。對此，我們可以先根據特徵取得群中心後，將資料找出距離最短特徵的群中心分類後，檢視分類情況，以確保該特徵為分類的是適切性。</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="social">
                         <h2>social</h2>
