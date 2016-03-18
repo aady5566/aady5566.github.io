@@ -2,7 +2,7 @@
 <html lang="[en]">
 <head>
         <meta charset="utf-8" />
-        <title>Scala for the impatient: ch13</title>
+        <title>魯蛇家庭</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="YD's Blog Atom Feed" />
 
@@ -15,9 +15,9 @@
         <header id="banner" class="body">
                 <h1><a href="/">YD's Blog </a></h1>
                 <nav><ul>
-                    <li><a href="/category/diary.html">Diary</a></li>
+                    <li class="active"><a href="/category/diary.html">Diary</a></li>
                     <li><a href="/category/r.html">R</a></li>
-                    <li class="active"><a href="/category/scala.html">Scala</a></li>
+                    <li><a href="/category/scala.html">Scala</a></li>
                     <li><a href="/category/worknote.html">WorkNote</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
@@ -25,75 +25,25 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="/scala-for-the-impatient-ch13.html" rel="bookmark"
-           title="Permalink to Scala for the impatient: ch13">Scala for the impatient: ch13</a></h1>
+        <a href="/lu-she-jia-ting.html" rel="bookmark"
+           title="Permalink to 魯蛇家庭">魯蛇家庭</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-02-24T12:00:00+08:00">
-                Published: 三 24 2月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-03-18T00:00:00+08:00">
-                Updated: 五 18 3月 2016
+        <abbr class="published" title="2016-03-18T23:00:00+08:00">
+                Published: 五 18 3月 2016
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/yd.html">YD</a>
         </address>
-<p>In <a href="/category/scala.html">Scala</a>.</p>
-
-</footer><!-- /.post-info -->      <p>所有集合都擴展自Iterable trait  </p>
-<p>scala 中每個集合特質或類都帶有apply的伴生對象，此為統一創建原則  </p>
-<ul>
-<li>Iterable(0xFF,0xFF00,0xFF0000)</li>
-<li>Set(Color.RED,Color.Green)</li>
-<li>Map(Color.RED-&gt;0xFF0000)</li>
-<li>SortedSet("Hello","World")  </li>
-</ul>
-<p>可變不可變集合都來自collection  </p>
-<ul>
-<li>scala.collection.immutable.Map, scala.collection.mutable.Map 來自 scala.collection.Map</li>
-<li>scala.collection.Map 會優先採用不可變集合</li>
-<li>
-<p>vector 為ArrayBuffer不可變的版本：以樹形結構實現，每個節點不得超過32個子節點。  </p>
-<ul>
-<li>對於一個100萬個元素的向量，我們只需要四層節點（32^4約莫100萬）。所以要訪問該向量的某個元素只需要四跳，但如果是鏈表(e.g. List)，則需要50000跳  </li>
-</ul>
-</li>
-</ul>
-<p><code><pre>
-  val l= mutable.LinkedList(-1,-2,4,7)//LinkedList 可用.elem及.next迴圈
-  var curr=l
-  while(curr!=Nil){
-    if(curr.elem&lt;0) curr.elem=0
-    curr = curr.next
-  }
-  var curr2=l
-  while(curr2 != Nil &amp;&amp; curr2.next !=Nil ){//去除每兩個元素中的一個
-    curr2.next=curr2.next.next
-    curr2= curr2.next
-  }
-  curr2
-  //注意：若要讓最後一筆變成Nil,在LinkedList中要設為LinkedList.empty
-</pre></code>  </p>
-<p>集是不重複元素的集合  </p>
-<blockquote>
-<p>Set(1,3,2,4)+1//+1無效  </p>
-</blockquote>
-<ul>
-<li>
-<p>集是不保留元素的順序，是以哈希集來看  </p>
-<ul>
-<li>Set(1,2,3,4,5,6)，則元素被訪問的的順序為5,1,6,2,3,4</li>
-<li>哈希集查找元素比起數組或列表快很快</li>
-</ul>
-</li>
-<li>
-<p>位集(bit set)是集的一種實現</p>
-</li>
-</ul>
+<p>In <a href="/category/diary.html">Diary</a>.</p>
+<p>tags: <a href="/tag/life.html">Life</a> </p>
+</footer><!-- /.post-info -->      <p>版上看到一篇「突然意識到自己生在魯蛇家庭」，莫名想哭。大學畢業後，特別有感，不時在臉書動態看到誰誰誰已經在美國工作，誰誰誰準備要出國唸書，即使是貴得嚇人的MBA。「沒關係，只要專心準備GRE、托福、GMAT，錢的部分家裡負擔。」
+因為臉書朋友來自薇閣或台大，多來自中產以上的菁英階級家庭。樣本本身就有極大的偏誤，理應看久要習慣的，但說不羨慕那些「又努力又有豐厚資源」的朋友是騙人的。
+每次看到這種文章心情就有說不出來的複雜感，一方面因同情困苦造就生命的刻苦銘心，也因努力而有成的態度所感動，另一方面也憤慨多少比例能靠著拼命努力而被發掘的案例...
+不過換個角度思考，表象的好與壞也從來不是旁觀者解讀了算，自己的生活過得坦蕩蕩比較要緊。</p>
     </div><!-- /.entry-content -->
 
   </article>
