@@ -24,7 +24,42 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/lu-she-jia-ting.html">魯蛇家庭</a></h1>
+                    <h1 class="entry-title"><a href="/aws-elastic-compute-cloud-ec2.html">AWS Elastic Compute Cloud (EC2)</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-03-19T13:00:00+08:00">
+                Published: 六 19 3月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
+<p>tags: <a href="/tag/aws.html">AWS</a> </p>
+</footer><!-- /.post-info --><p>AWS provides pre-configured templates for the instances, known as Amazon Machine Images (AMIs).  </p>
+<p>AMI模板可以只有作業系統，也可以包含預先灌好的程式軟體在內。  </p>
+<p>EC2 is a virtual environment which is called instances. And there are a wide range of instance types that have varying combinations of CPU power, amount of memory, storage size, and networking capacity.  </p>
+<p>EC2 instances will automatically scale up to add capacity</p>
+<p>實作建置EC2:  </p>
+<p>先建立AWSroot帳戶，並新增一個admin帳戶(開所有權限，但沒有付款功能)，之後都用該帳戶當作控管其他服務的帳戶。  </p>
+<p>登入admin後，在AWS主頁面上，可以點擊Edit將常用的instances拖曳到上方的儀表板。  </p>
+<p>點選EC2服務，選Launch Instance，這時可以勾選旁邊的Free tier only，秀出來的映像檔皆是免費的。然後就選擇自己想要的作業系統並點選右方的Select。接著看到是Instance Type有free tier eligible(通常是微型)，接著就在設定DNS頁面，以及對於instance的命名，再來是連線方式設定，初始含SSH連線。  </p>
+<p>最後要創建一個key-pairs，首先是key的命名可以依照 <strong>aws服務_instance型態_作業系統_區域.pem</strong> 例如： <strong>ec2_t2m_linux_tokyo.pem</strong> ，然後下載到本地端（這裏要注意，因為下載下來要改一下key的權限，因為可能是public key，但做匹配時只能是private key, chmod 700 <keyname>.pem即可），key-pairs之所以重要是因為，ssh連線到該instance它只認對應的private key，若遺失了就無法操控instance。  </p>
+<p>實作EC2安裝Docker:<a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html">官方文件</a></p>
+<p>執行 sudo usermod -a -G docker ec2-user 就不需要再加上sudo了</p>
+<p>待續...</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lu-she-jia-ting.html" rel="bookmark"
+                           title="Permalink to 魯蛇家庭">魯蛇家庭</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-03-18T23:00:00+08:00">
                 Published: 五 18 3月 2016
@@ -35,15 +70,10 @@
         </address>
 <p>In <a href="/category/diary.html">Diary</a>.</p>
 <p>tags: <a href="/tag/life.html">Life</a> </p>
-</footer><!-- /.post-info --><p>版上看到一篇「突然意識到自己生在魯蛇家庭」，莫名想哭。大學畢業後，特別有感，不時在臉書動態看到誰誰誰已經在美國工作，誰誰誰準備要出國唸書，即使是貴得嚇人的MBA。「沒關係，只要專心準備GRE、托福、GMAT，錢的部分家裡負擔。」
-因為臉書朋友來自薇閣或台大，多來自中產以上的菁英階級家庭。樣本本身就有極大的偏誤，理應看久要習慣的，但說不羨慕那些「又努力又有豐厚資源」的朋友是騙人的。
-每次看到這種文章心情就有說不出來的複雜感，一方面因同情困苦造就生命的刻苦銘心，也因努力而有成的態度所感動，另一方面也憤慨多少比例能靠著拼命努力而被發掘的案例...
-不過換個角度思考，表象的好與壞也從來不是旁觀者解讀了算，自己的生活過得坦蕩蕩比較要緊。</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/lu-she-jia-ting.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -79,8 +109,8 @@
                 Published: 六 12 3月 2016
         </abbr>
 		<br />
-        <abbr class="modified" title="2016-03-18T00:00:00+08:00">
-                Updated: 五 18 3月 2016
+        <abbr class="modified" title="2016-03-19T00:00:00+08:00">
+                Updated: 六 19 3月 2016
         </abbr>
 
         <address class="vcard author">
@@ -105,8 +135,8 @@
                 Published: 六 12 3月 2016
         </abbr>
 		<br />
-        <abbr class="modified" title="2016-03-18T00:00:00+08:00">
-                Updated: 五 18 3月 2016
+        <abbr class="modified" title="2016-03-19T00:00:00+08:00">
+                Updated: 六 19 3月 2016
         </abbr>
 
         <address class="vcard author">
@@ -118,31 +148,9 @@
                 <a class="readmore" href="/k-means.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/jing-yang-dui-xiang.html" rel="bookmark"
-                           title="Permalink to 景仰對象">景仰對象</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-03-10T23:51:00+08:00">
-                Published: 四 10 3月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/diary.html">Diary</a>.</p>
-
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/jing-yang-dui-xiang.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
                 </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 7
+    Page 1 / 8
         <a href="/author/yd2.html">&raquo;</a>
 </p>
                 </section><!-- /#content -->

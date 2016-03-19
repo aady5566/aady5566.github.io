@@ -24,14 +24,49 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/k-means.html">K-means</a></h1>
+                    <h1 class="entry-title"><a href="/aws-elastic-compute-cloud-ec2.html">AWS Elastic Compute Cloud (EC2)</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-03-19T13:00:00+08:00">
+                Published: 六 19 3月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
+<p>tags: <a href="/tag/aws.html">AWS</a> </p>
+</footer><!-- /.post-info --><p>AWS provides pre-configured templates for the instances, known as Amazon Machine Images (AMIs).  </p>
+<p>AMI模板可以只有作業系統，也可以包含預先灌好的程式軟體在內。  </p>
+<p>EC2 is a virtual environment which is called instances. And there are a wide range of instance types that have varying combinations of CPU power, amount of memory, storage size, and networking capacity.  </p>
+<p>EC2 instances will automatically scale up to add capacity</p>
+<p>實作建置EC2:  </p>
+<p>先建立AWSroot帳戶，並新增一個admin帳戶(開所有權限，但沒有付款功能)，之後都用該帳戶當作控管其他服務的帳戶。  </p>
+<p>登入admin後，在AWS主頁面上，可以點擊Edit將常用的instances拖曳到上方的儀表板。  </p>
+<p>點選EC2服務，選Launch Instance，這時可以勾選旁邊的Free tier only，秀出來的映像檔皆是免費的。然後就選擇自己想要的作業系統並點選右方的Select。接著看到是Instance Type有free tier eligible(通常是微型)，接著就在設定DNS頁面，以及對於instance的命名，再來是連線方式設定，初始含SSH連線。  </p>
+<p>最後要創建一個key-pairs，首先是key的命名可以依照 <strong>aws服務_instance型態_作業系統_區域.pem</strong> 例如： <strong>ec2_t2m_linux_tokyo.pem</strong> ，然後下載到本地端（這裏要注意，因為下載下來要改一下key的權限，因為可能是public key，但做匹配時只能是private key, chmod 700 <keyname>.pem即可），key-pairs之所以重要是因為，ssh連線到該instance它只認對應的private key，若遺失了就無法操控instance。  </p>
+<p>實作EC2安裝Docker:<a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html">官方文件</a></p>
+<p>執行 sudo usermod -a -G docker ec2-user 就不需要再加上sudo了</p>
+<p>待續...</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/k-means.html" rel="bookmark"
+                           title="Permalink to K-means">K-means</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-03-12T09:00:00+08:00">
                 Published: 六 12 3月 2016
         </abbr>
 		<br />
-        <abbr class="modified" title="2016-03-18T00:00:00+08:00">
-                Updated: 五 18 3月 2016
+        <abbr class="modified" title="2016-03-19T00:00:00+08:00">
+                Updated: 六 19 3月 2016
         </abbr>
 
         <address class="vcard author">
@@ -39,22 +74,10 @@
         </address>
 <p>In <a href="/category/worknote.html">WorkNote</a>.</p>
 <p>tags: <a href="/tag/stat.html">stat</a> </p>
-</footer><!-- /.post-info --><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<div style="font-size:200%;color:7A5953;">
-$$J=\sum_{i=1}^{k}\sum_{x_j \in S_i}(x_j-\mu_i)$$
-</div>
-
-<p><br></p>
-<p>簡單來說一下公式的意義，若欲分類k組，隨機選取k筆資料當做初始群中心並計算每個資料xi對應到的最短距離的群中心。再利用分類完的k群重新計算群中心。<br />
-因此不難察覺，K-means的侷限為初始值，同一筆資料跑了n次的結果可能都不一樣，所以初始值落點不好可能會造成糟糕的結果。<br />
-K-means當然也不只是分群及找出群中心如此而已還是有其他用途。基於資料的群中心被找出後，我們可以把這個群中心的結果當成分類器的指標，也就是說，若有新的一筆同一屬性資料進來，找出最短距離的群中心，我們就可以將這筆資料進行分類(預測)。<br />
-另外也可以作為判斷此資料是否適合做為分類的判斷，因為有些特徵(feature)不適合做為分類依據。對此，我們可以先根據特徵取得群中心後，將資料找出距離最短特徵的群中心分類後，檢視分類情況，以確保該特徵為分類的是適切性。</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/k-means.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -90,8 +113,8 @@ K-means當然也不只是分群及找出群中心如此而已還是有其他用�
                 Published: 五 26 2月 2016
         </abbr>
 		<br />
-        <abbr class="modified" title="2016-03-18T00:00:00+08:00">
-                Updated: 五 18 3月 2016
+        <abbr class="modified" title="2016-03-19T00:00:00+08:00">
+                Updated: 六 19 3月 2016
         </abbr>
 
         <address class="vcard author">
@@ -116,8 +139,8 @@ K-means當然也不只是分群及找出群中心如此而已還是有其他用�
                 Published: 五 26 2月 2016
         </abbr>
 		<br />
-        <abbr class="modified" title="2016-03-18T00:00:00+08:00">
-                Updated: 五 18 3月 2016
+        <abbr class="modified" title="2016-03-19T00:00:00+08:00">
+                Updated: 六 19 3月 2016
         </abbr>
 
         <address class="vcard author">
@@ -129,33 +152,11 @@ K-means當然也不只是分群及找出群中心如此而已還是有其他用�
                 <a class="readmore" href="/dockerzhi-ling.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/ju-liang-zi-liao-gai-shu.html" rel="bookmark"
-                           title="Permalink to 巨量資料概述">巨量資料概述</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-02-26T00:00:00+08:00">
-                Published: 五 26 2月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-03-18T00:00:00+08:00">
-                Updated: 五 18 3月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/stuff.html">Stuff</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/ju-liang-zi-liao-gai-shu.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
                 </ol><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 2
+        <a href="/category/worknote2.html">&raquo;</a>
+</p>
                 </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="social">
