@@ -2,7 +2,7 @@
 <html lang="[en]">
 <head>
         <meta charset="utf-8" />
-        <title>K-means</title>
+        <title>AWS Identity and Access Management (IAM)</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="YD's Blog Atom Feed" />
 
@@ -25,36 +25,36 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="/k-means.html" rel="bookmark"
-           title="Permalink to K-means">K-means</a></h1>
+        <a href="/aws-identity-and-access-management-iam.html" rel="bookmark"
+           title="Permalink to AWS Identity and Access Management (IAM)">AWS Identity and Access Management (IAM)</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-03-12T09:00:00+08:00">
-                Published: 六 12 3月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-03-21T00:00:00+08:00">
-                Updated: 一 21 3月 2016
+        <abbr class="published" title="2016-03-21T18:50:00+08:00">
+                Published: 一 21 3月 2016
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/yd.html">YD</a>
         </address>
 <p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/stat.html">stat</a> </p>
-</footer><!-- /.post-info -->      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<div style="font-size:200%;color:7A5953;">
-$$J=\sum_{i=1}^{k}\sum_{x_j \in S_i}(x_j-\mu_i)$$
-</div>
-
-<p><br></p>
-<p>簡單來說一下公式的意義，若欲分類k組，隨機選取k筆資料當做初始群中心並計算每個資料xi對應到的最短距離的群中心。再利用分類完的k群重新計算群中心。<br />
-因此不難察覺，K-means的侷限為初始值，同一筆資料跑了n次的結果可能都不一樣，所以初始值落點不好可能會造成糟糕的結果。<br />
-K-means當然也不只是分群及找出群中心如此而已還是有其他用途。基於資料的群中心被找出後，我們可以把這個群中心的結果當成分類器的指標，也就是說，若有新的一筆同一屬性資料進來，找出最短距離的群中心，我們就可以將這筆資料進行分類(預測)。<br />
-另外也可以作為判斷此資料是否適合做為分類的判斷，因為有些特徵(feature)不適合做為分類依據。對此，我們可以先根據特徵取得群中心後，將資料找出距離最短特徵的群中心分類後，檢視分類情況，以確保該特徵為分類的是適切性。</p>
+<p>tags: <a href="/tag/aws.html">AWS</a> </p>
+</footer><!-- /.post-info -->      <p>Identity and Access Management (IAM)可以讓你管理「用戶們」在AWS服務或資源的使用權限。利用IAM管理的範圍包含活體的aws users, groups或是 軟體的roles and policies。  </p>
+<p>Create users in IAM, assign them individual security credentials, including access keys,
+passwords, and multi-factor authentication devices or request temporary security credentials to provide users access to AWS services and resources.  </p>
+<p>Create roles in IAM, and manage policies to control which operations can be performed by the entity, or AWS service, that assumes the role.  </p>
+<p>qwiklab實作部分，儀表板上點選 <strong>IAM</strong> :  </p>
+<p>範例的Group介紹：  </p>
+<ul>
+<li>EC2support group 功能主要是監控其他EC2的狀態  </li>
+<li>EC2admin group 用來<a href="http://www.ems5.com/view.php?id=308">scale up</a>伺服</li>
+<li>S3admin group 執行所有S3 相關服務  </li>
+</ul>
+<p>若我們希望讓userone負責監控(EC2support)的工作，選擇左方 <strong>Dashboard</strong> 的 <strong>Group</strong>，選擇EC2support後下方的 <strong>User</strong> 並加入該成員即可。  </p>
+<p>接著我們要對這些用戶客製化密碼。回到IAM選擇儀表板的 <strong>User</strong>，勾選userone後選擇上方的 <strong>Actions "Manage Password"</strong> ，進去後選擇"Replace existing password with new custom password"。設好用戶密碼後。
+點擊 <strong>Dashboard</strong>，會有個IAM users sign-in link，屆時所有在這之中的user藉由輸入自己的帳戶以及該用戶密碼就可以取得相對應的權限。而Admin帳戶可以點擊 <strong>User</strong> 看Password Last Used的使用歷史紀錄。</p>
+<p>這裏的情境似乎是用group的policy設定後，再加入對應的用戶。但應該是可以直接對用戶進行policy的設定。  </p>
     </div><!-- /.entry-content -->
 
   </article>

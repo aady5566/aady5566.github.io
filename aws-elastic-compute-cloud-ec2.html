@@ -47,11 +47,10 @@
 <p>實作建置EC2:  </p>
 <p>先建立AWSroot帳戶，並新增一個admin帳戶(開所有權限，但沒有付款功能)，之後都用該帳戶當作控管其他服務的帳戶。  </p>
 <p>登入admin後，在AWS主頁面上，可以點擊Edit將常用的instances拖曳到上方的儀表板。  </p>
-<p>點選EC2服務，選Launch Instance，這時可以勾選旁邊的Free tier only，秀出來的映像檔皆是免費的。然後就選擇自己想要的作業系統並點選右方的Select。接著看到是Instance Type有free tier eligible(通常是微型)，接著就在設定DNS頁面，以及對於instance的命名，再來是連線方式設定，初始含SSH連線。  </p>
-<p>最後要創建一個key-pairs，首先是key的命名可以依照 <strong>aws服務_instance型態_作業系統_區域.pem</strong> 例如： <strong>ec2_t2m_linux_tokyo.pem</strong> ，然後下載到本地端（這裏要注意，因為下載下來要改一下key的權限，因為可能是public key，但做匹配時只能是private key, chmod 700 <keyname>.pem即可），key-pairs之所以重要是因為，ssh連線到該instance它只認對應的private key，若遺失了就無法操控instance。  </p>
+<p>點選EC2服務，選Launch Instance，這時可以勾選旁邊的Free tier only，秀出來的映像檔皆是免費的。然後就選擇自己想要的作業系統並點選右方的Select。接著看到是Instance Type有free tier eligible(通常是微型)，接著就在設定DNS頁面，以及對於instance的命名，再來是連線方式設定，初始含SSH連線，記得如果要從外部網域連入，要security group的inbound設定http連線。  </p>
+<p>最後要創建一個key-pairs，首先是key的命名可以依照 <strong>aws服務_instance型態_作業系統_區域.pem</strong> 例如： <strong>ec2_t2m_linux_tokyo.pem</strong> ，然後下載到本地端（這裏要注意，因為下載下來要改一下key的權限，因為可能是public key，但做匹配時只能是private key, chmod 600 <keyname>.pem即可），key-pairs之所以重要是因為，ssh連線到該instance它只認對應的private key，若遺失了就無法操控instance。  </p>
 <p>實作EC2安裝Docker:<a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html">官方文件</a></p>
 <p>執行 sudo usermod -a -G docker ec2-user 就不需要再加上sudo了</p>
-<p>待續...</p>
     </div><!-- /.entry-content -->
 
   </article>
