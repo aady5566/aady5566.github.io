@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-03-25T00:00:00+08:00</updated><entry><title>Career</title><link href="/career.html" rel="alternate"></link><updated>2016-03-25T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-25:career.html</id><summary type="html">&lt;p&gt;沒人可以鏡像模仿另一個人的人生。
 這次參加scala meetup忽然頓悟一件事，要問 &lt;strong&gt;人生技能樹&lt;/strong&gt; 的配點，最好別問專業技術人員，畢竟你不是他他也不是你，他在意的不一定是你真正需要關注的事情。釐清方向是件好事情。  &lt;/p&gt;
-&lt;p&gt;兩件事就好，分析意義、呈現意義，繼續精進。  &lt;/p&gt;
+&lt;p&gt;做好兩件事：分析意義、呈現意義，繼續精進。  &lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 
 &lt;script&gt;
@@ -23,9 +23,7 @@ s.src = '//aady5566.disqus.com/embed.js';
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
-&lt;/script&gt;
-
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript" rel="nofollow"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</summary><category term="Lift"></category></entry><entry><title>AWS Identity and Access Management (IAM)</title><link href="/aws-identity-and-access-management-iam.html" rel="alternate"></link><updated>2016-03-21T18:50:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-21:aws-identity-and-access-management-iam.html</id><summary type="html">&lt;p&gt;Identity and Access Management (IAM)可以讓你管理「用戶們」在AWS服務或資源的使用權限。利用IAM管理的範圍包含活體的aws users, groups或是 軟體的roles and policies。  &lt;/p&gt;
+&lt;/script&gt;</summary><category term="Life"></category></entry><entry><title>AWS Identity and Access Management (IAM)</title><link href="/aws-identity-and-access-management-iam.html" rel="alternate"></link><updated>2016-03-21T18:50:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-21:aws-identity-and-access-management-iam.html</id><summary type="html">&lt;p&gt;Identity and Access Management (IAM)可以讓你管理「用戶們」在AWS服務或資源的使用權限。利用IAM管理的範圍包含活體的aws users, groups或是 軟體的roles and policies。  &lt;/p&gt;
 &lt;p&gt;Create users in IAM, assign them individual security credentials, including access keys,
 passwords, and multi-factor authentication devices or request temporary security credentials to provide users access to AWS services and resources.  &lt;/p&gt;
 &lt;p&gt;Create roles in IAM, and manage policies to control which operations can be performed by the entity, or AWS service, that assumes the role.  &lt;/p&gt;
