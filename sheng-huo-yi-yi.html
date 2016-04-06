@@ -2,7 +2,7 @@
 <html lang="[en]">
 <head>
         <meta charset="utf-8" />
-        <title>Scala for the impatient: ch3</title>
+        <title>生活意義</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="YD's Blog Atom Feed" />
 
@@ -15,9 +15,9 @@
         <header id="banner" class="body">
                 <h1><a href="/">YD's Blog </a></h1>
                 <nav><ul>
-                    <li><a href="/category/diary.html">Diary</a></li>
+                    <li class="active"><a href="/category/diary.html">Diary</a></li>
                     <li><a href="/category/r.html">R</a></li>
-                    <li class="active"><a href="/category/scala.html">Scala</a></li>
+                    <li><a href="/category/scala.html">Scala</a></li>
                     <li><a href="/category/worknote.html">WorkNote</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
@@ -25,14 +25,14 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="/scala-for-the-impatient-ch3.html" rel="bookmark"
-           title="Permalink to Scala for the impatient: ch3">Scala for the impatient: ch3</a></h1>
+        <a href="/sheng-huo-yi-yi.html" rel="bookmark"
+           title="Permalink to 生活意義">生活意義</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-02-10T12:00:00+08:00">
-                Published: 三 10 2月 2016
+        <abbr class="published" title="2016-04-06T00:00:00+08:00">
+                Published: 三 06 4月 2016
         </abbr>
 		<br />
         <abbr class="modified" title="2016-04-06T00:00:00+08:00">
@@ -42,65 +42,10 @@
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/yd.html">YD</a>
         </address>
-<p>In <a href="/category/scala.html">Scala</a>.</p>
-
-</footer><!-- /.post-info -->      <p>定長數組用Array, 不定長數組用ArrayBuffer<br />
-在ArrayBuffer尾端添加或移除元素是高效操作(amortized constant time)  </p>
-<ul>
-<li>+= , ++= , .trimEnd()  </li>
-<li>也可以從中插入元素，但因為所有元素會平移，因此效率變低  <ul>
-<li>.insert(<index>,<val>), .remove(<index>,<numberOfVal>)  </li>
-</ul>
-</li>
-</ul>
-<p>定長數組與不定長數組轉換  </p>
-<ul>
-<li>.toBuffer, .toArray  </li>
-</ul>
-<p>for loop要窮盡所有element用until 配 .length而不是to 配 .length (原因:index從0開始)  </p>
-<ul>
-<li>0 until 10 // 0.until(10)</li>
-<li>0 to 10  </li>
-</ul>
-<p>for loop  </p>
-<ul>
-<li>
-<p>for(i &lt;- 區間)  </p>
-<ul>
-<li>for(i &lt;- 0 until a.length) //窮盡所有i</li>
-<li>for(i &lt;- 0 until (a.length,2) ) //兩個一跳</li>
-<li>for(i &lt;- (0 until a.length).reverse ) //尾端開始窮盡</li>
-<li>
-<p>for(ele &lt;-  a) //不用額外下標，直接訪問數組元素  </p>
-</li>
-<li>
-<p>val aa = Array(2,3,5,7,11); val result = for(ele &lt;- aa) yield 2 * ele</p>
-</li>
-<li>
-<p>yield 循環會創建一個與原始集合相同的新集合，此例新集合為Arrary  </p>
-</li>
-<li>
-<p>for(ele &lt;- a if ele%%2==0) yield ele*2 //針對ele做判斷  </p>
-</li>
-<li>
-<p>如同a.filter(<em>%2==0).map(2*</em>)  </p>
-</li>
-<li>
-<p>val first = true; for(i &lt;- 0.until(a.length if a(i)&gt;0 || <condition2>)) yield {if(a(i)&lt;0) first=false;i}  </p>
-</li>
-</ul>
-</li>
-</ul>
-<p>Array ArrayBuffer運算：  </p>
-<ul>
-<li>ArrayBuffer("a","b")+="c"--=Array("a","b") //新增一個c然後刪除含「首度出現a,b」的元素</li>
-<li>Array(1,7,2,9).sum</li>
-<li>Array("aaaa","a","bbbbbbbbb")</li>
-<li>Array.min</li>
-<li>Array.sortWith(<em>&gt;</em>)</li>
-<li>Array.mkString("&lt;",",""&gt;") //前綴、中間分隔符號、後綴</li>
-<li>Array.toString //只報告類型</li>
-</ul>
+<p>In <a href="/category/diary.html">Diary</a>.</p>
+<p>tags: <a href="/tag/life.html">Life</a> </p>
+</footer><!-- /.post-info -->      <p><img  src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/mess.png" width="300" height="300" align="middle"/></p>
+<p>一個階段總是會有困惑期，準備推甄研究所...下部隊...重返學術圈...，每個階段的前期都在問自己，是自己想要的嗎?包含現在開始工作，同樣的問題不斷迴盪心頭。家裡雖沒提供太多的物質資源，但也因沒有這些羈絆，爭取到不少放手一搏為自己作主的機會，追求心靈的富足。過了25，對於自己的狀態掌握也到了某種穩定的程度，知道自己的喜好、自己的缺劣。說真的，培養能力以及毅力是我的長處，不怕沒能力，但非常需要方向。漫無目標徬徨時，猶如冒險的野性不斷膨脹卻尋無出口，心中一股悶氣捱著痛苦難耐。現在也正處於這樣的階段，做什麼事情心煩意亂...不過就也是人生的過程，體驗自己內心慾望的邃動。</p>
     </div><!-- /.entry-content -->
 
   </article>
