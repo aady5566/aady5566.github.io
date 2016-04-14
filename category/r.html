@@ -24,7 +24,49 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/fu-mian-ci-hui-wang-luo.html">負面詞彙網絡</a></h1>
+                    <h1 class="entry-title"><a href="/r2redshift.html">R2Redshift</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-04-14T11:00:00+08:00">
+                Published: 四 14 4月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/r.html">R</a>.</p>
+
+</footer><!-- /.post-info --><p>由R接Redshift的實作。</p>
+<pre><code>  
+if (!require(RJDBC)) install.packages("RJDBC")
+devtools::install_github("pingles/redshift-r")#api:https://github.com/pingles/redshift-r
+library(redshift)
+
+#Open connection
+conn <- redshift.connect("jdbc:postgresql://<curl>.ap-northeast-1.redshift.amazonaws.com:5439/<dbName>", "adminName", "password")  
+
+#Set all colNames for getting the intact SQL table  
+cols <- redshift.columns(conn,tableName = "<tableName>")#columnNames  
+
+#Query data with SQL syntax
+data<- dbGetQuery(conn, paste("SELECT * FROM <tableName> where date_part(hour,datetimeclient)=15 AND convert(varchar(10),datetimeclient)='2016-03-04' AND city_name!='missing' AND mouseposx>0 AND mouseposy>0",sep=''))  
+
+#Close connection
+redshift.disconnect(conn)  
+
+</code></pre>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/fu-mian-ci-hui-wang-luo.html" rel="bookmark"
+                           title="Permalink to 負面詞彙網絡">負面詞彙網絡</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-03-21T17:00:00+08:00">
                 Published: 一 21 3月 2016
@@ -39,38 +81,8 @@
         </address>
 <p>In <a href="/category/r.html">R</a>.</p>
 <p>tags: <a href="/tag/plot.html">plot</a> </p>
-</footer><!-- /.post-info --><iframe src='aady5566.github.io/html/負面詞彙社會網絡.html' width=500 height=300></iframe>
-
-<p>這是在ptt某版上的一整年內容及推文的負面情緒詞網絡。利用別人的api畫圖很快，但有時候也蠻麻煩的，當如果要改某些小細節，就可能沒支援。但想想要自己手刻一個這樣的東西，感覺更耗時...何況還有分析端要處理，還有的磨。</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/r2redshift.html" rel="bookmark"
-                           title="Permalink to R2Redshift">R2Redshift</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-03-14T11:00:00+08:00">
-                Published: 一 14 3月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-04-14T00:00:00+08:00">
-                Updated: 四 14 4月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/r.html">R</a>.</p>
-
 </footer><!-- /.post-info -->                
-                <a class="readmore" href="/r2redshift.html">read more</a>
+                <a class="readmore" href="/fu-mian-ci-hui-wang-luo.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 

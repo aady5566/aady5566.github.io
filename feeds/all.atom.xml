@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-04-14T00:00:00+08:00</updated><entry><title>生活意義</title><link href="/sheng-huo-yi-yi.html" rel="alternate"></link><updated>2016-04-14T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-04-06:sheng-huo-yi-yi.html</id><summary type="html">&lt;p&gt;&lt;img  src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/mess.png" width="300" height="300" align="middle"/&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-04-14T11:00:00+08:00</updated><entry><title>R2Redshift</title><link href="/r2redshift.html" rel="alternate"></link><updated>2016-04-14T11:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-04-14:r2redshift.html</id><summary type="html">&lt;p&gt;由R接Redshift的實作。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  
+if (!require(RJDBC)) install.packages("RJDBC")
+devtools::install_github("pingles/redshift-r")#api:https://github.com/pingles/redshift-r
+library(redshift)
+
+#Open connection
+conn &lt;- redshift.connect("jdbc:postgresql://&lt;curl&gt;.ap-northeast-1.redshift.amazonaws.com:5439/&lt;dbName&gt;", "adminName", "password")  
+
+#Set all colNames for getting the intact SQL table  
+cols &lt;- redshift.columns(conn,tableName = "&lt;tableName&gt;")#columnNames  
+
+#Query data with SQL syntax
+data&lt;- dbGetQuery(conn, paste("SELECT * FROM &lt;tableName&gt; where date_part(hour,datetimeclient)=15 AND convert(varchar(10),datetimeclient)='2016-03-04' AND city_name!='missing' AND mouseposx&gt;0 AND mouseposy&gt;0",sep=''))  
+
+#Close connection
+redshift.disconnect(conn)  
+
+&lt;/code&gt;&lt;/pre&gt;</summary></entry><entry><title>生活意義</title><link href="/sheng-huo-yi-yi.html" rel="alternate"></link><updated>2016-04-14T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-04-06:sheng-huo-yi-yi.html</id><summary type="html">&lt;p&gt;&lt;img  src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/mess.png" width="300" height="300" align="middle"/&gt;&lt;/p&gt;
 &lt;p&gt;一個階段總是會有困惑期，準備推甄研究所...下部隊...重返學術圈...，每個階段的前期都在問自己，是自己想要的嗎?包含現在開始工作，同樣的問題不斷迴盪心頭。家裡雖沒提供太多的物質資源，但也因沒有這些羈絆，爭取到不少放手一搏為自己作主的機會，追求心靈的富足。過了25，對於自己的狀態掌握也到了某種穩定的程度，知道自己的喜好、自己的缺劣。說真的，培養能力以及毅力是我的長處，不怕沒能力，但非常需要方向。漫無目標徬徨時，猶如冒險的野性不斷膨脹卻尋無出口，心中一股悶氣捱著痛苦難耐。現在也正處於這樣的階段，做什麼事情心煩意亂...不過就也是人生的過程，體驗自己內心慾望的邃動。&lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>Career</title><link href="/career.html" rel="alternate"></link><updated>2016-04-14T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-25:career.html</id><summary type="html">&lt;p&gt;沒人可以鏡像模仿另一個人的人生。
 這次參加scala meetup忽然頓悟一件事，要問 &lt;strong&gt;人生技能樹&lt;/strong&gt; 的配點，最好別問專業技術人員，畢竟你不是他他也不是你，他在意的不一定是你真正需要關注的事情。釐清方向是件好事情。  &lt;/p&gt;
 &lt;p&gt;做好兩件事：分析意義、呈現意義，繼續精進。  &lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>AWS Identity and Access Management (IAM)</title><link href="/aws-identity-and-access-management-iam.html" rel="alternate"></link><updated>2016-03-21T18:50:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-21:aws-identity-and-access-management-iam.html</id><summary type="html">&lt;p&gt;Identity and Access Management (IAM)可以讓你管理「用戶們」在AWS服務或資源的使用權限。利用IAM管理的範圍包含活體的aws users, groups或是 軟體的roles and policies。  &lt;/p&gt;
@@ -31,7 +49,7 @@ passwords, and multi-factor authentication devices or request temporary security
 因為臉書朋友來自薇閣或台大，多來自中產以上的菁英階級家庭。樣本本身就有極大的偏誤，理應看久要習慣的，但說不羨慕那些「又努力又有豐厚資源」的朋友是騙人的。
 每次看到這種文章心情就有說不出來的複雜感，一方面因同情困苦造就生命的刻苦銘心，也因努力而有成的態度所感動，另一方面也憤慨多少比例能靠著拼命努力而被發掘的案例...
 不過換個角度思考，表象的好與壞也從來不是旁觀者解讀了算，自己的生活過得坦蕩蕩比較要緊。&lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>彈性</title><link href="/dan-xing.html" rel="alternate"></link><updated>2016-03-15T22:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-15:dan-xing.html</id><summary type="html">&lt;p&gt;&lt;img  src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/work.png" width="300" height="300" align="middle"/&gt;&lt;/p&gt;
-&lt;p&gt;『奇怪，你怎麼沒去上班？』現在回學校都會被問這個問題，我第一個直覺的想法和大家一樣：好像很爽喔！但其實仔細想想，工作到現在也大概快三週了，每周花在工作的時間應該超過75小時。我自己是個很重視生活品質的人，但又有點工作狂的特質。要滿足這兩個狀態，總是要有一些變通的方式。就好比，我不喜歡待在一個環境久坐，這對我來說是非常痛苦的事情，如果待在公司 ，久坐是必然的發生的事，但我有個習慣，盡量保持馬克杯流動的狀態，意思是邊工作邊喝水，這樣的話除了保持水分外，身體也會定期提出上廁所的訊號，這時我就會起來走動一下，然後再次裝水，邊工作邊喝水的循環重啟了。最好的情況是讓自己換個環境工作，做任何事都要適度的放鬆，換個環境會讓五感接收到新鮮的刺激，這對思考有所助益，因此我認為，上班打卡報到是一件非常奴的行為，講實在，真的想工作，隨時都可以工作。&lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>R2Redshift</title><link href="/r2redshift.html" rel="alternate"></link><updated>2016-04-14T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-14:r2redshift.html</id><summary type="html">&lt;p&gt;由R接Redshift的實作。&lt;/p&gt;</summary></entry><entry><title>ip定位地圖</title><link href="/ipding-wei-di-tu.html" rel="alternate"></link><updated>2016-04-14T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-12:ipding-wei-di-tu.html</id><summary type="html">&lt;iframe src='aady5566.github.io/html/map.html' width=500 height=300&gt;&lt;/iframe&gt;
+&lt;p&gt;『奇怪，你怎麼沒去上班？』現在回學校都會被問這個問題，我第一個直覺的想法和大家一樣：好像很爽喔！但其實仔細想想，工作到現在也大概快三週了，每周花在工作的時間應該超過75小時。我自己是個很重視生活品質的人，但又有點工作狂的特質。要滿足這兩個狀態，總是要有一些變通的方式。就好比，我不喜歡待在一個環境久坐，這對我來說是非常痛苦的事情，如果待在公司 ，久坐是必然的發生的事，但我有個習慣，盡量保持馬克杯流動的狀態，意思是邊工作邊喝水，這樣的話除了保持水分外，身體也會定期提出上廁所的訊號，這時我就會起來走動一下，然後再次裝水，邊工作邊喝水的循環重啟了。最好的情況是讓自己換個環境工作，做任何事都要適度的放鬆，換個環境會讓五感接收到新鮮的刺激，這對思考有所助益，因此我認為，上班打卡報到是一件非常奴的行為，講實在，真的想工作，隨時都可以工作。&lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>ip定位地圖</title><link href="/ipding-wei-di-tu.html" rel="alternate"></link><updated>2016-04-14T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-12:ipding-wei-di-tu.html</id><summary type="html">&lt;iframe src='aady5566.github.io/html/map.html' width=500 height=300&gt;&lt;/iframe&gt;
 
 &lt;p&gt;今天原本下午要去看電影，結果意外取消了原本輕鬆的行程。下午的時間把公司的部分任務完成，閒閒沒事想說有一筆經、緯度的資料，應該加以利用。上網看了leaflet的教學，將ip依照經緯度定位後取得該城市的資料，並成功接上shiny!而且終於成功將html直接鑲嵌在blog文內，超開心!之後就可以分享更多成果在blog中了，哈。&lt;/p&gt;</summary><category term="plot"></category></entry><entry><title>K-means</title><link href="/k-means.html" rel="alternate"></link><updated>2016-04-14T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-12:k-means.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;&lt;/script&gt;
 
