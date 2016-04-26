@@ -25,14 +25,10 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/supervised-vs-unsupervised-learning.html">Supervised vs. Unsupervised Learning</a></h1>
+                    <h1 class="entry-title"><a href="/k-nearest-neighbor-algorithms-knn.html">K-Nearest Neighbor algorithms (KNN)</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2016-04-26T09:00:00+08:00">
+        <abbr class="published" title="2016-04-26T17:00:00+08:00">
                 Published: 二 26 4月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-04-26T00:00:00+08:00">
-                Updated: 二 26 4月 2016
         </abbr>
 
         <address class="vcard author">
@@ -48,47 +44,76 @@ MathJax.Hub.Config({
 });
 </script>
 
-<p>何謂機器學習 (Machine Learning)?  </p>
-<ul>
-<li>
-<p>透過演算法將已知推論到未知。 "Algorithms for inferring unknowns from knows"  </p>
-</li>
-<li>
-<p>應用場景包含： 圖像、聲音識別; 預測; 導航</p>
-</li>
-</ul>
-<p>探討機器學習前，一般會將處理的問題分成 Supervised vs. Unsupervised Learning 兩類：</p>
-<ul>
-<li>
-<p>Supervised: Given the data $(x^i,y^i)$, choose a function $f(x^i)=y^i$.  </p>
-<ul>
-<li>Classification: $y_i \in $ { $ Finite~Set $ }$ $  </li>
-<li>Regression: $y_i \in \mathbb{R}$<br />
-    <em>Note: $x^i \in \mathbb{R}^2$ which means $x^i$ equals to $(x^i_1,x^i_2)$</em></li>
-</ul>
-</li>
-<li>
-<p>Unsupervised: Given the data $(x^i,..., x^n)$, find the pattern in the data.</p>
-<ul>
-<li>Clustering</li>
-<li>Density Estimation</li>
-<li>Dimensionality Reduction  </li>
-</ul>
-</li>
-</ul>
-<p>這只是比較概略的劃分，事實上還有其他更細緻的方法，如：  </p>
-<ul>
-<li>Semi-supervised Learning: Given the $(x^1,y^1),...,(x^k,y^k),x^{k+1},...,x^n$, predict $y^{k+1},...,y^n$.</li>
-<li>Active Learning</li>
-<li>Decision Theory</li>
-<li>Reinforcement Learning</li>
-</ul>
-<p>自己因為碩論的關係，關注議題以 Reinforcement Learning Model 為主，但在實際運用上比較常見的機器學習屬於Supervised, Unsupervised 和 Semi-supervised Learning.</p>                </article>
+<p>如果我們有一筆資料 $(x_1,y_1),...,(x_n,y_n)$，  </p>
+<p>且 $x_i \in \mathbb{R}^2, y_i \in {0,1}$ (即$x_i=(x_1,x_2)$為二維的自變項以及$y_i = 0 or 1$的依變項)。如圖所示：
+<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/knn" width="400" height="400" />  </p>
+<p>橫軸為 $x_1$、縱軸為 $x_2$、藍色和紅色分別為已知的分類(0或1)。圖中的黃點並非髒污，而是要進行分類的$x$。  </p>
+<p>KNN的概念其實很就是去算點與點之間的距離，距離越近表示類型越像(和<a href="http://aady5566.github.io/k-means.html">K-means</a>有異曲同工之妙，但注意，KNN是屬於<a href="http://aady5566.github.io/supervised-vs-unsupervised-learning.html">Supervised learning</a>，這點和K-means不同)。
+若$k=1$，則是根據離黃點最近的「1個點」之分類為分類;$k=3$則是根據離黃點最近的「3個點」之分類為分類並採取多數決(majority vote of k nearest)。以下圖為例：
+<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/knn" width="400" height="400" />  </p>
+<p>此例為$k=3$，意即離黃點最近的三個點分別為1,1,0的分類，依照多數決應將黃點分類為類別1。  </p>
+<p>若將KNN寫成公式的話：<br />
+<div style="font-size:150%">$d(x_i,x_j)=\sqrt{\sum_{k=1}^{d}(x_{ik}-x_{jk})^2}, x_i=(x_{i1},...,x_{id})$</div>  </p>
+<p><img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/knndemo" width="400" height="400" />  </p>
+<p>此為k=1的狀況，可以紅點距離最近的點為藍色，因此判斷紅色的分類為1。有興趣的話可以參考下列R code。可以自己調整參數玩玩看</p>
+<pre>
+# K-Nearest Neighbor classification ---------------------------------------
+library(data.table)
+library(ggplot2)
+#training data
+#simplify to two-dimensional real numbers
+dt <- data.table(x1=sample(1:10,30,replace=T),x2=sample(1:10,30,replace=T),label=as.factor(sample(0:1,30,replace=T)))
+
+#new x^(2)=(x1,x2)
+newX=c(8,7)
+k=1 #k could be a odd number
+
+#find out the label of k smallest distances of x
+nearestLabels <- dt$label[!is.na(match(sqrt((newX[1]-dt$x1)^2+(newX[2]-dt$x2)^2),sort(sqrt((newX[1]-dt$x1)^2+(newX[2]-dt$x2)^2))[1:k]))]
+
+#majority vote of k nearest points
+tb <- as.data.table(table(nearestLabels))
+predictLabel <- paste("predict: ",tb$nearestLabels[match(max(tb$N),tb$N)],sep='')
+predict.dt <- data.table(x1=newX[1],x2=newX[2],label=predictLabel)
+
+#bind preditVal to original dt
+dt <- rbind(predict.dt,dt)
+
+#plot the outcome
+qplot(x1,x2,colour=label,data=dt)
+
+</pre>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/supervised-vs-unsupervised-learning.html" rel="bookmark"
+                           title="Permalink to Supervised vs. Unsupervised Learning">Supervised vs. Unsupervised Learning</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-04-26T09:00:00+08:00">
+                Published: 二 26 4月 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2016-04-26T00:00:00+08:00">
+                Updated: 二 26 4月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/stat.html">Stat</a>.</p>
+
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/supervised-vs-unsupervised-learning.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -161,32 +186,6 @@ MathJax.Hub.Config({
 
 </footer><!-- /.post-info -->                
                 <a class="readmore" href="/r2redshift.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/sheng-huo-yi-yi.html" rel="bookmark"
-                           title="Permalink to 生活意義">生活意義</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-04-06T00:00:00+08:00">
-                Published: 三 06 4月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-04-26T00:00:00+08:00">
-                Updated: 二 26 4月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/diary.html">Diary</a>.</p>
-<p>tags: <a href="/tag/life.html">Life</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/sheng-huo-yi-yi.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
