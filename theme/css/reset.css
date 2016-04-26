@@ -23,6 +23,22 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	padding: 0;
 	vertical-align: baseline;
 }
+code{
+	position:relative;
+	bottom:2px;
+	font-size: 15px;
+	color:#FF4178;
+	background-color: #fff;
+	background-size: 50% ;
+	border-width: 1px;
+	border-style: solid;
+  border-color: #D4D4D4;
+	border-radius: 3px;
+	padding-top: .3%;
+  padding-right: .5%;
+  padding-bottom: .3%;
+  padding-left: .5%;
+}
 
 body {line-height: 1;}
 

@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-04-26T00:00:00+08:00</updated><entry><title>北美館</title><link href="/bei-mei-guan.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-04-24:bei-mei-guan.html</id><summary type="html">&lt;p&gt;&lt;img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/expo1.jpg" width="384" height="288" /&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-04-26T00:00:00+08:00</updated><entry><title>Supervised vs. Unsupervised Learning</title><link href="/supervised-vs-unsupervised-learning.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-04-26:supervised-vs-unsupervised-learning.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+&lt;/script&gt;
+
+&lt;p&gt;何謂機器學習 (Machine Learning)?  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;透過演算法將已知推論到未知。 "Algorithms for inferring unknowns from knows"  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;應用場景包含： 圖像、聲音識別; 預測; 導航&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;探討機器學習前，一般會將處理的問題分成 Supervised vs. Unsupervised Learning 兩類：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Supervised: Given the data $(x^i,y^i)$, choose a function $f(x^i)=y^i$.  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Classification: $y_i \in $ { $ Finite~Set $ }$ $  &lt;/li&gt;
+&lt;li&gt;Regression: $y_i \in \mathbb{R}$&lt;br /&gt;
+    &lt;em&gt;Note: $x^i \in \mathbb{R}^2$ which means that $x^i$ equals to $(x^i_1,x^i_2)$&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unsupervised: Given the data $(x^i,..., x^n)$, find the pattern in the data.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clustering&lt;/li&gt;
+&lt;li&gt;Density Estimation&lt;/li&gt;
+&lt;li&gt;Dimensionality Reduction  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;這只是比較概略的劃分，事實上還有其他更細緻的方法，如：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Semi-supervised Learning: Given the $(x^1,y^1),...,(x^k,y^k),x^{k+1},...,x^n$, predict $y^{k+1},...,y^n$.&lt;/li&gt;
+&lt;li&gt;Active Learning&lt;/li&gt;
+&lt;li&gt;Decision Theory&lt;/li&gt;
+&lt;li&gt;Reinforcement Learning&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;自己因為碩士研究主要以Reinforcement Learning Model，但在實際運用上比較常見的機器學習屬於Supervised, Unsupervised 和 Semi-supervised Learning.&lt;/p&gt;</summary></entry><entry><title>北美館</title><link href="/bei-mei-guan.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-04-24:bei-mei-guan.html</id><summary type="html">&lt;p&gt;&lt;img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/expo1.jpg" width="384" height="288" /&gt;&lt;/p&gt;
 &lt;p&gt;久違的展覽，上一次想去看當代藝術館的卷川實花，沒想到超出預期的熱門，光是排隊就要兩小時，索性放棄。北美館有個「物理」非常吸引我，簡介包含了碳導電產生的聲響、還有利用吹風機製造的紙飛機的氣體動力，非常有趣，不過太晚得知消息，錯過兩次的展覽。  &lt;/p&gt;
 &lt;p&gt;這次也是在北美館，本沒帶著太大的期待，沒想到這次的展覽也蠻有趣的，以下：&lt;/p&gt;
 &lt;p&gt;&lt;img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/expo3.jpg" width="384" height="288" /&gt;&lt;/p&gt;
@@ -19,7 +62,7 @@
 &lt;p&gt;出了一殯，身為長孫的我捧著阿公直往北海福座，安頓暫厝，只剩下最後的移居，就圓滿了。    &lt;/p&gt;
 &lt;p&gt;因為阿公，家庭結構錯綜複雜，兄弟姊妹多且年齡歲數的全距非常大，平時都各過各的，不相往來。沒想到這次阿公離開，大家齊力一心，老爸的各種管理調度得宜，加上正覺講堂的協助，讓一切的流程再順利不過，不管阿公生前做了多少讓子女們傷心難過的事，走得安穩，什麼都不用再計較了。  &lt;/p&gt;
 &lt;p&gt;以後我死後，用最簡單的樹葬或是骨灰灑大海就好，記住一個人不需要過多的形式，有時想想、有時懷念，很不錯了。&lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>R2Redshift</title><link href="/r2redshift.html" rel="alternate"></link><updated>2016-04-14T11:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-04-14:r2redshift.html</id><summary type="html">&lt;p&gt;由R接Redshift的實作。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  
+&lt;pre&gt;
 if (!require(RJDBC)) install.packages("RJDBC")
 devtools::install_github("pingles/redshift-r")#api:https://github.com/pingles/redshift-r
 library(redshift)
@@ -36,7 +79,7 @@ data&lt;- dbGetQuery(conn, paste("SELECT * FROM &lt;tableName&gt; where date_par
 #Close connection
 redshift.disconnect(conn)  
 
-&lt;/code&gt;&lt;/pre&gt;</summary></entry><entry><title>生活意義</title><link href="/sheng-huo-yi-yi.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-04-06:sheng-huo-yi-yi.html</id><summary type="html">&lt;p&gt;&lt;img  src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/mess.png" width="300" height="300" align="middle"/&gt;&lt;/p&gt;
+&lt;/pre&gt;</summary></entry><entry><title>生活意義</title><link href="/sheng-huo-yi-yi.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-04-06:sheng-huo-yi-yi.html</id><summary type="html">&lt;p&gt;&lt;img  src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/mess.png" width="300" height="300" align="middle"/&gt;&lt;/p&gt;
 &lt;p&gt;一個階段總是會有困惑期，準備推甄研究所...下部隊...重返學術圈...，每個階段的前期都在問自己，是自己想要的嗎?包含現在開始工作，同樣的問題不斷迴盪心頭。家裡雖沒提供太多的物質資源，但也因沒有這些羈絆，爭取到不少放手一搏為自己作主的機會，追求心靈的富足。過了25，對於自己的狀態掌握也到了某種穩定的程度，知道自己的喜好、自己的缺劣。說真的，培養能力以及毅力是我的長處，不怕沒能力，但非常需要方向。漫無目標徬徨時，猶如冒險的野性不斷膨脹卻尋無出口，心中一股悶氣捱著痛苦難耐。現在也正處於這樣的階段，做什麼事情心煩意亂...不過就也是人生的過程，體驗自己內心慾望的邃動。&lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>Career</title><link href="/career.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-25:career.html</id><summary type="html">&lt;p&gt;沒人可以鏡像模仿另一個人的人生。
 這次參加scala meetup忽然頓悟一件事，要問 &lt;strong&gt;人生技能樹&lt;/strong&gt; 的配點，最好別問專業技術人員，畢竟你不是他他也不是你，他在意的不一定是你真正需要關注的事情。釐清方向是件好事情。  &lt;/p&gt;
 &lt;p&gt;做好兩件事：分析意義、呈現意義，繼續精進。  &lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>AWS Identity and Access Management (IAM)</title><link href="/aws-identity-and-access-management-iam.html" rel="alternate"></link><updated>2016-03-21T18:50:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-21:aws-identity-and-access-management-iam.html</id><summary type="html">&lt;p&gt;Identity and Access Management (IAM)可以讓你管理「用戶們」在AWS服務或資源的使用權限。利用IAM管理的範圍包含活體的aws users, groups或是 軟體的roles and policies。  &lt;/p&gt;
@@ -72,7 +115,7 @@ passwords, and multi-factor authentication devices or request temporary security
 
 &lt;p&gt;今天原本下午要去看電影，結果意外取消了原本輕鬆的行程。下午的時間把公司的部分任務完成，閒閒沒事想說有一筆經、緯度的資料，應該加以利用。上網看了leaflet的教學，將ip依照經緯度定位後取得該城市的資料，並成功接上shiny!而且終於成功將html直接鑲嵌在blog文內，超開心!之後就可以分享更多成果在blog中了，哈。&lt;/p&gt;</summary><category term="plot"></category></entry><entry><title>K-means</title><link href="/k-means.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-12:k-means.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;&lt;/script&gt;
 
-&lt;div style="font-size:200%;color:7A5953;"&gt;
+&lt;div style="font-size:200%;"&gt;
 $$J=\sum_{i=1}^{k}\sum_{x_j \in S_i}(x_j-\mu_i)$$
 &lt;/div&gt;
 
@@ -80,7 +123,7 @@ $$J=\sum_{i=1}^{k}\sum_{x_j \in S_i}(x_j-\mu_i)$$
 &lt;p&gt;簡單來說一下公式的意義，若欲分類k組，隨機選取k筆資料當做初始群中心並計算每個資料xi對應到的最短距離的群中心。再利用分類完的k群重新計算群中心。&lt;br /&gt;
 因此不難察覺，K-means的侷限為初始值，同一筆資料跑了n次的結果可能都不一樣，所以初始值落點不好可能會造成糟糕的結果。&lt;br /&gt;
 K-means當然也不只是分群及找出群中心如此而已還是有其他用途。基於資料的群中心被找出後，我們可以把這個群中心的結果當成分類器的指標，也就是說，若有新的一筆同一屬性資料進來，找出最短距離的群中心，我們就可以將這筆資料進行分類(預測)。&lt;br /&gt;
-另外也可以作為判斷此資料是否適合做為分類的判斷，因為有些特徵(feature)不適合做為分類依據。對此，我們可以先根據特徵取得群中心後，將資料找出距離最短特徵的群中心分類後，檢視分類情況，以確保該特徵為分類的是適切性。&lt;/p&gt;</summary><category term="stat"></category></entry><entry><title>景仰對象</title><link href="/jing-yang-dui-xiang.html" rel="alternate"></link><updated>2016-03-10T23:51:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-10:jing-yang-dui-xiang.html</id><summary type="html">&lt;p&gt;今天被問到「有沒有景仰的對象」這件事，我第一個直覺是&amp;lt;&amp;lt;等一個人咖啡&amp;gt;&amp;gt;內的阿拓。&lt;br /&gt;
+另外也可以作為判斷此資料是否適合做為分類的判斷，因為有些特徵(feature)不適合做為分類依據。對此，我們可以先根據特徵取得群中心後，將資料找出距離最短特徵的群中心分類後，檢視分類情況，以確保該特徵為分類的是適切性。&lt;/p&gt;</summary></entry><entry><title>景仰對象</title><link href="/jing-yang-dui-xiang.html" rel="alternate"></link><updated>2016-03-10T23:51:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-10:jing-yang-dui-xiang.html</id><summary type="html">&lt;p&gt;今天被問到「有沒有景仰的對象」這件事，我第一個直覺是&amp;lt;&amp;lt;等一個人咖啡&amp;gt;&amp;gt;內的阿拓。&lt;br /&gt;
 我欣賞他憨厚直爽的態度，他待人真誠，且時時保有「盡一己之力又何妨」的態度對待需要幫助的周遭朋友。
 另外就是有一個觀念真的很棒，「生氣?過了一天、一年或甚至十年之後，還會記得此事嗎?如果不會，那幹嘛生氣?」，真的很欣賞他。儘管是小說角色，從國中以來就很羨慕這樣樂天的態度。  &lt;br /&gt;
 如果要說現實中景仰的對象，不如說我對是認真、持之以恆的態度在過生活的人特別欣賞，也一直努力保持這樣的態度過生活。但通常認真的人往往會忽略自己身體的健康，例如挑燈半夜讀書、睡眠時間不固定、飲食不正常等，這種生活態度我就不欣賞了，除非到要命時刻否則不熬夜！這邊要特別講一下，前年在新訓單位擔任輔導長一職時，幾乎11點前準時睡覺(除非查哨)，還不是平安退伍了。沒有什麼比健康更重要的事，一旦生病，什麼事做起來都不開心。&lt;/p&gt;</summary></entry><entry><title>工作兩週</title><link href="/gong-zuo-liang-zhou.html" rel="alternate"></link><updated>2016-03-09T23:27:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-09:gong-zuo-liang-zhou.html</id><summary type="html">&lt;p&gt;雖然說轉正以後，忽然手上變成四個案子在處理，忙到炸掉，前一週還在調適期。儘管忙，但工作性質實在是太符合我的生活型態了，環境單純，上班時間彈性，穿著隨便，工作任務也是自己預想的資料分析與視覺化呈現...在台灣應該也很難找到類似的工作性質了吧@@。當然中程目標是能夠增加運算效率以及更快部署前端的資料視覺化，遠程目標是能夠獨立從後端伺服器串接前端網頁的呈現。&lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>Lines and Columns</title><link href="/lines-and-columns.html" rel="alternate"></link><updated>2016-03-09T23:20:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-03-09:lines-and-columns.html</id><summary type="html">&lt;iframe srcdoc=' &amp;lt;!doctype HTML&amp;gt;
@@ -310,21 +353,22 @@ src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/st
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;&lt;pre&gt;
+&lt;pre&gt;
   val l= mutable.LinkedList(-1,-2,4,7)//LinkedList 可用.elem及.next迴圈
   var curr=l
   while(curr!=Nil){
-    if(curr.elem&amp;lt;0) curr.elem=0
+    if(curr.elem&lt;0) curr.elem=0
     curr = curr.next
   }
   var curr2=l
-  while(curr2 != Nil &amp;amp;&amp;amp; curr2.next !=Nil ){//去除每兩個元素中的一個
+  while(curr2 != Nil &amp;&amp; curr2.next !=Nil ){//去除每兩個元素中的一個
     curr2.next=curr2.next.next
     curr2= curr2.next
   }
   curr2
   //注意：若要讓最後一筆變成Nil,在LinkedList中要設為LinkedList.empty
-&lt;/pre&gt;&lt;/code&gt;  &lt;/p&gt;
+&lt;/pre&gt;
+
 &lt;p&gt;集是不重複元素的集合  &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Set(1,3,2,4)+1//+1無效  &lt;/p&gt;
@@ -580,8 +624,8 @@ src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/st
 &lt;p&gt;這讓我想到，兩年前遇到的同梯預官朋友們，覺得他們都是很有想法，願意挑戰的同袍。好幾個還是持續聯絡，往各方發展，而且有領導特質的真的不在少數。比起他們我真的是保守很多，總是讓自己處在進可攻退可守的安全線內，但是沒有放下一切追求夢想的勇氣...。&lt;/p&gt;
 &lt;p&gt;下週會是真的出社會的第一步，心態上的轉換是一定要的，全力工作，看看自己的能耐到多少。秉鴻也鼓勵：「時間會改變一個人。」看到Line的執行長森川亮提到「享受不安」，才是最好的生存方式，這不是我一直以來抱持的想法嗎?&lt;/p&gt;
 &lt;p&gt;未來如何轉變誰也不知，但求問心無愧，盡自己所能。然後，別讓自己成為技術咖，脫離人性。&lt;/p&gt;</summary><category term="School"></category></entry><entry><title>DataCleaning</title><link href="/datacleaning.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-02-10:datacleaning.html</id><summary type="html">&lt;p&gt;前陣子幫台大圖書館館員寫了一個格式轉換的腳本，應該可以讓他們花更少時間在轉檔的冗事上。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;&lt;pre&gt;
-badPub &amp;lt;- c("Cram101 Incorporated",
+&lt;pre&gt;
+badPub &lt;- c("Cram101 Incorporated",
             "Academic Internet Publishers Incorporated",
             "Cram101 Textbook Outlines",
             "BiblioBazaar",
@@ -592,55 +636,56 @@ badPub &amp;lt;- c("Cram101 Incorporated",
             "Nabu Press",
             "The Lawbook Exchange, Ltd."
             )
-direction &amp;lt;- c("A",
+direction &lt;- c("A",
                "B",
                "C"
                )
-fileClean &amp;lt;- function(path,direction="",year="",department="",host=""){&lt;/p&gt;
-&lt;p&gt;storage &amp;lt;- data.frame()
-  for(fileIdx in 1:length(list.files(path))){&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;paste&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;list&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;files&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;fileIdx&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;sep&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="nx"&gt;header&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;sep&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;row&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="nx"&gt;of&lt;/span&gt; &lt;span class="nx"&gt;the&lt;/span&gt; &lt;span class="nx"&gt;wrong&lt;/span&gt; &lt;span class="nx"&gt;header&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;colnames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nx"&gt;colnames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;colnames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;
+fileClean &lt;- function(path,direction="",year="",department="",host=""){
 
-&lt;span class="nx"&gt;tempFile$Note&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;unlist&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;strsplit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;list&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;files&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;fileIdx&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;add&lt;/span&gt; &lt;span class="nx"&gt;keyword&lt;/span&gt; &lt;span class="nx"&gt;to&lt;/span&gt; &lt;span class="nx"&gt;Note&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;warnning&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;split&amp;#39;&lt;/span&gt; &lt;span class="nx"&gt;is&lt;/span&gt; &lt;span class="nx"&gt;a&lt;/span&gt; &lt;span class="nx"&gt;regexp&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;subset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;is&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;na&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Publisher&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;badPub&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="na"&gt;-which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;is.na&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="nv"&gt;$Publisher&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;badPub&lt;/span&gt;&lt;span class="p"&gt;))),&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;remove&lt;/span&gt; &lt;span class="nx"&gt;badPub&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile$PriceType&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;sapply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile$Price&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;&lt;span class="nx"&gt;temp&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;strsplit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;as&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;character&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile$Price&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="nx"&gt;split&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="nx"&gt;gsub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="p"&gt;^&lt;/span&gt;&lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;alpha&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="s2"&gt;]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;temp&lt;/span&gt;&lt;span class="p"&gt;)})&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;add&lt;/span&gt; &lt;span class="nx"&gt;price&lt;/span&gt; &lt;span class="nx"&gt;type&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile$PriceType&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="nv"&gt;$PriceType&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Contact&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;Contact&lt;/span&gt; &lt;span class="nx"&gt;to&lt;/span&gt; &lt;span class="nx"&gt;NULL&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile$Price&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;sapply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile$Price&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;&lt;span class="nx"&gt;temp&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;strsplit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;as&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;character&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile$Price&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="nx"&gt;split&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="nx"&gt;gsub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="p"&gt;^&lt;/span&gt;&lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;digit&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="s2"&gt;.]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;temp&lt;/span&gt;&lt;span class="p"&gt;)})&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;price&lt;/span&gt; &lt;span class="nx"&gt;tranformation&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;gsub&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="nx"&gt;濾掉不等於digit但保留&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;.&amp;quot;&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile$Publication&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;Date&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;sapply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile$Publication&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nx"&gt;strsplit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;as&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;character&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile$Publication&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="nx"&gt;split&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;punct&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="s2"&gt;]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;date&lt;/span&gt; &lt;span class="nx"&gt;transformation&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;remove&lt;/span&gt; &lt;span class="nx"&gt;undesirable&lt;/span&gt; &lt;span class="nx"&gt;cols&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;colSums&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;is.na&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="nx"&gt;nrow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;add&lt;/span&gt; &lt;span class="nx"&gt;columns&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile$老師自訂方向&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;direction&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile$年度&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;year&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile$主題&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;topic&amp;quot;&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile$學門&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;department&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile$藏書館&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;xxxx&amp;quot;&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile$計畫主持&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;host&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile$版次&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile$備註&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile$來源&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;change&lt;/span&gt; &lt;span class="nx"&gt;colnames&lt;/span&gt;
-&lt;span class="nx"&gt;colnames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;names&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;ISBN.13&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;ISBN&amp;quot;&lt;/span&gt;
-&lt;span class="nx"&gt;colnames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;names&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Title&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;題名&amp;quot;&lt;/span&gt;
-&lt;span class="nx"&gt;colnames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;names&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Contributor&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;著者&amp;quot;&lt;/span&gt;
-&lt;span class="nx"&gt;colnames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;names&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Publisher&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;出版者&amp;quot;&lt;/span&gt;
-&lt;span class="nx"&gt;colnames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;names&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Publication.Date&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;出版日期&amp;quot;&lt;/span&gt;
-&lt;span class="nx"&gt;colnames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;names&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Note&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;關鍵字&amp;quot;&lt;/span&gt;
-&lt;span class="nx"&gt;colnames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;names&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;PriceType&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;幣別&amp;quot;&lt;/span&gt;
-&lt;span class="nx"&gt;colnames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;which&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;names&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Price&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;價格&amp;quot;&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;reordering&lt;/span&gt; &lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;frame&lt;/span&gt;
-&lt;span class="nx"&gt;colnames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="nx"&gt;tempFile&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;年度&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;學門&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;主題&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ISBN&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;題名&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;版次&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;著者&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;出版者&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;出版日期&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;藏書館&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;計畫主持&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;備註&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;關鍵字&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;幣別&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;價格&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;來源&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;老師自訂方向&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ISBN.10&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;
-&lt;span class="nx"&gt;storage&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nx"&gt;rbind&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;storage&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;tempFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+  storage &lt;- data.frame()
+  for(fileIdx in 1:length(list.files(path))){
 
 
-&lt;p&gt;}
+
+    tempFile &lt;- read.csv(paste(path,"/",list.files(path)[fileIdx],sep=''),header=T,sep=',',row.names = NULL)
+    #in case of the wrong header
+    if(length(colnames(tempFile))&gt;16)colnames(tempFile) &lt;- colnames(tempFile)[2:17]
+
+    tempFile$Note &lt;- unlist(strsplit(list.files(path)[fileIdx],"[.]"))[1]#add keyword to Note, warnning: 'split' is a regexp
+    tempFile &lt;- subset(tempFile,is.na(match(Publisher,badPub))) #tempFile[-which(!is.na(match(tempFile$Publisher,badPub))),]#remove badPub
+    tempFile$PriceType &lt;- sapply(1:length(tempFile$Price),function(x){temp &lt;- strsplit(as.character(tempFile$Price[x]),split=' ')[[1]][1];gsub("[^[:alpha:]]","",temp)})#add price type
+    tempFile$PriceType[which(tempFile$PriceType=="Contact")] &lt;- ""#Contact to NULL
+    tempFile$Price &lt;- sapply(1:length(tempFile$Price),function(x){temp &lt;- strsplit(as.character(tempFile$Price[x]),split=' ')[[1]][1];gsub("[^[:digit:].]","",temp)})#price tranformation, gsub()濾掉不等於digit但保留"."
+    tempFile$Publication.Date &lt;- sapply(1:length(tempFile$Publication.Date),function(x)strsplit(as.character(tempFile$Publication.Date[x]),split="[[:punct:]]")[[1]][1])#date transformation
+    #remove undesirable cols
+    #tempFile &lt;- tempFile[,colSums(!is.na(tempFile))==nrow(tempFile)]
+    #add columns
+    tempFile$老師自訂方向 &lt;- direction
+    tempFile$年度 &lt;- year
+    tempFile$主題 &lt;- "topic"
+    tempFile$學門 &lt;- department
+    tempFile$藏書館 &lt;- "xxxx"
+    tempFile$計畫主持 &lt;- host
+    tempFile$版次 &lt;- ""
+    tempFile$備註 &lt;- ""
+    tempFile$來源 &lt;- ""
+    #change colnames
+    colnames(tempFile)[which(names(tempFile) == "ISBN.13")] &lt;- "ISBN"
+    colnames(tempFile)[which(names(tempFile) == "Title")] &lt;- "題名"
+    colnames(tempFile)[which(names(tempFile) == "Contributor")] &lt;- "著者"
+    colnames(tempFile)[which(names(tempFile) == "Publisher")] &lt;- "出版者"
+    colnames(tempFile)[which(names(tempFile) == "Publication.Date")] &lt;- "出版日期"
+    colnames(tempFile)[which(names(tempFile) == "Note")] &lt;- "關鍵字"
+    colnames(tempFile)[which(names(tempFile) == "PriceType")] &lt;- "幣別"
+    colnames(tempFile)[which(names(tempFile) == "Price")] &lt;- "價格"
+    #reordering data.frame
+    colnames(tempFile)
+    tempFile &lt;- tempFile[c("年度","學門","主題","ISBN","題名","版次","著者","出版者","出版日期","藏書館","計畫主持","備註","關鍵字","幣別","價格","來源","老師自訂方向","ISBN.10")]
+    storage &lt;- rbind(storage,tempFile)
+  }
   return(storage)
 }
-&lt;/pre&gt;&lt;code&gt;&lt;/p&gt;</summary></entry><entry><title>Scala for the impatient: ch1</title><link href="/scala-for-the-impatient-ch1.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch1.html</id><summary type="html">&lt;p&gt;a 方法 b 等同於 a.方法(b)&lt;br /&gt;
+&lt;/pre&gt;</summary></entry><entry><title>Scala for the impatient: ch1</title><link href="/scala-for-the-impatient-ch1.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch1.html</id><summary type="html">&lt;p&gt;a 方法 b 等同於 a.方法(b)&lt;br /&gt;
 未提供++或--（不可變動性），但可以用counter +=1 將counter遞增。scala設計者認為不值得為少按一個鍵而增加特例。&lt;br /&gt;
 有type: BigInt , BigDecimal  &lt;/p&gt;
 &lt;ul&gt;
@@ -685,7 +730,7 @@ def patch(from:Int, that:GenSeq[Char], replaced: Int ):StringOps[A]&lt;br /&gt;
 probablePrime(2,Random)：回傳一個bit長度為二的質數(type:BigInt)  &lt;/p&gt;</summary></entry><entry><title>Scala for the impatient: ch11</title><link href="/scala-for-the-impatient-ch11.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch11.html</id><summary type="html">&lt;p&gt;變量、函數、類稱為指標符。&lt;br /&gt;
 在scala, unicode字符都可以是指標符&lt;br /&gt;
 apply經常被用於伴生對象中&lt;br /&gt;
-&lt;code&gt;&lt;pre&gt;
+&lt;pre&gt;
 class Fraction(n:Int,d:Int){
    var num=0
    var den=0
@@ -695,7 +740,7 @@ object Fraction{
   def apply(n:Int,d:Int)= new Fraction(n,d)//這樣就不用一直new Frction()
 }
 val result =Fraction(1,2) * Fraction(3,4)
-&lt;/pre&gt;&lt;/code&gt;&lt;br /&gt;
+&lt;/pre&gt;
 例類(case class)自動具備apply, unapply的方法&lt;/p&gt;</summary></entry><entry><title>Scala for the impatient: ch2</title><link href="/scala-for-the-impatient-ch2.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch2.html</id><summary type="html">&lt;p&gt;val s= if (x&amp;gt;0) 1 else -1&lt;br /&gt;
 val s= if (x&amp;gt;0) "positive" else -1&lt;br /&gt;
 此為公共超類型 (型態為Any)&lt;br /&gt;
@@ -735,14 +780,14 @@ var sum=0; for (ch &amp;lt;- "hello") sum+=ch&lt;br /&gt;
 對於遞迴函數，必須對指定返回類型&lt;br /&gt;
 能夠推斷遞迴函數類型的算法為Hindley-Milner
 變長參數
-&lt;code&gt;&lt;pre&gt;
+&lt;pre&gt;
 def sum(args:Int*)={
   var result=0
   for (arg&amp;lt;-args) result +=arg
   result
 }
 val x= sum(111,2,3,4,5)
-&lt;/pre&gt;&lt;/code&gt;  &lt;/p&gt;
+&lt;/pre&gt;&lt;/p&gt;
 &lt;p&gt;如果是傳入區間&lt;code&gt;（希望變數區間當作參數序列處理，則需追加:_*)&lt;/code&gt;&lt;br /&gt;
 &lt;code&gt;val s= sum(1 to 5:_*)&lt;/code&gt;    &lt;/p&gt;
 &lt;p&gt;如果函數沒有回傳值，則回傳類型為Unit，此函數又被稱為「procedure」&lt;br /&gt;
@@ -758,7 +803,7 @@ val lazy word= ... //在word被首次使用時取值&lt;br /&gt;
 def word=...//每次呼叫word時取值&lt;br /&gt;
 每次訪問懶值時會調用某個方法來檢查該值是否被初始化，因此會有額外開銷。&lt;br /&gt;
 異常&lt;br /&gt;
-&lt;code&gt;&lt;pre&gt;
+&lt;pre&gt;
 var in = new   URL("http://4.bp.blogspot.com/-s3DB3ryqocE/UvvhsovCC7I/AAAAAAAANnI/EENAw5YFXPE/s1600/lingerie+forever+(5).jpg").openStream()&lt;br /&gt;
 try{
   in.toString()
@@ -772,7 +817,7 @@ finally{
 finally無論try有無拋出異常都會執行
 try/catch通常是處理異常
 try/finally是異常沒被處理形況下執行某種動作(e.g. 清理工作)
-&lt;/pre&gt;&lt;code&gt;&lt;/p&gt;</summary></entry><entry><title>Scala for the impatient: ch3</title><link href="/scala-for-the-impatient-ch3.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch3.html</id><summary type="html">&lt;p&gt;定長數組用Array, 不定長數組用ArrayBuffer&lt;br /&gt;
+&lt;/pre&gt;&lt;/p&gt;</summary></entry><entry><title>Scala for the impatient: ch3</title><link href="/scala-for-the-impatient-ch3.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch3.html</id><summary type="html">&lt;p&gt;定長數組用Array, 不定長數組用ArrayBuffer&lt;br /&gt;
 在ArrayBuffer尾端添加或移除元素是高效操作(amortized constant time)  &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;+= , ++= , .trimEnd()  &lt;/li&gt;
@@ -914,14 +959,14 @@ scores.values //抓出value的集合&lt;br /&gt;
 將類定義為final，則他就不能被擴展
 單個方法或字段也可聲明為final (類似scala val)
 調用超類的方法 super.&lt;def&gt;
-&lt;pre&gt;&lt;code&gt;class Employee(defId:Int,defName:String){
+&lt;pre&gt;class Employee(defId:Int,defName:String){
   val name=defName
   val id=defId
 }
 val p1=new Employee(1,"ANDY")
 p1.isInstanceOf[Employee]//可檢查某個對象是否為一個給定的類
 p1.getClass==classOf[Employee]//測試p1指向一個對象但又不是其子類
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;
 但通常類型檢查或轉換相比，模式匹配會是更好的選擇
 [protected] 只能被子類訪問
 class Person(name:String,age:Int)

@@ -18,6 +18,7 @@
                     <li><a href="/category/diary.html">Diary</a></li>
                     <li><a href="/category/r.html">R</a></li>
                     <li class="active"><a href="/category/scala.html">Scala</a></li>
+                    <li><a href="/category/stat.html">Stat</a></li>
                     <li><a href="/category/worknote.html">WorkNote</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
@@ -58,21 +59,22 @@
 </ul>
 </li>
 </ul>
-<p><code><pre>
+<pre>
   val l= mutable.LinkedList(-1,-2,4,7)//LinkedList 可用.elem及.next迴圈
   var curr=l
   while(curr!=Nil){
-    if(curr.elem&lt;0) curr.elem=0
+    if(curr.elem<0) curr.elem=0
     curr = curr.next
   }
   var curr2=l
-  while(curr2 != Nil &amp;&amp; curr2.next !=Nil ){//去除每兩個元素中的一個
+  while(curr2 != Nil && curr2.next !=Nil ){//去除每兩個元素中的一個
     curr2.next=curr2.next.next
     curr2= curr2.next
   }
   curr2
   //注意：若要讓最後一筆變成Nil,在LinkedList中要設為LinkedList.empty
-</pre></code>  </p>
+</pre>
+
 <p>集是不重複元素的集合  </p>
 <blockquote>
 <p>Set(1,3,2,4)+1//+1無效  </p>

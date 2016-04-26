@@ -18,6 +18,7 @@
                     <li><a href="/category/diary.html">Diary</a></li>
                     <li><a href="/category/r.html">R</a></li>
                     <li class="active"><a href="/category/scala.html">Scala</a></li>
+                    <li><a href="/category/stat.html">Stat</a></li>
                     <li><a href="/category/worknote.html">WorkNote</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
@@ -83,14 +84,14 @@ var sum=0; for (ch &lt;- "hello") sum+=ch<br />
 對於遞迴函數，必須對指定返回類型<br />
 能夠推斷遞迴函數類型的算法為Hindley-Milner
 變長參數
-<code><pre>
+<pre>
 def sum(args:Int*)={
   var result=0
   for (arg&lt;-args) result +=arg
   result
 }
 val x= sum(111,2,3,4,5)
-</pre></code>  </p>
+</pre></p>
 <p>如果是傳入區間<code>（希望變數區間當作參數序列處理，則需追加:_*)</code><br />
 <code>val s= sum(1 to 5:_*)</code>    </p>
 <p>如果函數沒有回傳值，則回傳類型為Unit，此函數又被稱為「procedure」<br />
@@ -106,7 +107,7 @@ val lazy word= ... //在word被首次使用時取值<br />
 def word=...//每次呼叫word時取值<br />
 每次訪問懶值時會調用某個方法來檢查該值是否被初始化，因此會有額外開銷。<br />
 異常<br />
-<code><pre>
+<pre>
 var in = new   URL("http://4.bp.blogspot.com/-s3DB3ryqocE/UvvhsovCC7I/AAAAAAAANnI/EENAw5YFXPE/s1600/lingerie+forever+(5).jpg").openStream()<br />
 try{
   in.toString()
@@ -120,7 +121,7 @@ finally{
 finally無論try有無拋出異常都會執行
 try/catch通常是處理異常
 try/finally是異常沒被處理形況下執行某種動作(e.g. 清理工作)
-</pre><code></p>
+</pre></p>
     </div><!-- /.entry-content -->
 
   </article>
