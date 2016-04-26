@@ -51,15 +51,15 @@ MathJax.Hub.Config({
 
 <p>如果我們有一筆資料 $(x_1,y_1),...,(x_n,y_n)$，  </p>
 <p>且 $x_i \in \mathbb{R}^2, y_i \in {0,1}$ (即$x_i=(x_1,x_2)$為二維的自變項以及$y_i = 0 or 1$的依變項)。如圖所示：
-<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/knn" width="400" height="400" />  </p>
+<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/knn.png" width="400" height="400" />  </p>
 <p>橫軸為 $x_1$、縱軸為 $x_2$、藍色和紅色分別為已知的分類(0或1)。圖中的黃點並非髒污，而是要進行分類的$x$。  </p>
 <p>KNN的概念其實很就是去算點與點之間的距離，距離越近表示類型越像(和<a href="http://aady5566.github.io/k-means.html">K-means</a>有異曲同工之妙，但注意，KNN是屬於<a href="http://aady5566.github.io/supervised-vs-unsupervised-learning.html">Supervised learning</a>，這點和K-means不同)。
 若$k=1$，則是根據離黃點最近的「1個點」之分類為分類;$k=3$則是根據離黃點最近的「3個點」之分類為分類並採取多數決(majority vote of k nearest)。以下圖為例：
-<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/knn" width="400" height="400" />  </p>
+<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/knn.png" width="400" height="400" />  </p>
 <p>此例為$k=3$，意即離黃點最近的三個點分別為1,1,0的分類，依照多數決應將黃點分類為類別1。  </p>
 <p>若將KNN寫成公式的話：<br />
 <div style="font-size:150%">$d(x_i,x_j)=\sqrt{\sum_{k=1}^{d}(x_{ik}-x_{jk})^2}, x_i=(x_{i1},...,x_{id})$</div>  </p>
-<p><img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/knndemo" width="400" height="400" />  </p>
+<p><img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/knndemo.png" width="400" height="400" />  </p>
 <p>此為k=1的狀況，可以紅點距離最近的點為藍色，因此判斷紅色的分類為1。有興趣的話可以參考下列R code。可以自己調整參數玩玩看</p>
 <pre>
 # K-Nearest Neighbor classification ---------------------------------------
