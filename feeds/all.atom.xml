@@ -23,7 +23,7 @@ MathJax.Hub.Config({
 &lt;ul&gt;
 &lt;li&gt;Classification: $y_i \in $ { $ Finite~Set $ }$ $  &lt;/li&gt;
 &lt;li&gt;Regression: $y_i \in \mathbb{R}$&lt;br /&gt;
-    &lt;em&gt;Note: $x^i \in \mathbb{R}^2$ which means that $x^i$ equals to $(x^i_1,x^i_2)$&lt;/em&gt;&lt;/li&gt;
+    &lt;em&gt;Note: $x^i \in \mathbb{R}^2$ which means $x^i$ equals to $(x^i_1,x^i_2)$&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -42,7 +42,7 @@ MathJax.Hub.Config({
 &lt;li&gt;Decision Theory&lt;/li&gt;
 &lt;li&gt;Reinforcement Learning&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;自己因為碩論的關係，關注議題以 &lt;code&gt;Reinforcement Learning Model&lt;/code&gt; 為主，但在實際運用上比較常見的機器學習屬於Supervised, Unsupervised 和 Semi-supervised Learning.&lt;/p&gt;</summary></entry><entry><title>北美館</title><link href="/bei-mei-guan.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-04-24:bei-mei-guan.html</id><summary type="html">&lt;p&gt;&lt;img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/expo1.jpg" width="384" height="288" /&gt;&lt;/p&gt;
+&lt;p&gt;自己因為碩論的關係，關注議題以 Reinforcement Learning Model 為主，但在實際運用上比較常見的機器學習屬於Supervised, Unsupervised 和 Semi-supervised Learning.&lt;/p&gt;</summary></entry><entry><title>北美館</title><link href="/bei-mei-guan.html" rel="alternate"></link><updated>2016-04-26T00:00:00+08:00</updated><author><name>YD</name></author><id>tag:,2016-04-24:bei-mei-guan.html</id><summary type="html">&lt;p&gt;&lt;img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/expo1.jpg" width="384" height="288" /&gt;&lt;/p&gt;
 &lt;p&gt;久違的展覽，上一次想去看當代藝術館的卷川實花，沒想到超出預期的熱門，光是排隊就要兩小時，索性放棄。北美館有個「物理」非常吸引我，簡介包含了碳導電產生的聲響、還有利用吹風機製造的紙飛機的氣體動力，非常有趣，不過太晚得知消息，錯過兩次的展覽。  &lt;/p&gt;
 &lt;p&gt;這次也是在北美館，本沒帶著太大的期待，沒想到這次的展覽也蠻有趣的，以下：&lt;/p&gt;
 &lt;p&gt;&lt;img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/expo3.jpg" width="384" height="288" /&gt;&lt;/p&gt;
