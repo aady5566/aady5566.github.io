@@ -25,10 +25,10 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/k-nearest-neighbor-algorithms-knn.html">K-Nearest Neighbor algorithms (KNN)</a></h1>
+                    <h1 class="entry-title"><a href="/decision-regression-tree.html">Decision, Regression tree</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2016-04-26T17:00:00+08:00">
-                Published: 二 26 4月 2016
+        <abbr class="published" title="2016-04-27T10:00:00+08:00">
+                Published: 三 27 4月 2016
         </abbr>
 
         <address class="vcard author">
@@ -44,50 +44,72 @@ MathJax.Hub.Config({
 });
 </script>
 
-<p>如果我們有一筆資料 $(x_1,y_1),...,(x_n,y_n)$，  </p>
-<p>且 $x_i \in \mathbb{R}^2, y_i \in {0,1}$ (即 $x_i=(x_1,x_2)$為二維的自變項以及 $y_i = 0 ~or~ 1$的依變項)。如圖所示：
-<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/knn.png" width="400" height="400" />  </p>
-<p>橫軸為 $x_1$、縱軸為 $x_2$、藍色和紅色分別為已知的分類(0或1)。圖中的黃點並非髒污，而是要進行分類的 $x$。  </p>
-<p>KNN的概念其實很就是去算點與點之間的距離，距離越近表示類型越像(和<a href="http://aady5566.github.io/k-means.html">K-means</a>有異曲同工之妙，但注意，KNN是屬於<a href="http://aady5566.github.io/supervised-vs-unsupervised-learning.html">Supervised learning</a>，這點和K-means不同)。
-若 $k=1$，則是根據離黃點最近的「1個點」之分類為分類; $k=3$則是根據離黃點最近的「3個點」之分類為分類並採取多數決(majority vote of k nearest)。以下圖為例：
-<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/knn2.png" width="400" height="400" />  </p>
-<p>此例為 $k=3$，意即離黃點最近的三個點分別為1,1,0的分類，依照多數決應將黃點分類為類別1。  </p>
-<p>若將KNN寫成公式的話：<br />
-<div style="font-size:150%">$d(x_i,x_j)=\sqrt{\sum_{k=1}^{d}(x_{ik}-x_{jk})^2}, x_i=(x_{i1},...,x_{id})$</div>  </p>
-<p><img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/knndemo.png" width="400" height="400" />  </p>
-<p>此為 $k=1$的例子，已知紅點距離最近的點為藍色，因此判斷紅色的分類為1。有興趣的話可以參考下列R code。可以自己調整參數玩玩看</p>
-<pre>
-# K-Nearest Neighbor classification ---------------------------------------
-library(data.table)
-library(ggplot2)
-#training data
-#simplify to two-dimensional real numbers
-dt <- data.table(x1=sample(1:10,30,replace=T),x2=sample(1:10,30,replace=T),label=as.factor(sample(0:1,30,replace=T)))
-
-#new x^(2)=(x1,x2)
-newX=c(8,7)
-k=1 #k could be a odd number
-
-#find out the label of k smallest distances of x
-nearestLabels <- dt$label[!is.na(match(sqrt((newX[1]-dt$x1)^2+(newX[2]-dt$x2)^2),sort(sqrt((newX[1]-dt$x1)^2+(newX[2]-dt$x2)^2))[1:k]))]
-
-#majority vote of k nearest points
-tb <- as.data.table(table(nearestLabels))
-predictLabel <- paste("predict: ",tb$nearestLabels[match(max(tb$N),tb$N)],sep='')
-predict.dt <- data.table(x1=newX[1],x2=newX[2],label=predictLabel)
-
-#bind preditVal to original dt
-dt <- rbind(predict.dt,dt)
-
-#plot the outcome
-qplot(x1,x2,colour=label,data=dt)
-
-</pre>                </article>
+<p>Decision tree 與 Regression tree的概念都是建一顆樹(e.g. binary tree, minimize the traning error in each leaf)且都是<a href="http://aady5566.github.io/supervised-vs-unsupervised-learning.html">Supervised learning</a>。差別在於資料形態的不同：  </p>
+<ul>
+<li>Decision tree: $x_i \in \mathbb{R}, y_i \in $ { $ Finite~Set $ }$ $</li>
+<li>Regression tree: $x_i \in \mathbb{R}, y_i \in \mathbb{R}$</li>
+</ul>
+<p>Decision tree會有類別變項：
+<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/decisiontree.png" width="400" height="400" />  </p>
+<p>利用不斷的二分法將區域切出來。再依照該區的類別採多數決(majority vote of classification)進行分類。如下圖：
+<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/decisiontree.png" width="400" height="400" />  </p>
+<p>但因為採多數決，所以會有區域誤判的可能(下文會提到Impurity Measures來衡量誤判率)。</p>
+<p>先前提到Regression tree 和 Decision tree的差別為資料形態的不同，最簡單的例子即 $x$, $y$ 皆為實數。實際做法會先將 $x$切出好幾個區域(為決策的判斷)，接著在各個區域內得出預測值<br />
+ $\hat{y}$， 此預測值是來自該區依最小平方法得到的: $\bar{y} = min\sum_{i \in \mathbb{R}_k}(\hat{y}-y_i)^2$，即該區的平均值：
+<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/regressiontree.png" width="400" height="400" />   </p>
+<p>因此得到的預測值 $y$ 即為該區的 $\bar{y}$：
+<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/regressiontree2.png" width="400" height="400" />  </p>
+<p>那我們要如何擴充樹葉呢(也就是圖中的每個節點)?
+以三維空間舉例：
+<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/cube.png" width="400" height="400" />  </p>
+<p>如果要長regression tree，首先選定一個維度 $j=1$，根據資料點找出點 $s$ 使得 $ \sum_{x_{ij}&gt;s,x_i \in \mathbb{R}_j}(\hat{y}-y_i)^2$  </p>
+<p>加上  </p>
+<p>$\sum_{x_{ij} \leq s,x_i \in \mathbb{R}_j}(\hat{y}-y_i)^2$最小，根據這個原則重複步驟就可以做出一堆的sub-region。<br />
+那到底要切到何時呢?有兩種標準：  </p>
+<ul>
+<li>Stop when one points in the (sub-)region</li>
+<li>Only consider splits resulting in the (sub-)region with $\geq 5$</li>
+</ul>
+<p>同理，要長decision(classification) tree也是依照類似的方法，以二維平面解釋：
+<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/decisiontree3.png" width="400" height="400" />
+先定義一下，$E_R$: misclassified by a majority vote in the (sub-)region，以此圖為1/3，算法為 $min \frac{1}{N_{R_j}}\sum_{x_i \in \mathbb{R}_j} I(y_i \neq y) ,~y= ~${$  Finite~Set  $}$, N_R=~ ${$  i:x_i \in \mathbb{R_j}  $}  </p>
+<p>若以三維空間說明的話，則是讓切出的兩區的 $E_{R_j}(j,s)+E_{R_j}'(j,s)$ 最小化：<br />
+<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/cube2.png" width="400" height="400" />  </p>
+<hr />
+<p><h3>Impurity Measures</h3>  </p>
+<p>前述提到分類誤判，衡量一個模型的分類誤判率有三種常見的方式：  </p>
+<ul>
+<li>$E_R$: $P_R(Y), ~Y= ~${$  Classification Finite~Set  $}</li>
+<li>$H_R$ (Entropy): $-\sum_{y \in Y}(P_R(Y) \cdot \log{P_R(Y)})$</li>
+<li>$G_R$ (Gini's index): $\sum_{y \in Y}(P_R(Y) \cdot (1-P_R(Y)))$</li>
+</ul>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/k-nearest-neighbor-algorithms-knn.html" rel="bookmark"
+                           title="Permalink to K-Nearest Neighbor algorithms (KNN)">K-Nearest Neighbor algorithms (KNN)</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-04-26T17:00:00+08:00">
+                Published: 二 26 4月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/stat.html">Stat</a>.</p>
+
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/k-nearest-neighbor-algorithms-knn.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -101,8 +123,8 @@ qplot(x1,x2,colour=label,data=dt)
                 Published: 二 26 4月 2016
         </abbr>
 		<br />
-        <abbr class="modified" title="2016-04-26T00:00:00+08:00">
-                Updated: 二 26 4月 2016
+        <abbr class="modified" title="2016-04-27T00:00:00+08:00">
+                Updated: 三 27 4月 2016
         </abbr>
 
         <address class="vcard author">
@@ -127,8 +149,8 @@ qplot(x1,x2,colour=label,data=dt)
                 Published: 日 24 4月 2016
         </abbr>
 		<br />
-        <abbr class="modified" title="2016-04-26T00:00:00+08:00">
-                Updated: 二 26 4月 2016
+        <abbr class="modified" title="2016-04-27T00:00:00+08:00">
+                Updated: 三 27 4月 2016
         </abbr>
 
         <address class="vcard author">
@@ -153,8 +175,8 @@ qplot(x1,x2,colour=label,data=dt)
                 Published: 二 19 4月 2016
         </abbr>
 		<br />
-        <abbr class="modified" title="2016-04-26T00:00:00+08:00">
-                Updated: 二 26 4月 2016
+        <abbr class="modified" title="2016-04-27T00:00:00+08:00">
+                Updated: 三 27 4月 2016
         </abbr>
 
         <address class="vcard author">
@@ -166,31 +188,9 @@ qplot(x1,x2,colour=label,data=dt)
                 <a class="readmore" href="/zang-li.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/r2redshift.html" rel="bookmark"
-                           title="Permalink to R2Redshift">R2Redshift</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-04-14T11:00:00+08:00">
-                Published: 四 14 4月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/r.html">R</a>.</p>
-
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/r2redshift.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
                 </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 9
+    Page 1 / 10
         <a href="/index2.html">&raquo;</a>
 </p>
                 </section><!-- /#content -->
