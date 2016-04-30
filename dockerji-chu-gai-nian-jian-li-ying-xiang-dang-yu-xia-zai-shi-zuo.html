@@ -41,7 +41,23 @@
         </address>
 <p>In <a href="/category/worknote.html">WorkNote</a>.</p>
 <p>tags: <a href="/tag/docker.html">docker</a> </p>
-</footer><!-- /.post-info -->      <p>Docker 的基礎是 Linux 容器（LXC）等技術。</p>
+</footer><!-- /.post-info -->      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+<p>Docker 的基礎是 Linux 容器（LXC）等技術。</p>
 <p>容器是在作業系統層面上實作虛擬化，直接使用本地主機的作業系統，而傳統方式則是在硬體層面實作。</p>
 <p>容器除了執行其中應用外，基本不消耗額外的系統資源，使得應用的效能很高，同時系統資源消耗更少。傳統虛擬機方式執行 10 個不同的應用就要啟動 10 個虛擬機，而 Docker 只需要啟動 10 個隔離的應用即可。</p>
 <p>在O SX系統下，docker daemon(container) 的執行位置是在Linux VM下(docker-machine)，而VM完全是在RAM下運作。因此在container映射的埠應為docker-machine的ip而非本地端的80。  </p>

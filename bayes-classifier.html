@@ -45,7 +45,23 @@
         </address>
 <p>In <a href="/category/r.html">R</a>.</p>
 
-</footer><!-- /.post-info -->      <p><img class="alignnone size-large wp-image-133" src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="airbnb" width="330" height="100" />  </p>
+</footer><!-- /.post-info -->      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+<p><img class="alignnone size-large wp-image-133" src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="airbnb" width="330" height="100" />  </p>
 <p>因為一場面試讓我參加了一場<a href="https://www.kaggle.com/">kaggle</a>的比賽，是有關aribnb舉辦的。
 了解規則後，就上網去看一下，想說手刻一個簡單的bayes classifier。預測力不是很好，但之前都沒接觸分類法，之後真的要找時間學一下。</p>
 <p>原始資料的"age"會除了包含歲數外，也會有西元年的資訊，在我的naive bayes classifier，會把西元年的資訊去除。所以對於事後預測的部分若有含西元年的資訊，會有偏誤的情形。<br />
