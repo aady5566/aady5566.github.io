@@ -2,7 +2,7 @@
 <html lang="[en]">
 <head>
         <meta charset="utf-8" />
-        <title>Docker指令</title>
+        <title>Spark Installation On OS X</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="YD's Blog Atom Feed" />
 
@@ -26,25 +26,21 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="/dockerzhi-ling.html" rel="bookmark"
-           title="Permalink to Docker指令">Docker指令</a></h1>
+        <a href="/spark-installation-on-os-x.html" rel="bookmark"
+           title="Permalink to Spark Installation On OS X">Spark Installation On OS X</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-02-26T00:00:00+08:00">
-                Published: 五 26 2月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-05-14T00:00:00+08:00">
-                Updated: 六 14 5月 2016
+        <abbr class="published" title="2016-05-14T09:00:00+08:00">
+                Published: 六 14 5月 2016
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/yd.html">YD</a>
         </address>
 <p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/docker.html">docker</a> </p>
+<p>tags: <a href="/tag/spark.html">Spark</a> </p>
 </footer><!-- /.post-info -->      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
 MathJax.Hub.Config({
   tex2jax: {
@@ -61,22 +57,84 @@ ga('send', 'pageview');
 
 </script>
 
-<p>docker  </p>
-<ul>
-<li>docker kill &lt;container id&gt;</li>
-<li>docker ps</li>
-<li>docker restart &lt;container id&gt;</li>
-<li>docker start &lt;container id&gt;</li>
-<li>docker logs &lt;container id&gt;</li>
-<li>docker exec -it &lt;container id&gt;<ul>
-<li>bash 進到&lt;container id&gt;container -it:互動模式 以bash  </li>
-</ul>
-</li>
-</ul>
-<p>docker-machine</p>
-<ul>
-<li>docker-machine ls  </li>
-</ul>
+<p><img class='shaped'
+src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/spark.jpg" width="450" height="384" /><br />
+<br>
+這次的心得分享為安裝spark和使用mllib的範例，那就分兩個部分介紹吧！<br />
+<br>
+<br>
+<h2>安裝Spark</h2></p>
+<hr />
+<p>透過Homebrew安裝最新版本的Spark
+<br>
+<pre>
+$brew install apache-spark
+</pre><br />
+<br>
+安裝完後，理論上已經可以執行spark-shell了，不過我們再修改一下log的級別，以減少冗長的log。首先先進去spark的路徑，例如我的為 <code>/usr/local/Cellar/apache-spark/1.2.0/libexec/conf</code> (1.2.0為Spark版本)
+<pre>
+$cd /usr/local/Cellar/apache-spark/1.2.0/libexec/conf
+</pre><br />
+<br>
+複製log4j模板進上述的路徑<br />
+<pre>
+$cp log4j.properties.template log4j.properties
+</pre><br />
+<br>
+接著修改log4j.properties檔
+<br>
+<pre>
+$vim log4j.properties
+</pre><br />
+<br>
+將 <strong><em>INFO</em></strong> 改為 <strong><em>ERROR</em></strong><br />
+<code>log4j.rootCategory=ERROR, console</code><br />
+<br>
+<br>
+然後就可以執行看看spark-shell了!
+<br>
+<pre>
+$cd /usr/local/Cellar/apache-spark/1.2.0
+$./bin/spark-shell
+</pre><br />
+<br>
+<br></p>
+<h2>MLlib Demo</h2>
+
+<hr />
+<p>以ALS為例，首先安裝相依套件<br />
+<br>
+<pre>
+import org.apache.spark.mllib.recommendation.ALS
+import org.apache.spark.mllib.recommendation.MatrixFactorizationModel
+import org.apache.spark.mllib.recommendation.Rating</p>
+<p>val data = sc.textFile("libexec/data/mllib/als/ydtest.data")
+val ratings = data.map(_.split(',') match { case Array(user, item, rate) =&gt;
+  Rating(user.toInt, item.toInt, rate.toDouble)
+})</p>
+<p>// Build the recommendation model using ALS
+val rank = 10
+val numIterations = 10
+val model = ALS.train(ratings, rank, numIterations, 0.01)</p>
+<p>// Evaluate the model on rating data
+val usersProducts = ratings.map { case Rating(user, product, rate) =&gt;
+  (user, product)
+}
+val predictions =
+  model.predict(usersProducts).map { case Rating(user, product, rate) =&gt;
+    ((user, product), rate)
+  }
+val ratesAndPreds = ratings.map { case Rating(user, product, rate) =&gt;
+  ((user, product), rate)
+}.join(predictions)
+val MSE = ratesAndPreds.map { case ((user, product), (r1, r2)) =&gt;
+  val err = (r1 - r2)
+  err * err
+}.mean()
+println("Mean Squared Error = " + MSE)</p>
+<p></pre><br />
+<br>
+比較要注意的是資料輸入的路徑，如果是用 <code>$spark-shell</code>進入的話，路徑需設為絕對路徑。</p>
     </div><!-- /.entry-content -->
 
   </article>
