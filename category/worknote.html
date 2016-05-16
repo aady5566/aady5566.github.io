@@ -25,17 +25,17 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/spark-installation-on-os-x.html">Spark Installation On OS X</a></h1>
+                    <h1 class="entry-title"><a href="/intalling-redis-on-docker.html">Intalling Redis on Docker</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2016-05-14T09:00:00+08:00">
-                Published: 六 14 5月 2016
+        <abbr class="published" title="2016-05-16T19:00:00+08:00">
+                Published: 一 16 5月 2016
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/yd.html">YD</a>
         </address>
 <p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/spark.html">Spark</a> </p>
+<p>tags: <a href="/tag/docker.html">docker</a> <a href="/tag/redis.html">redis</a> </p>
 </footer><!-- /.post-info --><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
 MathJax.Hub.Config({
   tex2jax: {
@@ -52,89 +52,95 @@ ga('send', 'pageview');
 
 </script>
 
-<p><img class='shaped'
-src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/spark.png" width="450" height="384" /><br />
-<br>
-這次的心得分享為安裝spark和使用mllib的範例，那就分兩個部分介紹吧！<br />
-<br>
-<br>
-<h2>安裝Spark</h2></p>
-<hr />
-<p>透過Homebrew安裝最新版本的Spark
-<br>
+<p>我們要先利用Dockerfile建立一個docker的映像檔：<br />
 <pre>
-$brew install apache-spark
+FROM        ubuntu:14.04
+RUN         apt-get update &amp;&amp; apt-get install -y redis-server
+EXPOSE      6379
+ENTRYPOINT  ["/usr/bin/redis-server"]
 </pre><br />
 <br>
-安裝完後，理論上已經可以執行spark-shell了，不過我們再修改一下log的級別，以減少冗長的log。首先先進去spark的路徑，例如我的為 <code>/usr/local/Cellar/apache-spark/1.2.0/libexec/conf</code> (1.2.0為Spark版本)
+且檔名為Dockerfile。這時候還沒有建任何的映像檔，直到輸入下列指令：<br />
 <pre>
-$cd /usr/local/Cellar/apache-spark/1.2.0/libexec/conf
+docker build -t <your username>/redis <Dockerfile path> //上層目錄
 </pre><br />
 <br>
-複製log4j模板進上述的路徑<br />
+接著我們根據建好的映像檔來啟一個容器並命名為 <code>redis</code> 。 <code>-d</code> 表容器處於detached mode，也就是容器會在背景執行。 <code>-p</code> 則是希望container能連接到localhost端：<br />
 <pre>
-$cp log4j.properties.template log4j.properties
+$ docker run --name redis -p 6379:6379 -d <your username>/redis
 </pre><br />
 <br>
-接著修改log4j.properties檔
-<br>
+下一步則是我們讓 <code>redis</code> 與 <code>db</code> 透過 <code>--link</code> 連結。並進入容器的bash模式：<br />
 <pre>
-$vim log4j.properties
+docker run --link redis:db -i -t ubuntu:14.04 /bin/bash
 </pre><br />
 <br>
-將 <strong><em>INFO</em></strong> 改為 <strong><em>ERROR</em></strong><br />
-<code>log4j.rootCategory=ERROR, console</code><br />
-<br>
-<br>
-然後就可以執行看看spark-shell了!
-<br>
+並執行：<br />
 <pre>
-$cd /usr/local/Cellar/apache-spark/1.2.0
-$./bin/spark-shell
+$sudo apt-get update
+$sudo apt-get install redis-server
+$sudo service redis-server stop
 </pre><br />
 <br>
-<br></p>
-<h2>MLlib Demo</h2>
-
-<hr />
-<p>以ALS為例，首先安裝相依套件<br />
-<br>
+又因前述使用了 <code>--link redis:db</code> ，Docker在我們的容器內已生成了環境變數：<br />
 <pre>
-import org.apache.spark.mllib.recommendation.ALS
-import org.apache.spark.mllib.recommendation.MatrixFactorizationModel
-import org.apache.spark.mllib.recommendation.Rating</p>
-<p>val data = sc.textFile("libexec/data/mllib/als/ydtest.data")
-val ratings = data.map(_.split(',') match { case Array(user, item, rate) =&gt;
-  Rating(user.toInt, item.toInt, rate.toDouble)
-})</p>
-<p>// Build the recommendation model using ALS
-val rank = 10
-val numIterations = 10
-val model = ALS.train(ratings, rank, numIterations, 0.01)</p>
-<p>// Evaluate the model on rating data
-val usersProducts = ratings.map { case Rating(user, product, rate) =&gt;
-  (user, product)
-}
-val predictions =
-  model.predict(usersProducts).map { case Rating(user, product, rate) =&gt;
-    ((user, product), rate)
-  }
-val ratesAndPreds = ratings.map { case Rating(user, product, rate) =&gt;
-  ((user, product), rate)
-}.join(predictions)
-val MSE = ratesAndPreds.map { case ((user, product), (r1, r2)) =&gt;
-  val err = (r1 - r2)
-  err * err
-}.mean()
-println("Mean Squared Error = " + MSE)</p>
-<p></pre><br />
+$ env | grep DB_</p>
+<p>//Should return something similar to this with your values
+DB_NAME=/violet_wolf/db
+DB_PORT_6379_TCP_PORT=6379
+DB_PORT=tcp://172.17.0.33:6379
+DB_PORT_6379_TCP=tcp://172.17.0.33:6379
+DB_PORT_6379_TCP_ADDR=172.17.0.33
+DB_PORT_6379_TCP_PROTO=tcp
+</pre><br />
 <br>
-比較要注意的是資料輸入的路徑，如果是用 <code>$spark-shell</code>進入的話，路徑需設為絕對路徑。</p>                </article>
+接著就可以在container內下redis-cli指令後，進行redis指令的操作了!<br />
+<pre>
+$ redis-cli -h $DB_PORT_6379_TCP_ADDR
+$ redis 172.17.0.33:6379&gt;
+$ redis 172.17.0.33:6379&gt; set docker awesome
+OK
+$ redis 172.17.0.33:6379&gt; get docker
+"awesome"
+$ redis 172.17.0.33:6379&gt; exit
+</pre><br />
+<br>
+因為前述此時已經可以透過api連到外面去了! (e.g. 192.168.99.100:6379)  </p>
+<p>筆記一： 如果要重新啟動container? $docker start <redisName> 即可。  </p>
+<p>筆記二： 若不知道無核再次於docker內操作redis?<br />
+<pre>
+$docker start ydredis //後進入bash模式
+$docker exec -it ydredis bash //接著必須先查看一下docker engine此時賦予container的ip
+$ifconfig //查看ip
+$redis-cli -h <ip> //就可以開始下redis指令了!
+</pre></p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/spark-installation-on-os-x.html" rel="bookmark"
+                           title="Permalink to Spark Installation On OS X">Spark Installation On OS X</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-05-14T09:00:00+08:00">
+                Published: 六 14 5月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
+<p>tags: <a href="/tag/spark.html">Spark</a> </p>
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/spark-installation-on-os-x.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -199,32 +205,6 @@ println("Mean Squared Error = " + MSE)</p>
 <p>tags: <a href="/tag/docker.html">docker</a> </p>
 </footer><!-- /.post-info -->                
                 <a class="readmore" href="/dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/cmdzhi-ling.html" rel="bookmark"
-                           title="Permalink to CMD指令">CMD指令</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-02-26T00:00:00+08:00">
-                Published: 五 26 2月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-05-14T00:00:00+08:00">
-                Updated: 六 14 5月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/cmd.html">cmd</a> <a href="/tag/aws.html">AWS</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/cmdzhi-ling.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
