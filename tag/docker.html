@@ -69,8 +69,11 @@ docker build -t <your username>/redis <Dockerfile path> //上層目錄
 <pre>
 $ docker run --name redis -p 6379:6379 -d <your username>/redis
 </pre><br />
-<br>
-下一步則是我們讓 <code>redis</code> 與 <code>db</code> 透過 <code>--link</code> 連結。並進入容器的bash模式：<br />
+<br></p>
+<h2>方法二</h2>
+
+<hr />
+<p>下一步則是我們讓 <code>redis</code> 與 <code>db</code> 透過 <code>--link</code> 連結。並進入容器的bash模式：<br />
 <pre>
 docker run --link redis:db -i -t ubuntu:14.04 /bin/bash
 </pre><br />
@@ -105,7 +108,11 @@ $ redis 172.17.0.33:6379&gt; get docker
 $ redis 172.17.0.33:6379&gt; exit
 </pre><br />
 <br>
-因為前述此時已經可以透過api連到外面去了! (e.g. 192.168.99.100:6379)  </p>
+因為前述已經使用 <code>-p 6379:6379</code> 此時已經可以透過api連到外面去了! (e.g. 192.168.99.100:6379)<br />
+<br>
+<br>
+<h2>額外補充</h2></p>
+<hr />
 <p>筆記一： 如果要重新啟動container? $docker start <redisName> 即可。  </p>
 <p>筆記二： 若不知道無核再次於docker內操作redis?<br />
 <pre>
@@ -154,8 +161,8 @@ $redis-cli -h <ip> //就可以開始下redis指令了!
                 Published: 五 26 2月 2016
         </abbr>
 		<br />
-        <abbr class="modified" title="2016-05-16T00:00:00+08:00">
-                Updated: 一 16 5月 2016
+        <abbr class="modified" title="2016-05-24T00:00:00+08:00">
+                Updated: 二 24 5月 2016
         </abbr>
 
         <address class="vcard author">
