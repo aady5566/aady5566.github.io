@@ -78,7 +78,7 @@ $ docker run --name redis -p 6379:6379 -d <your username>/redis
 <h2>方法二</h2>
 
 <hr />
-<p>下一步則是我們讓 <code>redis</code> 與 <code>db</code> 透過 <code>--link</code> 連結。並進入容器的bash模式：<br />
+<p>另一個方法是我們讓 <code>redis</code> 與 <code>db</code> 透過 <code>--link</code> 連結。並進入容器的bash模式：<br />
 <pre>
 docker run --link redis:db -i -t ubuntu:14.04 /bin/bash
 </pre><br />
