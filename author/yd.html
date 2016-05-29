@@ -25,17 +25,21 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/intalling-redis-on-docker.html">Intalling Redis on Docker</a></h1>
+                    <h1 class="entry-title"><a href="/zi-ce-hui-mian-shi.html">資策會面試</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2016-05-16T19:00:00+08:00">
-                Published: 一 16 5月 2016
+        <abbr class="published" title="2016-05-28T00:00:00+08:00">
+                Published: 六 28 5月 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2016-05-29T00:00:00+08:00">
+                Updated: 日 29 5月 2016
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/yd.html">YD</a>
         </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/docker.html">docker</a> <a href="/tag/redis.html">redis</a> </p>
+<p>In <a href="/category/diary.html">Diary</a>.</p>
+<p>tags: <a href="/tag/life.html">Life</a> </p>
 </footer><!-- /.post-info --><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
 MathJax.Hub.Config({
   tex2jax: {
@@ -52,80 +56,38 @@ ga('send', 'pageview');
 
 </script>
 
-<p>我們要先利用Dockerfile建立一個docker的映像檔：<br />
-<pre>
-FROM        ubuntu:14.04
-RUN         apt-get update &amp;&amp; apt-get install -y redis-server
-EXPOSE      6379
-ENTRYPOINT  ["/usr/bin/redis-server"]
-</pre><br />
+<p><img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/interview.jpg" width="384" height="288" /><br />
+<br>  </p>
+<p>區間車漫漫而行，反覆思索著待會的面試問題如何簡短卻不失效度。一點開始，面試的學員魚貫而入，因為資策會的關係，學員們的年紀、社會經驗、技術程度參差。回到半年前，當時的我因為同事們對於資策會的介紹，以及他們培養的強實力(但是有樣本偏誤，本身就很強)，非常嚮往進來資策會培養較完整的程式世界觀，遺憾時不我予，變成工作導向的方式做中學，焉知非福啦。回到面試會場，幾乎九成的學員都是非理工背景的，最好奇的一定是為何願意花半年時間投入一個未知的領域中。有人希望利用大數據帶動生技產業、有人希望開發程式協助非營利組織、醫療體系。多少稍微有年紀一點的30歲左右，對於自己進入資策會學習都有很強烈的目的性，然而卻還是有不少學員的提問令人傻眼：「請問我進入貴公司能學到什麼?公司會培訓我們嗎?」用這種很積極的態度問這樣的問題，是想表示自己充滿好奇心、對於學習汲汲營營嗎?我實在很困惑。「公司很樂意夥伴們有自主學習的能力，也非常樂意在工作之餘能培養新技術...。」但公司不是學校，別搞錯重點了阿大大們。<br />
 <br>
-且檔名為Dockerfile。這時候還沒有建任何的映像檔，直到輸入下列指令：<br />
-<pre>
-docker build -t <your username>/redis <Dockerfile path> //上層目錄
-</pre><br />
-<br>
-接著我們根據建好的映像檔來啟一個容器並命名為 <code>redis</code> 。 <code>-d</code> 表容器處於detached mode，也就是容器會在背景執行。 <code>-p</code> 則是希望container能連接到localhost端：<br />
-<pre>
-$ docker run --name redis -p 6379:6379 -d <your username>/redis
-</pre><br />
-<br></p>
-<h2>方法二</h2>
-
-<hr />
-<p>另一個方法是我們讓 <code>redis</code> 與 <code>db</code> 透過 <code>--link</code> 連結。並進入容器的bash模式：<br />
-<pre>
-docker run --link redis:db -i -t ubuntu:14.04 /bin/bash
-</pre><br />
-<br>
-並執行：<br />
-<pre>
-$sudo apt-get update
-$sudo apt-get install redis-server
-$sudo service redis-server stop
-</pre><br />
-<br>
-又因前述使用了 <code>--link redis:db</code> ，Docker在我們的容器內已生成了環境變數：<br />
-<pre>
-$ env | grep DB_</p>
-<p>//Should return something similar to this with your values
-DB_NAME=/violet_wolf/db
-DB_PORT_6379_TCP_PORT=6379
-DB_PORT=tcp://172.17.0.33:6379
-DB_PORT_6379_TCP=tcp://172.17.0.33:6379
-DB_PORT_6379_TCP_ADDR=172.17.0.33
-DB_PORT_6379_TCP_PROTO=tcp
-</pre><br />
-<br>
-接著就可以在container內下redis-cli指令後，進行redis指令的操作了!<br />
-<pre>
-$ redis-cli -h $DB_PORT_6379_TCP_ADDR
-$ redis 172.17.0.33:6379&gt;
-$ redis 172.17.0.33:6379&gt; set docker awesome
-OK
-$ redis 172.17.0.33:6379&gt; get docker
-"awesome"
-$ redis 172.17.0.33:6379&gt; exit
-</pre><br />
-<br>
-因為前述已經使用 <code>-p 6379:6379</code> 此時已經可以透過api連到外面去了! (e.g. 192.168.99.100:6379)<br />
-<br>
-<br>
-<h2>額外補充</h2></p>
-<hr />
-<p>筆記一： 如果要重新啟動container? $docker start <redisName> 即可。  </p>
-<p>筆記二： 若不知道無核再次於docker內操作redis?<br />
-<pre>
-$docker start ydredis //後進入bash模式
-$docker exec -it ydredis bash //接著必須先查看一下docker engine此時賦予container的ip
-$ifconfig //查看ip
-$redis-cli -h <ip> //就可以開始下redis指令了!
-</pre></p>                </article>
+不久前，因為前同事做了非常不好的榜樣，讓公司、夥伴們受到一定程度的傷害，不希望此事再發生。面試過後，和同事Hans一邊過濾手邊的名單，一邊提醒自己「技術很重要，但擁有團隊合作、認真的態度更重要」。</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/intalling-redis-on-docker.html" rel="bookmark"
+                           title="Permalink to Intalling Redis on Docker">Intalling Redis on Docker</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-05-16T19:00:00+08:00">
+                Published: 一 16 5月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
+<p>tags: <a href="/tag/docker.html">docker</a> <a href="/tag/redis.html">redis</a> </p>
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/intalling-redis-on-docker.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -190,32 +152,6 @@ $redis-cli -h <ip> //就可以開始下redis指令了!
 
 </footer><!-- /.post-info -->                
                 <a class="readmore" href="/k-nearest-neighbor-algorithms-knn.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/supervised-vs-unsupervised-learning.html" rel="bookmark"
-                           title="Permalink to Supervised vs. Unsupervised Learning">Supervised vs. Unsupervised Learning</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-04-26T09:00:00+08:00">
-                Published: 二 26 4月 2016
-        </abbr>
-		<br />
-        <abbr class="modified" title="2016-05-24T00:00:00+08:00">
-                Updated: 二 24 5月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/stat.html">Stat</a>.</p>
-
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/supervised-vs-unsupervised-learning.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
