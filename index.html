@@ -17,6 +17,7 @@
                 <nav><ul>
                     <li><a href="/category/diary.html">Diary</a></li>
                     <li><a href="/category/r.html">R</a></li>
+                    <li><a href="/category/scala.html">Scala</a></li>
                     <li><a href="/category/stat.html">Stat</a></li>
                     <li><a href="/category/worknote.html">WorkNote</a></li>
                 </ul></nav>
@@ -24,17 +25,17 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/intalling-redis-on-docker.html">Intalling Redis on Docker</a></h1>
+                    <h1 class="entry-title"><a href="/meng-xiang.html">夢想</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2016-05-16T19:00:00+08:00">
-                Published: 一 16 5月 2016
+        <abbr class="published" title="2016-06-25T00:00:00+08:00">
+                Published: 六 25 6月 2016
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/yd.html">YD</a>
         </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/docker.html">docker</a> <a href="/tag/redis.html">redis</a> </p>
+<p>In <a href="/category/diary.html">Diary</a>.</p>
+<p>tags: <a href="/tag/life.html">Life</a> </p>
 </footer><!-- /.post-info --><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
 MathJax.Hub.Config({
   tex2jax: {
@@ -51,80 +52,49 @@ ga('send', 'pageview');
 
 </script>
 
-<p>我們要先利用Dockerfile建立一個docker的映像檔：<br />
-<pre>
-FROM        ubuntu:14.04
-RUN         apt-get update &amp;&amp; apt-get install -y redis-server
-EXPOSE      6379
-ENTRYPOINT  ["/usr/bin/redis-server"]
-</pre><br />
+<p><img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/elerenu.jpg" width="384" height="288" />
 <br>
-且檔名為Dockerfile。這時候還沒有建任何的映像檔，直到輸入下列指令：<br />
-<pre>
-docker build -t <your username>/redis <Dockerfile path> //上層目錄
-</pre><br />
+<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/elerenu2.jpg" width="384" height="288" /><br />
 <br>
-接著我們根據建好的映像檔來啟一個容器並命名為 <code>redis</code> 。 <code>-d</code> 表容器處於detached mode，也就是容器會在背景執行。 <code>-p</code> 則是希望container能連接到localhost端：<br />
-<pre>
-$ docker run --name redis -p 6379:6379 -d <your username>/redis
-</pre><br />
 <br></p>
-<h2>方法二</h2>
-
-<hr />
-<p>另一個方法是我們讓 <code>redis</code> 與 <code>db</code> 透過 <code>--link</code> 連結。並進入容器的bash模式：<br />
-<pre>
-docker run --link redis:db -i -t ubuntu:14.04 /bin/bash
-</pre><br />
+<p>「所以你小時候的夢想，什麼時候消失殆盡?為何不夠堅持、不夠勇敢，最後放棄了?」<br />
 <br>
-並執行：<br />
-<pre>
-$sudo apt-get update
-$sudo apt-get install redis-server
-$sudo service redis-server stop
-</pre><br />
+我記得，幼稚園時，邊吃噁心的炒飯邊和同學聊每週六期待的金剛戰士：並心想，我以後當紫衣?戰士; 小三時，在早自習前的打掃，在榕樹下跟某位同學討論未來志向：「當檸檬汽水的蛋Ｑ」。<br />
 <br>
-又因前述使用了 <code>--link redis:db</code> ，Docker在我們的容器內已生成了環境變數：<br />
-<pre>
-$ env | grep DB_</p>
-<p>//Should return something similar to this with your values
-DB_NAME=/violet_wolf/db
-DB_PORT_6379_TCP_PORT=6379
-DB_PORT=tcp://172.17.0.33:6379
-DB_PORT_6379_TCP=tcp://172.17.0.33:6379
-DB_PORT_6379_TCP_ADDR=172.17.0.33
-DB_PORT_6379_TCP_PROTO=tcp
-</pre><br />
+小六的畢業考考砸了，老媽一邊生氣一邊失望沈迷網路遊戲的我，但當時我只想成為RO iris伺服器最強的體牧。這個「夢想」持續到國二，豪賭一把將+8、+9裝備拿去精煉爆了後，痛定思痛才開始回到課本中，心思放在直升薇閣高中的「夢想」。方上高一，連一、二、三類還傻傻分不清的情形下，高中國文老師強逼我們說自己的「夢想」是念「台大」，一直到高二下模考成績出來，「夢想」偷偷添了一個「師」字。不知是運氣多還實力多，最後「師」字並沒有出現。大學探索方向的時候，<br />
 <br>
-接著就可以在container內下redis-cli指令後，進行redis指令的操作了!<br />
-<pre>
-$ redis-cli -h $DB_PORT_6379_TCP_ADDR
-$ redis 172.17.0.33:6379&gt;
-$ redis 172.17.0.33:6379&gt; set docker awesome
-OK
-$ redis 172.17.0.33:6379&gt; get docker
-"awesome"
-$ redis 172.17.0.33:6379&gt; exit
-</pre><br />
+隨著年紀增長，夢想從角色變成了執行的任務，虛幻成具體，無知到實際，目標方向都是人人稱羨職位或是薪水，從沒想過自己內心真正的聲音…。<br />
 <br>
-因為前述已經使用 <code>-p 6379:6379</code> 此時已經可以透過api連到外面去了! (e.g. 192.168.99.100:6379)<br />
+該慶幸自己能在實際中找到一點興趣，但自己內心的聲音總是在夜幕降臨後發出悶響，追那自以為浪漫的浪漫。<br />
 <br>
-<br>
-<h2>額外補充</h2></p>
-<hr />
-<p>筆記一： 如果要重新啟動container? $docker start <redisName> 即可。  </p>
-<p>筆記二： 若不知道無核再次於docker內操作redis?<br />
-<pre>
-$docker start ydredis //後進入bash模式
-$docker exec -it ydredis bash //接著必須先查看一下docker engine此時賦予container的ip
-$ifconfig //查看ip
-$redis-cli -h <ip> //就可以開始下redis指令了!
-</pre></p>                </article>
+很開心今天的小學同學會能看見大家，聽到大家都過得很好，真心覺得開心！也希望未來的我們都能更勇敢，眼神都還充滿著光。</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/intalling-redis-on-docker.html" rel="bookmark"
+                           title="Permalink to Intalling Redis on Docker">Intalling Redis on Docker</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-05-16T19:00:00+08:00">
+                Published: 一 16 5月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
+<p>tags: <a href="/tag/docker.html">docker</a> <a href="/tag/redis.html">redis</a> </p>
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/intalling-redis-on-docker.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -191,31 +161,9 @@ $redis-cli -h <ip> //就可以開始下redis指令了!
                 <a class="readmore" href="/k-nearest-neighbor-algorithms-knn.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/r2redshift.html" rel="bookmark"
-                           title="Permalink to R2Redshift">R2Redshift</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-04-14T11:00:00+08:00">
-                Published: 四 14 4月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/r.html">R</a>.</p>
-
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/r2redshift.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
                 </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 3
+    Page 1 / 10
         <a href="/index2.html">&raquo;</a>
 </p>
                 </section><!-- /#content -->
