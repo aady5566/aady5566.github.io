@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-06-25T00:00:00+08:00</updated><entry><title>夢想</title><link href="/meng-xiang.html" rel="alternate"></link><published>2016-06-25T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-06-25:meng-xiang.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-07-17T00:00:00+08:00</updated><entry><title>Docker指令</title><link href="/dockerzhi-ling.html" rel="alternate"></link><published>2016-07-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-07-17:dockerzhi-ling.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+&lt;/script&gt;
+
+&lt;p&gt;docker  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;docker kill &amp;lt;container id&amp;gt;&lt;/li&gt;
+&lt;li&gt;docker ps&lt;/li&gt;
+&lt;li&gt;docker restart &amp;lt;container id&amp;gt;&lt;/li&gt;
+&lt;li&gt;docker start &amp;lt;container id&amp;gt;&lt;/li&gt;
+&lt;li&gt;docker logs &amp;lt;container id&amp;gt;&lt;/li&gt;
+&lt;li&gt;docker exec -it &amp;lt;container id&amp;gt;&lt;ul&gt;
+&lt;li&gt;bash 進到&amp;lt;container id&amp;gt;container -it:互動模式 以bash  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;docker-machine&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;docker-machine ls  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Create image from container  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;docker commit &amp;lt;container&amp;gt; &amp;lt;name&amp;gt;/&amp;lt;image&amp;gt;:&amp;lt;version&amp;gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="docker"></category></entry><entry><title>夢想</title><link href="/meng-xiang.html" rel="alternate"></link><published>2016-06-25T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-06-25:meng-xiang.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -944,39 +979,7 @@ ga('send', 'pageview');
 &lt;li&gt;(/home/ec2-user為存放位置)  &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cmd"></category><category term="AWS"></category></entry><entry><title>Docker指令</title><link href="/dockerzhi-ling.html" rel="alternate"></link><published>2016-02-26T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-26:dockerzhi-ling.html</id><summary type="html">&lt;p&gt;Summary:&lt;/p&gt;
-&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
-  }
-});
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-77164531-1', 'auto');
-ga('send', 'pageview');
-
-&lt;/script&gt;
-
-&lt;p&gt;docker  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;docker kill &amp;lt;container id&amp;gt;&lt;/li&gt;
-&lt;li&gt;docker ps&lt;/li&gt;
-&lt;li&gt;docker restart &amp;lt;container id&amp;gt;&lt;/li&gt;
-&lt;li&gt;docker start &amp;lt;container id&amp;gt;&lt;/li&gt;
-&lt;li&gt;docker logs &amp;lt;container id&amp;gt;&lt;/li&gt;
-&lt;li&gt;docker exec -it &amp;lt;container id&amp;gt;&lt;ul&gt;
-&lt;li&gt;bash 進到&amp;lt;container id&amp;gt;container -it:互動模式 以bash  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;docker-machine&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;docker-machine ls  &lt;/li&gt;
-&lt;/ul&gt;</summary><category term="docker"></category></entry><entry><title>巨量資料概述</title><link href="/ju-liang-zi-liao-gai-shu.html" rel="alternate"></link><published>2016-02-26T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-26:ju-liang-zi-liao-gai-shu.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/ul&gt;</summary><category term="cmd"></category><category term="AWS"></category></entry><entry><title>巨量資料概述</title><link href="/ju-liang-zi-liao-gai-shu.html" rel="alternate"></link><published>2016-02-26T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-26:ju-liang-zi-liao-gai-shu.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
