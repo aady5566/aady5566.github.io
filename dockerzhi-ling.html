@@ -32,8 +32,8 @@
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-07-17T00:00:00+08:00">
-                Published: 日 17 7月 2016
+        <abbr class="published" title="2016-02-26T00:00:00+08:00">
+                Published: 五 26 2月 2016
         </abbr>
 
         <address class="vcard author">
@@ -75,7 +75,29 @@ ga('send', 'pageview');
 </ul>
 <p>Create image from container  </p>
 <ul>
-<li>docker commit &lt;container&gt; &lt;name&gt;/&lt;image&gt;:&lt;version&gt;</li>
+<li>docker commit &lt;container&gt; &lt;name&gt;/&lt;image&gt;:&lt;version&gt;  </li>
+</ul>
+<hr />
+<p>VM中執行docker  </p>
+<ul>
+<li>
+<p>sudo systemctl start docker  </p>
+</li>
+<li>
+<p>sudo systemctl status docker  //確認有無執行  </p>
+</li>
+<li>
+<p>sudo systemctl enable docker //開機便執行</p>
+</li>
+</ul>
+<p>VM中設定user不需sudo指令  </p>
+<ul>
+<li>
+<p>sudo groupadd docker //創建一個docker group  </p>
+</li>
+<li>
+<p>sudo usermod -aG docker &lt;user&gt; //加入user至docker group</p>
+</li>
 </ul>
     </div><!-- /.entry-content -->
 
