@@ -45,7 +45,14 @@ ga('send', 'pageview');
     };
     */
     (function() {  // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');</summary><category term="Life"></category></entry><entry><title>Intalling Redis on Docker</title><link href="/intalling-redis-on-docker.html" rel="alternate"></link><published>2016-05-16T19:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-05-16:intalling-redis-on-docker.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;</summary><category term="Life"></category></entry><entry><title>Intalling Redis on Docker</title><link href="/intalling-redis-on-docker.html" rel="alternate"></link><published>2016-05-16T19:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-05-16:intalling-redis-on-docker.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
