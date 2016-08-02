@@ -25,17 +25,17 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/meng-xiang.html">夢想</a></h1>
+                    <h1 class="entry-title"><a href="/git-tutorial-demo-on-bitbucket.html">Git Tutorial (Demo on Bitbucket)</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2016-06-25T00:00:00+08:00">
-                Published: 六 25 6月 2016
+        <abbr class="published" title="2016-08-02T00:00:00+08:00">
+                Published: 二 02 8月 2016
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/yd.html">YD</a>
         </address>
-<p>In <a href="/category/diary.html">Diary</a>.</p>
-<p>tags: <a href="/tag/life.html">Life</a> </p>
+<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
+<p>tags: <a href="/tag/git.html">git</a> </p>
 </footer><!-- /.post-info --><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
 MathJax.Hub.Config({
   tex2jax: {
@@ -52,22 +52,125 @@ ga('send', 'pageview');
 
 </script>
 
-<p><img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/elerenu.jpg" width="384" height="288" />
-<br>
-<img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/elerenu2.jpg" width="384" height="288" /><br />
-<br>
-<br></p>
-<p>「所以你小時候的夢想，什麼時候消失殆盡?為何不夠堅持、不夠勇敢，最後放棄了?」<br />
-<br>
-我記得，幼稚園時，邊吃噁心的炒飯邊和同學聊每週六期待的金剛戰士：並心想，我以後當紫衣?戰士; 小三時，在早自習前的打掃，在榕樹下跟某位同學討論未來志向：「當檸檬汽水的蛋Ｑ」。<br />
-<br>
-小六的畢業考考砸了，老媽一邊生氣一邊失望沈迷網路遊戲的我，但當時我只想成為RO iris伺服器最強的體牧。這個「夢想」持續到國二，豪賭一把將+8、+9裝備拿去精煉爆了後，痛定思痛才開始回到課本中，心思放在直升薇閣高中的「夢想」。方上高一，連一、二、三類還傻傻分不清的情形下，高中國文老師強逼我們說自己的「夢想」是念「台大」，一直到高二下模考成績出來，「夢想」偷偷添了一個「師」字。不知是運氣多還實力多，最後「師」字並沒有出現。大學探索方向的時候，<br />
-<br>
-隨著年紀增長，夢想從角色變成了執行的任務，虛幻成具體，無知到實際，目標方向都是人人稱羨職位或是薪水，從沒想過自己內心真正的聲音…。<br />
-<br>
-該慶幸自己能在實際中找到一點興趣，但自己內心的聲音總是在夜幕降臨後發出悶響，追那自以為浪漫的浪漫。<br />
-<br>
-很開心今天的小學同學會能看見大家，聽到大家都過得很好，真心覺得開心！也希望未來的我們都能更勇敢，眼神都還充滿著光。</p>
+<h1>Create repository</h1>
+<p>創建bitbucket 帳號：<a href="https://bitbucket.org/">https://bitbucket.org</a></p>
+<p>Name: 知識庫名稱，也是default local file folder name
+  Access Level: 比免費github多的功能，私密桶。<br />
+  Forking: 最好設定no forking，這樣就不會被複製知識庫。<br />
+  Repository type: 預設git。(Windows 需要下載 git command line)<br />
+  Project management<br />
+  Language: 程式碼的知識庫為何 <br />
+  Repository integrations  </p>
+<hr />
+<h1>基本git指令與實作程序</h1>
+<p>為何要用git? <strong>以空間錯位換取時間錯位</strong></p>
+<p>將知識庫拉至本地端：開啟預定存放的資料夾位置 cd C://<path></p>
+<div class="highlight"><pre><span></span>git clone https://&lt;account&gt;@bitbucket.org/&lt;account&gt;/&lt;bucketname&gt;.git
+</pre></div>
+
+
+<hr />
+<h2>情境一：自己管理自己的知識庫</h2>
+<p>創建好知識庫並拉到本地端
+基礎的add, commit, push</p>
+<div class="highlight"><pre><span></span>vim doc.txt //新增一個文件
+git add doc.txt //加入文件，若之後是要整個資料夾push，可用 git add --all 或 git add .
+git commit -m &quot;first commit&quot;
+git push origin master //第一次push要寫 origin master ，因為遠端並沒有這條branch
+</pre></div>
+
+
+<p><strong>但是只有自己管理不行，要和別人協作，先學會branch操作</strong></p>
+<hr />
+<p>基礎的branch操作
+根據原本的doc.txt 進行修改，並另闢一分支 (branch) ，將編輯過的檔案放入。</p>
+<div class="highlight"><pre><span></span>git checkout -b b1 //創建新的分支名為 &quot;b1&quot;
+(修改master分支的 doc.txt 內容)
+git add .
+git commit -m &quot;b1 first commit&quot;
+git push --set-upstream origin b1 //因為遠端尚未有 b1 分支，因此要先用 origin
+</pre></div>
+
+
+<p>我們可以看看所處現在的位置</p>
+<div class="highlight"><pre><span></span>git branch //應為 b1
+</pre></div>
+
+
+<p>我們進一步看看 b1與 master 內容物的差異</p>
+<div class="highlight"><pre><span></span>git diff master
+</pre></div>
+
+
+<p>再來我們開第二個分支，同樣的做法，只是再換一個檔案內容（為了讓你們體驗合併衝突的前置作業）</p>
+<div class="highlight"><pre><span></span>git checkout master
+(修改master分支的 doc.txt 內容)
+git checkout -b b2
+git add .
+git commit -m &quot;b2 first commit&quot;
+git push --set-upstream origin b2
+</pre></div>
+
+
+<p>進行合併前，先來做觀點取替的練習</p>
+<div class="highlight"><pre><span></span>git branch //應為 b2
+git diff master //以b2視角看master的差異
+git checkout master //切換視角至master
+git diff b2 //以master視角看b2的差異
+</pre></div>
+
+
+<p>因為master的 doc.txt 和 b1 doc.txt 只差一個版本，我們就可以直接做合併 (merge)的動作，此稱為「快轉」(fast-forward)。</p>
+<div class="highlight"><pre><span></span>git checkout master //先換到master分支
+git merge b1 //fast-forward 會直接成功
+</pre></div>
+
+
+<p>接下來我們再來用 master 合併 b2
+不過等等！現在的 master 內的 doc.txt 已經是 b1 doc.txt 的內容物了，所以有沒有發現哪裡怪怪的？</p>
+<div class="highlight"><pre><span></span>git merge b2 //會出現 Automatic merge failed; fix conflicts and then commit the result.
+</pre></div>
+
+
+<p>這時我們得人工去修改這個衝突，這種合併的做法稱為「non fast-forward」。改完以後，就可以合併了</p>
+<div class="highlight"><pre><span></span>git add .
+git commit -m &quot;merge b1 b2&quot;
+git push //這時不需要 git commit -m &quot;&quot; ， bitbucket會幫你建一個 message:&quot;merge&quot; 的 commit
+</pre></div>
+
+
+<hr />
+<h2>情境二：使用過去的提交，並重新推上去</h2>
+<div class="highlight"><pre><span></span>git checkout &lt;commit&gt; //輸入commit
+(進行內容修改)
+git checkout -b tempbranch
+git add .
+git commit -m &quot;temp&quot;
+git push --set-upstream origin temp
+git checkout master
+git merge temp
+git branch -d temp //刪掉該分支，但分枝舊的歷史紀錄還是保存
+</pre></div>
+
+
+<hr />
+<h2>練習：多人協作知識庫</h2>
+<p>master內有個公檔，每個人要開自己的分支，然後修改公檔內的資料，並且提交自己的分支到遠端。
+並請大家在issue發佈自己已經成功更新檔案更新到分支
+假設我 為master 管理者，找一個 user 當作是可以merge的版本，並針對各個issue做回應。</p>
+<p>查看遠端知識庫的分支</p>
+<div class="highlight"><pre><span></span>git branch -a
+</pre></div>
+
+
+<p>將本地端重新同步</p>
+<div class="highlight"><pre><span></span>git pull origin &lt;branch name&gt;
+git add
+git commit
+git push --set-upstream origin &lt;branch name&gt;
+</pre></div>
+
+
 <div id="disqus_thread"></div>
 
 <script>
@@ -95,6 +198,28 @@ ga('send', 'pageview');
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/meng-xiang.html" rel="bookmark"
+                           title="Permalink to 夢想">夢想</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-06-25T00:00:00+08:00">
+                Published: 六 25 6月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/diary.html">Diary</a>.</p>
+<p>tags: <a href="/tag/life.html">Life</a> </p>
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/meng-xiang.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -159,28 +284,6 @@ ga('send', 'pageview');
 
 </footer><!-- /.post-info -->                
                 <a class="readmore" href="/decision-regression-tree.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/k-nearest-neighbor-algorithms-knn.html" rel="bookmark"
-                           title="Permalink to K-Nearest Neighbor algorithms (KNN)">K-Nearest Neighbor algorithms (KNN)</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-04-26T17:00:00+08:00">
-                Published: 二 26 4月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/stat.html">Stat</a>.</p>
-
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/k-nearest-neighbor-algorithms-knn.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
