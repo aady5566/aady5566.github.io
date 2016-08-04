@@ -25,7 +25,7 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/scalajs-tutorial.html">Scala.js Tutorial</a></h1>
+                    <h1 class="entry-title"><a href="/an-introduction-to-recommender-systems.html">An Introduction to Recommender Systems</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2016-08-04T00:00:00+08:00">
                 Published: 四 04 8月 2016
@@ -34,8 +34,8 @@
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/yd.html">YD</a>
         </address>
-<p>In <a href="/category/scala.html">Scala</a>.</p>
-<p>tags: <a href="/tag/scalajs.html">Scalajs</a> </p>
+<p>In <a href="/category/stat.html">Stat</a>.</p>
+<p>tags: <a href="/tag/recommendersystems.html">RecommenderSystems</a> </p>
 </footer><!-- /.post-info --><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
 MathJax.Hub.Config({
   tex2jax: {
@@ -52,325 +52,65 @@ ga('send', 'pageview');
 
 </script>
 
-<h1><strong>Setup</strong></h1>
-<p><code>project/plugins.sbt</code> 🔧</p>
-<div class="highlight"><pre><span></span>addSbtPlugin(&quot;org.scala-js&quot; % &quot;sbt-scalajs&quot; % &quot;0.6.10&quot;)
-</pre></div>
-
-
-<p><code>build.sbt</code> 🔧</p>
-<div class="highlight"><pre><span></span>enablePlugins(ScalaJSPlugin)
-name := &quot;Scala.js Tutorial&quot;
-scalaVersion := &quot;2.11.7&quot; // or any other Scala version &gt;= 2.10.2
-</pre></div>
-
-
-<p>並確認 <code>project/build.properties</code>  中的版本&gt;=0.13.7</p>
+<h2>前言</h2>
+<p>網路已成為電商交易間的發展推薦系統的工具。比較常見的兩種方法：</p>
+<ul>
+<li>典型的方法就是靠用戶的評分 (explicit ratings)</li>
+<li>追蹤用戶的「購買」、「瀏覽」行為進行 (implicit ratings)</li>
+</ul>
 <hr />
-<h1><strong>建立JSApp流程:</strong></h1>
-<h2><strong>使用JSApp</strong></h2>
-<p><code>src/main/scala/tutorial/webapp/TutorialApp.scala</code> 🔧</p>
-<div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">tutorial</span><span class="o">.</span><span class="n">webapp</span>
-
-<span class="kn">import</span> <span class="nn">scala.scalajs.js.JSApp</span>
-
-<span class="nb">object</span> <span class="n">TutorialApp</span> <span class="n">extends</span> <span class="n">JSApp</span> <span class="p">{</span>
-  <span class="k">def</span> <span class="nf">main</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">println</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p>接著在 sbt 下 執行：  </p>
-<p><img class='shaped' src="https://d2mxuefqeaa7sj.cloudfront.net/s_D24D3C2C3895B9053E69C419D5837FCA86099592C01818C4075EEAE89C158688_1469092459576_+2016-07-21+5.13.45.png
-" width="100%" height="100%" />  </p>
-<p><img class='shaped' src="
-https://d2mxuefqeaa7sj.cloudfront.net/s_D24D3C2C3895B9053E69C419D5837FCA86099592C01818C4075EEAE89C158688_1469092526623_+2016-07-21+5.15.10.png
-" width="100%" height="100%" />  </p>
-<p>作者建議用 Node.js 解釋器，將 <code>build.sbt</code> 加入下列指令</p>
-<div class="highlight"><pre><span></span>scalaJSUseRhino in Global := false
-</pre></div>
-
-
+<p>推薦系統的最大目的就是利用各種資料來源推論消費者的興趣、嗜好。又可分為兩種問題的解法：</p>
+<ol>
+<li>Prediction version of problem: 假設整個資料是由m個user對n個item的評比，然而這張m x n的大型陣列中必含一大堆的缺值，而這個問題則是在處理item-user combination中對於缺值做預測的 ，因此又稱為「matrix completion problem」。</li>
+<li>Ranking version of problem: 但在實際中，我們對於預測的數值並不是那麼感興趣，站在賣方的角度，他們在意的是推薦top-k items於特定用戶或是反過來找出top-k用戶於特定產品。(但實際上而言，決定top-k items的例子是廣泛用於業界。)此又被稱為「top-k recommendation problem」</li>
+</ol>
 <hr />
-<h2><strong>建立html模板</strong></h2>
-<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>The Scala.js Tutorial<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-    <span class="c">&lt;!-- Include Scala.js compiled code --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./target/scala-2.11/scala-js-tutorial-fastopt.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="c">&lt;!-- Run tutorial.webapp.TutorialApp --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
-      <span class="nx">tutorial</span><span class="p">.</span><span class="nx">webapp</span><span class="p">.</span><span class="nx">TutorialApp</span><span class="p">().</span><span class="nx">main</span><span class="p">();</span>
-    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</pre></div>
-
-
+<p>推薦系統最直接的實際效用就是增加業主的銷量，間接帶來豐厚的利潤。為達到這樣的效果，好的推薦系統應包含下列四種特性：</p>
+<ol>
+<li>關聯性 (Relevance)：這是最直觀的特性，也就是推薦相關的產品給用戶。但只有關聯性是絕對不足以構成好的推薦系統。</li>
+<li>新穎性 (Novelty)：推薦用戶從沒看過的產品。舉例來說，在你家樓下開一間印度料理，方圓百里可能都沒有任何一間印度料理，雖然沒看過但也不會覺得特別奇怪，因為你知道印度料理有名的是香料或是咖哩。打破新穎性的方式就是不斷重複推薦用戶。但重複推薦的副作用則是會降低產品的歧異度(reduction in sales diversity)。</li>
+<li>機運 (Serendipity)：很類似新穎性，但差別在於要推薦的產品對於用戶來說是非常意外，感到驚奇的。例如在你家樓下開一間巴塔哥尼亞鴕肉燒烤店，這時你不僅沒看過，而且還會帶有好奇驚艷的情緒，那這就是機運的精髓了。</li>
+<li>增加推薦的歧異度 (Increasing recommendation diversity)：這點非常重要，當推薦系統發出一份top-k items的推薦表單給用戶，若這些產品性質非常雷同，那用戶可能完全不買帳。反過來說，當這些產品異質性較高的情況下，用戶很高的機率至少會選擇一項產品。歧異度可以延長用戶的新鮮感，並對推薦系統所推薦的商品也比較能接受。</li>
+</ol>
 <hr />
-<h2><strong>生成 JS File</strong></h2>
-<p><img class='shaped' src="
-https://d2mxuefqeaa7sj.cloudfront.net/s_D24D3C2C3895B9053E69C419D5837FCA86099592C01818C4075EEAE89C158688_1469093258759_+2016-07-21+5.27.27.png
-" width="100%" height="100%" /></p>
+<h2>推薦系統運用的商業實例</h2>
+<ul>
+<li>GroupLens: 推薦系統的先驅，源自於Usenet news文章推薦的原型。</li>
+<li>Amazon.com: 也是推薦系統的先驅之一，將推薦系統應用於書籍、CD片、軟體、3C產品的推薦，他們除了利用五點量表評分外，也去洞察會員於網頁上的瀏覽、購物行為</li>
+<li>Netflix: Netflix早期為數位DVD的出租公司，最後發展成電影、電視劇的串流式傳輸服務。Netflix也是用到會員對於電影的五點量表評分。Netflix有個非常好的特點，就是在推薦電影給會員時，會同時解釋推薦的原因。幫助會員了解為何會推薦給我這系列的電影(或是「為何我會喜歡這類的電影」)。</li>
+<li>Facebook: 臉書的推薦並不是一般的商品，而是利用推薦系統來預測用戶的社會網絡連結的強度 (link prediction)。這類型的推薦系統並不是依照評分資料，而是去分析網絡中的結構關係。</li>
+</ul>
 <hr />
-<h1><strong>實作1: 使用DOM</strong></h1>
-<p><code>project/plugins.sbt</code> 🔧</p>
-<div class="highlight"><pre><span></span>logLevel := Level.Warn
-addSbtPlugin(&quot;org.scala-js&quot; % &quot;sbt-scalajs&quot; % &quot;0.6.10&quot;)
-</pre></div>
-
-
-<p><code>build sbt</code> 🔧</p>
-<div class="highlight"><pre><span></span>enablePlugins(ScalaJSPlugin)
-
-name := &quot;basicScalajs&quot;
-
-version := &quot;1.0&quot;
-
-scalaVersion := &quot;2.11.8&quot;
-
-scalaJSUseRhino in Global := false//Rhino is terribly slow. This will enable Node.js by default when launching sbt.
-
-libraryDependencies += &quot;org.scala-js&quot; %%% &quot;scalajs-dom&quot; % &quot;0.9.0&quot; //%%% means not a normal Scala library
-</pre></div>
-
-
-<p><code>src/main/scala/tutorial/webapp/TutorialApp.scala</code> 🔧</p>
-<div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">tutorial</span><span class="o">.</span><span class="n">webapp</span>
-<span class="kn">import</span> <span class="nn">scala.scalajs.js.JSApp</span>
-<span class="kn">import</span> <span class="nn">org.scalajs.dom</span>
-<span class="kn">import</span> <span class="nn">dom.document</span>
-<span class="kn">import</span> <span class="nn">scala.scalajs.js.annotation.JSExport</span>
-
-<span class="nb">object</span> <span class="n">TutorialApp</span> <span class="n">extends</span> <span class="n">JSApp</span> <span class="p">{</span>
-  <span class="k">def</span> <span class="nf">appendPar</span><span class="p">(</span><span class="n">targetNode</span><span class="p">:</span> <span class="n">dom</span><span class="o">.</span><span class="n">Node</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">val</span> <span class="n">parNode</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span>
-    <span class="n">val</span> <span class="n">textNode</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">createTextNode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-    <span class="n">parNode</span><span class="o">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">textNode</span><span class="p">)</span>
-    <span class="n">targetNode</span><span class="o">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">parNode</span><span class="p">)</span>
-  <span class="p">}</span>
-  <span class="nd">@JSExport</span> <span class="o">//</span><span class="n">making</span> <span class="n">scala</span><span class="o">.</span><span class="n">js</span> <span class="n">method</span> <span class="nb">callable</span> <span class="kn">from</span> <span class="nn">JS</span>
-  <span class="k">def</span> <span class="nf">addClickedMessage</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">appendPar</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="s2">&quot;You clicked the button!&quot;</span><span class="p">)</span>
-  <span class="p">}</span>
-  <span class="k">def</span> <span class="nf">main</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">appendPar</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="p">,</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p>接著在sbt 依序執行：</p>
-<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">reload</span><span class="x"> //重新執行sbt</span>
-<span class="p">$</span><span class="nv">run</span><span class="x"></span>
-<span class="p">$</span><span class="nv">fastOptJS</span><span class="x">   //重新編譯js檔，但如果每次一有更動就要輸入嫌麻煩的話，執行 ~fastOptJS</span>
-</pre></div>
-
-
-<p>根目錄下放置一個 html file（命名任意）</p>
-<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>The Scala.js Tutorial<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;click-me-button&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span>
-        <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;tutorial.webapp.TutorialApp().addClickedMessage()&quot;</span><span class="p">&gt;</span>Click me!<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="c">&lt;!--Include Scala.js compiled code--&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./target/scala-2.11/basicscalajs-fastopt.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="c">&lt;!-- Run tutorial.webapp.TutorialApp --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span><span class="nx">tutorial</span><span class="p">.</span><span class="nx">webapp</span><span class="p">.</span><span class="nx">TutorialApp</span><span class="p">().</span><span class="nx">main</span><span class="p">();&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</pre></div>
-
-
+<h2>推薦系統的基本架構模型</h2>
+<ul>
+<li><strong>Collaborative Filtering Models</strong></li>
+<li><strong>Memory-based methods</strong>: Neighborhood-based collaborative filtering algorithms<ul>
+<li>User-based collaborative filtering</li>
+<li>Item-based collaborative filtering</li>
+</ul>
+</li>
+<li><strong>Model-based methods</strong>: Decision trees, rule-based models, Bayesian methods and latent factor models.</li>
+<li>
+<p><strong>Content-Based Recommender Systems</strong></p>
+<ul>
+<li>對item 或 user進行標籤化。多了更多的標籤就可以推薦類似的產品  </li>
+</ul>
+</li>
+<li>
+<p><strong>Knowledge-Based Recommender Systems</strong></p>
+<ul>
+<li>當item的 attributes過多的情況下，很難知道user是不是只對特定的attribute有興趣。此時knowledge-base 推薦系統倚賴的並不是ratings，而是針對user的requirement以及attribute匹配的程度來做推薦  </li>
+</ul>
+</li>
+</ul>
+<p><img class='shaped' src="https://d2mxuefqeaa7sj.cloudfront.net/s_8F1BDAC0AB2A7431BF178DAAB848C47EFCC9A12356A4C1846E15230BCCBADC55_1466041694489_+2016-06-16+9.47.44.png
+"
+width="100%" height="100%" />  </p>
 <hr />
-<h1><strong>實作2: 使用jQuery</strong></h1>
-<p><code>project/plugins.sbt</code> 🔧</p>
-<div class="highlight"><pre><span></span>enablePlugins(ScalaJSPlugin)
-
-name := &quot;basicScalajs&quot;
-
-version := &quot;1.0&quot;
-
-scalaVersion := &quot;2.11.8&quot;
-
-scalaJSUseRhino in Global := false//Rhino is terribly slow. This will enable Node.js by default when launching sbt.
-
-libraryDependencies += &quot;org.scala-js&quot; %%% &quot;scalajs-dom&quot; % &quot;0.9.0&quot; //%%% means not a normal Scala library
-
-//jqueryVersion
-libraryDependencies += &quot;be.doeraene&quot; %%% &quot;scalajs-jquery&quot; % &quot;0.9.0&quot;
-
-skip in packageJSDependencies := false
-jsDependencies +=
-  &quot;org.webjars&quot; % &quot;jquery&quot; % &quot;2.1.4&quot; / &quot;2.1.4/jquery.js&quot;
-
-jsDependencies += RuntimeDOM
-</pre></div>
-
-
-<p><code>src/main/scala/tutorial/webapp/TutorialApp.scala</code> 🔧</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scala.scalajs.js.JSApp</span>
-
-<span class="kn">import</span> <span class="nn">org.scalajs.jquery.jQuery</span>
-
-<span class="nb">object</span> <span class="n">TutorialApp</span> <span class="n">extends</span> <span class="n">JSApp</span> <span class="p">{</span>
-  <span class="k">def</span> <span class="nf">addClickedMessage</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;You clicked the button!&lt;/p&gt;&quot;</span><span class="p">)</span>
-  <span class="p">}</span>
-  <span class="k">def</span> <span class="nf">setupUI</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">)</span>
-    <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;#click-me-button&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">addClickedMessage</span> <span class="n">_</span><span class="p">)</span>
-  <span class="p">}</span>
-  <span class="k">def</span> <span class="nf">main</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">jQuery</span><span class="p">(</span><span class="n">setupUI</span> <span class="n">_</span><span class="p">)</span>
-  <span class="p">}</span>
-</pre></div>
-
-
-<p>html file</p>
-<div class="highlight"><pre><span></span><span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">&quot;click-me-button&quot;</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>Click me!<span class="nt">&lt;/button&gt;</span>
-<span class="c">&lt;!-- Include JavaScript dependencies --&gt;</span>
-<span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;./target/scala-2.11/basicscalajs-jsdeps.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="c">&lt;!-- Include Scala.js compiled code --&gt;</span>
-<span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;./target/scala-2.11/basicscalajs-fastopt.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="c">&lt;!-- Run tutorial.webapp.TutorialApp --&gt;</span>
-<span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>tutorial.webapp.TutorialApp().main();<span class="nt">&lt;/script&gt;</span>
-</pre></div>
-
-
-<p>接著 sbt 執行：</p>
-<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">reload</span><span class="x"></span>
-<span class="p">$</span><span class="nv">run</span><span class="x"></span>
-<span class="p">$</span><span class="x">~fastOptJS</span>
-</pre></div>
-
-
-<hr />
-<h1><strong>Full Optimization</strong></h1>
-<p><img class='shaped' src="
-https://d2mxuefqeaa7sj.cloudfront.net/s_D24D3C2C3895B9053E69C419D5837FCA86099592C01818C4075EEAE89C158688_1469096036659_+2016-07-21+6.13.27.png
-" width="100%" height="100%" />  </p>
-<h1><strong>Test and </strong><strong>Automatically Creating Launcher</strong></h1>
-<p><code>project/plugins.sbt</code> 🔧</p>
-<div class="highlight"><pre><span></span>enablePlugins(ScalaJSPlugin)
-
-name := &quot;Scala.js Tutorial&quot;
-
-scalaVersion := &quot;2.11.8&quot;
-
-libraryDependencies += &quot;org.scala-js&quot; %%% &quot;scalajs-dom&quot; % &quot;0.9.0&quot;
-libraryDependencies += &quot;be.doeraene&quot; %%% &quot;scalajs-jquery&quot; % &quot;0.9.0&quot;
-
-skip in packageJSDependencies := false
-jsDependencies +=
-  &quot;org.webjars&quot; % &quot;jquery&quot; % &quot;2.1.4&quot; / &quot;2.1.4/jquery.js&quot;
-jsDependencies += RuntimeDOM
-
-// uTest settings
-libraryDependencies += &quot;com.lihaoyi&quot; %%% &quot;utest&quot; % &quot;0.3.0&quot; % &quot;test&quot;
-testFrameworks += new TestFramework(&quot;utest.runner.Framework&quot;)
-
-//automatically creating a launcher
-persistLauncher in Compile := true
-persistLauncher in Test := false
-</pre></div>
-
-
-<p><code>src/test/scala/tutorial/webapp/TutorialApp.scala</code> 🔧</p>
-<div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">tutorial</span><span class="o">.</span><span class="n">webapp</span>
-<span class="kn">import</span> <span class="nn">utest._</span>
-<span class="kn">import</span> <span class="nn">org.scalajs.jquery.jQuery</span>
-
-<span class="o">/**</span>
-  <span class="o">*</span> <span class="n">Created</span> <span class="n">by</span> <span class="n">YD</span> <span class="n">on</span> <span class="mi">2016</span><span class="o">/</span><span class="mi">7</span><span class="o">/</span><span class="mf">21.</span>
-  <span class="o">*/</span>
-
-<span class="nb">object</span> <span class="n">TutorialTest</span> <span class="n">extends</span> <span class="n">TestSuite</span> <span class="p">{</span>
-
-  <span class="o">//</span> <span class="n">Initialize</span> <span class="n">App</span>
-  <span class="n">TutorialApp</span><span class="o">.</span><span class="n">setupUI</span><span class="p">()</span>
-
-  <span class="k">def</span> <span class="nf">tests</span> <span class="o">=</span> <span class="n">TestSuite</span> <span class="p">{</span>
-    <span class="s1">&#39;HelloWorld {</span>
-      <span class="k">assert</span><span class="p">(</span><span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;p:contains(&#39;Hello World&#39;)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="s1">&#39;ButtonClick {</span>
-      <span class="k">def</span> <span class="nf">messageCount</span> <span class="o">=</span>
-        <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;p:contains(&#39;You clicked the button!&#39;)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">length</span>
-
-      <span class="n">val</span> <span class="n">button</span> <span class="o">=</span> <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;button:contains(&#39;Click me!&#39;)&quot;</span><span class="p">)</span><span class="o">//</span><span class="ow">not</span> <span class="n">yet</span> <span class="n">click</span>
-      <span class="k">assert</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-      <span class="k">assert</span><span class="p">(</span><span class="n">messageCount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-
-      <span class="k">for</span> <span class="p">(</span><span class="n">c</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">button</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
-        <span class="k">assert</span><span class="p">(</span><span class="n">messageCount</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p><code>src/main/scala/tutorial/webapp/TutorialApp.scala</code> 🔧</p>
-<div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">tutorial</span><span class="o">.</span><span class="n">webapp</span>
-
-<span class="kn">import</span> <span class="nn">scala.scalajs.js.JSApp</span>
-
-<span class="kn">import</span> <span class="nn">org.scalajs.jquery.jQuery</span>
-
-<span class="nb">object</span> <span class="n">TutorialApp</span> <span class="n">extends</span> <span class="n">JSApp</span> <span class="p">{</span>
-  <span class="k">def</span> <span class="nf">main</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">jQuery</span><span class="p">(</span><span class="n">setupUI</span> <span class="n">_</span><span class="p">)</span>
-  <span class="p">}</span>
-  <span class="k">def</span> <span class="nf">setupUI</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">)</span>
-    <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;&lt;button type=&quot;button&quot;&gt;Click me!&lt;/button&gt;&quot;&quot;&quot;</span><span class="p">)</span>
-      <span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">addClickedMessage</span> <span class="n">_</span><span class="p">)</span>
-      <span class="o">.</span><span class="n">appendTo</span><span class="p">(</span><span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">))</span>
-  <span class="p">}</span>
-  <span class="k">def</span> <span class="nf">addClickedMessage</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;You clicked the button!&lt;/p&gt;&quot;</span><span class="p">)</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p>html file</p>
-<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>The Scala.js Tutorial<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="c">&lt;!-- Include JavaScript dependencies --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./target/scala-2.11/scala-js-tutorial-jsdeps.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="c">&lt;!-- Include Scala.js compiled code --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./target/scala-2.11/scala-js-tutorial-fastopt.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="c">&lt;!--</span>
-<span class="c">&amp;lt;!&amp;ndash; Run tutorial.webapp.TutorialApp &amp;ndash;&amp;gt;</span>
-<span class="c">&lt;script type=&quot;text/javascript&quot;&gt;</span>
-<span class="c">      tutorial.webapp.TutorialApp().main();</span>
-<span class="c">    &lt;/script&gt;--&gt;</span>
-<span class="c">&lt;!-- Run JSApp --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./target/scala-2.11/scala-js-tutorial-launcher.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</pre></div>
-
-
-<h1></h1>
+<ul>
+<li>The Cold-Start Problem</li>
+<li>推薦系統的其中一個挑戰就是最開始的資料還不夠龐大，若用Collaborative Filtering Models估算會有很大的誤差。因此最開始可以採用Content-Based或是Knowledge-Based Recommender Systems (雖然說這兩種也不一定一直是最適切的)</li>
+</ul>
 <div id="disqus_thread"></div>
 
 <script>
@@ -398,6 +138,28 @@ persistLauncher in Test := false
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/scalajs-tutorial.html" rel="bookmark"
+                           title="Permalink to Scala.js Tutorial">Scala.js Tutorial</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-08-04T00:00:00+08:00">
+                Published: 四 04 8月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/scala.html">Scala</a>.</p>
+<p>tags: <a href="/tag/scalajs.html">Scalajs</a> </p>
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/scalajs-tutorial.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -462,28 +224,6 @@ persistLauncher in Test := false
 <p>tags: <a href="/tag/docker.html">docker</a> <a href="/tag/redis.html">redis</a> </p>
 </footer><!-- /.post-info -->                
                 <a class="readmore" href="/intalling-redis-on-docker.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/spark-installation-on-os-x.html" rel="bookmark"
-                           title="Permalink to Spark Installation On OS X">Spark Installation On OS X</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-05-14T09:00:00+08:00">
-                Published: 六 14 5月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/spark.html">Spark</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/spark-installation-on-os-x.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
