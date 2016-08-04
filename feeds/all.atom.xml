@@ -72,8 +72,9 @@ width="100%" height="100%" /&gt;  &lt;/p&gt;
 &lt;hr /&gt;
 &lt;ul&gt;
 &lt;li&gt;The Cold-Start Problem&lt;/li&gt;
-&lt;li&gt;推薦系統的其中一個挑戰就是最開始的資料還不夠龐大，若用Collaborative Filtering Models估算會有很大的誤差。因此最開始可以採用Content-Based或是Knowledge-Based Recommender Systems (雖然說這兩種也不一定一直是最適切的)&lt;/li&gt;
+&lt;li&gt;推薦系統的其中一個挑戰就是最開始的資料還不夠龐大，若用Collaborative Filtering Models估算會有很大的誤差。因此最開始可以採用Content-Based或是Knowledge-Based Recommender Systems (雖然說這兩種也不一定一直是最適切的)  &lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Ref: Aggarwal, C. C. (2016). Recommender Systems: The Textbook. Springer.&lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 
 &lt;script&gt;
