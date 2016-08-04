@@ -25,17 +25,17 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/git-tutorial-demo-on-bitbucket.html">Git Tutorial (Demo on Bitbucket)</a></h1>
+                    <h1 class="entry-title"><a href="/scalajs-tutorial.html">Scala.js Tutorial</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2016-08-02T00:00:00+08:00">
-                Published: 二 02 8月 2016
+        <abbr class="published" title="2016-08-04T00:00:00+08:00">
+                Published: 四 04 8月 2016
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/yd.html">YD</a>
         </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/git.html">git</a> </p>
+<p>In <a href="/category/scala.html">Scala</a>.</p>
+<p>tags: <a href="/tag/scalajs.html">Scalajs</a> </p>
 </footer><!-- /.post-info --><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
 MathJax.Hub.Config({
   tex2jax: {
@@ -52,125 +52,325 @@ ga('send', 'pageview');
 
 </script>
 
-<h1>Create repository</h1>
-<p>創建bitbucket 帳號：<a href="https://bitbucket.org/">https://bitbucket.org</a></p>
-<p>Name: 知識庫名稱，也是default local file folder name
-  Access Level: 比免費github多的功能，私密桶。<br />
-  Forking: 最好設定no forking，這樣就不會被複製知識庫。<br />
-  Repository type: 預設git。(Windows 需要下載 git command line)<br />
-  Project management<br />
-  Language: 程式碼的知識庫為何 <br />
-  Repository integrations  </p>
+<h1><strong>Setup</strong></h1>
+<p><code>project/plugins.sbt</code> 🔧</p>
+<div class="highlight"><pre><span></span>addSbtPlugin(&quot;org.scala-js&quot; % &quot;sbt-scalajs&quot; % &quot;0.6.10&quot;)
+</pre></div>
+
+
+<p><code>build.sbt</code> 🔧</p>
+<div class="highlight"><pre><span></span>enablePlugins(ScalaJSPlugin)
+name := &quot;Scala.js Tutorial&quot;
+scalaVersion := &quot;2.11.7&quot; // or any other Scala version &gt;= 2.10.2
+</pre></div>
+
+
+<p>並確認 <code>project/build.properties</code>  中的版本&gt;=0.13.7</p>
 <hr />
-<h1>基本git指令與實作程序</h1>
-<p>為何要用git? <strong>以空間錯位換取時間錯位</strong></p>
-<p>將知識庫拉至本地端：開啟預定存放的資料夾位置 cd C://<path></p>
-<div class="highlight"><pre><span></span>git clone https://&lt;account&gt;@bitbucket.org/&lt;account&gt;/&lt;bucketname&gt;.git
+<h1><strong>建立JSApp流程:</strong></h1>
+<h2><strong>使用JSApp</strong></h2>
+<p><code>src/main/scala/tutorial/webapp/TutorialApp.scala</code> 🔧</p>
+<div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">tutorial</span><span class="o">.</span><span class="n">webapp</span>
+
+<span class="kn">import</span> <span class="nn">scala.scalajs.js.JSApp</span>
+
+<span class="nb">object</span> <span class="n">TutorialApp</span> <span class="n">extends</span> <span class="n">JSApp</span> <span class="p">{</span>
+  <span class="k">def</span> <span class="nf">main</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">println</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 
-<hr />
-<h2>情境一：自己管理自己的知識庫</h2>
-<p>創建好知識庫並拉到本地端
-基礎的add, commit, push</p>
-<div class="highlight"><pre><span></span>vim doc.txt //新增一個文件
-git add doc.txt //加入文件，若之後是要整個資料夾push，可用 git add --all 或 git add .
-git commit -m &quot;first commit&quot;
-git push origin master //第一次push要寫 origin master ，因為遠端並沒有這條branch
-</pre></div>
-
-
-<p><strong>但是只有自己管理不行，要和別人協作，先學會branch操作</strong></p>
-<hr />
-<p>基礎的branch操作
-根據原本的doc.txt 進行修改，並另闢一分支 (branch) ，將編輯過的檔案放入。</p>
-<div class="highlight"><pre><span></span>git checkout -b b1 //創建新的分支名為 &quot;b1&quot;
-(修改master分支的 doc.txt 內容)
-git add .
-git commit -m &quot;b1 first commit&quot;
-git push --set-upstream origin b1 //因為遠端尚未有 b1 分支，因此要先用 origin
-</pre></div>
-
-
-<p>我們可以看看所處現在的位置</p>
-<div class="highlight"><pre><span></span>git branch //應為 b1
-</pre></div>
-
-
-<p>我們進一步看看 b1與 master 內容物的差異</p>
-<div class="highlight"><pre><span></span>git diff master
-</pre></div>
-
-
-<p>再來我們開第二個分支，同樣的做法，只是再換一個檔案內容（為了讓你們體驗合併衝突的前置作業）</p>
-<div class="highlight"><pre><span></span>git checkout master
-(修改master分支的 doc.txt 內容)
-git checkout -b b2
-git add .
-git commit -m &quot;b2 first commit&quot;
-git push --set-upstream origin b2
-</pre></div>
-
-
-<p>進行合併前，先來做觀點取替的練習</p>
-<div class="highlight"><pre><span></span>git branch //應為 b2
-git diff master //以b2視角看master的差異
-git checkout master //切換視角至master
-git diff b2 //以master視角看b2的差異
-</pre></div>
-
-
-<p>因為master的 doc.txt 和 b1 doc.txt 只差一個版本，我們就可以直接做合併 (merge)的動作，此稱為「快轉」(fast-forward)。</p>
-<div class="highlight"><pre><span></span>git checkout master //先換到master分支
-git merge b1 //fast-forward 會直接成功
-</pre></div>
-
-
-<p>接下來我們再來用 master 合併 b2
-不過等等！現在的 master 內的 doc.txt 已經是 b1 doc.txt 的內容物了，所以有沒有發現哪裡怪怪的？</p>
-<div class="highlight"><pre><span></span>git merge b2 //會出現 Automatic merge failed; fix conflicts and then commit the result.
-</pre></div>
-
-
-<p>這時我們得人工去修改這個衝突，這種合併的做法稱為「non fast-forward」。改完以後，就可以合併了</p>
-<div class="highlight"><pre><span></span>git add .
-git commit -m &quot;merge b1 b2&quot;
-git push //這時不需要 git commit -m &quot;&quot; ， bitbucket會幫你建一個 message:&quot;merge&quot; 的 commit
+<p>接著在 sbt 下 執行：  </p>
+<p><img class='shaped' src="https://d2mxuefqeaa7sj.cloudfront.net/s_D24D3C2C3895B9053E69C419D5837FCA86099592C01818C4075EEAE89C158688_1469092459576_+2016-07-21+5.13.45.png
+" width="100%" height="100%" />  </p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D24D3C2C3895B9053E69C419D5837FCA86099592C01818C4075EEAE89C158688_1469092526623_+2016-07-21+5.15.10.png
+" width="100%" height="100%" />  </p>
+<p>作者建議用 Node.js 解釋器，將 <code>build.sbt</code> 加入下列指令</p>
+<div class="highlight"><pre><span></span>scalaJSUseRhino in Global := false
 </pre></div>
 
 
 <hr />
-<h2>情境二：使用過去的提交，並重新推上去</h2>
-<div class="highlight"><pre><span></span>git checkout &lt;commit&gt; //輸入commit
-(進行內容修改)
-git checkout -b tempbranch
-git add .
-git commit -m &quot;temp&quot;
-git push --set-upstream origin temp
-git checkout master
-git merge temp
-git branch -d temp //刪掉該分支，但分枝舊的歷史紀錄還是保存
+<h2><strong>建立html模板</strong></h2>
+<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>The Scala.js Tutorial<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="c">&lt;!-- Include Scala.js compiled code --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./target/scala-2.11/scala-js-tutorial-fastopt.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="c">&lt;!-- Run tutorial.webapp.TutorialApp --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+      <span class="nx">tutorial</span><span class="p">.</span><span class="nx">webapp</span><span class="p">.</span><span class="nx">TutorialApp</span><span class="p">().</span><span class="nx">main</span><span class="p">();</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 
 
 <hr />
-<h2>練習：多人協作知識庫</h2>
-<p>master內有個公檔，每個人要開自己的分支，然後修改公檔內的資料，並且提交自己的分支到遠端。
-並請大家在issue發佈自己已經成功更新檔案更新到分支
-假設我 為master 管理者，找一個 user 當作是可以merge的版本，並針對各個issue做回應。</p>
-<p>查看遠端知識庫的分支</p>
-<div class="highlight"><pre><span></span>git branch -a
+<h2><strong>生成 JS File</strong></h2>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D24D3C2C3895B9053E69C419D5837FCA86099592C01818C4075EEAE89C158688_1469093258759_+2016-07-21+5.27.27.png
+" width="100%" height="100%" /></p>
+<hr />
+<h1><strong>實作1: 使用DOM</strong></h1>
+<p><code>project/plugins.sbt</code> 🔧</p>
+<div class="highlight"><pre><span></span>logLevel := Level.Warn
+addSbtPlugin(&quot;org.scala-js&quot; % &quot;sbt-scalajs&quot; % &quot;0.6.10&quot;)
 </pre></div>
 
 
-<p>將本地端重新同步</p>
-<div class="highlight"><pre><span></span>git pull origin &lt;branch name&gt;
-git add
-git commit
-git push --set-upstream origin &lt;branch name&gt;
+<p><code>build sbt</code> 🔧</p>
+<div class="highlight"><pre><span></span>enablePlugins(ScalaJSPlugin)
+
+name := &quot;basicScalajs&quot;
+
+version := &quot;1.0&quot;
+
+scalaVersion := &quot;2.11.8&quot;
+
+scalaJSUseRhino in Global := false//Rhino is terribly slow. This will enable Node.js by default when launching sbt.
+
+libraryDependencies += &quot;org.scala-js&quot; %%% &quot;scalajs-dom&quot; % &quot;0.9.0&quot; //%%% means not a normal Scala library
 </pre></div>
 
 
+<p><code>src/main/scala/tutorial/webapp/TutorialApp.scala</code> 🔧</p>
+<div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">tutorial</span><span class="o">.</span><span class="n">webapp</span>
+<span class="kn">import</span> <span class="nn">scala.scalajs.js.JSApp</span>
+<span class="kn">import</span> <span class="nn">org.scalajs.dom</span>
+<span class="kn">import</span> <span class="nn">dom.document</span>
+<span class="kn">import</span> <span class="nn">scala.scalajs.js.annotation.JSExport</span>
+
+<span class="nb">object</span> <span class="n">TutorialApp</span> <span class="n">extends</span> <span class="n">JSApp</span> <span class="p">{</span>
+  <span class="k">def</span> <span class="nf">appendPar</span><span class="p">(</span><span class="n">targetNode</span><span class="p">:</span> <span class="n">dom</span><span class="o">.</span><span class="n">Node</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">val</span> <span class="n">parNode</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span>
+    <span class="n">val</span> <span class="n">textNode</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">createTextNode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">parNode</span><span class="o">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">textNode</span><span class="p">)</span>
+    <span class="n">targetNode</span><span class="o">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">parNode</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="nd">@JSExport</span> <span class="o">//</span><span class="n">making</span> <span class="n">scala</span><span class="o">.</span><span class="n">js</span> <span class="n">method</span> <span class="nb">callable</span> <span class="kn">from</span> <span class="nn">JS</span>
+  <span class="k">def</span> <span class="nf">addClickedMessage</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">appendPar</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="s2">&quot;You clicked the button!&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="k">def</span> <span class="nf">main</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">appendPar</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="p">,</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>接著在sbt 依序執行：</p>
+<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">reload</span><span class="x"> //重新執行sbt</span>
+<span class="p">$</span><span class="nv">run</span><span class="x"></span>
+<span class="p">$</span><span class="nv">fastOptJS</span><span class="x">   //重新編譯js檔，但如果每次一有更動就要輸入嫌麻煩的話，執行 ~fastOptJS</span>
+</pre></div>
+
+
+<p>根目錄下放置一個 html file（命名任意）</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>The Scala.js Tutorial<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;click-me-button&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span>
+        <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;tutorial.webapp.TutorialApp().addClickedMessage()&quot;</span><span class="p">&gt;</span>Click me!<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="c">&lt;!--Include Scala.js compiled code--&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./target/scala-2.11/basicscalajs-fastopt.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c">&lt;!-- Run tutorial.webapp.TutorialApp --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span><span class="nx">tutorial</span><span class="p">.</span><span class="nx">webapp</span><span class="p">.</span><span class="nx">TutorialApp</span><span class="p">().</span><span class="nx">main</span><span class="p">();&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<hr />
+<h1><strong>實作2: 使用jQuery</strong></h1>
+<p><code>project/plugins.sbt</code> 🔧</p>
+<div class="highlight"><pre><span></span>enablePlugins(ScalaJSPlugin)
+
+name := &quot;basicScalajs&quot;
+
+version := &quot;1.0&quot;
+
+scalaVersion := &quot;2.11.8&quot;
+
+scalaJSUseRhino in Global := false//Rhino is terribly slow. This will enable Node.js by default when launching sbt.
+
+libraryDependencies += &quot;org.scala-js&quot; %%% &quot;scalajs-dom&quot; % &quot;0.9.0&quot; //%%% means not a normal Scala library
+
+//jqueryVersion
+libraryDependencies += &quot;be.doeraene&quot; %%% &quot;scalajs-jquery&quot; % &quot;0.9.0&quot;
+
+skip in packageJSDependencies := false
+jsDependencies +=
+  &quot;org.webjars&quot; % &quot;jquery&quot; % &quot;2.1.4&quot; / &quot;2.1.4/jquery.js&quot;
+
+jsDependencies += RuntimeDOM
+</pre></div>
+
+
+<p><code>src/main/scala/tutorial/webapp/TutorialApp.scala</code> 🔧</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scala.scalajs.js.JSApp</span>
+
+<span class="kn">import</span> <span class="nn">org.scalajs.jquery.jQuery</span>
+
+<span class="nb">object</span> <span class="n">TutorialApp</span> <span class="n">extends</span> <span class="n">JSApp</span> <span class="p">{</span>
+  <span class="k">def</span> <span class="nf">addClickedMessage</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;You clicked the button!&lt;/p&gt;&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="k">def</span> <span class="nf">setupUI</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">)</span>
+    <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;#click-me-button&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">addClickedMessage</span> <span class="n">_</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="k">def</span> <span class="nf">main</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">jQuery</span><span class="p">(</span><span class="n">setupUI</span> <span class="n">_</span><span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<p>html file</p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">&quot;click-me-button&quot;</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>Click me!<span class="nt">&lt;/button&gt;</span>
+<span class="c">&lt;!-- Include JavaScript dependencies --&gt;</span>
+<span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;./target/scala-2.11/basicscalajs-jsdeps.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="c">&lt;!-- Include Scala.js compiled code --&gt;</span>
+<span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;./target/scala-2.11/basicscalajs-fastopt.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="c">&lt;!-- Run tutorial.webapp.TutorialApp --&gt;</span>
+<span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>tutorial.webapp.TutorialApp().main();<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+
+
+<p>接著 sbt 執行：</p>
+<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">reload</span><span class="x"></span>
+<span class="p">$</span><span class="nv">run</span><span class="x"></span>
+<span class="p">$</span><span class="x">~fastOptJS</span>
+</pre></div>
+
+
+<hr />
+<h1><strong>Full Optimization</strong></h1>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D24D3C2C3895B9053E69C419D5837FCA86099592C01818C4075EEAE89C158688_1469096036659_+2016-07-21+6.13.27.png
+" width="100%" height="100%" />  </p>
+<h1><strong>Test and </strong><strong>Automatically Creating Launcher</strong></h1>
+<p><code>project/plugins.sbt</code> 🔧</p>
+<div class="highlight"><pre><span></span>enablePlugins(ScalaJSPlugin)
+
+name := &quot;Scala.js Tutorial&quot;
+
+scalaVersion := &quot;2.11.8&quot;
+
+libraryDependencies += &quot;org.scala-js&quot; %%% &quot;scalajs-dom&quot; % &quot;0.9.0&quot;
+libraryDependencies += &quot;be.doeraene&quot; %%% &quot;scalajs-jquery&quot; % &quot;0.9.0&quot;
+
+skip in packageJSDependencies := false
+jsDependencies +=
+  &quot;org.webjars&quot; % &quot;jquery&quot; % &quot;2.1.4&quot; / &quot;2.1.4/jquery.js&quot;
+jsDependencies += RuntimeDOM
+
+// uTest settings
+libraryDependencies += &quot;com.lihaoyi&quot; %%% &quot;utest&quot; % &quot;0.3.0&quot; % &quot;test&quot;
+testFrameworks += new TestFramework(&quot;utest.runner.Framework&quot;)
+
+//automatically creating a launcher
+persistLauncher in Compile := true
+persistLauncher in Test := false
+</pre></div>
+
+
+<p><code>src/test/scala/tutorial/webapp/TutorialApp.scala</code> 🔧</p>
+<div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">tutorial</span><span class="o">.</span><span class="n">webapp</span>
+<span class="kn">import</span> <span class="nn">utest._</span>
+<span class="kn">import</span> <span class="nn">org.scalajs.jquery.jQuery</span>
+
+<span class="o">/**</span>
+  <span class="o">*</span> <span class="n">Created</span> <span class="n">by</span> <span class="n">YD</span> <span class="n">on</span> <span class="mi">2016</span><span class="o">/</span><span class="mi">7</span><span class="o">/</span><span class="mf">21.</span>
+  <span class="o">*/</span>
+
+<span class="nb">object</span> <span class="n">TutorialTest</span> <span class="n">extends</span> <span class="n">TestSuite</span> <span class="p">{</span>
+
+  <span class="o">//</span> <span class="n">Initialize</span> <span class="n">App</span>
+  <span class="n">TutorialApp</span><span class="o">.</span><span class="n">setupUI</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">tests</span> <span class="o">=</span> <span class="n">TestSuite</span> <span class="p">{</span>
+    <span class="s1">&#39;HelloWorld {</span>
+      <span class="k">assert</span><span class="p">(</span><span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;p:contains(&#39;Hello World&#39;)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="s1">&#39;ButtonClick {</span>
+      <span class="k">def</span> <span class="nf">messageCount</span> <span class="o">=</span>
+        <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;p:contains(&#39;You clicked the button!&#39;)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">length</span>
+
+      <span class="n">val</span> <span class="n">button</span> <span class="o">=</span> <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;button:contains(&#39;Click me!&#39;)&quot;</span><span class="p">)</span><span class="o">//</span><span class="ow">not</span> <span class="n">yet</span> <span class="n">click</span>
+      <span class="k">assert</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="k">assert</span><span class="p">(</span><span class="n">messageCount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+
+      <span class="k">for</span> <span class="p">(</span><span class="n">c</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">button</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">messageCount</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><code>src/main/scala/tutorial/webapp/TutorialApp.scala</code> 🔧</p>
+<div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">tutorial</span><span class="o">.</span><span class="n">webapp</span>
+
+<span class="kn">import</span> <span class="nn">scala.scalajs.js.JSApp</span>
+
+<span class="kn">import</span> <span class="nn">org.scalajs.jquery.jQuery</span>
+
+<span class="nb">object</span> <span class="n">TutorialApp</span> <span class="n">extends</span> <span class="n">JSApp</span> <span class="p">{</span>
+  <span class="k">def</span> <span class="nf">main</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">jQuery</span><span class="p">(</span><span class="n">setupUI</span> <span class="n">_</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="k">def</span> <span class="nf">setupUI</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;Hello World&lt;/p&gt;&quot;</span><span class="p">)</span>
+    <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;&lt;button type=&quot;button&quot;&gt;Click me!&lt;/button&gt;&quot;&quot;&quot;</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">addClickedMessage</span> <span class="n">_</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">appendTo</span><span class="p">(</span><span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">))</span>
+  <span class="p">}</span>
+  <span class="k">def</span> <span class="nf">addClickedMessage</span><span class="p">():</span> <span class="n">Unit</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">jQuery</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;You clicked the button!&lt;/p&gt;&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>html file</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>The Scala.js Tutorial<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="c">&lt;!-- Include JavaScript dependencies --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./target/scala-2.11/scala-js-tutorial-jsdeps.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c">&lt;!-- Include Scala.js compiled code --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./target/scala-2.11/scala-js-tutorial-fastopt.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c">&lt;!--</span>
+<span class="c">&amp;lt;!&amp;ndash; Run tutorial.webapp.TutorialApp &amp;ndash;&amp;gt;</span>
+<span class="c">&lt;script type=&quot;text/javascript&quot;&gt;</span>
+<span class="c">      tutorial.webapp.TutorialApp().main();</span>
+<span class="c">    &lt;/script&gt;--&gt;</span>
+<span class="c">&lt;!-- Run JSApp --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./target/scala-2.11/scala-js-tutorial-launcher.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<h1></h1>
 <div id="disqus_thread"></div>
 
 <script>
@@ -198,6 +398,28 @@ git push --set-upstream origin &lt;branch name&gt;
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/git-tutorial-demo-on-bitbucket.html" rel="bookmark"
+                           title="Permalink to Git Tutorial (Demo on Bitbucket)">Git Tutorial (Demo on Bitbucket)</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-08-02T00:00:00+08:00">
+                Published: 二 02 8月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
+<p>tags: <a href="/tag/git.html">git</a> </p>
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/git-tutorial-demo-on-bitbucket.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -264,31 +486,9 @@ git push --set-upstream origin &lt;branch name&gt;
                 <a class="readmore" href="/spark-installation-on-os-x.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/decision-regression-tree.html" rel="bookmark"
-                           title="Permalink to Decision, Regression tree">Decision, Regression tree</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-04-27T10:00:00+08:00">
-                Published: 三 27 4月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/stat.html">Stat</a>.</p>
-
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/decision-regression-tree.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
                 </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 10
+    Page 1 / 11
         <a href="/index2.html">&raquo;</a>
 </p>
                 </section><!-- /#content -->
