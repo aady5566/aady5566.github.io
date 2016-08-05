@@ -25,10 +25,10 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/an-introduction-to-recommender-systems.html">An Introduction to Recommender Systems</a></h1>
+                    <h1 class="entry-title"><a href="/neighborhood-based-collaborative-filtering.html">Neighborhood-Based Collaborative Filtering</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2016-08-04T00:00:00+08:00">
-                Published: 四 04 8月 2016
+        <abbr class="published" title="2016-08-05T00:00:00+08:00">
+                Published: 五 05 8月 2016
         </abbr>
 
         <address class="vcard author">
@@ -52,65 +52,342 @@ ga('send', 'pageview');
 
 </script>
 
-<h2>前言</h2>
-<p>網路已成為電商交易間的發展推薦系統的工具。比較常見的兩種方法：</p>
-<ul>
-<li>典型的方法就是靠用戶的評分 (explicit ratings)</li>
-<li>追蹤用戶的「購買」、「瀏覽」行為進行 (implicit ratings)</li>
-</ul>
-<hr />
-<p>推薦系統的最大目的就是利用各種資料來源推論消費者的興趣、嗜好。又可分為兩種問題的解法：</p>
+<h2><strong>Introduction</strong></h2>
+<p>協同過濾可視為「類聚法」或是「回歸」的概化版本（generalization）。Neighborhood-based method的概念源自於 nearest neighbor classification 和 regression，又被稱為「memory-based algorithms」。</p>
+<p>Neighborhood based框架下的假設（核心概念）：<strong>「相似的用戶會有相似的評分行為，且相似的物件會得到相似的評分結果</strong>」。最主要的兩種演算模型：</p>
 <ol>
-<li>Prediction version of problem: 假設整個資料是由m個user對n個item的評比，然而這張m x n的大型陣列中必含一大堆的缺值，而這個問題則是在處理item-user combination中對於缺值做預測的 ，因此又稱為「matrix completion problem」。</li>
-<li>Ranking version of problem: 但在實際中，我們對於預測的數值並不是那麼感興趣，站在賣方的角度，他們在意的是推薦top-k items於特定用戶或是反過來找出top-k用戶於特定產品。(但實際上而言，決定top-k items的例子是廣泛用於業界。)此又被稱為「top-k recommendation problem」</li>
+<li><strong>User-Based collaborative filtering: </strong>基於相似於目標用戶A的用戶們之評分分數，用來預測Ａ的評分，並藉此達到推薦的排序。</li>
+<li><strong>Item-Based collaborative filtering: </strong>基於相似於目標物件B的物件們之被評分數，預測任一目標用戶A對目標物件B的評分。</li>
+</ol>
+<p>為了達成上述的目的，我們建立一m為用戶、n個物件的 user-item ratings matrix（m x n維度）。因為每個用戶的評分資訊很少，往往矩陣為稀疏矩陣。
+藉由協同過濾，我們希望得到兩種目標：</p>
+<ol>
+<li>預測user-item矩陣的缺值：即各用戶的評分預測</li>
+<li>決定top-k 物件或是 top-k 用戶：一般又被稱為「top-k problem」。傳統而言，會比較在意尋找top-k 物件而不是top-k 用戶，原因是希望推薦“應該被推薦”的商品給用戶才是商業需求。然而尋求top-k物件也有一些好處，例如可以探索商品的潛在客群為何。</li>
 </ol>
 <hr />
-<p>推薦系統最直接的實際效用就是增加業主的銷量，間接帶來豐厚的利潤。為達到這樣的效果，好的推薦系統應包含下列四種特性：</p>
+<h2><strong>Key properties of Ratings Matrices</strong></h2>
+<p>評分矩陣 (m x n Ratings matrix) 上述介紹過了，因為矩陣中已知的數值所佔的條目 (entry)非常少，為稀疏矩陣。若欲求出尚未擁有數值的條目，就好像是依變項是以條目為單位 (同時含行、列); 另一方面而言類聚法或回歸，通常都只有一個維度為依變項，這也是為何推薦系統又被視為「類聚法」或「回歸」的概化版本。在推薦系統的所分析的原始資料：評分分數(rating)，又有下列幾種型態：</p>
 <ol>
-<li>關聯性 (Relevance)：這是最直觀的特性，也就是推薦相關的產品給用戶。但只有關聯性是絕對不足以構成好的推薦系統。</li>
-<li>新穎性 (Novelty)：推薦用戶從沒看過的產品。舉例來說，在你家樓下開一間印度料理，方圓百里可能都沒有任何一間印度料理，雖然沒看過但也不會覺得特別奇怪，因為你知道印度料理有名的是香料或是咖哩。打破新穎性的方式就是不斷重複推薦用戶。但重複推薦的副作用則是會降低產品的歧異度(reduction in sales diversity)。</li>
-<li>機運 (Serendipity)：很類似新穎性，但差別在於要推薦的產品對於用戶來說是非常意外，感到驚奇的。例如在你家樓下開一間巴塔哥尼亞鴕肉燒烤店，這時你不僅沒看過，而且還會帶有好奇驚艷的情緒，那這就是機運的精髓了。</li>
-<li>增加推薦的歧異度 (Increasing recommendation diversity)：這點非常重要，當推薦系統發出一份top-k items的推薦表單給用戶，若這些產品性質非常雷同，那用戶可能完全不買帳。反過來說，當這些產品異質性較高的情況下，用戶很高的機率至少會選擇一項產品。歧異度可以延長用戶的新鮮感，並對推薦系統所推薦的商品也比較能接受。</li>
+<li>連續型評分分數：評分的方式可能為一條-10至10分的拉霸，用戶可選擇其中的任一實數，缺點是會讓用戶增加評分上的負擔。</li>
+<li>等距型評分分數：例如李克式5點、7點評分。等距型評分有個很重要的假設，即每個點之間的距離是等距的，舉例來說，-1至1的心理距離和1至3是一樣的。</li>
+<li>次序型評分分數：例如「不同意」、「普通」、「同意」。次序型並沒有距離一樣的假設。但通常推薦系統分析的處理上便利性，還是會當成一樣的。</li>
+<li>二元評分分數：可以看作是等距型和次序型的特例</li>
+<li>單元評分分數：這非常特別，好比說臉書的「按讚」，這類的資訊只抓取用戶的行為(implicit feedback)</li>
 </ol>
 <hr />
-<h2>推薦系統運用的商業實例</h2>
-<ul>
-<li>GroupLens: 推薦系統的先驅，源自於Usenet news文章推薦的原型。</li>
-<li>Amazon.com: 也是推薦系統的先驅之一，將推薦系統應用於書籍、CD片、軟體、3C產品的推薦，他們除了利用五點量表評分外，也去洞察會員於網頁上的瀏覽、購物行為</li>
-<li>Netflix: Netflix早期為數位DVD的出租公司，最後發展成電影、電視劇的串流式傳輸服務。Netflix也是用到會員對於電影的五點量表評分。Netflix有個非常好的特點，就是在推薦電影給會員時，會同時解釋推薦的原因。幫助會員了解為何會推薦給我這系列的電影(或是「為何我會喜歡這類的電影」)。</li>
-<li>Facebook: 臉書的推薦並不是一般的商品，而是利用推薦系統來預測用戶的社會網絡連結的強度 (link prediction)。這類型的推薦系統並不是依照評分資料，而是去分析網絡中的結構關係。</li>
-</ul>
+<h2><strong>Predicting Ratings with Neighborhood-Based Methods</strong></h2>
+<p>Neighborhood-based methods 的基本原則就是”用戶- 物件矩陣”中利用用戶間相似、物件間相似進行推薦。
+<img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466554484160_+2016-06-22+8.14.30.png
+"width="100%" height="100%" /></p>
+<p><strong>User-Based neighborhood models</strong>
+算矩陣中的相似性有兩種方式 1.<strong>Cosine</strong> 2.<strong>Pearson</strong>。舉例來說，我們想要得到Table2.1內user3對於item1, item6 的評分預測，先去算user3與其他用戶間的相似性(row-based Similarity)。舉例來說，user3對於user1的相似性的兩種算法：
+我們須得到各用戶的mean rating：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466555288550_+2016-06-22+8.27.56.png
+"width="100%" height="100%" /></p>
+<p>$I_u$ 為該用戶對於所有“已經評分“的物件的集合。舉例user3，他的評分均數為 (3+3+1+1)/4 = 2。</p>
 <hr />
-<h2>推薦系統的基本架構模型</h2>
-<ul>
-<li><strong>Collaborative Filtering Models</strong></li>
-<li><strong>Memory-based methods</strong>: Neighborhood-based collaborative filtering algorithms<ul>
-<li>User-based collaborative filtering</li>
-<li>Item-based collaborative filtering</li>
-</ul>
-</li>
-<li><strong>Model-based methods</strong>: Decision trees, rule-based models, Bayesian methods and latent factor models.</li>
-<li>
-<p><strong>Content-Based Recommender Systems</strong></p>
-<ul>
-<li>對item 或 user進行標籤化。多了更多的標籤就可以推薦類似的產品  </li>
-</ul>
-</li>
-<li>
-<p><strong>Knowledge-Based Recommender Systems</strong></p>
-<ul>
-<li>當item的 attributes過多的情況下，很難知道user是不是只對特定的attribute有興趣。此時knowledge-base 推薦系統倚賴的並不是ratings，而是針對user的requirement以及attribute匹配的程度來做推薦  </li>
-</ul>
-</li>
-</ul>
-<p><img class='shaped' src="https://d2mxuefqeaa7sj.cloudfront.net/s_8F1BDAC0AB2A7431BF178DAAB848C47EFCC9A12356A4C1846E15230BCCBADC55_1466041694489_+2016-06-16+9.47.44.png
-"
-width="100%" height="100%" />  </p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466554935816_+2016-06-22+8.22.01.png
+"width="100%" height="100%" /></p>
+<p>所有對於user3的相似結果在Table2.1最後兩欄，接著我們若選擇top-2 最鄰近user3的兩位user作為預測基準，我們可以得到預測分數如下：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466555077571_+2016-06-22+8.24.23.png
+"width="100%" height="100%" /></p>
+<p>然而這樣的算法儘管已經利用相似性考量其他用戶評分分數的權重，但是仍用其他用戶的原始分數做完基準，這樣會導致預測值容易受到其他用戶決策風格的影響。為減少這樣的狀況，我們可以用centering to mean的方式來解決，也就是所有的原始分數減去user的均數。
+因此我們可將上表的數值轉換成：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466555545814_+2016-06-22+8.31.22+1.png
+"width="100%" height="100%" /></p>
+<p>接著再利用上表重算預測值：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466555627827_+2016-06-22+8.33.37.png
+"width="100%" height="100%" /></p>
 <hr />
-<ul>
-<li>The Cold-Start Problem</li>
-<li>推薦系統的其中一個挑戰就是最開始的資料還不夠龐大，若用Collaborative Filtering Models估算會有很大的誤差。因此最開始可以採用Content-Based或是Knowledge-Based Recommender Systems (雖然說這兩種也不一定一直是最適切的)  </li>
-</ul>
+<p>上述的預測分數的通式為：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466555929235_+2016-06-22+8.38.38.png
+"width="100%" height="100%" /></p>
+<p>大體而言，經由mean-centering後的偏誤修正，Pearson correlation coefficient會比 raw cosine表現更好。
+另外也有做法是利用z分數來估計預測分數：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466556148653_+2016-06-22+8.42.07.png
+"width="100%" height="100%" /></p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466556148657_+2016-06-22+8.42.13.png
+"width="100%" height="100%" /></p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466556148660_+2016-06-22+8.42.16.png
+"width="100%" height="100%" /></p>
+<p>利用z分數算法可能會導致所估計的預測值落在實際評分的範圍外，仍被使用的原因是仍可以依照評分大小做物件的排序進行推薦。
+另外一種加強權重的方式即在相似性中放一個指數參數放大權重效果：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466556366813_+2016-06-22+8.45.41.png
+"width="100%" height="100%" /></p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466556366817_+2016-06-22+8.45.46.png"width="100%" height="100%" /></p>
+<hr />
+<p>然而多數情況除了原始資料的資料殘缺外，用戶的評分可能集中在少數的幾個物件上，而導致長尾現象：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466556563584_+2016-06-22+8.49.09.png
+"width="100%" height="100%" /></p>
+<p>這樣一來產生一個問題：用「受歡迎」的物件來對「鮮為人知」的物件進行評分有失準度的，這些過多的受歡迎評分就好比文本分析的無用字詞（例如「的」、「他」、「是」）。因此處理方式類似 Inverse Document Frequency (idf) ：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466556790005_+2016-06-22+8.52.32.png
+"width="100%" height="100%" /></p>
+<p>$m_j$ 為物件 $j$ 被評次數，$m$為總評次數。藉此我們就能將預測公式修改成：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466556887230_+2016-06-22+8.54.34.png
+"width="100%" height="100%" /></p>
+<hr />
+<p><strong>Item-Based Neighborhood Models</strong>
+算法的邏輯類似 User-Based Neighborhood Models：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466557145945_+2016-06-22+8.58.53.png
+"width="100%" height="100%" /></p>
+<p>乍看之下很類似Pearson Correlation，但不同的地方在於$S_{uj}$是row-based centering mean，即「用戶」的評分均數，item-base最基本的概念最終是用到<strong>「該用戶」自己的評分分數對相似的物件進行評分預測</strong>。</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466557613532_+2016-06-22+9.06.26.png
+"width="100%" height="100%" /></p>
+<p>我們目標是希望對目標用戶user3進行物件推薦，因此必須得出item1, item6的預測值。
+首先先得出row-based centering mean，然後再去算item1、item6與其他物件間的相似，結果如下表的倒數兩列。若是top-2 最鄰近item的想法，可得item1和item2,3有較高的相似; item6和item4,5有較高的相似，最後我們再用<strong>user3的原始評分分數 </strong>（item-based的核心概念）作為基準得到預測值：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466557987181_+2016-06-22+9.12.56.png
+"width="100%" height="100%" /></p>
+<hr />
+<p>若比User-based 和 Item-based兩種算法，Item-based methods往往會推薦比較相關的物件，且比較準確，原因是最後的預測分數用到的是「該用戶」自己的評分。Item-based methods還有個好處，就是推薦的同時，可以<strong>呈現比較具體的理由</strong>，例如 Netflix 會說，因為你看了 Alien ，所以我們推薦你 Predator。若User-based要呈現推薦理由的話，因為預測分數的基準來自其他匿名用戶，若要呈現理由，可以利用圖表：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466558840444_+2016-06-22+9.27.07.png
+"width="100%" height="100%" /></p>
+<p>然而，反過來說，Item-based的也容易推薦一些常見的物件，難以推薦「新穎的」物件。</p>
+<hr />
+<p>雖然上述兩種算法非常直觀，但缺陷是計算效率的問題，時間複雜度太高。Neighborhood-based methods又可拆成兩個階段: 離線與線上階段。離現階段是要計算用戶間相似（物件間相似），以及預備top-k的臨近用戶（物件）。線上階段則是算出預測值。而neighborhood-based methods計算上的困難往往卡在離線階段。</p>
+<hr />
+<p><strong>Clustering and Neighborhood-Based Methods</strong>
+因為計算效率的問題，所以我們在離線階段，將原本的 nearest-neighborhood computation 改為 clustering computation。實際做法和clustering analysis相似：</p>
+<ol>
+<li>先在每個row決定群集$c_1$,…$c_k$，表徵 均數 $y_i$。 可用歐幾里德或曼哈頓距離來算相似</li>
+<li>對所有的$i$ $in$ { $1..k$ }，重設均數 $y_i$ 重新計算新的中心點。</li>
+</ol>
+<p>最大的問題是矩陣是稀疏矩陣，資料殘缺不全，計算點之間的距離會較困難，在這樣的情況下，比較建議用曼哈頓距離來計算。</p>
+<hr />
+<p><strong>Dimensionality Reduction and Neighborhood Methods</strong>
+降維也是一個提升neighborhood-based methods 品質和效能的方法。降維的目的是將原始的用戶-物件矩陣降到低維度，利用潛在變項作為表徵，這樣的降維方法指的即「潛在變項模型」(Latent Factor Model)。降維方法的好處是即使兩用戶沒有太多共同的評分物件，仍可以算出彼此間的潛在向量。將為方式可以有兩種，第一種是根據行或列的單維度降維，另外一種是同時行列的降維。因為後者非屬於Neighborhood based methods，在此不討論。降維方法的另外一個好處是維度上並不會有缺值的情形。一般而言降維的方法可用SVD-like methods 或是 PCA ，我們以 SVD-like作為說明。</p>
+<hr />
+<p><strong>Singular Value Decomposition-Like</strong>
+以下為實作方式</p>
+<ol>
+<li>必須先把缺值補齊 （這裏會有偏誤，之後會講），一般做法就是填入 row-based mean 或是 column-based mean。</li>
+<li>如果有個m x n 的評分矩陣R，我們先計算 $S = R^T \cdot R$，</li>
+<li>接著計算$S$之特徵值與特徵向量，並依照特徵值的大小排序，取出前d個特徵值$val_d$，標準為 $d$ $&lt;=$ $min${$m,n$}，並得到對應的特徵向量$vec_d$</li>
+<li>$S \cdot vec_d$ 就會是m x d的矩陣，表示每個用戶都用這d維度來表示了。</li>
+<li>可以用下面的R 腳本來理解。
+<pre>
+r &lt;- matrix(sample(10,500,replace=T),100,5) #create matrix
+s &lt;- t(r) %<em>% r
+vec &lt;- eigen(s)$vectors
+val &lt;- eigen(s)$values
+newR &lt;- r %</em>% vec[,1:2] #d = 2
+</pre></li>
+</ol>
+<hr />
+<p>PCA和SVD概念相似，只是PCA利用的是共變矩陣而不是 $R^T \cdot R$。
+<a href="https://www.ling.ohio-state.edu/~kbaker/pubs/Singular_Value_Decomposition_Tutorial.pdf" target="_blank">SVD文件參考連結</a></p>
+<hr />
+<p>上述實作步驟1.會產生偏誤，下述為原始矩陣：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466562227171_+2016-06-22+10.23.31.png
+"width="100%" height="100%" /></p>
+<p>首先依照步驟1. 根據row-based 算出Nero的均數 (1+7+1+7)/4 = 4，因此缺值接以4取代。以PCA來說，因為算的是共變矩陣，會得到：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466562330111_+2016-06-22+10.25.18.png
+"width="100%" height="100%" /></p>
+<p>理論上Gladiator和Nero的共變應比高Nero和Godfather高，但因為補上均數的關係，造成資料偏誤。但當稀疏矩陣實在太過稀疏時，利用上述方法的估計值來填補缺值是非常不可信的。利用Expectation-Maximization Algorithm (EM-Algorithm)降低偏誤會變成是個很好的辦法。EM-Algorithm如來估計共變矩陣。因此在計算共變矩陣時，缺值應該先不補，而是在算共變時只計算物件間已有評分的交集：  </p>
+<pre>
+#handling the bias
+god <- c(1,7,3,5,3,5,3,5,3,5,3,5)
+gla <- c(1,7,1,7,1,7,1,7,1,7,1,7)
+nero <- c(1,7,1,7)
+fillin <- cov(gla[1:4],nero[1:4])
+fillin <- cov(god[1:4],nero[1:4])
+</pre>
+
+<p>再將結果補回共變矩陣：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466562638440_+2016-06-22+10.30.27.png
+"width="100%" height="100%" /></p>
+<p>我們可以利用這種不補值的方式得到上述的共變矩陣，接著可以利用這個共變矩陣萃取出特徵值和特徵向量，已達到原始評分矩陣降維的效果：
+實作方式為：</p>
+<ol>
+<li>根據共變矩陣得到特徵向量和特徵值</li>
+<li>依照特徵值的大小排列特徵向量_d，只取出 top-d</li>
+<li>在此需借用2.17公式，此公式只是將原始的矩陣相乘，忽略缺值的計算。</li>
+</ol>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466589860108_+2016-06-22+6.04.04.png
+"width="100%" height="100%" /></p>
+<p>參考R的實作腳本  </p>
+<pre>
+#handling the bias
+god <- c(1,7,3,5,3,5,3,5,3,5,3,5)
+gla <- c(1,7,1,7,1,7,1,7,1,7,1,7)
+nero <- c(1,7,1,7,NA,NA,NA,NA,NA,NA,NA,NA)
+
+fillin1 <- cov(gla[1:4],nero[1:4])
+fillin2 <- cov(god[1:4],nero[1:4])
+adjustedCov <- matrix(c(cov(god,god),cov(god,gla),fillin2,cov(god,gla),cov(gla,gla),fillin1,fillin2,fillin1,fillin1),3,3)
+
+#2.17
+df <- data.frame(god,gla,nero)
+raw <- as.matrix(df)
+m<- adjustedCov
+s <- t(m) %*% m
+(vec <- eigen(s)$vectors)
+val <- eigen(s)$values
+#calculate a_(12,3) for example
+u=12
+i=3
+a_12.3 <- (raw[u,c(1:length(which(!is.na(raw[u,]))))] %*% vec[c(1:length(which(!is.na(raw[u,])))),i]) / length(which(!is.na(raw[u,])))
+#calculate m x d matrix A = [a_(ui)]m x d
+tempdf <- data.frame()
+for(u in 1:nrow(raw)){
+  tempRow <- c()
+  for(i in 1:ncol(vec)){
+    tempVal <- (raw[u,c(1:length(which(!is.na(raw[u,]))))] %*% vec[c(1:length(which(!is.na(raw[u,])))),i]) / length(which(!is.na(raw[u,])))
+    tempRow <- c(tempRow,tempVal)
+  }
+  print(tempRow)
+  tempdf <- rbind(tempdf,tempRow)
+  rm(tempRow)
+}
+</pre>
+
+<hr />
+<p>上述方法雖然可以解決共變矩陣偏誤的狀況，但如果還是太稀疏的話，仍是不可信的。這時可採取Direct Matrix Factorization methods如 singular value decomposition，若步驟1.的缺值透過非線性最佳化取得會讓模型表現更好。</p>
+<hr />
+<p><strong>Regression model view of Neighborhood Methods</strong>
+我們可將user-based nearest neighborhood 和 item-based nearest neighborhood 的公式視為現性函數：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466564445158_+2016-06-22+11.00.33.png
+"width="100%" height="100%" /></p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466564471187_+2016-06-22+11.00.59.png
+"width="100%" height="100%" /></p>
+<p>以user-based nearest neighbor regression為例，我們將權重改為未知的參數改寫上述的公式：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466564673368_+2016-06-22+11.04.21.png
+"width="100%" height="100%" /></p>
+<p>公式2.20或2.21計算鄰近的k個用戶或物件因為是有值的 (top-k)。但因為 regression 的方式是先決定k個最近的用戶（物件），再去將「已經評分的」計入回歸式中，因此k的數量比會大幅減少。又因為w是估計值，因此 $w_{uv}$ 和 $w_{vu}$ 的係數值可能不同。
+檢驗回歸式的方式可用最小平方法。實際作法只去計算「已知的評分」與「預測的評分」：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466565139821_+2016-06-22+11.12.09.png
+"width="100%" height="100%" /></p>
+<p>不過因為回歸式容易受到「”用戶的數量” 對於 item_j 的評分」的影響。比如說$user_u$ 評了電影A和電影B，除了$user_u$外，其他人都評了電影A，但只有一人（姑且稱做$user_x$）評了電影B，此時$user_x$對於建立模型的係數影響非常大，導致模型的不可信。因此我們必須稀釋這樣極端的效果：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466565868157_+2016-06-22+11.24.17.png
+"width="100%" height="100%" /></p>
+<p>k為總人數，$|P_{u}(j)|$為 $item_j$ 被評次數。</p>
+<hr />
+<p>另外一種常見的調整方式為：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466566030536_+2016-06-22+11.26.57.png
+"width="100%" height="100%" /></p>
+<p>加入一個未知的”偏誤參數”$b_u$。但要特別注意，此時的模型已為非線性模型。</p>
+<hr />
+<p>除了加入參數 user bias ，也可以結合 item bias：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466566397137_+2016-06-22+11.33.07.png
+"width="100%" height="100%" /></p>
+<hr />
+<p>Item-based nearest neighbor Regression也是類似的作法，將2.21的公式改為：
+<img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466566270215_+2016-06-22+11.31.01.png
+"width="100%" height="100%" /></p>
+<p>檢驗模型及預測調整類似於 user-based regression：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466566758369_+2016-06-22+11.38.49.png
+"width="100%" height="100%" /></p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466566758377_+2016-06-22+11.38.56.png
+"width="100%" height="100%" /></p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466566758382_+2016-06-22+11.39.01.png
+"width="100%" height="100%" /></p>
+<hr />
+<p>上述的兩種回歸式仍面臨和傳統的 neighborhood-based 一樣的問題，那就是計算效率的狀況。回歸式比較適合應用於當<strong>物件時常被更新，而用戶的狀態比較穩定的狀態</strong>的場景。</p>
+<hr />
+<p>另外，同時結合 user-based 和 item-based方法的公式為：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466566888933_+2016-06-22+11.41.18.png
+"width="100%" height="100%" /></p>
+<hr />
+<p><strong>Joint neighborhood-based model</strong>
+還有其他的方法計算相似性的權重，基於公式2.22，但不再以用戶間對於同一物件的評分比較，而是以該用戶對於其他物件的評分作為比較：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466567193128_+2016-06-22+11.46.18.png
+"width="100%" height="100%" /></p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466567410743_+2016-06-22+11.49.51.png
+"width="100%" height="100%" /></p>
+<hr />
+<p><strong>Sparse Linear Models (SLIM)</strong>
+此模型是基於 item-item 回歸方法，特色是處理 非負數值的評分。也因此它並不能做 cetering-mean（否則會有負值產生）。也因為這個特色，它<strong>特別適合處理單元評分 unary ratings （implicit feedback）</strong>，例如臉書按讚這類型的資料：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466567672169_+2016-06-22+11.54.21.png
+"width="100%" height="100%" /></p>
+<p>此公式和2.27最大的不同是，不只計算交集的部分，而是所有的 item 都進去建模了。</p>
+<hr />
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466567799723_+2016-06-22+11.56.23.png
+"width="100%" height="100%" /></p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466567902821_+2016-06-22+11.58.06.png
+"width="100%" height="100%" /></p>
+<hr />
+<p><strong>Graph models for neighborhood-based methods</strong>
+利用圖模型可以呈現用戶與物件間彼此連結的狀況，一般常見的方式為 隨機路徑 (random-walk) 或是最短路徑 (shorest-path methods)。
+圖模型的優點為不需要兩用戶的直接連結（例如共同評分的物件），可以藉由間接的關係，如兩用戶的最短路徑來表示用戶間的關係（方法可能為 隨機路徑或是 Katz measure）。</p>
+<hr />
+<p><strong>Neighborhoods with the random walk</strong>
+以 random walks 來得出user-item graph為例：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466568459535_+2016-06-22+12.06.23.png
+"width="100%" height="100%" />  </p>
+<p>左邊為原始評分，右邊則為圖模型的結果。這裏只計算連結數，而不考慮數值</p>
+<hr />
+<p><strong>Neighborhoods with the Katz measure</strong>  </p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466568618921_+2016-06-22+12.09.51.png
+"width="100%" height="100%" />  </p>
+<p>$n_{ij}^{(t)}$表示節點 $i$, $j$ 之間長度 $t$ 的數量，$\beta$ &lt; 1 為一discount自定義參數 (discount factor)。</p>
+<hr />
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466569234923_+2016-06-22+12.19.43.png
+"width="100%" height="100%" />  </p>
+<p>$A$ 為 節點間的非間接網絡矩陣（對稱矩陣），可以依照上述的公式得到 Katz 係數矩陣。
+<pre></p>
+<h1>2.35</h1>
+<p>m &lt;- matrix(c(1,4,4,1),2,2)
+beta &lt;- 0.5
+k &lt;- solve(diag(2)-beta*m)-diag(2)#solve(A) Inverse of A where A is a square matrix.
+</pre></p>
+<hr />
+<p>一般而言我們可以設定設定最長路徑 閾值，因為過長的路徑反而是資訊上的干擾。
+特別注意的是，Katz measure 只用於計算用戶間的關係，而不同於先前提到的neighborhood methods，這裡是去的資訊是用戶和物件的連結數，屬於 path-based methods。</p>
+<hr />
+<p><strong>User-User Graphs</strong></p>
+<hr />
+<p><strong>Item-Item Graphs</strong>
+物件間的圖模型又被稱為「Correlation graph」：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6AFB5B8CC22ED85B26D6BFBED8_1466570275000_+2016-06-22+12.37.41.png
+"width="100%" height="100%" />  </p>
+<p>(a)為原始資料
+(b)為未正規化的相關圖譜，計算方式是同一用戶同時評了 $item_i$ 和 $item_j$，這樣算成 $item_i$ 和 $item_j$一筆。若同一用戶同時評了三個物件，則會有三個連結產生。最後再去加總 $item_i$,$item_j$之間的連結數。
+(c)正規化的相關圖譜，計算方式則是將連結數除上「該節點輸出」的數量，此正規化的結果可視為隨機路徑的機率。
+這邊一樣要提醒路徑圖譜並沒有用到評分的數值。  </p>
 <p>Ref: Aggarwal, C. C. (2016). Recommender Systems: The Textbook. Springer.</p>
 <div id="disqus_thread"></div>
 
@@ -139,6 +416,28 @@ width="100%" height="100%" />  </p>
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/an-introduction-to-recommender-systems.html" rel="bookmark"
+                           title="Permalink to An Introduction to Recommender Systems">An Introduction to Recommender Systems</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-08-04T00:00:00+08:00">
+                Published: 四 04 8月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/stat.html">Stat</a>.</p>
+<p>tags: <a href="/tag/recommendersystems.html">RecommenderSystems</a> </p>
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/an-introduction-to-recommender-systems.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -203,28 +502,6 @@ width="100%" height="100%" />  </p>
 <p>tags: <a href="/tag/life.html">Life</a> </p>
 </footer><!-- /.post-info -->                
                 <a class="readmore" href="/meng-xiang.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/intalling-redis-on-docker.html" rel="bookmark"
-                           title="Permalink to Intalling Redis on Docker">Intalling Redis on Docker</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-05-16T19:00:00+08:00">
-                Published: 一 16 5月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/docker.html">docker</a> <a href="/tag/redis.html">redis</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/intalling-redis-on-docker.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
