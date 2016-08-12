@@ -1,5 +1,311 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-08-05T00:00:00+08:00</updated><entry><title>Neighborhood-Based Collaborative Filtering</title><link href="/neighborhood-based-collaborative-filtering.html" rel="alternate"></link><published>2016-08-05T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-05:neighborhood-based-collaborative-filtering.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-08-12T00:00:00+08:00</updated><entry><title>Model-Based Collaborative Filtering</title><link href="/model-based-collaborative-filtering.html" rel="alternate"></link><published>2016-08-12T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-12:model-based-collaborative-filtering.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+&lt;/script&gt;
+
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466754762054_+2016-06-24+3.52.24.png
+"width="100%" height="100%" /&gt;  &lt;/p&gt;
+&lt;p&gt;其實協同過濾的就是分類法（回歸）的進階延伸而已。(a) 表一般的分類法所用到的資料概念，資料被分為訓練集和測試集，獨變項和依變項的關係，作法不外乎就是利用訓練集的獨變項依變項建模，再對測試集的依變項做預測。而 (b) 協同過濾，灰色條目即為未知的數值（即將被預測），散落在二維空間中，因此獨、依變項並沒有限定在行或列中，所以才會說協同過濾類似於分類法的延伸版本。也因此， model-based 協同過濾也會用到各種監督、非監督式的學習方法（如決策樹、關聯性規則、貝氏模型、回歸、神經網絡模型、支持向量機）&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;儘管前一章節已經提到 Neighborhood-based methods，非常直觀，但仍有一些計算效率問題。在此我們介紹 Model-based methods 比起 Neighborhood-based methods 多了哪些特色：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;空間維度上的縮減，空間複雜度可以降低&lt;/li&gt;
+&lt;li&gt;減少 pre-processing stage 的時間 （off-line phase）&lt;/li&gt;
+&lt;li&gt;避免 over-fitting   &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;接下來會簡介各個 model-based 的應用情境&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;&lt;strong&gt;Decision and Regression Trees&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;這兩種樹的目的都是在對資料進行分類，差別在於前者針對的是&lt;strong&gt;類別變項&lt;/strong&gt;、後者為&lt;strong&gt;數值變項&lt;/strong&gt;。接下來皆以決策樹作為實例。
+針對 m (user) x n (item) 的稀疏矩陣，決策樹的生成做法是將某一 $item_j$ 固定（依變項），其他的 item 為獨變項 （feature），但這時會問如果獨變項內含missing value怎辦？最直接且合理的方式即下一個節點無論是分到哪個分支，所有缺值都會在下一個節點的所有分之出現。
+假設情境為 一 m (user) x n (item) 的稀疏矩陣，條目 (entries) 內可能為0或1的二元數值或是missing。做法就是固定某一維度（依變項），例如 $item_j$ ，我們希望對 $item_j$ 進行物件的推薦，這時借用 其他 item 為 獨變項 （features），就可以開始建樹了！但其實這樣只建了針對 $item_i$ 的樹，所以等於是要建 n 個樹。這裏補充一下，對於樹長的歪不歪可以利用吉尼係數 (Gini Index) 作為一個判斷依據，又可以有整體的吉尼係數或是各節點的算法：&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466757051944_+2016-06-24+4.30.34.png
+"width="100%" height="100%" /&gt;&lt;br /&gt;
+&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466757051948_+2016-06-24+4.30.39.png
+"width="100%" height="100%" /&gt;  &lt;/p&gt;
+&lt;p&gt;3.1式 表整體的吉尼係數，又 $p_i$ 為各分類中所含資料筆數的佔比。此係數的值越小越好。
+3.2式 表某一節點 S 的吉尼係數，透過 S 節點的 子節點 S1 ， S2的吉尼係數權重而得。
+&lt;pre&gt;
+&amp;#35;3.1
+&amp;#35;overall gini index: 50 ,if class a to class d with 30, 5, 5 ,10 data records respectively.
+Gini &amp;lt;- 1- sum((c(30,5,5,10)/50)^2)&lt;/p&gt;
+&lt;p&gt;&amp;#35;total: 50 ,if class a to class e with 10, 10 ,10 ,10 ,10 data records respectively.
+Gini &amp;lt;- 1- sum((rep(10,5)/50)^2)&lt;/p&gt;
+&lt;p&gt;&amp;#35;total: 50 ,if class a to class d with 40, 1, 4 ,5 data records respectively.
+Gini &amp;lt;- 1- sum((c(40,1,4,5)/50)^2)&lt;/p&gt;
+&lt;p&gt;&amp;#35;3.2
+&amp;#35;child node gini index: if attribute X is splited into classA and classB
+GiniX &amp;lt;- (40&lt;em&gt;(1-(40/50)^2)+1&lt;/em&gt;(1-(1/50)^2))/50
+&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;如果是非連續數值型且數目選擇較少 （例如李克3點量表評分）的評分方式，也可以用決策樹來試做看看。決策樹只是其中一種分類的方式，不一定要這麼做，接下來也會介紹其他分類的方法。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;&lt;strong&gt;Rule-Based Collaborative Filtering&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Rule-Based Collaborative Filtering 和 關聯性規則 (association rules) 關係密切。關聯性規則原則上處理的是二元 （0 或 1）的資料型態，最有名的例子當然就是「購物籃分析」。
+想像一下，有一個交易資料庫 $T$ $=$ {$T_1, T_2, …, T_m$}，即含有 m 筆交易數據。我們另外定義 $I$ 是一個含有 n 個商品的集合，則這每筆交易數據 $T_i$ 都應含有 I 的子集的商品。
+關聯性規則的判斷非常有趣，第一個定義為 「support」，第二個定義為 「confident」，如定義  3.3.1及定義 3.3.2。&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466778453461_+2016-06-24+10.19.11.png
+"width="100%" height="100%" /&gt;&lt;br /&gt;
+&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466778453466_+2016-06-24+10.19.23.png
+"width="100%" height="100%" /&gt;&lt;br /&gt;
+&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466778804860_+2016-06-24+10.27.20.png
+"width="100%" height="100%" /&gt;  &lt;/p&gt;
+&lt;p&gt;我們直接看到定義3.3.3，要符合關聯性規則，必須滿足兩點個條件：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$X, Y$ 分別為 I 的子集，如果 $P(X\lor Y)$ 大於自定義的最小support值
+    舉例來說，我們自定義support值最小為.2，則 {麵包、奶油} 和 {牛奶} 同時發生的筆數佔所有筆數 的比例 $&amp;gt; .2$ 則成立。&lt;/li&gt;
+&lt;li&gt;$X, Y$ 分別為 I 的子集，如果 $P(Y|X)$ 大於自定義的最小confidence值
+    舉例來說，我們自定義confidence值最小為.6，則在發生{麵包、奶油} 的筆數中，同時發生 {牛奶}的比例 $&amp;gt; .6$ 則成立。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;商業應用：  &lt;/p&gt;
+&lt;p&gt;「YD 已經購買了奶油和麵包，根據符合資料庫計算的關聯性規則，發現奶油和麵包出現後，應該要推薦 YD 買牛奶。」&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;關聯性規則特別適用於 unary ratings 矩陣（數值只有 0 或 1），其實應該說是購物行為的資料就是 unary ratings，而關聯性規則就是要處理這種屬性的資料。因此在屬於 unary ratings matrix 中若出現缺值，直接補上 0 非常合理且不被詬病的方式（其他的矩陣用 0 補缺值會造成極大的偏誤產生）。
+實作 Rule-Based Collaborative Filtering 的第一步，就是先調配自定義的 support 和 confidence 找出所有的關聯性規則。（此時的 support 和 confidence 是參數），因此只要某個顧客A產生了一筆交易數據，就可以馬上匹配所有關聯性規則，找出其他可能購買的清單列表。
+這裏可能會疑惑，有沒有可能關聯性規則能反過來避免推薦不喜歡的東西？假如有個少選項、或少數值所形成的矩陣（例如 {-1,0,1} 或 {不喜歡、普通、喜歡}），這時我們就可以在物件清單多貼一個標籤，例如{item = 牛奶, tag = 不喜歡}、{item = 牛奶, tag = 喜歡}，這時這兩個「牛奶」就可以視為「不同的商品」，然後再依循的關聯性規則來做判斷。不過這時又會出現一個問題，那就是當 Andy 購買了 {麵包、奶油}，推薦系統會排序給予推薦的商品，此時可能都會推薦 {item = 牛奶, tag = 不喜歡}、{item = 牛奶, tag = 喜歡}，有個簡單的做法就是將 top-k 的推薦的清單去做多數決投票，端看 {item = 牛奶, tag = 不喜歡}、{item = 牛奶, tag = 喜歡} 誰佔大宗了！&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;&lt;strong&gt;Naive Bayes Collaborative Filtering&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;貝氏協同過濾適合小量的間斷數值型態的資料（例如：{0, 1, 2}），也可將其視作類別型態的資料。貝氏模型主要用來做分類，不過在協同過濾的框架下使用貝氏模型的最大挑戰，就是任何的特徵（feature，即 item），都可被看作是被分類的對象。
+設想一個情境， u 個用戶對 I 集合中的 n 個物件評分為 {$v_1, v_2, v_3,…, v_l$}， $r_{uj}$ 表用戶i 對 物件j的評分。
+根據貝氏定理：&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466815624567_+2016-06-25+8.46.47.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;將式子改寫成：
+&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466815679006_+2016-06-25+8.47.32.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;又因右式的分母為已知評分的邊際機率，可以忽略化簡成：&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466815853908_+2016-06-25+8.50.39.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;$P(r_{uj} = v_s)$ 為 Prior probabilities，$P(Observed ratings in I_u | r_{uj} = v_s)$ 為 Likelihood。這裡有個假設，那就是評分彼此是獨立的，因此可以將 Likelihood改寫成：&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466818537892_+2016-06-25+9.35.26.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;整條式子就會變成，&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466818575204_+2016-06-25+9.36.04.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;而我們的預測值就會是，所有可能的分數中，最大概率的那個值：&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466818625703_+2016-06-25+9.36.27.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;然而因為稀疏矩陣的關係，無論是計算$P(r_{uj} = v_s)$ 為 Prior probabilities，$P(Observed ratings I_u | r_{uj} = v_s)$ 為 Likelihood，很可能都是一堆0的值，為了解決這個問題，拉普拉斯平滑 (Laplacian Smoothing) 可以解決這樣的問題：&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466818833697_+2016-06-25+9.40.15.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;不僅$P(r_{uj} = v_s)$ 需要在分子、分母加上參數。$P(Observed ratings I_u | r_{uj} = v_s)$ 也是同樣的做法。當 $\alpha$ 越大 ，越平滑，換句話說，原本的資料影響力就越小。
+R腳本如下：
+&lt;pre&gt;
+&amp;#35;naive bayes
+set.seed(1125)
+(raw &amp;lt;- matrix(sample(c(NA,1:3),20,replace = T),4,5))
+&amp;#35;if we want to predict r_(4,2)
+&amp;#35;p(r_(4,2) = 1|observed) = prior * likelihood = 0 * likelihood = 0
+&amp;#35;p(r_(4,2) = 2|observed) = 1/2 * (1/1 * 0/1 * 1/1 * 0/1)
+&amp;#35;p(r_(4,2) = 3|observed) = 1/2 * (0/1 * 0/1 * 1/1 * 0/1)
+&amp;#35; laplacian smoothing
+l &amp;lt;- .5
+alpha &amp;lt;- .3
+&amp;#35;p(r_(4,2) = 2|observed) =
+p4.2Eq2 &amp;lt;- (1+alpha)/(2+l&lt;em&gt;alpha) * (1+alpha)/(1+l&lt;/em&gt;alpha) * (0+alpha)/(1+l&lt;em&gt;alpha) * (1+alpha)/(1+l&lt;/em&gt;alpha) * (0+alpha)/(1+l&lt;em&gt;alpha)
+p4.2Eq3 &amp;lt;- (1+alpha)/(2+l&lt;/em&gt;alpha) * (0+alpha)/(1+l&lt;em&gt;alpha) * (0+alpha)/(1+l&lt;/em&gt;alpha) * (1+alpha)/(1+l&lt;em&gt;alpha) * (0+alpha)/(1+l&lt;/em&gt;alpha)
+&lt;/pre&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;&lt;strong&gt;Using an Arbitrary Classification Model as a Black-Box&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;除了上述兩種方法，一般現成的model也可以用來填補缺值。做法可以用迭代的方式來填補並更新缺值。第一步先將矩陣轉成 row (column) -centering mean。再來就先固定某一 column作為依變項，其他列為獨變項，算出來的預測值，填補至原本的缺值的位置（0的位置）。接著再依序將其他的column重複此步驟，簡言之， n 個 column 就要有 n 次的 training procedure，跑完後才算為一次的迭代。
+以 regression model 為例，R腳本如下：
+&lt;pre&gt;
+&amp;#35;3.5 updating ratings matrix with regression model
+set.seed(1122)
+raw &amp;lt;- matrix(sample(c(0:3),40,replace=T),10,4) # assume 0 means centered by rows
+&amp;#35;example 1: only raw[,4] as the target variable
+y &amp;lt;- raw[,4]
+x &amp;lt;- raw[,1:3]
+results &amp;lt;- lm(y ~ x) #regression
+w &amp;lt;- as.matrix(results$coefficients[2:length(results$coefficients)]) #weight
+y.hat &amp;lt;- x %&lt;em&gt;% w + results$coefficients[1] #prediction
+raw[which(y==0),4] &amp;lt;- y.hat[which(y==0)] # replace shaded entries with predictions
+rm(raw,y.hat,w,result,x,y)
+&amp;#35;example 2: let raw [,41:3] as the target variable with 4 training procedures in the first iteration
+set.seed(1122)
+raw &amp;lt;- matrix(sample(c(0:3),40,replace=T),10,4) # assume 0 means centered by rows
+check &amp;lt;- raw #compare to raw
+  for(targetCol in 1:ncol(raw)){
+    y &amp;lt;- raw[,targetCol]
+    x &amp;lt;- raw[,-targetCol]
+    results &amp;lt;- lm(y ~ x) #regression
+    w &amp;lt;- as.matrix(results$coefficients[2:length(results$coefficients)]) #weight
+    y.hat &amp;lt;- x %&lt;/em&gt;% w + results$coefficients[1] #prediction
+    raw[which(y==0),targetCol] &amp;lt;- y.hat[which(y==0)] # replace shaded entries with predictions
+  }
+&lt;/pre&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;&lt;strong&gt;Neural Network as Black-Box&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;神經網絡也可以用來做迭代更新模型的方法，同樣以簡單回歸為例， W 為權重， X 為輸入，b為截距項，Z 為輸出（預測值）：
+&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466820177710_+2016-06-25+10.02.46.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;更新權重的方式：
+&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466820239581_+2016-06-25+10.03.34.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;$\alpha$ 為大於 0 的值， learning rate 也是 step size 。 t 為第 t 次的迭代。
+R腳本如下：
+&lt;pre&gt;
+&amp;#35;one-dimension:Qlearning
+i &amp;lt;- c(1,5,6,3,4) #input
+w &amp;lt;- c(.2,.4,.1,.7,.5) #coe weight
+o &amp;lt;- i * w&lt;/p&gt;
+&lt;p&gt;alpha &amp;lt;- 1
+w_new &amp;lt;- w - alpha * (i-o) * i
+o2 &amp;lt;- i * w_new
+&lt;/pre&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;&lt;strong&gt;Latent Factor Models&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;潛在類別模型的想法是將原本的評分矩陣的維度進行去蕪存菁的動作，使得資料維度減少，只利用些許的潛在因子作為表徵。常見的方法有主成份分析 (Pricipal Component Analysis)、奇異值分解 (Singular Value Decomposition)等。
+我們來圖解一下潛在類別模型的意義，這裡使用奇異值分解作為範例 （原因是將因子向量為正交，彼此垂直比較好畫圖）。
+設想一個情境，所有的用戶對於 Nero, Gladiator, Spartacus 三部電影進行評分，所有的評分分數為介於 [-1,1] 的連續值。我們將所有的評分分數化成三維的圖：&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466823995589_+2016-06-25+11.06.23.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;從圖中發現，若評分分數都呈正相關，則可以將分數化簡到一個維度向量（1-dimensional line, 又稱為潛在因子）。因此，只要我們知道 Spartacus 的分數（0.5分），就可以將該分數映射到與 Nero, Gladiator 平行的超平面上，得到對應的 Nero, Gladiator 分數，利用這種方式就可以推論未知的條目了。
+因此我們可以發現，創建這條潛在因子向量其實不需要 full matrix 就可以得到，只需要少數的點，就可以創建這條向量。
+但潛在類別模型的假設是：資料間的評分必須有相關性，否則無法找出合適的潛在類別因子。（不過如果原始評分沒有相關性，那推薦系統根本就沒有用了啊XD）&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;&lt;strong&gt;Understanding the Matrix Factorization Family&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;上述是以空間維度來說明降維的概念，而實際上為得到潛在因子向量，我們透過 factoriztion 來做運算：&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466905083074_+2016-06-26+9.37.51.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;此為通式，左式為評分矩陣，又式為兩個矩陣的乘積，在推薦系統的框架下， U 為用戶的潛在向量、 V 為物件的潛在向量，我們會藉由排序將重要的向量 k 保留， $k &amp;lt;&amp;lt; min${$m,n$} 以達到降維的真實效果，式子會變成：&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466905441043_+2016-06-26+9.43.49.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;因為是估計值，所以我們其實可以算出殘差陣列：&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466906230055_+2016-06-26+9.44.16.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;$|| R- UV^T||^2$ 表條目中的估計與實際條目的 sum of squares。我們會希望透過利用各種方法 (Objective funtion) 使殘差陣列的數值越小越好，這裡總整列表如下：&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466906472746_+2016-06-26+10.00.28.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;R腳本 Q-learning 結果範例
+&lt;pre&gt;
+&amp;#35;creating full entries matrix with neural network(Q-learning) iteration
+set.seed(1122)
+raw &amp;lt;- matrix(sample(c(0:3),40,replace=T),10,4) # assume 0 means centered by rows
+iraw &amp;lt;- t(raw) #item-based
+y &amp;lt;- iraw[4,] #only raw[,4] as the target variable
+x &amp;lt;- iraw[-4,]
+w &amp;lt;- rep(1/dim(x)[1],dim(x)[2])#uniform default weights
+y.hat &amp;lt;- colSums(w*x[1:dim(x)[1],])#sum by column&lt;/p&gt;
+&lt;p&gt;alpha &amp;lt;- .05 #set learning rate&lt;/p&gt;
+&lt;p&gt;repeat{
+  if((sum(y.hat-y)^2) &amp;lt; .01){# sum of square error
+    y &amp;lt;- y.hat;print(y); break;
+  }
+  nextW &amp;lt;- w - alpha * (y-y.hat) * y
+  y &amp;lt;- y.hat
+  w &amp;lt;- nextW
+  y.hat &amp;lt;- colSums(w*x[1:dim(x)[1],])#sum by column
+}
+&lt;/pre&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;&lt;strong&gt;商業情境&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;如何應用 model-based collaborative filtering 處理 unary matrix ，得到比較好的 full entries matrix 的結果?
+以下是我自己的一些心得：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;若為explicit Matrix (例如：1–5分)，將其視為 “購買次數” ，若為缺值補 0 表沒購買: Centering to means by row → Update  “0” entries by Regression 並透過 Q-learning model 得到收斂結果→ run Non-negative Matrix Factorization&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;R腳本試算 Update  “0” entries by Regression 並透過 Q-learning model 得到收斂結果
+&lt;pre&gt;
+&amp;#35;&amp;#35;&amp;#35;Combining Regression adjustion for centering mean with Neural Network iteration
+&amp;#35;Run regression model for creating new full matrixs by 4 training procedures in the first iteration
+set.seed(1122)
+raw &amp;lt;- matrix(sample(c(0:3),40,replace=T),10,4) # assume 0 means centered by rows
+&amp;#35;check &amp;lt;- raw #compare to raw
+for(targetCol in 1:ncol(raw)){
+  y &amp;lt;- raw[,targetCol]
+  x &amp;lt;- raw[,-targetCol]
+  results &amp;lt;- lm(y ~ x) #regression
+  w &amp;lt;- as.matrix(results$coefficients[2:length(results$coefficients)]) #weight
+  y.hat &amp;lt;- x %&lt;em&gt;% w + results$coefficients[1] #prediction
+  raw[which(y==0),targetCol] &amp;lt;- y.hat[which(y==0)] # replace shaded entries with predictions
+}
+&amp;#35;Update full matrix with neural network(Q-learning) iterations
+iraw &amp;lt;- t(raw) #item-based
+y &amp;lt;- iraw[4,] #only raw[,4] as the target variable
+x &amp;lt;- iraw[-4,]
+w &amp;lt;- rep(1/dim(x)[1],dim(x)[2])#uniform default weights
+y.hat &amp;lt;- colSums(w&lt;/em&gt;x[1:dim(x)[1],])#sum by column&lt;/p&gt;
+&lt;p&gt;alpha &amp;lt;- .05&lt;/p&gt;
+&lt;p&gt;repeat{
+  if((sum(y.hat-y)^2) &amp;lt; .01){
+    y &amp;lt;- y.hat;print(y); break;
+  }
+  nextW &amp;lt;- w - alpha * (y-y.hat) * y
+  y &amp;lt;- y.hat
+  w &amp;lt;- nextW
+  y.hat &amp;lt;- colSums(w*x[1:dim(x)[1],])#sum by column
+}
+y
+&lt;/pre&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;若為explicit Matrix (例如：1–5分): Asymmetric Factor Model or SVD++ ，將 matrix 轉成 $[FY]V^T$ (user factors and item factors)&lt;/li&gt;
+&lt;li&gt;若為explicit Matrix (例如：1–5分)，將其視為 “購買次數” ，若為缺值補 0 表沒購買， 再用 (3.29) 將購買次數轉換成權重 → run svd&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466908171289_+2016-06-26+10.28.47.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;若為explicit Matrix (例如：1–5分)，將其視為 “購買次數，並以 (3.31) 用相對頻率表示 → run svd → run PLSA&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241DE907F201E8FA2FC9B404D116_1466908190826_+2016-06-26+10.28.56.png
+"width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;p&gt;Ref: Aggarwal, C. C. (2016). Recommender Systems: The Textbook. Springer.&lt;/p&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;</summary><category term="RecommenderSystems"></category></entry><entry><title>Neighborhood-Based Collaborative Filtering</title><link href="/neighborhood-based-collaborative-filtering.html" rel="alternate"></link><published>2016-08-05T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-05:neighborhood-based-collaborative-filtering.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -169,7 +475,7 @@ https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6A
 "width="100%" height="100%" /&gt;&lt;/p&gt;
 &lt;p&gt;理論上Gladiator和Nero的共變應比高Nero和Godfather高，但因為補上均數的關係，造成資料偏誤。但當稀疏矩陣實在太過稀疏時，利用上述方法的估計值來填補缺值是非常不可信的。利用Expectation-Maximization Algorithm (EM-Algorithm)降低偏誤會變成是個很好的辦法。EM-Algorithm如來估計共變矩陣。因此在計算共變矩陣時，缺值應該先不補，而是在算共變時只計算物件間已有評分的交集：  &lt;/p&gt;
 &lt;pre&gt;
-#handling the bias
+&amp;#35;handling the bias
 god &lt;- c(1,7,3,5,3,5,3,5,3,5,3,5)
 gla &lt;- c(1,7,1,7,1,7,1,7,1,7,1,7)
 nero &lt;- c(1,7,1,7)
@@ -193,7 +499,7 @@ https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6A
 "width="100%" height="100%" /&gt;&lt;/p&gt;
 &lt;p&gt;參考R的實作腳本  &lt;/p&gt;
 &lt;pre&gt;
-#handling the bias
+&amp;#35;handling the bias
 god &lt;- c(1,7,3,5,3,5,3,5,3,5,3,5)
 gla &lt;- c(1,7,1,7,1,7,1,7,1,7,1,7)
 nero &lt;- c(1,7,1,7,NA,NA,NA,NA,NA,NA,NA,NA)
@@ -202,7 +508,7 @@ fillin1 &lt;- cov(gla[1:4],nero[1:4])
 fillin2 &lt;- cov(god[1:4],nero[1:4])
 adjustedCov &lt;- matrix(c(cov(god,god),cov(god,gla),fillin2,cov(god,gla),cov(gla,gla),fillin1,fillin2,fillin1,fillin1),3,3)
 
-#2.17
+&amp;#35;2.17
 df &lt;- data.frame(god,gla,nero)
 raw &lt;- as.matrix(df)
 m&lt;- adjustedCov
@@ -213,7 +519,7 @@ val &lt;- eigen(s)$values
 u=12
 i=3
 a_12.3 &lt;- (raw[u,c(1:length(which(!is.na(raw[u,]))))] %*% vec[c(1:length(which(!is.na(raw[u,])))),i]) / length(which(!is.na(raw[u,])))
-#calculate m x d matrix A = [a_(ui)]m x d
+&amp;#35;calculate m x d matrix A = [a_(ui)]m x d
 tempdf &lt;- data.frame()
 for(u in 1:nrow(raw)){
   tempRow &lt;- c()

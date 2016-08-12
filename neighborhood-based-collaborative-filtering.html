@@ -211,7 +211,7 @@ https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6A
 "width="100%" height="100%" /></p>
 <p>理論上Gladiator和Nero的共變應比高Nero和Godfather高，但因為補上均數的關係，造成資料偏誤。但當稀疏矩陣實在太過稀疏時，利用上述方法的估計值來填補缺值是非常不可信的。利用Expectation-Maximization Algorithm (EM-Algorithm)降低偏誤會變成是個很好的辦法。EM-Algorithm如來估計共變矩陣。因此在計算共變矩陣時，缺值應該先不補，而是在算共變時只計算物件間已有評分的交集：  </p>
 <pre>
-#handling the bias
+&#35;handling the bias
 god <- c(1,7,3,5,3,5,3,5,3,5,3,5)
 gla <- c(1,7,1,7,1,7,1,7,1,7,1,7)
 nero <- c(1,7,1,7)
@@ -235,7 +235,7 @@ https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6A
 "width="100%" height="100%" /></p>
 <p>參考R的實作腳本  </p>
 <pre>
-#handling the bias
+&#35;handling the bias
 god <- c(1,7,3,5,3,5,3,5,3,5,3,5)
 gla <- c(1,7,1,7,1,7,1,7,1,7,1,7)
 nero <- c(1,7,1,7,NA,NA,NA,NA,NA,NA,NA,NA)
@@ -244,7 +244,7 @@ fillin1 <- cov(gla[1:4],nero[1:4])
 fillin2 <- cov(god[1:4],nero[1:4])
 adjustedCov <- matrix(c(cov(god,god),cov(god,gla),fillin2,cov(god,gla),cov(gla,gla),fillin1,fillin2,fillin1,fillin1),3,3)
 
-#2.17
+&#35;2.17
 df <- data.frame(god,gla,nero)
 raw <- as.matrix(df)
 m<- adjustedCov
@@ -255,7 +255,7 @@ val <- eigen(s)$values
 u=12
 i=3
 a_12.3 <- (raw[u,c(1:length(which(!is.na(raw[u,]))))] %*% vec[c(1:length(which(!is.na(raw[u,])))),i]) / length(which(!is.na(raw[u,])))
-#calculate m x d matrix A = [a_(ui)]m x d
+&#35;calculate m x d matrix A = [a_(ui)]m x d
 tempdf <- data.frame()
 for(u in 1:nrow(raw)){
   tempRow <- c()
