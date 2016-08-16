@@ -1,145 +1,175 @@
-<!DOCTYPE html>
-<html lang="[en]">
-<head>
-        <meta charset="utf-8" />
-        <title>YD's Blog - AWS</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-        <link href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="YD's Blog Atom Feed" />
 
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-</head>
+<!DOCTYPE HTML>
+<!--
+	Dopetrope 2.0 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+			<title>YD's Blog - AWS</title>
+			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+			<meta charset="utf-8" />
+			<link href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="YD's Blog Full Atom Feed" />
+			<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic" rel="stylesheet" />
+				<link rel="stylesheet" href="/theme/css/pygment.css" />
+			<noscript>
+				<link rel="stylesheet" href="/theme/css/skel-noscript.css" />
+				<link rel="stylesheet" href="/theme/css/style.css" />
+				<link rel="stylesheet" href="/theme/css/style-desktop.css" />
+			</noscript>
+	</head>
+	<body class="no-sidebar">
+		<!-- Header Wrapper -->
+			<div id="header-wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="12u">
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">YD's Blog </a></h1>
-                <nav><ul>
-                    <li><a href="/category/diary.html">Diary</a></li>
-                    <li><a href="/category/r.html">R</a></li>
-                    <li><a href="/category/scala.html">Scala</a></li>
-                    <li><a href="/category/stat.html">Stat</a></li>
-                    <li><a href="/category/worknote.html">WorkNote</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+							<!-- Header -->
+								<section id="header">
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/aws-identity-and-access-management-iam.html">AWS Identity and Access Management (IAM)</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2016-03-21T18:50:00+08:00">
-                Published: 一 21 3月 2016
-        </abbr>
+									<!-- Logo -->
+									<h1><a href="/">YD's Blog</a></h1>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/aws.html">AWS</a> </p>
-</footer><!-- /.post-info --><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
-  }
-});
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+									<!-- Nav -->
+										<nav id="nav">
+											<ul>
+											</ul>
+										</nav>
 
-ga('create', 'UA-77164531-1', 'auto');
-ga('send', 'pageview');
+								</section>
 
-</script>
+						</div>
+					</div>
+				</div>
+			</div>
 
-<p>Identity and Access Management (IAM)可以讓你管理「用戶們」在AWS服務或資源的使用權限。利用IAM管理的範圍包含活體的aws users, groups或是 軟體的roles and policies。  </p>
-<p>Create users in IAM, assign them individual security credentials, including access keys,
-passwords, and multi-factor authentication devices or request temporary security credentials to provide users access to AWS services and resources.  </p>
-<p>Create roles in IAM, and manage policies to control which operations can be performed by the entity, or AWS service, that assumes the role.  </p>
-<p>qwiklab實作部分，儀表板上點選 <strong>IAM</strong> :  </p>
-<p>範例的Group介紹：  </p>
-<ul>
-<li>EC2support group 功能主要是監控其他EC2的狀態  </li>
-<li>EC2admin group 用來<a href="http://www.ems5.com/view.php?id=308">scale up</a>伺服</li>
-<li>S3admin group 執行所有S3 相關服務  </li>
-</ul>
-<p>若我們希望讓userone負責監控(EC2support)的工作，選擇左方 <strong>Dashboard</strong> 的 <strong>Group</strong>，選擇EC2support後下方的 <strong>User</strong> 並加入該成員即可。  </p>
-<p>接著我們要對這些用戶客製化密碼。回到IAM選擇儀表板的 <strong>User</strong>，勾選userone後選擇上方的 <strong>Actions "Manage Password"</strong> ，進去後選擇"Replace existing password with new custom password"。設好用戶密碼後。
-點擊 <strong>Dashboard</strong>，會有個IAM users sign-in link，屆時所有在這之中的user藉由輸入自己的帳戶以及該用戶密碼就可以取得相對應的權限。而Admin帳戶可以點擊 <strong>User</strong> 看Password Last Used的使用歷史紀錄。</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+		<!-- Main Wrapper -->
+			<div id="main-wrapper">
+				<div class="container">
+<div class="row">
+<div class="12u">
+    <section>
+            <div class="row">
+                <div class="4u">
+                    <section class="box">
+                        <header>
+                            <h3>AWS Identity and Access Management (IAM)</h3>
+                            <span class="byline">2016-03-21 18:50:00+08:00</span>
+                        </header>
+                        
+                        <footer class="actions">
+                            <a href="/aws-identity-and-access-management-iam.html" class="button button-icon button-icon-1">Continue Reading</a>
+                        </footer>
+                    </section>
+                </div>
+                <div class="4u">
+                    <section class="box">
+                        <header>
+                            <h3>AWS Elastic Compute Cloud (EC2)</h3>
+                            <span class="byline">2016-03-19 13:00:00+08:00</span>
+                        </header>
+                        
+                        <footer class="actions">
+                            <a href="/aws-elastic-compute-cloud-ec2.html" class="button button-icon button-icon-1">Continue Reading</a>
+                        </footer>
+                    </section>
+                </div>
+                <div class="4u">
+                    <section class="box">
+                        <header>
+                            <h3>CMD指令</h3>
+                            <span class="byline">2016-02-26 00:00:00+08:00</span>
+                        </header>
+                        
+                        <footer class="actions">
+                            <a href="/cmdzhi-ling.html" class="button button-icon button-icon-1">Continue Reading</a>
+                        </footer>
+                    </section>
+                </div>
+            </div>
+    </section><!-- /#content -->
+            <p class="paginator">
+                Page 1 / 1
+            </p>
+</div>
+</div>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/aws-elastic-compute-cloud-ec2.html" rel="bookmark"
-                           title="Permalink to AWS Elastic Compute Cloud (EC2)">AWS Elastic Compute Cloud (EC2)</a></h1>
-                </header>
+				</div>
+			</div>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-03-19T13:00:00+08:00">
-                Published: 六 19 3月 2016
-        </abbr>
+		<!-- Footer Wrapper -->
+			<div id="footer-wrapper">
+				<!-- Footer -->
+					<section id="footer" class="container">
+						<div class="row">
+							<div class="8u">
+								<section>
+									<header>
+										<h2>Latest articles</h2>
+									</header>
+									<ul class="dates">
+										<li>
+											<span class="date"> 3 <strong>21</strong></span>
+											<h3><a href="aws-identity-and-access-management-iam.html">AWS Identity and Access Management (IAM)</a></h3>
+											<p></p>
+										</li>
+										<li>
+											<span class="date"> 3 <strong>19</strong></span>
+											<h3><a href="aws-elastic-compute-cloud-ec2.html">AWS Elastic Compute Cloud (EC2)</a></h3>
+											<p></p>
+										</li>
+										<li>
+											<span class="date"> 2 <strong>26</strong></span>
+											<h3><a href="cmdzhi-ling.html">CMD指令</a></h3>
+											<p></p>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<section>
+									<header>
+										<h2>Blogroll</h2>
+									</header>
+									<ul class="divided">
+									</ul>
+								</section>
+							</div>
+							<div class="4u">
+								<section>
+									<header>
+										<h2>Categories</h2>
+									</header>
+									<ul class="divided">
+											<li><a href="/category/diary.html">Diary</a></li>
+											<li><a href="/category/r.html">R</a></li>
+											<li><a href="/category/scala.html">Scala</a></li>
+											<li><a href="/category/stat.html">Stat</a></li>
+									</ul>
+								</section>
+							</div>
+							<div class="4u">
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/aws.html">AWS</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/aws-elastic-compute-cloud-ec2.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/cmdzhi-ling.html" rel="bookmark"
-                           title="Permalink to CMD指令">CMD指令</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-02-26T00:00:00+08:00">
-                Published: 五 26 2月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/cmd.html">cmd</a> <a href="/tag/aws.html">AWS</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/cmdzhi-ling.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">Atom</a></li>
-
-                            <li><a href="http://aady5566.bitbucket.org/" target="_blank">YD's Web</a></li>
-                            <li><a href="https://tw.linkedin.com/in/yd-huang-735358aa" target="_blank">LinkedIn</a></li>
-                            <li><a href="https://github.com/aady5566" target="_blank">GitHub</a></li>
-                            <li><a href="mailto:ydhuang@ntu.edu.tw" target="_blank">Contact YD</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-
-                <address id="about" class="vcard body">
-                  <center>
-                  &copy 2016 YD <br> Powered by Pelican, which takes great advantage of Python.</center>
-              </address><!-- /#about -->
-
-        <!--        <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p> -->
-        </footer><!-- /#contentinfo -->
-
-</body>
+								<section>
+									<header>
+										<h2>Contact</h2>
+									</header>
+									<ul class="social">
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+			</div>
+		<script src="/theme/js/jquery.min.js"></script>
+		<script src="/theme/js/jquery.dropotron.js"></script>
+		<script src="/theme/js/config.js"></script>
+		<script src="/theme/js/skel.min.js"></script>
+		<script src="/theme/js/skel-panels.min.js"></script>
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
+	</body>
 </html>
