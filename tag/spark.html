@@ -1,159 +1,73 @@
 <!DOCTYPE html>
 <html lang="[en]">
 <head>
-        <meta charset="utf-8" />
-        <title>YD's Blog - Spark</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-        <link href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="YD's Blog Atom Feed" />
+	<link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+	<!--<link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">-->
+	<!--<script src="/theme/js/less.js" type="text/javascript"></script>-->
+	<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:800,400,300|Inconsolata' rel='stylesheet' type='text/css'>
 
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+	<link href="aady5566.github.io/" type="application/atom+xml" rel="alternate" title="YD's Blog ATOM Feed" />
+
+
+		<title>YD's Blog - Spark</title>
+		<meta charset="utf-8" />
 </head>
+<body>
+	<section id="sidebar">
+		<figure id="user_logo">
+            <a href=""><div class="logo">&nbsp;</div></a>
+		</figure>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">YD's Blog </a></h1>
-                <nav><ul>
-                    <li><a href="/category/diary.html">Diary</a></li>
-                    <li><a href="/category/r.html">R</a></li>
-                    <li><a href="/category/scala.html">Scala</a></li>
-                    <li><a href="/category/stat.html">Stat</a></li>
-                    <li><a href="/category/worknote.html">WorkNote</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+		<div class="user_meta">
+            <h1 id="user"><a href="" class="">YD</a></h1>
+			<h2></h2>
+			<p class="bio">A house of Data maker.</p>
+			<ul>
+					<li><a href="http://aady5566.bitbucket.org/">YD's Web</a></li>
+					<li><a href="https://tw.linkedin.com/in/yd-huang-735358aa">LinkedIn</a></li>
+					<li><a href="https://github.com/aady5566">GitHub</a></li>
+					<li><a href="mailto:ydhuang@ntu.edu.tw">Contact YD</a></li>
+			</ul>
+		</div>
+		<footer>
+			<address>
+				Powered by <a href="http://pelican.notmyidea.org/">Pelican</a>,
+		                theme by <a href="https://github.com/wting/pelican-svbtle">wting</a>.
+			</address>
+		</footer>
+	</section>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/spark-installation-on-os-x.html">Spark Installation On OS X</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2016-05-14T09:00:00+08:00">
-                Published: 六 14 5月 2016
-        </abbr>
+	<section id="posts">
+	<header>
+		<h1>YD's blog</h1>
+		<h3>
+			<script type="text/javascript">
+				var currentDate = new Date();
+				var day = currentDate.getDate();
+				var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+				var month = monthNames[currentDate.getMonth()].toUpperCase();
+				var year = currentDate.getFullYear();
+				document.write(month + " " + day + ", " + year);
+			</script>
+		</h3>
+	</header>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/spark.html">Spark</a> </p>
-</footer><!-- /.post-info --><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
-  }
-});
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	<dl>
+		<ol>
+				<li>
+					<h1 class="title">
+						<a href="/spark-installation-on-os-x.html" rel="bookmark" title="Permalink to Spark Installation On OS X">Spark Installation On OS X</a>
+					</h1>
+					<abbr class="published" title="2016-05-14T09:00:00+08:00">六 14 5月 2016</abbr>
+				<div class="entry-content">  </div>
+				</li>
+		</ol>
+	</dl>
 
-ga('create', 'UA-77164531-1', 'auto');
-ga('send', 'pageview');
-
-</script>
-
-<p><img class='shaped'
-src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/spark.png" width="450" height="384" /><br />
-<br>
-這次的心得分享為安裝spark和使用mllib的範例，那就分兩個部分介紹吧！<br />
-<br>
-<br>
-<h2>安裝Spark</h2></p>
-<hr />
-<p>透過Homebrew安裝最新版本的Spark
-<br>
-<pre>
-$brew install apache-spark
-</pre><br />
-<br>
-安裝完後，理論上已經可以執行spark-shell了，不過我們再修改一下log的級別，以減少冗長的log。首先先進去spark的路徑，例如我的為 <code>/usr/local/Cellar/apache-spark/1.2.0/libexec/conf</code> (1.2.0為Spark版本)
-<pre>
-$cd /usr/local/Cellar/apache-spark/1.2.0/libexec/conf
-</pre><br />
-<br>
-複製log4j模板進上述的路徑<br />
-<pre>
-$cp log4j.properties.template log4j.properties
-</pre><br />
-<br>
-接著修改log4j.properties檔
-<br>
-<pre>
-$vim log4j.properties
-</pre><br />
-<br>
-將 <strong><em>INFO</em></strong> 改為 <strong><em>ERROR</em></strong><br />
-<code>log4j.rootCategory=ERROR, console</code><br />
-<br>
-<br>
-然後就可以執行看看spark-shell了!
-<br>
-<pre>
-$cd /usr/local/Cellar/apache-spark/1.2.0
-$./bin/spark-shell
-</pre><br />
-<br>
-<br></p>
-<h2>MLlib Demo</h2>
-
-<hr />
-<p>以ALS為例，首先安裝相依套件<br />
-<br>
-<pre>
-import org.apache.spark.mllib.recommendation.ALS
-import org.apache.spark.mllib.recommendation.MatrixFactorizationModel
-import org.apache.spark.mllib.recommendation.Rating</p>
-<p>val data = sc.textFile("libexec/data/mllib/als/ydtest.data")
-val ratings = data.map(_.split(',') match { case Array(user, item, rate) =&gt;
-  Rating(user.toInt, item.toInt, rate.toDouble)
-})</p>
-<p>// Build the recommendation model using ALS
-val rank = 10
-val numIterations = 10
-val model = ALS.train(ratings, rank, numIterations, 0.01)</p>
-<p>// Evaluate the model on rating data
-val usersProducts = ratings.map { case Rating(user, product, rate) =&gt;
-  (user, product)
-}
-val predictions =
-  model.predict(usersProducts).map { case Rating(user, product, rate) =&gt;
-    ((user, product), rate)
-  }
-val ratesAndPreds = ratings.map { case Rating(user, product, rate) =&gt;
-  ((user, product), rate)
-}.join(predictions)
-val MSE = ratesAndPreds.map { case ((user, product), (r1, r2)) =&gt;
-  val err = (r1 - r2)
-  err * err
-}.mean()
-println("Mean Squared Error = " + MSE)</p>
-<p></pre><br />
-<br>
-比較要注意的是資料輸入的路徑，如果是用 <code>$spark-shell</code>進入的話，路徑需設為絕對路徑。</p>                </article>
-            </aside><!-- /#featured -->
-        <section id="extras" class="body">
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">Atom</a></li>
-
-                            <li><a href="http://aady5566.bitbucket.org/" target="_blank">YD's Web</a></li>
-                            <li><a href="https://tw.linkedin.com/in/yd-huang-735358aa" target="_blank">LinkedIn</a></li>
-                            <li><a href="https://github.com/aady5566" target="_blank">GitHub</a></li>
-                            <li><a href="mailto:ydhuang@ntu.edu.tw" target="_blank">Contact YD</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-
-                <address id="about" class="vcard body">
-                  <center>
-                  &copy 2016 YD <br> Powered by Pelican, which takes great advantage of Python.</center>
-              </address><!-- /#about -->
-
-        <!--        <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p> -->
-        </footer><!-- /#contentinfo -->
+<p class="paginator">
+</p>
+	</section>
 
 </body>
 </html>

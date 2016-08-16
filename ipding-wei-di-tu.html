@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html lang="[en]">
 <head>
-        <meta charset="utf-8" />
-        <title>ip定位地圖</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-        <link href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="YD's Blog Atom Feed" />
+	<link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+	<!--<link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">-->
+	<!--<script src="/theme/js/less.js" type="text/javascript"></script>-->
+	<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:800,400,300|Inconsolata' rel='stylesheet' type='text/css'>
 
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+	<link href="aady5566.github.io/" type="application/atom+xml" rel="alternate" title="YD's Blog ATOM Feed" />
+
+
+		<title>YD's Blog</title>
+		<meta charset="utf-8" />
 </head>
+<body>
+	<section id="sidebar">
+		<figure id="user_logo">
+            <a href=""><div class="logo">&nbsp;</div></a>
+		</figure>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">YD's Blog </a></h1>
-                <nav><ul>
-                    <li><a href="/category/diary.html">Diary</a></li>
-                    <li class="active"><a href="/category/r.html">R</a></li>
-                    <li><a href="/category/scala.html">Scala</a></li>
-                    <li><a href="/category/stat.html">Stat</a></li>
-                    <li><a href="/category/worknote.html">WorkNote</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="/ipding-wei-di-tu.html" rel="bookmark"
-           title="Permalink to ip定位地圖">ip定位地圖</a></h1>
-    </header>
+		<div class="user_meta">
+            <h1 id="user"><a href="" class="">YD</a></h1>
+			<h2></h2>
+			<p class="bio">A house of Data maker.</p>
+			<ul>
+					<li><a href="http://aady5566.bitbucket.org/">YD's Web</a></li>
+					<li><a href="https://tw.linkedin.com/in/yd-huang-735358aa">LinkedIn</a></li>
+					<li><a href="https://github.com/aady5566">GitHub</a></li>
+					<li><a href="mailto:ydhuang@ntu.edu.tw">Contact YD</a></li>
+			</ul>
+		</div>
+		<footer>
+			<address>
+				Powered by <a href="http://pelican.notmyidea.org/">Pelican</a>,
+		                theme by <a href="https://github.com/wting/pelican-svbtle">wting</a>.
+			</address>
+		</footer>
+	</section>
 
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-03-12T21:00:00+08:00">
-                Published: 六 12 3月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/r.html">R</a>.</p>
-<p>tags: <a href="/tag/plot.html">plot</a> </p>
-</footer><!-- /.post-info -->      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+	<section id="posts">
+	<header>
+		<h1>YD's blog</h1>
+		<h3>Posted 六 12 3月 2016</h3>
+	</header>
+	<article>
+		<h1 id="title">
+			<a href="/ipding-wei-di-tu.html" rel="bookmark"
+				title="Permalink to ip定位地圖">ip定位地圖</a>
+		</h1>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -60,33 +67,21 @@ ga('send', 'pageview');
 <iframe src='aady5566.github.io/html/map.html' width=500 height=300></iframe>
 
 <p>今天原本下午要去看電影，結果意外取消了原本輕鬆的行程。下午的時間把公司的部分任務完成，閒閒沒事想說有一筆經、緯度的資料，應該加以利用。上網看了leaflet的教學，將ip依照經緯度定位後取得該城市的資料，並成功接上shiny!而且終於成功將html直接鑲嵌在blog文內，超開心!之後就可以分享更多成果在blog中了，哈。</p>
-    </div><!-- /.entry-content -->
 
-  </article>
-</section>
-        <section id="extras" class="body">
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">Atom</a></li>
+		<div id="article_meta">
+				Category:
+					<a href="/category/r.html">R</a>
+				<br />Tags:
+					<a href="/tag/plot.html">plot</a>
+		</div>
+	</article>
 
-                            <li><a href="http://aady5566.bitbucket.org/" target="_blank">YD's Web</a></li>
-                            <li><a href="https://tw.linkedin.com/in/yd-huang-735358aa" target="_blank">LinkedIn</a></li>
-                            <li><a href="https://github.com/aady5566" target="_blank">GitHub</a></li>
-                            <li><a href="mailto:ydhuang@ntu.edu.tw" target="_blank">Contact YD</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+	<footer>
+		<a href="/" class="button_accent">&larr;&nbsp;&nbsp;&nbsp;Back to blog</a>
+	</footer>
 
-        <footer id="contentinfo" class="body">
 
-                <address id="about" class="vcard body">
-                  <center>
-                  &copy 2016 YD <br> Powered by Pelican, which takes great advantage of Python.</center>
-              </address><!-- /#about -->
-
-        <!--        <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p> -->
-        </footer><!-- /#contentinfo -->
+	</section>
 
 </body>
 </html>

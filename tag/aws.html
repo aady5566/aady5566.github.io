@@ -1,145 +1,87 @@
 <!DOCTYPE html>
 <html lang="[en]">
 <head>
-        <meta charset="utf-8" />
-        <title>YD's Blog - AWS</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-        <link href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="YD's Blog Atom Feed" />
+	<link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+	<!--<link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">-->
+	<!--<script src="/theme/js/less.js" type="text/javascript"></script>-->
+	<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:800,400,300|Inconsolata' rel='stylesheet' type='text/css'>
 
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+	<link href="aady5566.github.io/" type="application/atom+xml" rel="alternate" title="YD's Blog ATOM Feed" />
+
+
+		<title>YD's Blog - AWS</title>
+		<meta charset="utf-8" />
 </head>
+<body>
+	<section id="sidebar">
+		<figure id="user_logo">
+            <a href=""><div class="logo">&nbsp;</div></a>
+		</figure>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">YD's Blog </a></h1>
-                <nav><ul>
-                    <li><a href="/category/diary.html">Diary</a></li>
-                    <li><a href="/category/r.html">R</a></li>
-                    <li><a href="/category/scala.html">Scala</a></li>
-                    <li><a href="/category/stat.html">Stat</a></li>
-                    <li><a href="/category/worknote.html">WorkNote</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+		<div class="user_meta">
+            <h1 id="user"><a href="" class="">YD</a></h1>
+			<h2></h2>
+			<p class="bio">A house of Data maker.</p>
+			<ul>
+					<li><a href="http://aady5566.bitbucket.org/">YD's Web</a></li>
+					<li><a href="https://tw.linkedin.com/in/yd-huang-735358aa">LinkedIn</a></li>
+					<li><a href="https://github.com/aady5566">GitHub</a></li>
+					<li><a href="mailto:ydhuang@ntu.edu.tw">Contact YD</a></li>
+			</ul>
+		</div>
+		<footer>
+			<address>
+				Powered by <a href="http://pelican.notmyidea.org/">Pelican</a>,
+		                theme by <a href="https://github.com/wting/pelican-svbtle">wting</a>.
+			</address>
+		</footer>
+	</section>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/aws-identity-and-access-management-iam.html">AWS Identity and Access Management (IAM)</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2016-03-21T18:50:00+08:00">
-                Published: 一 21 3月 2016
-        </abbr>
+	<section id="posts">
+	<header>
+		<h1>YD's blog</h1>
+		<h3>
+			<script type="text/javascript">
+				var currentDate = new Date();
+				var day = currentDate.getDate();
+				var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+				var month = monthNames[currentDate.getMonth()].toUpperCase();
+				var year = currentDate.getFullYear();
+				document.write(month + " " + day + ", " + year);
+			</script>
+		</h3>
+	</header>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/aws.html">AWS</a> </p>
-</footer><!-- /.post-info --><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
-  }
-});
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	<dl>
+		<ol>
+				<li>
+					<h1 class="title">
+						<a href="/aws-identity-and-access-management-iam.html" rel="bookmark" title="Permalink to AWS Identity and Access Management (IAM)">AWS Identity and Access Management (IAM)</a>
+					</h1>
+					<abbr class="published" title="2016-03-21T18:50:00+08:00">一 21 3月 2016</abbr>
+				<div class="entry-content">  </div>
+				</li>
+				<li>
+					<h1 class="title">
+						<a href="/aws-elastic-compute-cloud-ec2.html" rel="bookmark" title="Permalink to AWS Elastic Compute Cloud (EC2)">AWS Elastic Compute Cloud (EC2)</a>
+					</h1>
+					<abbr class="published" title="2016-03-19T13:00:00+08:00">六 19 3月 2016</abbr>
+				<div class="entry-content">  </div>
+				</li>
+				<li>
+					<h1 class="title">
+						<a href="/cmdzhi-ling.html" rel="bookmark" title="Permalink to CMD指令">CMD指令</a>
+					</h1>
+					<abbr class="published" title="2016-02-26T00:00:00+08:00">五 26 2月 2016</abbr>
+				<div class="entry-content">  </div>
+				</li>
+		</ol>
+	</dl>
 
-ga('create', 'UA-77164531-1', 'auto');
-ga('send', 'pageview');
-
-</script>
-
-<p>Identity and Access Management (IAM)可以讓你管理「用戶們」在AWS服務或資源的使用權限。利用IAM管理的範圍包含活體的aws users, groups或是 軟體的roles and policies。  </p>
-<p>Create users in IAM, assign them individual security credentials, including access keys,
-passwords, and multi-factor authentication devices or request temporary security credentials to provide users access to AWS services and resources.  </p>
-<p>Create roles in IAM, and manage policies to control which operations can be performed by the entity, or AWS service, that assumes the role.  </p>
-<p>qwiklab實作部分，儀表板上點選 <strong>IAM</strong> :  </p>
-<p>範例的Group介紹：  </p>
-<ul>
-<li>EC2support group 功能主要是監控其他EC2的狀態  </li>
-<li>EC2admin group 用來<a href="http://www.ems5.com/view.php?id=308">scale up</a>伺服</li>
-<li>S3admin group 執行所有S3 相關服務  </li>
-</ul>
-<p>若我們希望讓userone負責監控(EC2support)的工作，選擇左方 <strong>Dashboard</strong> 的 <strong>Group</strong>，選擇EC2support後下方的 <strong>User</strong> 並加入該成員即可。  </p>
-<p>接著我們要對這些用戶客製化密碼。回到IAM選擇儀表板的 <strong>User</strong>，勾選userone後選擇上方的 <strong>Actions "Manage Password"</strong> ，進去後選擇"Replace existing password with new custom password"。設好用戶密碼後。
-點擊 <strong>Dashboard</strong>，會有個IAM users sign-in link，屆時所有在這之中的user藉由輸入自己的帳戶以及該用戶密碼就可以取得相對應的權限。而Admin帳戶可以點擊 <strong>User</strong> 看Password Last Used的使用歷史紀錄。</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/aws-elastic-compute-cloud-ec2.html" rel="bookmark"
-                           title="Permalink to AWS Elastic Compute Cloud (EC2)">AWS Elastic Compute Cloud (EC2)</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-03-19T13:00:00+08:00">
-                Published: 六 19 3月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/aws.html">AWS</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/aws-elastic-compute-cloud-ec2.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/cmdzhi-ling.html" rel="bookmark"
-                           title="Permalink to CMD指令">CMD指令</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-02-26T00:00:00+08:00">
-                Published: 五 26 2月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/worknote.html">WorkNote</a>.</p>
-<p>tags: <a href="/tag/cmd.html">cmd</a> <a href="/tag/aws.html">AWS</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/cmdzhi-ling.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="aady5566.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">Atom</a></li>
-
-                            <li><a href="http://aady5566.bitbucket.org/" target="_blank">YD's Web</a></li>
-                            <li><a href="https://tw.linkedin.com/in/yd-huang-735358aa" target="_blank">LinkedIn</a></li>
-                            <li><a href="https://github.com/aady5566" target="_blank">GitHub</a></li>
-                            <li><a href="mailto:ydhuang@ntu.edu.tw" target="_blank">Contact YD</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-
-                <address id="about" class="vcard body">
-                  <center>
-                  &copy 2016 YD <br> Powered by Pelican, which takes great advantage of Python.</center>
-              </address><!-- /#about -->
-
-        <!--        <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p> -->
-        </footer><!-- /#contentinfo -->
+<p class="paginator">
+</p>
+	</section>
 
 </body>
 </html>
