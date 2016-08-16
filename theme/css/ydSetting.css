@@ -53,12 +53,10 @@ section#posts a.button_accent:hover {
     outline: 0;
 }
 
-section#posts a.button_accent:active {
+section#posts a.button_accent:link {
     color: #787878;
-    /*background-color: #0e94ec;*/
-    border: 3px solid #aaaaaa;
-    outline: 0;
 }
+
 
 /*pre (code)*/
 section#posts pre {
