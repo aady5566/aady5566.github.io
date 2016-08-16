@@ -1,5 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-08-12T00:00:00+08:00</updated><entry><title>Model-Based Collaborative Filtering</title><link href="/model-based-collaborative-filtering.html" rel="alternate"></link><published>2016-08-12T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-12:model-based-collaborative-filtering.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-08-16T00:00:00+08:00</updated><entry><title>關鍵字泡泡</title><link href="/guan-jian-zi-pao-pao.html" rel="alternate"></link><published>2016-08-16T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-16:guan-jian-zi-pao-pao.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+&lt;/script&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;p&gt;針對某網站的部落格文章分類後，進行關鍵字分析，數值代表個字詞的權重。&lt;/p&gt;
+&lt;iframe src='aady5566.github.io/html/yd_bubblecloud/index.html' width=600 height=400&gt;&lt;/iframe&gt;
+
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;</summary><category term="plot"></category></entry><entry><title>地圖視覺化</title><link href="/di-tu-shi-jue-hua.html" rel="alternate"></link><published>2016-08-12T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-12:di-tu-shi-jue-hua.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+&lt;/script&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;p&gt;此虛擬資料，用來模擬23種app用戶類型，並配合地區的商家的群集了解各用戶的聚集地。  &lt;/p&gt;
+&lt;p&gt;各商家字體大小，表示附近該商家類型的數量。&lt;/p&gt;
+&lt;iframe src='aady5566.github.io/html/app.html' width=600 height=400&gt;&lt;/iframe&gt;
+
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;</summary><category term="plot"></category></entry><entry><title>Model-Based Collaborative Filtering</title><link href="/model-based-collaborative-filtering.html" rel="alternate"></link><published>2016-08-12T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-12:model-based-collaborative-filtering.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]

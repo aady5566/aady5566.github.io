@@ -25,17 +25,17 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/r2redshift.html">R2Redshift</a></h1>
+                    <h1 class="entry-title"><a href="/guan-jian-zi-pao-pao.html">關鍵字泡泡</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2016-04-14T11:00:00+08:00">
-                Published: 四 14 4月 2016
+        <abbr class="published" title="2016-08-16T00:00:00+08:00">
+                Published: 二 16 8月 2016
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/yd.html">YD</a>
         </address>
 <p>In <a href="/category/r.html">R</a>.</p>
-
+<p>tags: <a href="/tag/plot.html">plot</a> </p>
 </footer><!-- /.post-info --><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
 MathJax.Hub.Config({
   tex2jax: {
@@ -52,30 +52,86 @@ ga('send', 'pageview');
 
 </script>
 
-<p>由R接Redshift的實作。</p>
-<pre>
-if (!require(RJDBC)) install.packages("RJDBC")
-devtools::install_github("pingles/redshift-r")#api:https://github.com/pingles/redshift-r
-library(redshift)
+<p></br>
+</br>
+</br>
+</br>
+</br>
+</br></p>
+<p>針對某網站的部落格文章分類後，進行關鍵字分析，數值代表個字詞的權重。</p>
+<iframe src='aady5566.github.io/html/yd_bubblecloud/index.html' width=600 height=400></iframe>
 
-#Open connection
-conn <- redshift.connect("jdbc:postgresql://<curl>.ap-northeast-1.redshift.amazonaws.com:5439/<dbName>", "adminName", "password")  
+<div id="disqus_thread"></div>
 
-#Set all colNames for getting the intact SQL table  
-cols <- redshift.columns(conn,tableName = "<tableName>")#columnNames  
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
 
-#Query data with SQL syntax
-data<- dbGetQuery(conn, paste("SELECT * FROM <tableName> where date_part(hour,datetimeclient)=15 AND convert(varchar(10),datetimeclient)='2016-03-04' AND city_name!='missing' AND mouseposx>0 AND mouseposy>0",sep=''))  
+        s.src = '//aady5566github.disqus.com/embed.js';
 
-#Close connection
-redshift.disconnect(conn)  
-
-</pre>                </article>
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/di-tu-shi-jue-hua.html" rel="bookmark"
+                           title="Permalink to 地圖視覺化">地圖視覺化</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-08-12T00:00:00+08:00">
+                Published: 五 12 8月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/r.html">R</a>.</p>
+<p>tags: <a href="/tag/plot.html">plot</a> </p>
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/di-tu-shi-jue-hua.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/r2redshift.html" rel="bookmark"
+                           title="Permalink to R2Redshift">R2Redshift</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-04-14T11:00:00+08:00">
+                Published: 四 14 4月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/yd.html">YD</a>
+        </address>
+<p>In <a href="/category/r.html">R</a>.</p>
+
+</footer><!-- /.post-info -->                
+                <a class="readmore" href="/r2redshift.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -118,50 +174,6 @@ redshift.disconnect(conn)
 <p>tags: <a href="/tag/plot.html">plot</a> </p>
 </footer><!-- /.post-info -->                
                 <a class="readmore" href="/ipding-wei-di-tu.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/lines-and-columns.html" rel="bookmark"
-                           title="Permalink to Lines and Columns">Lines and Columns</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-03-09T23:20:00+08:00">
-                Published: 三 09 3月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/r.html">R</a>.</p>
-<p>tags: <a href="/tag/plot.html">plot</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/lines-and-columns.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/web-interaction.html" rel="bookmark"
-                           title="Permalink to Web interaction">Web interaction</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-02-26T00:00:00+08:00">
-                Published: 五 26 2月 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/yd.html">YD</a>
-        </address>
-<p>In <a href="/category/r.html">R</a>.</p>
-<p>tags: <a href="/tag/plot.html">plot</a> <a href="/tag/web.html">web</a> </p>
-</footer><!-- /.post-info -->                
-                <a class="readmore" href="/web-interaction.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
