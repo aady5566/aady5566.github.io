@@ -36,20 +36,20 @@ section#posts a.button_accent {
     margin: 40px 50px;
     padding: 10px 20px;
     display: inline-block;
-    border: 3px solid #dddddd;
+    border: 2px solid #dddddd;
     border-radius: 70px;
     -moz-border-radius: 70px;
     -webkit-border-radius: 70px;
     text-transform: uppercase;
     color: #aaaaaa;
-    font-size: 17px;
+    font-size: 10px;
     font-weight: 400;
 }
 
 section#posts a.button_accent:hover {
     color: #787878;
     /*background-color: #0e94ec;*/
-    border: 3px solid #aaaaaa;
+    border: 2px solid #aaaaaa;
     outline: 0;
 }
 

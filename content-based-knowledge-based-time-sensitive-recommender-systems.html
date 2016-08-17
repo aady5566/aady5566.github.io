@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="[en]">
+<head>
+	<link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+	<!--<link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">-->
+	<!--<script src="/theme/js/less.js" type="text/javascript"></script>-->
+	<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+	<link rel="stylesheet" type="text/css" href="/theme/css/ydSetting.css">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:800,400,300|Inconsolata' rel='stylesheet' type='text/css'>
+
+	<link href="aady5566.github.io/" type="application/atom+xml" rel="alternate" title="YD's Blog ATOM Feed" />
+
+
+		<title>YD's Blog</title>
+		<meta charset="utf-8" />
+</head>
+<body>
+	<section id="sidebar">
+		<figure id="user_logo">
+            <a href=""><div class="logo">&nbsp;</div></a>
+		</figure>
+
+		<div class="user_meta">
+            <h1 id="user"><a href="" class="">YD</a></h1>
+			<h2></h2>
+			<p class="bio">lives in a cave.</p>
+			<ul>
+					<li><a href="http://aady5566.bitbucket.org/" target="_blank">@_yd</a></li>
+					<li><a href="https://tw.linkedin.com/in/yd-huang-735358aa" target="_blank">linkedin</a></li>
+					<li><a href="https://github.com/aady5566" target="_blank">github</a></li>
+					<li><a href="mailto:ydhuang@ntu.edu.tw" target="_blank">mail</a></li>
+			</ul>
+		</div>
+		<footer>
+			<address>
+				Powered by <a href="http://pelican.notmyidea.org/">Pelican</a>,
+		                theme by <a href="https://github.com/wting/pelican-svbtle">wting</a>.
+			</address>
+		</footer>
+	</section>
+
+	<section id="posts">
+	<header>
+		<h1>YD's blog</h1>
+		<h3>Posted 三 17 8月 2016</h3>
+	</header>
+	<article>
+		<h1 id="title">
+			<a href="/content-based-knowledge-based-time-sensitive-recommender-systems.html" rel="bookmark"
+				title="Permalink to Content-Based, Knowledge-Based, Time-Sensitive Recommender Systems">Content-Based, Knowledge-Based, Time-Sensitive Recommender Systems</a>
+		</h1>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+<h1><strong>Content-Based Recommender Systems</strong></h1>
+<p>Content-Based systems 除了使用了用戶的評分分數外，還會用到物件的特徵描述、摘要等資訊。Content-Based 推薦系統的基本概念就是希望找出過去用戶喜歡商品的相似物。這個相似性的概念不是（不一定）是基於跨受試者間的評分，而是基於物件的特徵。因此 Con-Based 推薦系統著重在目標用戶「自己」過去的評分紀錄，以及被評分的物件的相似性。</p>
+<p>Content-Based Systems 有很大的部分都是對 文字型的資料做處理 (text-centric systems)，基本上可分成三個組成： 離現階段的前處理、離線階段的學習、線上階段的預測。
+這裏特別強調的是， Content-Based Systems 特別是針對<strong>特定用戶的商品喜好做預測</strong>，也就是所謂的 user- specific model ，換句話說， Content-based learning 是<strong>對於特定用戶過去的歷史偏好、評分、被評分商品的特徵描述等等的資訊勾勒出該用戶偏好的輪廓。</strong></p>
+<hr />
+<p>因為前述提到 Content-Based Systems 主要在解析物件的特徵，並對其相似性高地進行分類推薦。因此這邊要介紹萃取特徵的方式。</p>
+<h2><strong>Feature Representation Cleaning</strong></h2>
+<p>我們必須先針對非結構化的文字內容進行清洗的動作：</p>
+<ol>
+<li>停止詞的過濾：停止詞指的是那些經常出現在文章中，但是又沒有太大的意義，例如「的」、「我」、「是」等，連詞、介詞、代詞都是停止詞。</li>
+<li>英文的文獻中有字幹的萃取，例如「hoping」,「hope」都有「hop-」，但這邊要特別注意的是本身 hop 也有其他意義。</li>
+<li>另外就是簡單詞的萃取 (Phrase extraction)：這裏比較傾向的是合併詞，例如英文的 「hot dog」，或是中文的「漣漪」。  </li>
+</ol>
+<p>經過上述的步驟，可以得到各物件的「特徵詞」，而這些特徵詞會以向量空間作為表徵。但其實這些「詞袋」內的內容物，並不是每個都是非常的關鍵，很多特徵詞並沒有物件間的區別力，因此我們真正要的是各個物件的「關鍵詞」，要如何得到這些「關鍵詞」，可以對特徵詞進行權重分配後計算而得：
+<strong>Inverse document frequency (IDF)</strong></p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467418041575_+2016-07-02+8.05.42.png
+"width="100%" height="100%" />  </p>
+<p>$id_i$ 為一遞減函數， $n$ 表總文件數， $n_i$ 表含有該詞彙的數量。</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467418555033_+2016-07-02+8.15.37.png
+"width="100%" height="100%" /><br />
+<img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467418555042_+2016-07-02+8.15.43.png
+"width="100%" height="100%" />  </p>
+<p>我們可以進一步透過左邊兩式的 damping function 調整 $id_i$ 的結果， $x_i$ 為詞語出現的次數除以該文件的總詞語數，右邊為調整後的 tf-idf。
+R腳本範例：
+<pre>
+&#35;4.1
+&#35;idf
+set.seed(125)
+(docWord &lt;- matrix(sample(c(0,1),50,replace=T),5,10,
+                   dimnames = list(paste("doc",1:5,sep=''),c(letters[1:10]))))#fixed,每篇文章對於用戶來說都長一樣
+(tf &lt;- (docWord)/rowSums(docWord)) #一詞語出現的次數除以該文件的總詞語數
+(idf &lt;- log(1/colMeans(docWord))) #測定文件出現過該詞佔所有文件的比例。總數權重越大，代表該關鍵詞的區別度越高
+h &lt;- log(tf) #damping function
+h2 &lt;- sqrt(tf) #damping function2
+h %<em>% idf #tf-idf, 關鍵字 a-j 與 document的相關性
+h2 %</em>% idf #tf-idf
+</pre>    </p>
+<hr />
+<h2><strong>Supervised Feature Selection and Weighting</strong></h2>
+<p>上述提到的 tf-idf model 其實就是特徵的選擇與權重分配的一種方式，但這種屬於非監控式學習，意即並沒有結合用戶評分的資訊。監控式學習的方法納入了用戶的回饋，利用用戶評分作為篩選特徵的依據：  </p>
+<p><strong>Gini Index</strong></p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467420385253_+2016-07-02+8.46.03.png
+"width="100%" height="100%" />  </p>
+<p>R腳本範例：
+<pre>
+&#35;4.3
+&#35;Gini Index
+set.seed(125)
+(userDoc &lt;- matrix(sample(c(0,1),10,replace=T),2,5,
+                   dimnames = list(paste("user",1:2,sep=''),paste("doc",1:5,sep=''))))
+(docWord &lt;- matrix(sample(c(0,1),50,replace=T),5,10,
+                   dimnames = list(paste("doc",1:5,sep=''),c(letters[1:10]))))#fixed,每篇文章對於用戶來說都長一樣
+userProfile &lt;- (userDoc %<em>% docWord) #individual's word frequency by weighting with ratings
+(totalGini &lt;- 1- sum(colSums(userDoc %</em>% docWord)/sum(colSums(userDoc %*% docWord))^2))#關鍵字 a-j 與 user的相關性
+p &lt;- colSums(userProfile)/sum(colSums(userProfile))
+(eachGini &lt;- (1- p)^2)#feature selection
+</pre></p>
+<hr />
+<p><strong>Entropy</strong></p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467420946019_+2016-07-02+8.55.20.png
+"width="100%" height="100%" />  </p>
+<p>定義與上述的吉尼係數一樣，差別在於公式上的呈現。
+R腳本範例：
+<pre>
+&#35;4.4
+&#35;entropy
+totalEntropy &lt;- -sum(p * log(p), na.rm=T)
+eachEntropy &lt;-  -p*log(p) #越小越有鑑別度
+</pre></p>
+<hr />
+<p>不過上述的兩種監督式學習方法都還是隱藏一個缺點，那就是忽略了<strong>用戶對文件相對評分的次數</strong>。也就是說，只計算了被評分的文件，而忽略了更多未被評分的的文件。為此，我們可以利用 Normalized Deviation 將未被評分的文件：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467422227448_+2016-07-02+9.16.54.png
+"width="100%" height="100%" />  </p>
+<hr />
+<h2><strong>Learning User Profiles and Filtering</strong></h2>
+<p>我們要如何將 user profiles 和推薦系統結合呢？</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467422427546_+2016-07-02+9.20.07.png
+"width="100%" height="100%" />  </p>
+<p>首先我們必須將資料清洗成我們要的長相，以上述為例，根據 Content-Based Systems ， 我們必須得到該用戶對每個物件（橫列）的評分分數（最後一欄位）以及物件中的關鍵字次數。目標在於當有新的商品 i 出現時，基於該用戶過去對於類似 i 物件的評分，我們可以推估該用戶對於新物件的喜好，而進一步做出比較可能的商業推薦。
+若以貝氏模型為例：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467422787538_+2016-07-02+9.26.17.png
+"width="100%" height="100%" />  </p>
+<p>我們會先根據用戶過去的行為，再去判斷預測情境出現的機率，並選擇最高機率的預測行為（這裏的 1 代表 Like;  -1 代表 Dislike）。</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467422910680_+2016-07-02+9.28.20.png
+"width="100%" height="100%" />  </p>
+<p>因為最後結果為 $P(Like|Test-1)$ 較大，因此我們推論該用戶應該喜歡 Test-1 ，藉此我們可以推薦該商品給用戶。
+若當數值不只是 二元，甚至是連續值或等距資料型態，我們可以使用 Regression Models：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467425296217_+2016-07-02+10.07.29.png
+"width="100%" height="100%" />  </p>
+<p>R腳本範例：
+<pre>
+&#35;4.12
+&#35;regression-based models
+set.seed(1264)
+(userDoc &lt;- matrix(sample(c(1:3),10,replace=T),2,5,
+                   dimnames = list(paste("user",1:2,sep=''),paste("doc",1:5,sep=''))))
+(docWord &lt;- matrix(sample(c(0,1),50,replace=T),5,10,
+                   dimnames = list(paste("doc",1:5,sep=''),c(letters[1:10]))))#fixed,每篇文章對於用戶來說都長一樣</p>
+<p>user &lt;- 2
+(user2Weights&lt;- t(matrix(sapply(1:ncol(docWord),function(x)coef(lm(userDoc[user,]~docWord[,x]))[2]))))
+user2Y.bar &lt;- docWord %*% t(user2Weights)
+</pre></p>
+<hr />
+<p>以下是作者對於各種 Content-based Methods 的見解與使用時機：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467426417080_+2016-07-02+10.26.44.png
+"width="100%" height="100%" />  </p>
+<p>由於 Content-based systems 多了物件的特徵，因此比起前兩章的推薦系統更能夠有較好的推薦理由。而且比起前兩章的推薦系統，Content-based systems 對於新進商品是能夠處理類化的，減少了 cold-start 的問題。然而凡事一體兩面，也因為推薦的都是相似性高的商品，其缺點為無法提供新穎性的商品
+ (Overspecialization) 。</p>
+<h1><strong>Knowledge-Based Recommender Systems</strong></h1>
+<p>想像一下你要買一棟房，當房仲帶你到各個房子看完後，你能馬上針對每個房子評出一個分數嗎？應該是無法的，因為你考量因素可能是房間數、地點、價格、方位、樓層、或是是電梯大樓還是公寓等等。
+當物件的複雜度太高，用戶難以用一個單一評分來做標準時，這時候前述的推薦系統幾乎失效，此時必須仰賴 Knowledge-based systems 的建構了。
+Knowledge-based systems 主要又分成兩種：</p>
+<ul>
+<li><strong>Constraint-based systems</strong></li>
+<li><strong>Case-based systems</strong>  </li>
+</ul>
+<p>前者比較適用當用戶對於自己的需求有一些想法，並將這些想法對應到系統的物件特徵，對其進行篩選的過程。後者則是用戶對於自己的需求還很模糊，系統會先依照簡單的預設值給予一些相似的物件，用戶再從中得到對於需求的想法，進一步進行篩選的過程。</p>
+<hr />
+<h2><strong>Constraint-based systems</strong></h2>
+<p>Constraint-based systems 資料提供用戶去針對物件的特徵進行篩選，好比說購房為例，可以想像成是用戶對於資料庫的索引。</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467429247513_+2016-07-02+11.13.52.png
+"width="100%" height="100%" />  </p>
+<p>上述的欄位包含了人口學變項以及物件特徵。
+某用戶可能會對於市區、郊區進行過濾：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467429344261_+2016-07-02+11.15.33.png
+"width="100%" height="100%" />  </p>
+<p>因為只針對物件的特徵進行過濾，這樣的媒合過程稱為 Directly Mapping。</p>
+<hr />
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467429615326_+2016-07-02+11.19.59.png
+"width="100%" height="100%" />  </p>
+<p>另外若是根據人口學變項推論物件特徵的落點（此例為若該用戶婚姻狀況為單身，房間數考量篩選為 &lt; 5間），此時為 Indirectly Mapping。</p>
+<hr />
+<h2><strong>Case-based systems</strong></h2>
+<p>因為 Constraint-based systems 是由用戶自己輸入的條件進行篩選，很有可能面臨一個問題，那就是「查無此資料」，Case-based 因為是提供用戶相似的物件，因此不管如何一定會有一個「類似的物件」呈現於用戶，因此，Case-based systems 更著重於 item 間的相似性 (Similarity Metrics)。</p>
+<p><strong>Similarity Metrics</strong>
+舉例來說，某用戶想要找房間數為3的房子，因此在推薦前，我們必須先去計算資料庫內所有物件中最符合「房間數為3」作為推薦：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467430541633_+2016-07-02+11.35.27.png
+"width="100%" height="100%" />  </p>
+<p>$i$ 為物件特徵，右式 $t_i$ 為用戶設定物件特徵的目標， $x_i$ 為物件 $i$ 實際值，$max_i$ &amp; $min_i$ 為該特徵的最大、最小值範圍，藉此我們可以計算出一個對稱的相似性矩陣。
+R腳本範例：
+<pre>
+&#35;5.3
+&#35;similarity matrics
+set.seed(123)
+itemAttr &lt;- matrix(room &lt;- sample(1:5,5,replace=T),dimnames = list(c(paste("item",1:5,sep='')),"room"))
+target &lt;- 3 #假設用戶的房間數設定為3
+sim &lt;- 1-(abs(target-itemAttr)/(max(itemAttr)-min(itemAttr)))#5.3 symmetric
+</pre></p>
+<hr />
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467430756106_+2016-07-02+11.38.58.png
+"width="100%" height="100%" /><br />
+<img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467430756110_+2016-07-02+11.39.04.png
+"width="100%" height="100%" />  </p>
+<p>5.5 和 5.6 公式為根據特徵的實際值、目標值方向性調整相似性的公式，$\alpha_i$ 為一 $&gt;= 0$之值， $I$(條件) 為一判斷式，當成立時為1，不成立為0。
+以前述的例子來說，當用戶的目標值為3，實際值 $x_i =2 or 4$由公式 5.5 得到的結果都一樣，但是如果用5.5 來算， $(x_i = 4, t_i=3)$ =&gt; $1- 1/4 + a_i * 1/4$ 的相似性結果會大於 $(x_i=4, t_i=3)$ =&gt; $1- 1/4$，也就是說，在其他條件的情況下， 房間數為4的結果應該要比房間數為2的結果更應該被推薦。反過來，5.6的話適用場景為實際值比目標值低的情況下更好，例如價格。以及根據 $\alpha_i$ 的大小調整，我們可以看看畫出來的圖：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467431383062_+2016-07-02+11.49.13.png
+"width="100%" height="100%" />  </p>
+<p>由於 Knowledge-based system 仍是推薦相似性高的商品，因此也和 Content-based system 面臨相同的問題，那就是處理新穎性商品的能力，在某些情境下，這必須被解決。</p>
+<hr />
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467427933931_+2016-07-02+10.51.33.png
+"width="100%" height="100%" />  </p>
+<p>上面的表為三種系統的差異比較和整理。</p>
+<hr />
+<h1><strong>Time- and Location-Sensitive Recommender Systems</strong></h1>
+<h2><strong>Temporal Collaborative Filtering</strong></h2>
+<p>時序性的協同過濾其實就是對其他推薦系統的擴充，提高預測性，一般來說有兩種想法：</p>
+<ol>
+<li>Recency effect：越近期的資訊是越重要的。可使用 Decay-based methods。</li>
+<li>Periodic context effect：特定時段的事件是重要的。</li>
+</ol>
+<p><strong>Decay-based methods</strong></p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467432177109_+2016-07-02+12.02.42.png
+"width="100%" height="100%" />  </p>
+<p>R腳本範例：
+<pre>
+&#35;9.3
+&#35;discount factor
+rating &lt;- 1:5
+scale(rating)
+maxR &lt;- max(scale(rating))
+minR &lt;- min(scale(rating))
+alpha &lt;- .5
+discountFactor &lt;- (1-((mean(rating)-1)/(maxR-minR)))^alpha
+</pre></p>
+<hr />
+<h2><strong>Discrete Temporal Models</strong></h2>
+<p>間斷型時序模型的使用情境多為網路的點擊分析、市場交易資料等，屬於 implicit feedback 類型的資料。為納入時序的分析，我們可以使用 Markovian models。
+馬可夫模型的概念是將資料變成時續性的排列，假設現有4種動作分別為 {A, B, C, D} ，現有一時序資料為AABCBCA，我們可以將每個字母當成是一個動作，做完一個動作接續下一個動作，看成是：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467432730605_+2016-07-02+12.11.54.png
+"width="100%" height="100%" />  </p>
+<p>此為一階馬可夫鍊，並將所有的狀態及連線繪製成：
+<img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467432807562_+2016-07-02+12.13.16.png
+"width="100%" height="100%" />  </p>
+<p>可發現4個動作的一階馬可夫鍊 (order-1 Markov model) 會有$4^1$個狀態，$4^{(1+1)}$條連線。以此例，order-2 Markov chain 會是：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467433048559_+2016-07-02+12.17.00.png
+"width="100%" height="100%" />  </p>
+<p>因此 order-2 Markov model 會有 $4^2$ 個狀態， $4^{(2+1)}$ 條連線。依此類推，N個狀態的 order-k Markov model 會有 $N^k$ 個狀態與 $N^{(k+1)}$ 條連線。
+R腳本範例：
+<pre>
+&#35;order-2 Markov model
+&#35;user1: s1,s3,s1
+&#35;user2: s2
+&#35;user3: s4,s3,s4,s1,s3
+probabilityMatrix &lt;- matrix(c(0,0,1/6,1/6,0,0,0,0,2/6,0,0,1/6,0,0,1/6,0),4,4) #not converge
+rowSum1 &lt;- matrix(c(0,.25,.5,.5,0,.25,0,0,1,.25,0,.5,0,.25,.5,0),4,4) #converge, in order to satisfy ergodic theorem
+curr &lt;- c(0,0,0,1) %<em>% rowSum1
+nex &lt;- c(0,0,0,0)
+count &lt;- 1
+repeat{
+  print(count)
+  nex &lt;- curr %</em>% rowSum1
+  if(all(round(curr,3)==round(nex,3))!=F){print(curr); break}
+  curr &lt;- nex
+  count &lt;- count + 1
+}
+</pre></p>
+<hr />
+<h2><strong>Sequential Pattern Mining</strong></h2>
+<p>幾乎類似於關聯性規則的原則：</p>
+<p><img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467433671876_+2016-07-02+12.27.19.png
+"width="100%" height="100%" /><br />
+<img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467433671882_+2016-07-02+12.27.24.png
+"width="100%" height="100%" /><br />
+<img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467433671887_+2016-07-02+12.27.32.png
+"width="100%" height="100%" /><br />
+<img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467433671892_+2016-07-02+12.27.39.png
+"width="100%" height="100%" />  </p>
+<p>Ref: Aggarwal, C. C. (2016). Recommender Systems: The Textbook. Springer.</p>
+<div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+		<div id="article_meta">
+				Category:
+					<a href="/category/stat.html">Stat</a>
+				<br />Tags:
+					<a href="/tag/recommendersystems.html">RecommenderSystems</a>
+		</div>
+	</article>
+
+	<footer>
+		<a href="/" class="button_accent">&larr;&nbsp;&nbsp;&nbsp;Back to blog</a>
+	</footer>
+
+
+	</section>
+
+</body>
+</html>
