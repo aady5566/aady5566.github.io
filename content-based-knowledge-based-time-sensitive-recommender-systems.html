@@ -103,8 +103,8 @@ set.seed(125)
 (idf &lt;- log(1/colMeans(docWord))) #測定文件出現過該詞佔所有文件的比例。總數權重越大，代表該關鍵詞的區別度越高
 h &lt;- log(tf) #damping function
 h2 &lt;- sqrt(tf) #damping function2
-h %<em>% idf #tf-idf, 關鍵字 a-j 與 document的相關性
-h2 %</em>% idf #tf-idf
+h %*% idf #tf-idf, 關鍵字 a-j 與 document的相關性
+h2 %*% idf #tf-idf
 </pre>    </p>
 <hr />
 <h2><strong>Supervised Feature Selection and Weighting</strong></h2>
@@ -122,8 +122,8 @@ set.seed(125)
                    dimnames = list(paste("user",1:2,sep=''),paste("doc",1:5,sep=''))))
 (docWord &lt;- matrix(sample(c(0,1),50,replace=T),5,10,
                    dimnames = list(paste("doc",1:5,sep=''),c(letters[1:10]))))#fixed,每篇文章對於用戶來說都長一樣
-userProfile &lt;- (userDoc %<em>% docWord) #individual's word frequency by weighting with ratings
-(totalGini &lt;- 1- sum(colSums(userDoc %</em>% docWord)/sum(colSums(userDoc %*% docWord))^2))#關鍵字 a-j 與 user的相關性
+userProfile &lt;- (userDoc %*% docWord) #individual's word frequency by weighting with ratings
+(totalGini &lt;- 1- sum(colSums(userDoc %*% docWord)/sum(colSums(userDoc %*% docWord))^2))#關鍵字 a-j 與 user的相關性
 p &lt;- colSums(userProfile)/sum(colSums(userProfile))
 (eachGini &lt;- (1- p)^2)#feature selection
 </pre></p>

@@ -194,19 +194,19 @@ y &lt;- raw[,4]
 x &lt;- raw[,1:3]
 results &lt;- lm(y ~ x) #regression
 w &lt;- as.matrix(results$coefficients[2:length(results$coefficients)]) #weight
-y.hat &lt;- x %<em>% w + results$coefficients[1] #prediction
-raw[which(y==0),4] &lt;- y.hat[which(y==0)] # replace shaded entries with predictions
+y.hat &lt;- x %*% w + results$coefficients[1] &#35;prediction
+raw[which(y==0),4] &lt;- y.hat[which(y==0)] &#35;replace shaded entries with predictions
 rm(raw,y.hat,w,result,x,y)
 &#35;example 2: let raw [,41:3] as the target variable with 4 training procedures in the first iteration
 set.seed(1122)
 raw &lt;- matrix(sample(c(0:3),40,replace=T),10,4) # assume 0 means centered by rows
-check &lt;- raw #compare to raw
+check &lt;- raw &#35;compare to raw
   for(targetCol in 1:ncol(raw)){
     y &lt;- raw[,targetCol]
     x &lt;- raw[,-targetCol]
     results &lt;- lm(y ~ x) #regression
     w &lt;- as.matrix(results$coefficients[2:length(results$coefficients)]) #weight
-    y.hat &lt;- x %</em>% w + results$coefficients[1] #prediction
+    y.hat &lt;- x %*% w + results$coefficients[1] #prediction
     raw[which(y==0),targetCol] &lt;- y.hat[which(y==0)] # replace shaded entries with predictions
   }
 </pre></p>
@@ -300,7 +300,7 @@ for(targetCol in 1:ncol(raw)){
   x &lt;- raw[,-targetCol]
   results &lt;- lm(y ~ x) #regression
   w &lt;- as.matrix(results$coefficients[2:length(results$coefficients)]) #weight
-  y.hat &lt;- x %<em>% w + results$coefficients[1] #prediction
+  y.hat &lt;- x %*% w + results$coefficients[1] #prediction
   raw[which(y==0),targetCol] &lt;- y.hat[which(y==0)] # replace shaded entries with predictions
 }
 &#35;Update full matrix with neural network(Q-learning) iterations
@@ -308,7 +308,7 @@ iraw &lt;- t(raw) #item-based
 y &lt;- iraw[4,] #only raw[,4] as the target variable
 x &lt;- iraw[-4,]
 w &lt;- rep(1/dim(x)[1],dim(x)[2])#uniform default weights
-y.hat &lt;- colSums(w</em>x[1:dim(x)[1],])#sum by column</p>
+y.hat &lt;- colSums(w*x[1:dim(x)[1],])#sum by column</p>
 <p>alpha &lt;- .05</p>
 <p>repeat{
   if((sum(y.hat-y)^2) &lt; .01){
@@ -317,7 +317,7 @@ y.hat &lt;- colSums(w</em>x[1:dim(x)[1],])#sum by column</p>
   nextW &lt;- w - alpha * (y-y.hat) * y
   y &lt;- y.hat
   w &lt;- nextW
-  y.hat &lt;- colSums(w*x[1:dim(x)[1],])#sum by column
+  y.hat &lt;- colSums(w*x[1:dim(x)[1],])&#35;sum by column
 }
 y
 </pre></p>

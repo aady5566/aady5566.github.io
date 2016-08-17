@@ -200,10 +200,10 @@ https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6A
 <li>可以用下面的R 腳本來理解。
 <pre>
 r &lt;- matrix(sample(10,500,replace=T),100,5) #create matrix
-s &lt;- t(r) %<em>% r
+s &lt;- t(r) %*% r
 vec &lt;- eigen(s)$vectors
 val &lt;- eigen(s)$values
-newR &lt;- r %</em>% vec[,1:2] #d = 2
+newR &lt;- r %*% vec[,1:2] #d = 2
 </pre></li>
 </ol>
 <hr />
@@ -263,13 +263,13 @@ val <- eigen(s)$values
 #calculate a_(12,3) for example
 u=12
 i=3
-a_12.3 <- (raw[u,c(1:length(which(!is.na(raw[u,]))))] %*% vec[c(1:length(which(!is.na(raw[u,])))),i]) / length(which(!is.na(raw[u,])))
+a_12.3 <- (raw[u,c(1:length(which(!is.na(raw[u,]))))] %\*% vec[c(1:length(which(!is.na(raw[u,])))),i]) / length(which(!is.na(raw[u,])))
 &#35;calculate m x d matrix A = [a_(ui)]m x d
 tempdf <- data.frame()
 for(u in 1:nrow(raw)){
   tempRow <- c()
   for(i in 1:ncol(vec)){
-    tempVal <- (raw[u,c(1:length(which(!is.na(raw[u,]))))] %*% vec[c(1:length(which(!is.na(raw[u,])))),i]) / length(which(!is.na(raw[u,])))
+    tempVal <- (raw[u,c(1:length(which(!is.na(raw[u,]))))] %\*% vec[c(1:length(which(!is.na(raw[u,])))),i]) / length(which(!is.na(raw[u,])))
     tempRow <- c(tempRow,tempVal)
   }
   print(tempRow)

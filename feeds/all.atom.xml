@@ -52,8 +52,8 @@ set.seed(125)
 (idf &amp;lt;- log(1/colMeans(docWord))) #測定文件出現過該詞佔所有文件的比例。總數權重越大，代表該關鍵詞的區別度越高
 h &amp;lt;- log(tf) #damping function
 h2 &amp;lt;- sqrt(tf) #damping function2
-h %&lt;em&gt;% idf #tf-idf, 關鍵字 a-j 與 document的相關性
-h2 %&lt;/em&gt;% idf #tf-idf
+h %*% idf #tf-idf, 關鍵字 a-j 與 document的相關性
+h2 %*% idf #tf-idf
 &lt;/pre&gt;    &lt;/p&gt;
 &lt;hr /&gt;
 &lt;h2&gt;&lt;strong&gt;Supervised Feature Selection and Weighting&lt;/strong&gt;&lt;/h2&gt;
@@ -71,8 +71,8 @@ set.seed(125)
                    dimnames = list(paste("user",1:2,sep=''),paste("doc",1:5,sep=''))))
 (docWord &amp;lt;- matrix(sample(c(0,1),50,replace=T),5,10,
                    dimnames = list(paste("doc",1:5,sep=''),c(letters[1:10]))))#fixed,每篇文章對於用戶來說都長一樣
-userProfile &amp;lt;- (userDoc %&lt;em&gt;% docWord) #individual's word frequency by weighting with ratings
-(totalGini &amp;lt;- 1- sum(colSums(userDoc %&lt;/em&gt;% docWord)/sum(colSums(userDoc %*% docWord))^2))#關鍵字 a-j 與 user的相關性
+userProfile &amp;lt;- (userDoc %*% docWord) #individual's word frequency by weighting with ratings
+(totalGini &amp;lt;- 1- sum(colSums(userDoc %*% docWord)/sum(colSums(userDoc %*% docWord))^2))#關鍵字 a-j 與 user的相關性
 p &amp;lt;- colSums(userProfile)/sum(colSums(userProfile))
 (eachGini &amp;lt;- (1- p)^2)#feature selection
 &lt;/pre&gt;&lt;/p&gt;
@@ -556,19 +556,19 @@ y &amp;lt;- raw[,4]
 x &amp;lt;- raw[,1:3]
 results &amp;lt;- lm(y ~ x) #regression
 w &amp;lt;- as.matrix(results$coefficients[2:length(results$coefficients)]) #weight
-y.hat &amp;lt;- x %&lt;em&gt;% w + results$coefficients[1] #prediction
-raw[which(y==0),4] &amp;lt;- y.hat[which(y==0)] # replace shaded entries with predictions
+y.hat &amp;lt;- x %*% w + results$coefficients[1] &amp;#35;prediction
+raw[which(y==0),4] &amp;lt;- y.hat[which(y==0)] &amp;#35;replace shaded entries with predictions
 rm(raw,y.hat,w,result,x,y)
 &amp;#35;example 2: let raw [,41:3] as the target variable with 4 training procedures in the first iteration
 set.seed(1122)
 raw &amp;lt;- matrix(sample(c(0:3),40,replace=T),10,4) # assume 0 means centered by rows
-check &amp;lt;- raw #compare to raw
+check &amp;lt;- raw &amp;#35;compare to raw
   for(targetCol in 1:ncol(raw)){
     y &amp;lt;- raw[,targetCol]
     x &amp;lt;- raw[,-targetCol]
     results &amp;lt;- lm(y ~ x) #regression
     w &amp;lt;- as.matrix(results$coefficients[2:length(results$coefficients)]) #weight
-    y.hat &amp;lt;- x %&lt;/em&gt;% w + results$coefficients[1] #prediction
+    y.hat &amp;lt;- x %*% w + results$coefficients[1] #prediction
     raw[which(y==0),targetCol] &amp;lt;- y.hat[which(y==0)] # replace shaded entries with predictions
   }
 &lt;/pre&gt;&lt;/p&gt;
@@ -662,7 +662,7 @@ for(targetCol in 1:ncol(raw)){
   x &amp;lt;- raw[,-targetCol]
   results &amp;lt;- lm(y ~ x) #regression
   w &amp;lt;- as.matrix(results$coefficients[2:length(results$coefficients)]) #weight
-  y.hat &amp;lt;- x %&lt;em&gt;% w + results$coefficients[1] #prediction
+  y.hat &amp;lt;- x %*% w + results$coefficients[1] #prediction
   raw[which(y==0),targetCol] &amp;lt;- y.hat[which(y==0)] # replace shaded entries with predictions
 }
 &amp;#35;Update full matrix with neural network(Q-learning) iterations
@@ -670,7 +670,7 @@ iraw &amp;lt;- t(raw) #item-based
 y &amp;lt;- iraw[4,] #only raw[,4] as the target variable
 x &amp;lt;- iraw[-4,]
 w &amp;lt;- rep(1/dim(x)[1],dim(x)[2])#uniform default weights
-y.hat &amp;lt;- colSums(w&lt;/em&gt;x[1:dim(x)[1],])#sum by column&lt;/p&gt;
+y.hat &amp;lt;- colSums(w*x[1:dim(x)[1],])#sum by column&lt;/p&gt;
 &lt;p&gt;alpha &amp;lt;- .05&lt;/p&gt;
 &lt;p&gt;repeat{
   if((sum(y.hat-y)^2) &amp;lt; .01){
@@ -679,7 +679,7 @@ y.hat &amp;lt;- colSums(w&lt;/em&gt;x[1:dim(x)[1],])#sum by column&lt;/p&gt;
   nextW &amp;lt;- w - alpha * (y-y.hat) * y
   y &amp;lt;- y.hat
   w &amp;lt;- nextW
-  y.hat &amp;lt;- colSums(w*x[1:dim(x)[1],])#sum by column
+  y.hat &amp;lt;- colSums(w*x[1:dim(x)[1],])&amp;#35;sum by column
 }
 y
 &lt;/pre&gt;&lt;/p&gt;
@@ -868,10 +868,10 @@ https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6A
 &lt;li&gt;可以用下面的R 腳本來理解。
 &lt;pre&gt;
 r &amp;lt;- matrix(sample(10,500,replace=T),100,5) #create matrix
-s &amp;lt;- t(r) %&lt;em&gt;% r
+s &amp;lt;- t(r) %*% r
 vec &amp;lt;- eigen(s)$vectors
 val &amp;lt;- eigen(s)$values
-newR &amp;lt;- r %&lt;/em&gt;% vec[,1:2] #d = 2
+newR &amp;lt;- r %*% vec[,1:2] #d = 2
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr /&gt;
@@ -931,13 +931,13 @@ val &lt;- eigen(s)$values
 #calculate a_(12,3) for example
 u=12
 i=3
-a_12.3 &lt;- (raw[u,c(1:length(which(!is.na(raw[u,]))))] %*% vec[c(1:length(which(!is.na(raw[u,])))),i]) / length(which(!is.na(raw[u,])))
+a_12.3 &lt;- (raw[u,c(1:length(which(!is.na(raw[u,]))))] %\*% vec[c(1:length(which(!is.na(raw[u,])))),i]) / length(which(!is.na(raw[u,])))
 &amp;#35;calculate m x d matrix A = [a_(ui)]m x d
 tempdf &lt;- data.frame()
 for(u in 1:nrow(raw)){
   tempRow &lt;- c()
   for(i in 1:ncol(vec)){
-    tempVal &lt;- (raw[u,c(1:length(which(!is.na(raw[u,]))))] %*% vec[c(1:length(which(!is.na(raw[u,])))),i]) / length(which(!is.na(raw[u,])))
+    tempVal &lt;- (raw[u,c(1:length(which(!is.na(raw[u,]))))] %\*% vec[c(1:length(which(!is.na(raw[u,])))),i]) / length(which(!is.na(raw[u,])))
     tempRow &lt;- c(tempRow,tempVal)
   }
   print(tempRow)
