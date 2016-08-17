@@ -68,7 +68,7 @@ ga('send', 'pageview');
 <h1><strong>Content-Based Recommender Systems</strong></h1>
 <p>Content-Based systems 除了使用了用戶的評分分數外，還會用到物件的特徵描述、摘要等資訊。Content-Based 推薦系統的基本概念就是希望找出過去用戶喜歡商品的相似物。這個相似性的概念不是（不一定）是基於跨受試者間的評分，而是基於物件的特徵。因此 Con-Based 推薦系統著重在目標用戶「自己」過去的評分紀錄，以及被評分的物件的相似性。</p>
 <p>Content-Based Systems 有很大的部分都是對 文字型的資料做處理 (text-centric systems)，基本上可分成三個組成： 離現階段的前處理、離線階段的學習、線上階段的預測。
-這裏特別強調的是， Content-Based Systems 特別是針對<strong>特定用戶的商品喜好做預測</strong>，也就是所謂的 user- specific model ，換句話說， Content-based learning 是<strong>對於特定用戶過去的歷史偏好、評分、被評分商品的特徵描述等等的資訊勾勒出該用戶偏好的輪廓。</strong></p>
+這裏特別強調的是， Content-Based Systems 特別是針對特定用戶的商品喜好做預測，也就是所謂的 user- specific model ，換句話說， Content-based learning 是對於特定用戶過去的歷史偏好、評分、被評分商品的特徵描述等等的資訊勾勒出該用戶偏好的輪廓。</p>
 <hr />
 <p>因為前述提到 Content-Based Systems 主要在解析物件的特徵，並對其相似性高地進行分類推薦。因此這邊要介紹萃取特徵的方式。</p>
 <h2><strong>Feature Representation Cleaning</strong></h2>
@@ -78,8 +78,7 @@ ga('send', 'pageview');
 <li>英文的文獻中有字幹的萃取，例如「hoping」,「hope」都有「hop-」，但這邊要特別注意的是本身 hop 也有其他意義。</li>
 <li>另外就是簡單詞的萃取 (Phrase extraction)：這裏比較傾向的是合併詞，例如英文的 「hot dog」，或是中文的「漣漪」。  </li>
 </ol>
-<p>經過上述的步驟，可以得到各物件的「特徵詞」，而這些特徵詞會以向量空間作為表徵。但其實這些「詞袋」內的內容物，並不是每個都是非常的關鍵，很多特徵詞並沒有物件間的區別力，因此我們真正要的是各個物件的「關鍵詞」，要如何得到這些「關鍵詞」，可以對特徵詞進行權重分配後計算而得：
-<strong>Inverse document frequency (IDF)</strong></p>
+<p>經過上述的步驟，可以得到各物件的「特徵詞」，而這些特徵詞會以向量空間作為表徵。但其實這些「詞袋」內的內容物，並不是每個都是非常的關鍵，很多特徵詞並沒有物件間的區別力，因此我們真正要的是各個物件的「關鍵詞」，要如何得到這些「關鍵詞」，可以對特徵詞進行權重分配後計算而得：Inverse document frequency (IDF)</p>
 <p><img class='shaped' src="
 https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467418041575_+2016-07-02+8.05.42.png
 "width="100%" height="100%" />  </p>

@@ -14,7 +14,8 @@
 
 /*body font*/
 
-p, ul, ol, li{
+section#posts p, ul, ol, li{
+	font-size: 16px;
   font-family: 'Freight-Sans-Pro','cwTeXHei', sans-serif;
 }
 /*pic*/
