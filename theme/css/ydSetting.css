@@ -2,6 +2,16 @@
 @import url(https://fonts.googleapis.com/css?family=Patrick+Hand|Averia+Sans+Libre|Sniglet|NTR&subset=latin);
 @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
+
+/*profile pic*/
+.circular {
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+  border: 2px solid rgba(50,50,50,.3);
+  /*-webkit-filter: grayscale(50%); /* Chrome, Safari, Opera */
+  -webkit-filter: contrast(200%) brightness(150%) grayscale(70%);
+	}
 /*pic*/
 img{
   border-radius: 15px;
