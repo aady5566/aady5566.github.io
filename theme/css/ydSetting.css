@@ -13,7 +13,8 @@
 	}
 
 /*body font*/
-p{
+
+p, ul, ol, li{
   font-family: 'Freight-Sans-Pro','cwTeXHei', sans-serif;
 }
 /*pic*/
