@@ -1,8 +1,7 @@
 @import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css);
 @import url(https://fonts.googleapis.com/css?family=Patrick+Hand|Averia+Sans+Libre|Sniglet|NTR&subset=latin);
 @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
-
-
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);/*黑體*/
 /*profile pic*/
 .circular {
 	width: 150px;
@@ -12,6 +11,11 @@
   /*-webkit-filter: grayscale(50%); /* Chrome, Safari, Opera */
   -webkit-filter: contrast(200%) brightness(150%) grayscale(70%);
 	}
+
+/*body font*/
+p{
+  font-family: 'Freight-Sans-Pro','cwTeXHei', sans-serif;
+}
 /*pic*/
 img{
   border-radius: 15px;
