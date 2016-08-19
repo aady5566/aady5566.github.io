@@ -229,11 +229,7 @@ https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC45
 &lt;img class='shaped' src="
 https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467432807562_+2016-07-02+12.13.16.png
 "width="100%" height="100%" /&gt;  &lt;/p&gt;
-&lt;p&gt;可發現4個動作的一階馬可夫鍊 (order-1 Markov model) 會有$4^1$個狀態，$4^{(1+1)}$條連線。以此例，order-2 Markov chain 會是：&lt;/p&gt;
-&lt;p&gt;&lt;img class='shaped' src="
-https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467433048559_+2016-07-02+12.17.00.png
-"width="100%" height="100%" /&gt;&lt;br /&gt;
-R腳本範例：
+&lt;p&gt;R腳本範例：
 &lt;pre&gt;
 &amp;#35;order-1 Markov model
 &amp;#35;user1: s1,s3,s1
@@ -251,8 +247,12 @@ repeat{
   curr &amp;lt;- nex
   count &amp;lt;- count + 1
 }
-&lt;/pre&gt;&lt;/p&gt;
-&lt;h2&gt;而 order-2 Markov model 會有 $4^2$ 個狀態， $4^{(2+1)}$ 條連線。依此類推，N個狀態的 order-k Markov model 會有 $N^k$ 個狀態與 $N^{(k+1)}$ 條連線。&lt;/h2&gt;
+&lt;/pre&gt;  &lt;/p&gt;
+&lt;p&gt;可發現4個動作的一階馬可夫鍊 (order-1 Markov model) 會有$4^1$個狀態，$4^{(1+1)}$條連線。以此例，order-2 Markov chain 會是：&lt;/p&gt;
+&lt;p&gt;&lt;img class='shaped' src="
+https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC452A76C3A980E242E307E916B3_1467433048559_+2016-07-02+12.17.00.png
+"width="100%" height="100%" /&gt;  &lt;/p&gt;
+&lt;h2&gt;所以 order-2 Markov model 會有 $4^2$ 個狀態， $4^{(2+1)}$ 條連線。依此類推，N個狀態的 order-k Markov model 會有 $N^k$ 個狀態與 $N^{(k+1)}$ 條連線。&lt;/h2&gt;
 &lt;h2&gt;&lt;strong&gt;Sequential Pattern Mining&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;幾乎類似於關聯性規則的原則：&lt;/p&gt;
 &lt;p&gt;&lt;img class='shaped' src="
