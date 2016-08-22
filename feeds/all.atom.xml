@@ -1,5 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-08-17T00:00:00+08:00</updated><entry><title>Content-Based, Knowledge-Based, Time-Sensitive Recommender Systems</title><link href="/content-based-knowledge-based-time-sensitive-recommender-systems.html" rel="alternate"></link><published>2016-08-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-17:content-based-knowledge-based-time-sensitive-recommender-systems.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-08-23T00:00:00+08:00</updated><entry><title>Lambda 分析機環境建置</title><link href="/lambda-fen-xi-ji-huan-jing-jian-zhi.html" rel="alternate"></link><published>2016-08-23T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-23:lambda-fen-xi-ji-huan-jing-jian-zhi.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+&lt;/script&gt;
+
+&lt;h2&gt;Lambda Tutorial&lt;/h2&gt;
+&lt;p&gt;安裝套件 virtualenv
+&lt;pre&gt;
+pip install virtualenv
+&lt;/pre&gt;
+建立 virtual environment 並執行環境內的cmd模式
+&lt;pre&gt;
+mkdir env
+source env/bin/activate
+deactivate //離開虛擬環境之cmd模式
+&lt;/pre&gt;
+安裝完所需 python 套件後，將套件與腳本放入根目錄，腳本含兩種：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;init&lt;/strong&gt;.py （內容為空白）&lt;/li&gt;
+&lt;li&gt;main.py （主要執行檔），以下範例  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;
+&amp;#35; !/usr/bin/env python
+&amp;#35; -*- coding: utf-8 -*-
+def lambda_handler(event, context):
+  your code here
+&lt;/pre&gt;
+
+&lt;p&gt;最後打包成.zip檔上傳至lambda即可測試 （上傳最大限制為5mb）&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;Case by Case&lt;/h1&gt;
+&lt;h2&gt;AWS linux environment compile （以EC2 為例，編譯含C語言之python套件）&lt;/h2&gt;
+&lt;p&gt;進入ec2
+&lt;pre&gt;
+sudo yum -y update
+sudo yum -y groupinstall "Development Tools"
+sudo yum install python27-devel python27-pip gcc
+sudo yum install blas-devel lapack-devel //for scipy
+sudo yum install python-devel //for python-igraph
+sudo yum install -y libxml2 libxml2-devel libxslt libxslt-devel //for puthon-igraph&lt;br /&gt;
+virtualenv ~/env --no-site-packages
+source ~/env/bin/activate&lt;br /&gt;
+//這裏開始進入切割出的虛擬環境中安裝所需套件，不過不知為何不能下sudo，不然會安裝到系統的python（可能是AWS sudo的特殊權限）&lt;br /&gt;
+pip install --upgrade pip
+pip install Cython
+pip install numpy
+pip install scipy
+pip install scikit-learn
+pip install gensim
+pip install python-igraph
+pip install pandas
+//回到系統安裝&lt;br /&gt;
+sudo yum install unzip
+sudo yum install boost-devel boost-python-devel
+//再次進入虛擬環境中安裝，不過這裡的 pymongo 和 elasticsearch 會安裝在 env/lib/python2.7/dist-packages/ 而不是 env/lib64/python2.7/site-packages/&lt;br /&gt;
+pip install elasticsearch //but put in the diet-package
+easy_install pymongo //but put in the diet-package
+&lt;/pre&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;接著將需要的binary file上傳到ec2中
+&lt;code&gt;scp -r -i [pemPath] [.binlocalPath] ec2-user@[ip]:/home/ec2-user/env&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;修改 binary file 權限
+&lt;code&gt;chmod +x env/SIO2-Algorithm_GPL.bin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;執行 binary file (此檔案會出現於env/lib64/python2.7/&lt;strong&gt;dist&lt;/strong&gt;-packages/，將其移動到 env/lib/python2.7/dist-packages 與相依套件一起包下來)
+&lt;code&gt;env/SIO2-Algorithm_GPL.bin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;拉下編譯過的套件
+&lt;code&gt;scp -r -i [pemPath] ec2-user@[ip]:/home/ec2-user/env/lib/python2.7/dist-packages [localDirPath]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;scp -r -i [pemPath] ec2-user@[ip]:/home/ec2-user/env/lib/python2.7/site-packages [localDirPath]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;將編譯過的套件連同執行腳本打包成zip檔，超過5mb則丟到S3
+&lt;pre&gt;
+aws configure
+keyID...
+pw ...
+region ...
+aws s3 cp [local.zipPath] s3://[bucketName]/[dir]
+&lt;/pre&gt;  &lt;/p&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;</summary><category term="AWS"></category><category term="lambda"></category></entry><entry><title>Content-Based, Knowledge-Based, Time-Sensitive Recommender Systems</title><link href="/content-based-knowledge-based-time-sensitive-recommender-systems.html" rel="alternate"></link><published>2016-08-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-17:content-based-knowledge-based-time-sensitive-recommender-systems.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
