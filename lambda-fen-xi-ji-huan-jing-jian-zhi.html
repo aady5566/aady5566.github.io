@@ -75,8 +75,8 @@ pip install virtualenv
 mkdir env
 source env/bin/activate
 deactivate //離開虛擬環境之cmd模式
-</pre>
-安裝完所需 python 套件後，將套件與腳本放入根目錄，腳本含兩種：</p>
+</pre>  </p>
+<p>安裝完所需 python 套件後，將套件與腳本放入根目錄，腳本含兩種：</p>
 <ol>
 <li><strong>init</strong>.py （內容為空白）</li>
 <li>main.py （主要執行檔），以下範例  </li>
@@ -117,7 +117,7 @@ sudo yum install boost-devel boost-python-devel
 //再次進入虛擬環境中安裝，不過這裡的 pymongo 和 elasticsearch 會安裝在 env/lib/python2.7/dist-packages/ 而不是 env/lib64/python2.7/site-packages/<br />
 pip install elasticsearch //but put in the diet-package
 easy_install pymongo //but put in the diet-package
-</pre></p>
+</pre>  </p>
 <hr />
 <p>接著將需要的binary file上傳到ec2中
 <code>scp -r -i [pemPath] [.binlocalPath] ec2-user@[ip]:/home/ec2-user/env</code></p>
