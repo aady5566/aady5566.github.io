@@ -19,8 +19,8 @@ ga('send', 'pageview');
 &lt;p&gt;安裝套件 virtualenv
 &lt;pre&gt;
 pip install virtualenv
-&lt;/pre&gt;
-建立 virtual environment 並執行環境內的cmd模式
+&lt;/pre&gt;  &lt;/p&gt;
+&lt;p&gt;建立 virtual environment 並執行環境內的cmd模式
 &lt;pre&gt;
 mkdir env
 source env/bin/activate
