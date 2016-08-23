@@ -92,7 +92,7 @@ pw ...
 region ...
 aws s3 cp [local.zipPath] s3://[bucketName]/[dir]
 &lt;/pre&gt;  &lt;/p&gt;
-&lt;p&gt;&lt;a href="https://nervous.io/python/aws/lambda/2016/02/17/scipy-pandas-lambda/"&gt;Other solutions&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://nervous.io/python/aws/lambda/2016/02/17/scipy-pandas-lambda/" target = "_blank"&gt;Other solutions&lt;/a&gt;  &lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 
 &lt;script&gt;
