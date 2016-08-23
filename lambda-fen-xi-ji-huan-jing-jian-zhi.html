@@ -99,10 +99,10 @@ sudo yum -y groupinstall "Development Tools"
 sudo yum install python27-devel python27-pip gcc
 sudo yum install blas-devel lapack-devel //for scipy
 sudo yum install python-devel //for python-igraph
-sudo yum install -y libxml2 libxml2-devel libxslt libxslt-devel //for puthon-igraph<br />
+sudo yum install -y libxml2 libxml2-devel libxslt libxslt-devel //for puthon-igraph
 virtualenv ~/env --no-site-packages
-source ~/env/bin/activate<br />
-//這裏開始進入切割出的虛擬環境中安裝所需套件，不過不知為何不能下sudo，不然會安裝到系統的python（可能是AWS sudo的特殊權限）<br />
+source ~/env/bin/activate
+//這裏開始進入切割出的虛擬環境中安裝所需套件，不過不知為何不能下sudo，不然會安裝到系統的python（可能是AWS sudo的特殊權限）
 pip install --upgrade pip
 pip install Cython
 pip install numpy
@@ -111,10 +111,10 @@ pip install scikit-learn
 pip install gensim
 pip install python-igraph
 pip install pandas
-//回到系統安裝<br />
+//回到系統安裝
 sudo yum install unzip
 sudo yum install boost-devel boost-python-devel
-//再次進入虛擬環境中安裝，不過這裡的 pymongo 和 elasticsearch 會安裝在 env/lib/python2.7/dist-packages/ 而不是 env/lib64/python2.7/site-packages/<br />
+//再次進入虛擬環境中安裝，不過這裡的 pymongo 和 elasticsearch 會安裝在 env/lib/python2.7/dist-packages/ 而不是 env/lib64/python2.7/site-packages/
 pip install elasticsearch //but put in the diet-package
 easy_install pymongo //but put in the diet-package
 </pre>  </p>
@@ -128,6 +128,12 @@ easy_install pymongo //but put in the diet-package
 <p>拉下編譯過的套件
 <code>scp -r -i [pemPath] ec2-user@[ip]:/home/ec2-user/env/lib/python2.7/dist-packages [localDirPath]</code></p>
 <p><code>scp -r -i [pemPath] ec2-user@[ip]:/home/ec2-user/env/lib/python2.7/site-packages [localDirPath]</code></p>
+<p>除此之外，還有一些零散的資料夾也一併拉下：  </p>
+<p><code>/usr/lib64/libboost_python.so.1.53.0</code>
+<code>/usr/lib64/libquadmath.so.0</code>
+<code>/usr/lib64/libgfortran.so.3</code>
+<code>/usr/lib64/libblas.so.3</code>
+<code>/usr/lib64/liblapack.so.3</code>  </p>
 <p>將編譯過的套件連同執行腳本打包成zip檔，超過5mb則丟到S3
 <pre>
 aws configure
@@ -136,6 +142,7 @@ pw ...
 region ...
 aws s3 cp [local.zipPath] s3://[bucketName]/[dir]
 </pre>  </p>
+<p><a href="https://nervous.io/python/aws/lambda/2016/02/17/scipy-pandas-lambda/">Other solutions</a>  </p>
 <div id="disqus_thread"></div>
 
 <script>

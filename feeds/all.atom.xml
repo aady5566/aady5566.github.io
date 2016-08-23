@@ -49,10 +49,10 @@ sudo yum -y groupinstall "Development Tools"
 sudo yum install python27-devel python27-pip gcc
 sudo yum install blas-devel lapack-devel //for scipy
 sudo yum install python-devel //for python-igraph
-sudo yum install -y libxml2 libxml2-devel libxslt libxslt-devel //for puthon-igraph&lt;br /&gt;
+sudo yum install -y libxml2 libxml2-devel libxslt libxslt-devel //for puthon-igraph
 virtualenv ~/env --no-site-packages
-source ~/env/bin/activate&lt;br /&gt;
-//這裏開始進入切割出的虛擬環境中安裝所需套件，不過不知為何不能下sudo，不然會安裝到系統的python（可能是AWS sudo的特殊權限）&lt;br /&gt;
+source ~/env/bin/activate
+//這裏開始進入切割出的虛擬環境中安裝所需套件，不過不知為何不能下sudo，不然會安裝到系統的python（可能是AWS sudo的特殊權限）
 pip install --upgrade pip
 pip install Cython
 pip install numpy
@@ -61,10 +61,10 @@ pip install scikit-learn
 pip install gensim
 pip install python-igraph
 pip install pandas
-//回到系統安裝&lt;br /&gt;
+//回到系統安裝
 sudo yum install unzip
 sudo yum install boost-devel boost-python-devel
-//再次進入虛擬環境中安裝，不過這裡的 pymongo 和 elasticsearch 會安裝在 env/lib/python2.7/dist-packages/ 而不是 env/lib64/python2.7/site-packages/&lt;br /&gt;
+//再次進入虛擬環境中安裝，不過這裡的 pymongo 和 elasticsearch 會安裝在 env/lib/python2.7/dist-packages/ 而不是 env/lib64/python2.7/site-packages/
 pip install elasticsearch //but put in the diet-package
 easy_install pymongo //but put in the diet-package
 &lt;/pre&gt;  &lt;/p&gt;
@@ -78,6 +78,12 @@ easy_install pymongo //but put in the diet-package
 &lt;p&gt;拉下編譯過的套件
 &lt;code&gt;scp -r -i [pemPath] ec2-user@[ip]:/home/ec2-user/env/lib/python2.7/dist-packages [localDirPath]&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;scp -r -i [pemPath] ec2-user@[ip]:/home/ec2-user/env/lib/python2.7/site-packages [localDirPath]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;除此之外，還有一些零散的資料夾也一併拉下：  &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/usr/lib64/libboost_python.so.1.53.0&lt;/code&gt;
+&lt;code&gt;/usr/lib64/libquadmath.so.0&lt;/code&gt;
+&lt;code&gt;/usr/lib64/libgfortran.so.3&lt;/code&gt;
+&lt;code&gt;/usr/lib64/libblas.so.3&lt;/code&gt;
+&lt;code&gt;/usr/lib64/liblapack.so.3&lt;/code&gt;  &lt;/p&gt;
 &lt;p&gt;將編譯過的套件連同執行腳本打包成zip檔，超過5mb則丟到S3
 &lt;pre&gt;
 aws configure
@@ -86,6 +92,7 @@ pw ...
 region ...
 aws s3 cp [local.zipPath] s3://[bucketName]/[dir]
 &lt;/pre&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://nervous.io/python/aws/lambda/2016/02/17/scipy-pandas-lambda/"&gt;Other solutions&lt;/a&gt;  &lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 
 &lt;script&gt;
