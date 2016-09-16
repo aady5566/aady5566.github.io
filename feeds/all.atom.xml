@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-09-01T00:00:00+08:00</updated><entry><title>真實的謊言 - 韓國</title><link href="/zhen-shi-de-huang-yan-han-guo.html" rel="alternate"></link><published>2016-09-01T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-09-01:zhen-shi-de-huang-yan-han-guo.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-09-17T00:00:00+08:00</updated><entry><title>中秋之夜</title><link href="/zhong-qiu-zhi-ye.html" rel="alternate"></link><published>2016-09-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-09-17:zhong-qiu-zhi-ye.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+&lt;/script&gt;
+
+&lt;p&gt;中秋連假颱風也來湊一腳，現在有沒有放假都固定給自己半天的工作或進修的時間，既然當初給自己一年的時間好好摸第二語言Scala的任務漸行漸遠，因應工作需求一定要找一個新的目標精進，一年至兩年的時間內多摸索。  &lt;/p&gt;
+&lt;p&gt;我是很喜歡學新事物的人，在小公司因應各種任務時（對目前的我來說幾乎都是新的），能協助公司的話就邊學邊做。最近也剛接了一個PM的角色開發軟體產品，其實PM的重要性和專業度也非常高，不亞於寫出優美的程式，雖然公司在這方面沒有什麼前輩可以討教，自己也是要找相關的文件書籍閱讀。同時在我管理的這個產品，可能也會需要我協助前端網站的呈現，因此前端的開發框架也要了解，以便之後與新人協作。但原本的角色定位為數據分析的我，仍然要持續精進數據處理的概念和效率，一人飾三角。有時會覺得這樣過於發散，也許這是小公司的另外一個缺點，無法專精。不過就現階段而言，只要是為了公司好，該學什麼該做什麼就盡量做好做滿吧！&lt;/p&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;</summary><category term="Life"></category></entry><entry><title>真實的謊言 - 韓國</title><link href="/zhen-shi-de-huang-yan-han-guo.html" rel="alternate"></link><published>2016-09-01T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-09-01:zhen-shi-de-huang-yan-han-guo.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
