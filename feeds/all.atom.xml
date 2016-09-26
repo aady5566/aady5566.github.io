@@ -1,5 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-09-17T00:00:00+08:00</updated><entry><title>中秋之夜</title><link href="/zhong-qiu-zhi-ye.html" rel="alternate"></link><published>2016-09-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-09-17:zhong-qiu-zhi-ye.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-09-26T00:00:00+08:00</updated><entry><title>React Tutorial 環境建置</title><link href="/react-tutorial-huan-jing-jian-zhi.html" rel="alternate"></link><published>2016-09-26T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-09-26:react-tutorial-huan-jing-jian-zhi.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+&lt;/script&gt;
+
+&lt;h1&gt;目標&lt;/h1&gt;
+&lt;p&gt;透過 nvm 管理 node.js 版本，並安裝官方團隊出的 &lt;a href="https://github.com/facebookincubator/create-react-app" target="_blank"&gt;Create React App&lt;/a&gt; 來製作我們的single page website。IDE的部分則是使用 &lt;a href="https://atom.io/" target="_blank"&gt;Atom&lt;/a&gt; ，並額外設定 ESlint 及安裝 &lt;a href="https://orktes.github.io/atom-react/" target="_blank"&gt; Atom React plugin&lt;/a&gt; ，提高開發網頁的效率。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;安裝 nvm（示範環境為OS X 10.5.5）&lt;/h2&gt;
+&lt;p&gt;透過Homebrew 安裝 nvm  &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$brew install nvm&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;接著輸入下列指令使 shell 運行 nvm&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ echo "source $(brew --prefix nvm)/nvm.sh" &amp;gt;&amp;gt; .bash_profile&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;重新啟動終端機使設定生效&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ . ~/.bash_profile&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;使用nvm安裝Node.js&lt;/h3&gt;
+&lt;p&gt;nvm 就是用來做 Node.js 的版本控管，試想當你新進一家公司，該公司已經用v3.5.0開發他們的官網，而在之前你開發的環境都是 v5.5.0 以上，這時候你必須透過 nvm 調整自己的開發環境至 v3.5.0 才不會出現非預期性錯誤。這時 nvm 就非常好用！  &lt;/p&gt;
+&lt;p&gt;查看遠端有哪些 Node.js 的版本可以安裝&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$nvm ls-remote&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;安裝欲安裝的版本&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$nvm install &amp;lt;version&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;node版本會放在此&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ls /usr/local/opt/nvm&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看可使用的node版本&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$nvm ls&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;切換版本&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;nvm use指令只會在當前的 shell 生效&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;$nvm use v6.5.0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;或&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$nvm use --delete-prefix v6.5.0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;為解決上述問題，可以將常用的版本加入 alias 中，這樣就不用每次開新的 shell 都要執行 nvm use了!&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ nvm alias default &amp;lt;version&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;安裝create-react-app&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Node.js 必須在 v4.x 以上&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;安裝 create-react-app&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$npm install -g create-react-app&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;建立一個名為 &lt;em&gt;myApp&lt;/em&gt; 的app資料夾&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$create-react-app myApp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在該app資料夾下運行 app&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;myApp $npm start&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;接著就可以去 localhost:3000 看第一個demo app了！&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Atom 套件： React Plugin, ESlint 安裝&lt;/h2&gt;
+&lt;h3&gt;React Plugin&lt;/h3&gt;
+&lt;p&gt;React Plugin比較簡單，直接在 Atom 的偏好設定內安裝套件（名為 &lt;em&gt;React&lt;/em&gt; ）即可。&lt;/p&gt;
+&lt;h3&gt;ESlint&lt;/h3&gt;
+&lt;p&gt;ESlint 的部分比較麻煩，除了 Atom 偏好設定內的安裝完（名為 &lt;em&gt;ESlint&lt;/em&gt; ）外，還必須&lt;/p&gt;
+&lt;p&gt;這裏有關 ESlint 的 &lt;a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md" target="_blank"&gt;issue&lt;/a&gt; 還在解。因此這邊還是要手動增添一些設定。&lt;/p&gt;
+&lt;p&gt;在 &lt;em&gt;myApp&lt;/em&gt; 資料夾內有個 packages.json ，加入&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;//...
+&amp;quot;eslintConfig&amp;quot;: {
+    &amp;quot;extends&amp;quot;: &amp;quot;react-app&amp;quot;
+  }
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;並安裝下列套件即可&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm install -g eslint-config-react-app@0.2.1 eslint@3.5.0 babel-eslint@6.1.2 eslint-plugin-react@6.3.0 eslint-plugin-import@1.12.0 eslint-plugin-jsx-a11y@2.2.2 eslint-plugin-flowtype@2.18.1&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;為了讓其他協作開發者知道該app使用的相依環境，盡量使用
+&lt;code&gt;$npm install --save &amp;lt;library-name&amp;gt;&lt;/code&gt;。 --save會把相依套件寫在packages.json 的 dependencies。甚至可以更進一步使用 --save-dev 和 --save-optional 來區分套件分別隸屬於 devDependencies 還是 optionalDependencies。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;</summary><category term="React"></category></entry><entry><title>中秋之夜</title><link href="/zhong-qiu-zhi-ye.html" rel="alternate"></link><published>2016-09-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-09-17:zhong-qiu-zhi-ye.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
