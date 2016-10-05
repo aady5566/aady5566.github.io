@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="[en]">
+<head>
+	<link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+	<!--<link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">-->
+	<!--<script src="/theme/js/less.js" type="text/javascript"></script>-->
+	<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+	<link rel="stylesheet" type="text/css" href="/theme/css/ydSetting.css">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:800,400,300|Inconsolata' rel='stylesheet' type='text/css'>
+
+	<link href="aady5566.github.io/" type="application/atom+xml" rel="alternate" title="YD's Blog ATOM Feed" />
+
+
+		<title>YD's Blog</title>
+		<meta charset="utf-8" />
+</head>
+<body>
+	<section id="sidebar">
+		<figure id="user_logo">
+            <!-- <a href=""><div class="logo">&nbsp;</div></a> -->
+						<img class="circular" src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/yd_fbas.jpg">
+		</figure>
+	</br>
+		<div class="user_meta">
+            <h1 id="user"><a href="http://aady5566.github.io" class="">YD</a></h1>
+			<h2></h2>
+			<p class="bio">lives in a cave.</p>
+			<ul>
+					<li><a href="http://aady5566.bitbucket.org/" target="_blank">@_yd</a></li>
+					<li><a href="https://tw.linkedin.com/in/yd-huang-735358aa" target="_blank">linkedin</a></li>
+					<li><a href="https://github.com/aady5566" target="_blank">github</a></li>
+					<li><a href="mailto:ydhuang@ntu.edu.tw" target="_blank">mail</a></li>
+			</ul>
+		</div>
+		<footer>
+			<address>
+				&copy 2016 YD <br> Powered by Pelican.
+			</address>
+		</footer>
+	</section>
+
+	<section id="posts">
+	<header>
+		<h1>YD's blog</h1>
+		<h3>Posted 三 05 10月 2016</h3>
+	</header>
+	<article>
+		<h1 id="title">
+			<a href="/timeline.html" rel="bookmark"
+				title="Permalink to Timeline">Timeline</a>
+		</h1>
+		<script src="./node_modules/d3/d3.min.js"></script>
+
+<script src="./node_modules/d3kit/dist/d3kit.min.js"></script>
+
+<script src="./node_modules/labella/dist/labella.min.js"></script>
+
+<script src="./node_modules/d3kit-timeline/dist/d3kit-timeline.min.js"></script>
+
+<p>test</p>
+<script type="text/javascript">
+
+var data = [
+  {time: new Date(1977, 4,25), episode: 4, name: 'A New Hope'},
+  {time: new Date(1980, 4,17), episode: 5, name: 'The Empire Strikes Back'},
+  {time: new Date(1984, 4,25), episode: 6, name: 'Return of the Jedi'},
+  {time: new Date(1999, 4,19), episode: 1, name: 'The Phantom Menace'},
+  {time: new Date(2002, 4,16), episode: 2, name: 'Attack of the Clones'},
+  {time: new Date(2005, 4,19), episode: 3, name: 'Revenge of the Sith'},
+  {time: new Date(2015,11,18), episode: 7, name: 'The Force Awakens'},
+];
+var chart = new d3KitTimeline('#timeline', {
+  direction: 'right',
+  initialWidth: 400,
+  initialHeight: 250,
+  textFn: function(d){
+    return d.time.getFullYear() + ' - ' + d.name;
+  }
+});
+chart.data(data).resizeToFit();
+
+</script>
+
+		<div id="article_meta">
+				Category:
+					<a href="/category/misc.html">misc</a>
+		</div>
+	</article>
+
+	<footer>
+		<a href="/" class="button_accent">&larr;&nbsp;&nbsp;&nbsp;Back to blog</a>
+	</footer>
+
+
+	</section>
+
+</body>
+</html>
