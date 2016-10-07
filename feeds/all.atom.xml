@@ -714,7 +714,7 @@ ga('send', 'pageview');
 
 &lt;/script&gt;
 
-&lt;iframe src='aady5566.github.io/html/yd_bubblecloud/index.html' width=100% height=1000 frameborder="0"&gt;&lt;/iframe&gt;
+&lt;iframe src='aady5566.github.io/html/yd_bubblecloud/index.html' width=1000 height=1000 frameborder="0"&gt;&lt;/iframe&gt;
 
 &lt;p&gt;針對某網站的部落格文章分類後，進行關鍵字分析，數值代表個字詞的權重。&lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
