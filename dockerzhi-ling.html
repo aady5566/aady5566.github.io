@@ -90,6 +90,19 @@ ga('send', 'pageview');
 <ul>
 <li>docker cp &lt;filePath&gt; &lt;container&gt;:&lt;containerPath&gt;  </li>
 </ul>
+<p>tunnel傳輸</p>
+<ol>
+<li>
+<p>ssh -L &lt;tunnelPort&gt;:&lt;remoteIP&gt;:&lt;remotePort&gt; &lt;tunnelIP&gt; (e.g. ssh -L 5566:192.168.34.94:22 me@192.168.12.34)</p>
+</li>
+<li>
+<p>scp -P &lt;tunnelPort&gt; -r &lt;localDir&gt; &lt;remoteAccount&gt;@localhost:/home/cirrusdi/ (e.g. scp -P 5566 -r /Volumes/jetD_YD/work/cirrusdi/hstrade/code remote@localhost:/home/remote/hstrade/)</p>
+</li>
+</ol>
+<p>docker mount to container</p>
+<ul>
+<li>docker run -d -p 8787:8787 --name &lt;name&gt; -v &lt;localDirPath&gt;:/&lt;rstudioPath&gt;:ro -e USER=&lt;user&gt; -e PASSWORD=&lt;pw&gt; rocker/rstudio</li>
+</ul>
 <hr />
 <p>VM中執行docker  </p>
 <ul>
