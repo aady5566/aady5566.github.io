@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-10-19T00:00:00+08:00</updated><entry><title>無題</title><link href="/wu-ti.html" rel="alternate"></link><published>2016-10-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-10-19:wu-ti.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-10-28T00:00:00+08:00</updated><entry><title>Opendata- 捷運人流</title><link href="/opendata-jie-yun-ren-liu.html" rel="alternate"></link><published>2016-10-28T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-10-28:opendata-jie-yun-ren-liu.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+&lt;/script&gt;
+
+&lt;p&gt;11/18要回系上給個（工作人生?）心得分享，想說做一點素材來引發小大一們對於R的一點興趣。昨天想到的是捷運站各站人潮的地圖視覺化，那就來做吧！首先我需要知道各站的地理位置，還有就是各站的人潮數據，稍微翻找了一下，在 &lt;a href="http://data.taipei/opendata/datalist/datasetMeta?oid=cfa4778c-62c1-497b-b704-756231de348b" taget="_blank"&gt;Data.taipei&lt;/a&gt; 找到各站出口的經緯度座標，不過這筆資料很單純只有各站出口的座標，接著我到捷運公司找到了&lt;a href="http://www.metro.taipei/ct.asp?xItem=1058535&amp;CtNode=70073&amp;mp=122035" taget="_blank"&gt;旅運量&lt;/a&gt;。這裏我只抓9月份的各站進站人次，整理一下兩份資料後，就可以畫圖了！&lt;/p&gt;
+&lt;hr /&gt;
+&lt;iframe src='aady5566.github.io/html/mrt.html' width=800 height=500&gt;&lt;/iframe&gt;
+
+&lt;p&gt;圖圈位置表各站地理位置，數據為九月平均進站次數，圖圈顏色越深、半徑越大表示人潮越多。&lt;/p&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;</summary><category term="plot"></category></entry><entry><title>無題</title><link href="/wu-ti.html" rel="alternate"></link><published>2016-10-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-10-19:wu-ti.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
