@@ -43,26 +43,14 @@
 	<section id="posts">
 	<header>
 		<h1>YD's blog</h1>
-		<h3>
-			<script type="text/javascript">
-				var currentDate = new Date();
-				var day = currentDate.getDate();
-				var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-				var month = monthNames[currentDate.getMonth()].toUpperCase();
-				var year = currentDate.getFullYear();
-				document.write(month + " " + day + ", " + year);
-			</script>
-		</h3>
+		<h3>Posted 三 09 11月 2016</h3>
 	</header>
-
-	<dl>
-		<ol>
-				<li>
-					<h1 class="title">
-						<a href="/julia-osx-huan-jing-jian-zhi.html" rel="bookmark" title="Permalink to Julia osx 環境建置">Julia osx 環境建置</a>
-					</h1>
-					<abbr class="published" title="2016-11-09T00:00:00+08:00">三 09 11月 2016</abbr>
-				<div class="entry-content"> <h2>目標利用 Juno IDE 來開發 Julia:</h2>
+	<article>
+		<h1 id="title">
+			<a href="/julia-osx-huan-jing-jian-zhi.html" rel="bookmark"
+				title="Permalink to Julia osx 環境建置">Julia osx 環境建置</a>
+		</h1>
+		<h2>目標利用 Juno IDE 來開發 Julia:</h2>
 <p><img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/junoIDE.png" width="100%" height="100%" /></p>
 <ul>
 <li>目前部署環境為 mac os Sierra 10.12.1</li>
@@ -79,42 +67,70 @@
 <ol>
 <li><code>Pkg.rm("Atom")</code></li>
 <li><code>Pkg.udpate()</code></li>
-<li><code>Pkg.add("Atom ...</code></li></ol></li></ul></li></ul> </div>
-				</li>
-				<li>
-					<h1 class="title">
-						<a href="/opendata-jie-yun-ren-liu.html" rel="bookmark" title="Permalink to Opendata- 捷運人流">Opendata- 捷運人流</a>
-					</h1>
-					<abbr class="published" title="2016-10-28T00:00:00+08:00">五 28 10月 2016</abbr>
-				<div class="entry-content">  </div>
-				</li>
-				<li>
-					<h1 class="title">
-						<a href="/wu-ti.html" rel="bookmark" title="Permalink to 無題">無題</a>
-					</h1>
-					<abbr class="published" title="2016-10-19T00:00:00+08:00">三 19 10月 2016</abbr>
-				<div class="entry-content">  </div>
-				</li>
-				<li>
-					<h1 class="title">
-						<a href="/react-tutorial-huan-jing-jian-zhi.html" rel="bookmark" title="Permalink to React Tutorial 環境建置">React Tutorial 環境建置</a>
-					</h1>
-					<abbr class="published" title="2016-09-26T00:00:00+08:00">一 26 9月 2016</abbr>
-				<div class="entry-content">  </div>
-				</li>
-				<li>
-					<h1 class="title">
-						<a href="/zhong-qiu-zhi-ye.html" rel="bookmark" title="Permalink to 中秋之夜">中秋之夜</a>
-					</h1>
-					<abbr class="published" title="2016-09-17T00:00:00+08:00">六 17 9月 2016</abbr>
-				<div class="entry-content">  </div>
-				</li>
-		</ol>
-	</dl>
+<li><code>Pkg.add("Atom")</code></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2>issue Pkg.add("Rmath")</h2>
+<h3>fatal error: sys/cdefs.h: No such file or directory</h3>
+<p>solution: <code>$xcode-select --install</code></p>
+<h2>Demo</h2>
+<p><a href="http://a504082002.github.io/julia_tutorials/DS_2_Modeling_from_the_ground_up.html">ref</a></p>
+<div class="highlight"><pre><span></span>Pkg.add(&quot;DataFrames&quot;)
+Pkg.add(&quot;GLM&quot;)
+Pkg.add(&quot;Rmath&quot;)
+Pkg.add(&quot;Gadfly&quot;)
+Pkg.add(&quot;StatsFuns&quot;)
+using DataFrames, GLM, Gadfly, StatsFuns
 
-<p class="paginator">
-		<a href="/index2.html" class="button_accent" style="position: absolute; right: 0;">continue&nbsp;&nbsp;&nbsp;&rarr;</a>
-</p>
+&amp;#35; Linear regression model
+
+data = DataFrame(X=[1, 2, 3], Y=[2, 4, 7])
+f = Y ~ X
+fm = lm(f,data)
+coef(fm)
+residuals(fm)
+predict(fm)
+plot(data, x=:X, y=:Y, Geom.point)
+</pre></div>
+
+
+<div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+		<div id="article_meta">
+				Category:
+					<a href="/category/julia.html">Julia</a>
+		</div>
+	</article>
+
+	<footer>
+		<a href="/" class="button_accent">&larr;&nbsp;&nbsp;&nbsp;Back to blog</a>
+	</footer>
+
+
 	</section>
 
 </body>
