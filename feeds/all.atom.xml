@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-11-09T00:00:00+08:00</updated><entry><title>Julia osx 環境建置</title><link href="/julia-osx-huan-jing-jian-zhi.html" rel="alternate"></link><published>2016-11-09T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-11-09:julia-osx-huan-jing-jian-zhi.html</id><summary type="html">&lt;h2&gt;目標利用 Juno IDE 來開發 Julia:&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-11-09T00:00:00+08:00</updated><entry><title>Julia osx 環境建置</title><link href="/julia-osx-huan-jing-jian-zhi.html" rel="alternate"></link><published>2016-11-09T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-11-09:julia-osx-huan-jing-jian-zhi.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+&lt;/script&gt;
+
+&lt;h2&gt;目標利用 Juno IDE 來開發 Julia:&lt;/h2&gt;
 &lt;p&gt;&lt;img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/junoIDE.png" width="100%" height="100%" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;目前部署環境為 mac os Sierra 10.12.1&lt;/li&gt;
