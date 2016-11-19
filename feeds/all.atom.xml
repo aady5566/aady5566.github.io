@@ -62,6 +62,9 @@ plot(data, x=:X, y=:Y, Geom.point)
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;blockquote&gt;
+&lt;p&gt;若要在 terminal 呼叫 julia 執行 &lt;code&gt;export PATH="/Applications/Julia-&amp;lt;version&amp;gt;.app/Contents/Resources/julia/bin:$PATH"&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 
 &lt;script&gt;
