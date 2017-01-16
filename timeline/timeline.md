@@ -36,5 +36,5 @@
 - 2013/10~2014/09 兵役（預備軍官）
 - 2016/08/29~2016/09/02 [韓國半工半遊](http://aady5566.github.io/zhen-shi-de-huang-yan-han-guo.html)
 - 2016/09/02 求婚
-- 2016/11/22~2016/11/27 [關西輕旅行](http://aady5566.github.io/zhen-shi-de-huang-yan-han-guo.html)
+- 2016/11/22~2016/11/27 [關西輕旅行](http://aady5566.github.io/guan-xi-you-guan-xi.html)
 - 2016/12/17 Zombie Run
