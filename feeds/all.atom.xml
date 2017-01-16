@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-12-19T00:00:00+08:00</updated><entry><title>Docker指令</title><link href="/dockerzhi-ling.html" rel="alternate"></link><published>2016-12-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-12-19:dockerzhi-ling.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-01-16T00:00:00+08:00</updated><entry><title>股價預測</title><link href="/gu-jia-yu-ce.html" rel="alternate"></link><published>2017-01-16T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-01-16:gu-jia-yu-ce.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+&lt;/script&gt;
+
+&lt;iframe src='http://52.192.231.190/' width=100% height=600 frameborder="0"&gt;&lt;/iframe&gt;
+
+&lt;p&gt;這個是上週自幹的 side project- &lt;strong&gt;即時股價的預測系統&lt;/strong&gt; ，數據每天更新，提供最新的預測結果，歡迎大家玩玩看XD&lt;/p&gt;
+&lt;p&gt;因為剛好學到 ReactJS 框架開發前端，就不想再用 R Shiny 開發了，畢竟 Shiny 不是人人都會開發起來只能自幹...套件相對也少很多。  &lt;/p&gt;
+&lt;p&gt;這裡用到的技術主要是將 Web server + API server 啟在 AWS Light Sail 的 Docker container 內，由使用者在 Web server 操作，向 API 索取所需要的資料以及模型預測的結果。 不過目前兩個 container 並沒有進行 link 的動作，安全性上較低，之後要再好好研究 proxy 的設定。&lt;/p&gt;
+&lt;p&gt;另外一個要做的事情是預測模型的驗證方式還沒處理，這模型的準確度才是重點啊XD。&lt;/p&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;</summary><category term="docker"></category><category term="AWS"></category></entry><entry><title>Docker指令</title><link href="/dockerzhi-ling.html" rel="alternate"></link><published>2016-12-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-12-19:dockerzhi-ling.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
