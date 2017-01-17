@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YD's Blog</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-01-16T00:00:00+08:00</updated><entry><title>股價預測</title><link href="/gu-jia-yu-ce.html" rel="alternate"></link><published>2017-01-16T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-01-16:gu-jia-yu-ce.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>5566</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-01-16T00:00:00+08:00</updated><entry><title>股價預測</title><link href="/gu-jia-yu-ce.html" rel="alternate"></link><published>2017-01-16T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-01-16:gu-jia-yu-ce.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
