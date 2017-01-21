@@ -110,3 +110,9 @@ section#posts blockquote {
     display: inline-block;
     border-left: 5px solid rgba(255,207,87,1);
 }
+
+
+nav{
+    color: rgb(153, 153, 153);
+    outline: 0px;
+}

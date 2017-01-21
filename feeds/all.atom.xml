@@ -42,7 +42,7 @@ ga('send', 'pageview');
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="docker"></category><category term="AWS"></category></entry><entry><title>Docker指令</title><link href="/dockerzhi-ling.html" rel="alternate"></link><published>2016-12-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-12-19:dockerzhi-ling.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Web"></category></entry><entry><title>Docker指令</title><link href="/dockerzhi-ling.html" rel="alternate"></link><published>2016-12-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-12-19:dockerzhi-ling.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -125,7 +125,7 @@ ga('send', 'pageview');
 &lt;li&gt;
 &lt;p&gt;docker save  -o [&amp;lt;save path&amp;gt;.tar] &amp;lt;author&amp;gt;&amp;lt;imageName&amp;gt;:&amp;lt;version&amp;gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</summary><category term="docker"></category></entry><entry><title>關西有關係</title><link href="/guan-xi-you-guan-xi.html" rel="alternate"></link><published>2016-12-02T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-12-02:guan-xi-you-guan-xi.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/ul&gt;</summary><category term="Docker"></category></entry><entry><title>關西有關係</title><link href="/guan-xi-you-guan-xi.html" rel="alternate"></link><published>2016-12-02T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-12-02:guan-xi-you-guan-xi.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -386,7 +386,7 @@ plot(data, x=:X, y=:Y, Geom.point)
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary></entry><entry><title>Opendata- 捷運人流</title><link href="/opendata-jie-yun-ren-liu.html" rel="alternate"></link><published>2016-10-28T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-10-28:opendata-jie-yun-ren-liu.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Stuff"></category></entry><entry><title>Opendata- 捷運人流</title><link href="/opendata-jie-yun-ren-liu.html" rel="alternate"></link><published>2016-10-28T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-10-28:opendata-jie-yun-ren-liu.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -428,7 +428,7 @@ ga('send', 'pageview');
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="plot"></category></entry><entry><title>無題</title><link href="/wu-ti.html" rel="alternate"></link><published>2016-10-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-10-19:wu-ti.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Plot"></category></entry><entry><title>無題</title><link href="/wu-ti.html" rel="alternate"></link><published>2016-10-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-10-19:wu-ti.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -567,7 +567,7 @@ ga('send', 'pageview');
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="React"></category></entry><entry><title>中秋之夜</title><link href="/zhong-qiu-zhi-ye.html" rel="alternate"></link><published>2016-09-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-09-17:zhong-qiu-zhi-ye.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Stuff"></category></entry><entry><title>中秋之夜</title><link href="/zhong-qiu-zhi-ye.html" rel="alternate"></link><published>2016-09-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-09-17:zhong-qiu-zhi-ye.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -836,7 +836,7 @@ aws s3 cp [local.zipPath] s3://[bucketName]/[dir]
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="AWS"></category><category term="lambda"></category></entry><entry><title>Content-Based, Knowledge-Based, Time-Sensitive Recommender Systems</title><link href="/content-based-knowledge-based-time-sensitive-recommender-systems.html" rel="alternate"></link><published>2016-08-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-17:content-based-knowledge-based-time-sensitive-recommender-systems.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="AWS"></category></entry><entry><title>Content-Based, Knowledge-Based, Time-Sensitive Recommender Systems</title><link href="/content-based-knowledge-based-time-sensitive-recommender-systems.html" rel="alternate"></link><published>2016-08-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-17:content-based-knowledge-based-time-sensitive-recommender-systems.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -1167,7 +1167,7 @@ ga('send', 'pageview');
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="plot"></category></entry><entry><title>關鍵字泡泡</title><link href="/guan-jian-zi-pao-pao.html" rel="alternate"></link><published>2016-08-16T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-16:guan-jian-zi-pao-pao.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Plot"></category></entry><entry><title>關鍵字泡泡</title><link href="/guan-jian-zi-pao-pao.html" rel="alternate"></link><published>2016-08-16T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-16:guan-jian-zi-pao-pao.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -1207,7 +1207,7 @@ ga('send', 'pageview');
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="plot"></category></entry><entry><title>地圖視覺化</title><link href="/di-tu-shi-jue-hua.html" rel="alternate"></link><published>2016-08-12T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-12:di-tu-shi-jue-hua.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Plot"></category></entry><entry><title>地圖視覺化</title><link href="/di-tu-shi-jue-hua.html" rel="alternate"></link><published>2016-08-12T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-12:di-tu-shi-jue-hua.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -1248,7 +1248,7 @@ ga('send', 'pageview');
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="plot"></category></entry><entry><title>Model-Based Collaborative Filtering</title><link href="/model-based-collaborative-filtering.html" rel="alternate"></link><published>2016-08-12T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-12:model-based-collaborative-filtering.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Plot"></category></entry><entry><title>Model-Based Collaborative Filtering</title><link href="/model-based-collaborative-filtering.html" rel="alternate"></link><published>2016-08-12T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-12:model-based-collaborative-filtering.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -2381,7 +2381,7 @@ persistLauncher in Test := false
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="Scalajs"></category></entry><entry><title>Git Tutorial (Demo on Bitbucket)</title><link href="/git-tutorial-demo-on-bitbucket.html" rel="alternate"></link><published>2016-08-02T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-02:git-tutorial-demo-on-bitbucket.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Stuff"></category></entry><entry><title>Git Tutorial (Demo on Bitbucket)</title><link href="/git-tutorial-demo-on-bitbucket.html" rel="alternate"></link><published>2016-08-02T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-02:git-tutorial-demo-on-bitbucket.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -2537,7 +2537,7 @@ git push --set-upstream origin &amp;lt;branch name&amp;gt;
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="git"></category></entry><entry><title>夢想</title><link href="/meng-xiang.html" rel="alternate"></link><published>2016-06-25T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-06-25:meng-xiang.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Git"></category></entry><entry><title>夢想</title><link href="/meng-xiang.html" rel="alternate"></link><published>2016-06-25T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-06-25:meng-xiang.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -2674,7 +2674,7 @@ $docker start ydredis //後進入bash模式
 $docker exec -it ydredis bash //接著必須先查看一下docker engine此時賦予container的ip
 $ifconfig //查看ip
 $redis-cli -h &lt;ip&gt; //就可以開始下redis指令了!
-&lt;/pre&gt;&lt;/p&gt;</summary><category term="docker"></category><category term="redis"></category></entry><entry><title>Spark Installation On OS X</title><link href="/spark-installation-on-os-x.html" rel="alternate"></link><published>2016-05-14T09:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-05-14:spark-installation-on-os-x.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/pre&gt;&lt;/p&gt;</summary><category term="Docker"></category></entry><entry><title>Spark Installation On OS X</title><link href="/spark-installation-on-os-x.html" rel="alternate"></link><published>2016-05-14T09:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-05-14:spark-installation-on-os-x.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -2821,7 +2821,7 @@ ga('send', 'pageview');
 &lt;li&gt;$E_R$: $P_R(Y), ~Y= ~${$  Classification Finite~Set  $}&lt;/li&gt;
 &lt;li&gt;$H_R$ (Entropy): $-\sum_{y \in Y}(P_R(Y) \cdot \log{P_R(Y)})$&lt;/li&gt;
 &lt;li&gt;$G_R$ (Gini's index): $\sum_{y \in Y}(P_R(Y) \cdot (1-P_R(Y)))$&lt;/li&gt;
-&lt;/ul&gt;</summary></entry><entry><title>K-Nearest Neighbor algorithms (KNN)</title><link href="/k-nearest-neighbor-algorithms-knn.html" rel="alternate"></link><published>2016-04-26T17:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-26:k-nearest-neighbor-algorithms-knn.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/ul&gt;</summary><category term="Stuff"></category></entry><entry><title>K-Nearest Neighbor algorithms (KNN)</title><link href="/k-nearest-neighbor-algorithms-knn.html" rel="alternate"></link><published>2016-04-26T17:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-26:k-nearest-neighbor-algorithms-knn.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -2875,7 +2875,7 @@ dt &lt;- rbind(predict.dt,dt)
 #plot the outcome
 qplot(x1,x2,colour=label,data=dt)
 
-&lt;/pre&gt;</summary></entry><entry><title>Supervised vs. Unsupervised Learning</title><link href="/supervised-vs-unsupervised-learning.html" rel="alternate"></link><published>2016-04-26T09:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-26:supervised-vs-unsupervised-learning.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/pre&gt;</summary><category term="Stuff"></category></entry><entry><title>Supervised vs. Unsupervised Learning</title><link href="/supervised-vs-unsupervised-learning.html" rel="alternate"></link><published>2016-04-26T09:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-26:supervised-vs-unsupervised-learning.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -2926,7 +2926,7 @@ ga('send', 'pageview');
 &lt;li&gt;Decision Theory&lt;/li&gt;
 &lt;li&gt;Reinforcement Learning&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;自己因為碩論的關係，關注議題以 Reinforcement Learning Model 為主，但在實際運用上比較常見的機器學習屬於Supervised, Unsupervised 和 Semi-supervised Learning.&lt;/p&gt;</summary></entry><entry><title>北美館</title><link href="/bei-mei-guan.html" rel="alternate"></link><published>2016-04-24T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-24:bei-mei-guan.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;自己因為碩論的關係，關注議題以 Reinforcement Learning Model 為主，但在實際運用上比較常見的機器學習屬於Supervised, Unsupervised 和 Semi-supervised Learning.&lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>北美館</title><link href="/bei-mei-guan.html" rel="alternate"></link><published>2016-04-24T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-24:bei-mei-guan.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3011,7 +3011,7 @@ data&lt;- dbGetQuery(conn, paste("SELECT * FROM &lt;tableName&gt; where date_par
 #Close connection
 redshift.disconnect(conn)  
 
-&lt;/pre&gt;</summary></entry><entry><title>生活意義</title><link href="/sheng-huo-yi-yi.html" rel="alternate"></link><published>2016-04-06T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-06:sheng-huo-yi-yi.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/pre&gt;</summary><category term="Stuff"></category></entry><entry><title>生活意義</title><link href="/sheng-huo-yi-yi.html" rel="alternate"></link><published>2016-04-06T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-06:sheng-huo-yi-yi.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3093,7 +3093,7 @@ ga('send', 'pageview');
 
 &lt;iframe src='aady5566.github.io/html/負面詞彙社會網絡.html' width=500 height=300&gt;&lt;/iframe&gt;
 
-&lt;p&gt;這是在ptt某版上的一整年內容及推文的負面情緒詞網絡。利用別人的api畫圖很快，但有時候也蠻麻煩的，當如果要改某些小細節，就可能沒支援。但想想要自己手刻一個這樣的東西，感覺更耗時...何況還有分析端要處理，還有的磨。&lt;/p&gt;</summary><category term="plot"></category></entry><entry><title>AWS Elastic Compute Cloud (EC2)</title><link href="/aws-elastic-compute-cloud-ec2.html" rel="alternate"></link><published>2016-03-19T13:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-19:aws-elastic-compute-cloud-ec2.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;這是在ptt某版上的一整年內容及推文的負面情緒詞網絡。利用別人的api畫圖很快，但有時候也蠻麻煩的，當如果要改某些小細節，就可能沒支援。但想想要自己手刻一個這樣的東西，感覺更耗時...何況還有分析端要處理，還有的磨。&lt;/p&gt;</summary><category term="Plot"></category></entry><entry><title>AWS Elastic Compute Cloud (EC2)</title><link href="/aws-elastic-compute-cloud-ec2.html" rel="alternate"></link><published>2016-03-19T13:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-19:aws-elastic-compute-cloud-ec2.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3173,7 +3173,7 @@ ga('send', 'pageview');
 
 &lt;iframe src='aady5566.github.io/html/map.html' width=500 height=300&gt;&lt;/iframe&gt;
 
-&lt;p&gt;今天原本下午要去看電影，結果意外取消了原本輕鬆的行程。下午的時間把公司的部分任務完成，閒閒沒事想說有一筆經、緯度的資料，應該加以利用。上網看了leaflet的教學，將ip依照經緯度定位後取得該城市的資料，並成功接上shiny!而且終於成功將html直接鑲嵌在blog文內，超開心!之後就可以分享更多成果在blog中了，哈。&lt;/p&gt;</summary><category term="plot"></category></entry><entry><title>K-means</title><link href="/k-means.html" rel="alternate"></link><published>2016-03-12T09:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-12:k-means.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;今天原本下午要去看電影，結果意外取消了原本輕鬆的行程。下午的時間把公司的部分任務完成，閒閒沒事想說有一筆經、緯度的資料，應該加以利用。上網看了leaflet的教學，將ip依照經緯度定位後取得該城市的資料，並成功接上shiny!而且終於成功將html直接鑲嵌在blog文內，超開心!之後就可以分享更多成果在blog中了，哈。&lt;/p&gt;</summary><category term="Plot"></category></entry><entry><title>K-means</title><link href="/k-means.html" rel="alternate"></link><published>2016-03-12T09:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-12:k-means.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3197,7 +3197,7 @@ $$J=\sum_{i=1}^{k}\sum_{x_j \in S_i}(x_j-\mu_i)$$
 &lt;p&gt;簡單來說一下公式的意義，若欲分類k組，隨機選取k筆資料當做初始群中心並計算每個資料xi對應到的最短距離的群中心。再利用分類完的k群重新計算群中心。&lt;br /&gt;
 因此不難察覺，K-means的侷限為初始值，同一筆資料跑了n次的結果可能都不一樣，所以初始值落點不好可能會造成糟糕的結果。&lt;br /&gt;
 K-means當然也不只是分群及找出群中心如此而已還是有其他用途。基於資料的群中心被找出後，我們可以把這個群中心的結果當成分類器的指標，也就是說，若有新的一筆同一屬性資料進來，找出最短距離的群中心，我們就可以將這筆資料進行分類(預測)。&lt;br /&gt;
-另外也可以作為判斷此資料是否適合做為分類的判斷，因為有些特徵(feature)不適合做為分類依據。對此，我們可以先根據特徵取得群中心後，將資料找出距離最短特徵的群中心分類後，檢視分類情況，以確保該特徵為分類的是適切性。&lt;/p&gt;</summary></entry><entry><title>景仰對象</title><link href="/jing-yang-dui-xiang.html" rel="alternate"></link><published>2016-03-10T23:51:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-10:jing-yang-dui-xiang.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+另外也可以作為判斷此資料是否適合做為分類的判斷，因為有些特徵(feature)不適合做為分類依據。對此，我們可以先根據特徵取得群中心後，將資料找出距離最短特徵的群中心分類後，檢視分類情況，以確保該特徵為分類的是適切性。&lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>景仰對象</title><link href="/jing-yang-dui-xiang.html" rel="alternate"></link><published>2016-03-10T23:51:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-10:jing-yang-dui-xiang.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3216,7 +3216,7 @@ ga('send', 'pageview');
 &lt;p&gt;今天被問到「有沒有景仰的對象」這件事，我第一個直覺是&amp;lt;&amp;lt;等一個人咖啡&amp;gt;&amp;gt;內的阿拓。&lt;br /&gt;
 我欣賞他憨厚直爽的態度，他待人真誠，且時時保有「盡一己之力又何妨」的態度對待需要幫助的周遭朋友。
 另外就是有一個觀念真的很棒，「生氣?過了一天、一年或甚至十年之後，還會記得此事嗎?如果不會，那幹嘛生氣?」，真的很欣賞他。儘管是小說角色，從國中以來就很羨慕這樣樂天的態度。  &lt;br /&gt;
-如果要說現實中景仰的對象，不如說我對是認真、持之以恆的態度在過生活的人特別欣賞，也一直努力保持這樣的態度過生活。但通常認真的人往往會忽略自己身體的健康，例如挑燈半夜讀書、睡眠時間不固定、飲食不正常等，這種生活態度我就不欣賞了，除非到要命時刻否則不熬夜！這邊要特別講一下，前年在新訓單位擔任輔導長一職時，幾乎11點前準時睡覺(除非查哨)，還不是平安退伍了。沒有什麼比健康更重要的事，一旦生病，什麼事做起來都不開心。&lt;/p&gt;</summary></entry><entry><title>工作兩週</title><link href="/gong-zuo-liang-zhou.html" rel="alternate"></link><published>2016-03-09T23:27:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-09:gong-zuo-liang-zhou.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+如果要說現實中景仰的對象，不如說我對是認真、持之以恆的態度在過生活的人特別欣賞，也一直努力保持這樣的態度過生活。但通常認真的人往往會忽略自己身體的健康，例如挑燈半夜讀書、睡眠時間不固定、飲食不正常等，這種生活態度我就不欣賞了，除非到要命時刻否則不熬夜！這邊要特別講一下，前年在新訓單位擔任輔導長一職時，幾乎11點前準時睡覺(除非查哨)，還不是平安退伍了。沒有什麼比健康更重要的事，一旦生病，什麼事做起來都不開心。&lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>工作兩週</title><link href="/gong-zuo-liang-zhou.html" rel="alternate"></link><published>2016-03-09T23:27:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-09:gong-zuo-liang-zhou.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3384,7 +3384,7 @@ ga('send', 'pageview');
   &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt; ' scrolling='no' frameBorder='0' seamless class='rChart  highcharts  ' id='iframe-chart59c7b825599'&gt; &lt;/iframe&gt;
 
-&lt;p&gt;&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;&lt;/p&gt;</summary><category term="plot"></category></entry><entry><title>Docker基礎概念、建立映像檔與下載實作</title><link href="/dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html" rel="alternate"></link><published>2016-03-04T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-04:dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;&lt;/p&gt;</summary><category term="Plot"></category></entry><entry><title>Docker基礎概念、建立映像檔與下載實作</title><link href="/dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html" rel="alternate"></link><published>2016-03-04T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-04:dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3437,7 +3437,7 @@ ga('send', 'pageview');
 &lt;ul&gt;
 &lt;li&gt;一旦image建好後，可用&lt;code&gt;docker images&lt;/code&gt; 查看。接著可以更改
   &lt;code&gt;docker tag 7d9495d03763 &amp;lt;account&amp;gt;/&amp;lt;repositoryName&amp;gt;:&amp;lt;tag&amp;gt;&lt;/code&gt; 接著再看&lt;code&gt;docker images&lt;/code&gt;會發現有兩個同樣images id。&lt;code&gt;docker login --username &amp;lt;user name&amp;gt; --email &amp;lt;mail&amp;gt;&lt;/code&gt; 後輸入密碼，登入成功輸入 &lt;code&gt;docker push &amp;lt;repositoryName&amp;gt;&lt;/code&gt; 就成功了！&lt;code&gt;docker rmi -f &amp;lt;image id&amp;gt;&lt;/code&gt; &lt;code&gt;-f&lt;/code&gt;強制刪除映像檔指令&lt;code&gt;docker run &amp;lt;repositoryName&amp;gt;&lt;/code&gt; 等同於 docker pull and run &lt;repositoryName&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="docker"></category></entry><entry><title>家聚</title><link href="/jia-ju.html" rel="alternate"></link><published>2016-03-01T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-01:jia-ju.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/ul&gt;</summary><category term="Docker"></category></entry><entry><title>家聚</title><link href="/jia-ju.html" rel="alternate"></link><published>2016-03-01T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-01:jia-ju.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3502,7 +3502,7 @@ ga('send', 'pageview');
 &lt;li&gt;(/home/ec2-user為存放位置)  &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cmd"></category><category term="AWS"></category></entry><entry><title>巨量資料概述</title><link href="/ju-liang-zi-liao-gai-shu.html" rel="alternate"></link><published>2016-02-26T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-26:ju-liang-zi-liao-gai-shu.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/ul&gt;</summary><category term="AWS"></category></entry><entry><title>巨量資料概述</title><link href="/ju-liang-zi-liao-gai-shu.html" rel="alternate"></link><published>2016-02-26T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-26:ju-liang-zi-liao-gai-shu.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3537,7 +3537,7 @@ ga('send', 'pageview');
 &lt;p&gt;這兩天做了一些網絡分析並用Shiny進行互動視覺化。&lt;br /&gt;
 這是網頁間連結強度的網絡圖，下方的網絡圖會隨著上方選擇的日期與時段秀出對應結果。&lt;br /&gt;
 因為這是發佈到免費空間上，展示網頁有時可能會失效。  &lt;/p&gt;
-&lt;iframe src="https://ydhuang.shinyapps.io/mtApp/" height=350 width=450 scrolling=yes&gt;&lt;/iframe&gt;</summary><category term="plot"></category><category term="web"></category></entry><entry><title>Scala for the impatient: ch13</title><link href="/scala-for-the-impatient-ch13.html" rel="alternate"></link><published>2016-02-24T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-24:scala-for-the-impatient-ch13.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;iframe src="https://ydhuang.shinyapps.io/mtApp/" height=350 width=450 scrolling=yes&gt;&lt;/iframe&gt;</summary><category term="Web"></category></entry><entry><title>Scala for the impatient: ch13</title><link href="/scala-for-the-impatient-ch13.html" rel="alternate"></link><published>2016-02-24T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-24:scala-for-the-impatient-ch13.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3603,7 +3603,7 @@ ga('send', 'pageview');
 &lt;li&gt;
 &lt;p&gt;位集(bit set)是集的一種實現&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</summary></entry><entry><title>影響最深的一堂課</title><link href="/ying-xiang-zui-shen-de-yi-tang-ke.html" rel="alternate"></link><published>2016-02-23T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-23:ying-xiang-zui-shen-de-yi-tang-ke.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/ul&gt;</summary><category term="Stuff"></category></entry><entry><title>影響最深的一堂課</title><link href="/ying-xiang-zui-shen-de-yi-tang-ke.html" rel="alternate"></link><published>2016-02-23T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-23:ying-xiang-zui-shen-de-yi-tang-ke.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3984,7 +3984,7 @@ fileClean &lt;- function(path,direction="",year="",department="",host=""){
   }
   return(storage)
 }
-&lt;/pre&gt;</summary></entry><entry><title>Scala for the impatient: ch1</title><link href="/scala-for-the-impatient-ch1.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch1.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/pre&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch1</title><link href="/scala-for-the-impatient-ch1.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch1.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4042,7 +4042,7 @@ ga('send', 'pageview');
 &lt;p&gt;"Harry".patch(1,"ung",2)，將產出Hungry&lt;br /&gt;
 def patch(from:Int, that:GenSeq[Char], replaced: Int ):StringOps[A]&lt;br /&gt;
 比大小max(a,b) max c&lt;br /&gt;
-probablePrime(2,Random)：回傳一個bit長度為二的質數(type:BigInt)  &lt;/p&gt;</summary></entry><entry><title>Scala for the impatient: ch11</title><link href="/scala-for-the-impatient-ch11.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch11.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+probablePrime(2,Random)：回傳一個bit長度為二的質數(type:BigInt)  &lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch11</title><link href="/scala-for-the-impatient-ch11.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch11.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4072,7 +4072,7 @@ object Fraction{
 }
 val result =Fraction(1,2) * Fraction(3,4)
 &lt;/pre&gt;
-例類(case class)自動具備apply, unapply的方法&lt;/p&gt;</summary></entry><entry><title>Scala for the impatient: ch2</title><link href="/scala-for-the-impatient-ch2.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch2.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+例類(case class)自動具備apply, unapply的方法&lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch2</title><link href="/scala-for-the-impatient-ch2.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch2.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4164,7 +4164,7 @@ finally{
 finally無論try有無拋出異常都會執行
 try/catch通常是處理異常
 try/finally是異常沒被處理形況下執行某種動作(e.g. 清理工作)
-&lt;/pre&gt;&lt;/p&gt;</summary></entry><entry><title>Scala for the impatient: ch3</title><link href="/scala-for-the-impatient-ch3.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch3.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/pre&gt;&lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch3</title><link href="/scala-for-the-impatient-ch3.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch3.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4236,7 +4236,7 @@ ga('send', 'pageview');
 &lt;li&gt;Array.sortWith(&lt;em&gt;&amp;gt;&lt;/em&gt;)&lt;/li&gt;
 &lt;li&gt;Array.mkString("&amp;lt;",",""&amp;gt;") //前綴、中間分隔符號、後綴&lt;/li&gt;
 &lt;li&gt;Array.toString //只報告類型&lt;/li&gt;
-&lt;/ul&gt;</summary></entry><entry><title>Scala for the impatient: ch4</title><link href="/scala-for-the-impatient-ch4.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch4.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/ul&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch4</title><link href="/scala-for-the-impatient-ch4.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch4.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4334,7 +4334,7 @@ scores.values //抓出value的集合&lt;br /&gt;
 &lt;ul&gt;
 &lt;li&gt;val symbols= Array("&amp;lt;","-","&amp;gt;"); val counts =Array(2,10,3); val pairs= symbols.zip(counts);for ((s,n) &amp;lt;- pairs) print(s*n) //可讓對偶同時被操作  &lt;/li&gt;
 &lt;li&gt;&lt;key&gt;.zip(&lt;value&gt;).toMap //如果分別有&lt;key&gt;, &lt;value&gt;兩個集合，就可以用.toMap轉成映射  &lt;/li&gt;
-&lt;/ul&gt;</summary></entry><entry><title>Scala for the impatient: ch8</title><link href="/scala-for-the-impatient-ch8.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch8.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/ul&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch8</title><link href="/scala-for-the-impatient-ch8.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch8.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4372,7 +4372,7 @@ scala類擴展java類，他的主構造器需要調用java超類的某個構造�
 若class內有非完整定義的方法，就必須宣告為abstract
 abstract class Person(val name:String){
   def id:Int//為被完整定義
-}&lt;/p&gt;</summary></entry><entry><title>Bayes Classifier</title><link href="/bayes-classifier.html" rel="alternate"></link><published>2016-02-05T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-05:bayes-classifier.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+}&lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>Bayes Classifier</title><link href="/bayes-classifier.html" rel="alternate"></link><published>2016-02-05T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-05:bayes-classifier.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4414,7 +4414,7 @@ ga('send', 'pageview');
 不喜歡人群，各說各話，每個人都講自己想講的，並以極差的演技詮釋他人希望看到自己的樣子，自得其樂。當一個人的行為背後帶有某種強烈的目的時，破綻百出而渾不自知，根本白癡。&lt;/p&gt;
 &lt;p&gt;不喜歡被獻殷勤，同樣道理，純粹因為我的外表接近我的大有人在，從小到大看多了，當我明確表示對你沒意思，你還不知，真的太愚蠢了...我非常壞，除了拒絕外，我會讓你很難堪，即使撕破臉我也不在意，因為我根本沒把你放在心上。&lt;/p&gt;
 &lt;p&gt;人群對我來說真的是可有可無的東西，對我來說，與人相處只是生存的手段，目的只是為了讓自己活得更自我，提升自己的狀態。人生過客來來去去，不知「情」對他人來說如此重要，比較享受感性的自己嗎？我真的不懂，也許這也是是一種從沒認真記人名、人臉的一個表徵現象。&lt;/p&gt;
-&lt;p&gt;人能陪伴自己一輩子的也只有自己，寄望他人是一種無可救藥的幻想，可以期待，但永遠不會發生。&lt;/p&gt;</summary></entry><entry><title>Review-Her</title><link href="/review-her.html" rel="alternate"></link><published>2015-01-01T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2015-01-01:review-her.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;人能陪伴自己一輩子的也只有自己，寄望他人是一種無可救藥的幻想，可以期待，但永遠不會發生。&lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>Review-Her</title><link href="/review-her.html" rel="alternate"></link><published>2015-01-01T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2015-01-01:review-her.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4431,7 +4431,7 @@ ga('send', 'pageview');
 &lt;/script&gt;
 
 &lt;p&gt;這部片主旨是一個男子離婚後對於人工智慧的相戀。版上有人拿此片與「超市夜未眠」做類比，同樣是感情的失利所引發的自我檢視過程，這類片都會在感情悲劇後發生一些弔詭或是畸形的行為發生（前者有著時間靜止畫裸畫的錯覺以及人工智慧的依戀情結）。在我看來為何題材會變成這樣，不是只是因應大眾的鹹濕重口味或是標新立異，而是真的就如同前妻聽到男子與Samentha交往食憤怒的說：「有在正視我們之間的問題嗎？真實的感情都處理不好了！」其實就是因為無法解決真實的問題。劇情裡沒有提起夫妻離婚的原因，不過就各種對白暗示著雙方屈就對方，能忍則忍，忍到無法承受後大爆炸，爆炸歸咎于雙方自私的基因再也無法妥協了。事實上男主角知道自己的盲點，又不想改變自己，Samentha又能符合自己的需求，心靈滿足，直到發現Samentha進化到博愛的境界，在無法接受自己的人類的侷限以及人本性私慾的情況下，幸福的粉紅泡泡再度破滅。&lt;/p&gt;
-&lt;p&gt;這部片的構念實在很棒，我也很喜歡劇情內這套軟體的設計，對於愛情三角理論的激情一角無所求的人，這根本是媒合度100%的靈魂伴侶。只是同樣的，如果ＡＩ智慧的自學能力如果這麼迅速的話，快樂真的只是短暫的，很快的，人類將被取代。&lt;/p&gt;</summary></entry><entry><title>Review-回顧</title><link href="/review-hui-gu.html" rel="alternate"></link><published>2015-01-01T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2015-01-01:review-hui-gu.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;這部片的構念實在很棒，我也很喜歡劇情內這套軟體的設計，對於愛情三角理論的激情一角無所求的人，這根本是媒合度100%的靈魂伴侶。只是同樣的，如果ＡＩ智慧的自學能力如果這麼迅速的話，快樂真的只是短暫的，很快的，人類將被取代。&lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>Review-回顧</title><link href="/review-hui-gu.html" rel="alternate"></link><published>2015-01-01T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2015-01-01:review-hui-gu.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4459,7 +4459,7 @@ ga('send', 'pageview');
 &lt;p&gt;-如果是出淤泥而不染、非我類者死的類型： 還是轉介到內政部役政署吧。&lt;/p&gt;
 &lt;p&gt;-如果是見人說人話、見鬼說鬼話，是軍、是士、是兵又與你何干？&lt;/p&gt;
 &lt;p&gt;（不如就考個預官，退伍後還可以存錢買MAC和手機）&lt;/p&gt;
-&lt;p&gt;性格決定命運，先認清自己是什麼樣的人，而不是盲目追別人的影子。&lt;/p&gt;</summary></entry><entry><title>Review-婚宴</title><link href="/review-hun-yan.html" rel="alternate"></link><published>2015-01-01T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2015-01-01:review-hun-yan.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;性格決定命運，先認清自己是什麼樣的人，而不是盲目追別人的影子。&lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>Review-婚宴</title><link href="/review-hun-yan.html" rel="alternate"></link><published>2015-01-01T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2015-01-01:review-hun-yan.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4479,7 +4479,7 @@ ga('send', 'pageview');
 &lt;p&gt;昨天表哥結婚，也是我第一次當伴郎的日子。一場傳統的婚禮很難想像有多麻煩，只聽大家都說，辦婚禮，最麻煩的是得罪另一方的親戚，搞得裡外不是人。所以我想結婚日不會是最麻煩的日子，當天就像是搭上已準備啟程的火車，順順開就對了。
 整場婚禮就像是例行公事般每個時間都有該做的事，程序的繁複在此不贅述，一直到晚宴，不外乎新人的影片、照片輪播。伴郎、伴娘、花童進場，接著是新人和女方父親緩緩走至舞台中間，新郎與其父交棒，配合著感人柔美的婚禮背景音樂，真的有一種莫名想結婚的腦衝，還好下一秒理智重新連線，讓我好好思考自己想要的婚禮。
 我實在看不慣，為何要用婚禮賺錢呢?花了大筆，然後擔心禮金無法超過事前的所有花費...這心態我真覺得很怪，這種喜悅應該是要分享給別人，花了自己的錢又沒什麼關係。反過來說，如果真的手頭很吃緊，那就去公證結婚就好啦，又沒人逼你辦，但這又扯到自尊心作祟的問題，人性阿!解決婚禮賺錢這個概念，理想上如果是自己的同輩好友，反正應該也不多，自己揪一揪吃個飯就算打發了；又為了應付傳統觀念強烈的長輩，或是為了符合社會期待，就辦一場精緻的婚禮，血緣關係且親近的親人來沾沾喜氣，然後叫個外燴，大家想吃什麼自己夾，如果真有超年長的老人，我想應該也會有人協助夾菜吧!照片?幹嘛要有照片，那些都只是看了自爽的東西，我想除了自己的父母會看以外，其他人也沒什麼興趣吧。不如就撥個籌備婚禮實錄，嚇死大家不敢結婚。&lt;/p&gt;
-&lt;p&gt;不斷衝撞現有體制、挑戰社會的最低容忍度。試探文化與自我互動的過程中，有些時候自私一點、懶惰一點也不會受到責難，甚至有隨之而來的益處甚至魅力，那真的是社會的問題。就某方面而言，非常確定我是個渾蛋。&lt;/p&gt;</summary></entry><entry><title>Review-學術交流</title><link href="/review-xue-shu-jiao-liu.html" rel="alternate"></link><published>2015-01-01T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2015-01-01:review-xue-shu-jiao-liu.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;不斷衝撞現有體制、挑戰社會的最低容忍度。試探文化與自我互動的過程中，有些時候自私一點、懶惰一點也不會受到責難，甚至有隨之而來的益處甚至魅力，那真的是社會的問題。就某方面而言，非常確定我是個渾蛋。&lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>Review-學術交流</title><link href="/review-xue-shu-jiao-liu.html" rel="alternate"></link><published>2015-01-01T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2015-01-01:review-xue-shu-jiao-liu.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4517,7 +4517,7 @@ ga('send', 'pageview');
 1.報告呈現的邏輯：
 如果我們只是順著paper的順序報:introduction, hypothesis, method, results, summary &amp;amp; discussion，看似沒什麼問題，但不知為何多數經濟系（心理系）學生甚至老師會把焦點放在method上，而不是他研究的問題，以及結果是否有回答到這個問題。在這邊我要提醒大家（自己）的是，我們常見樹不見林，應該要從更高的角度來看別人的研究，最後當然也要包含，該研究價值及貢獻。老師聽到這樣的話，其實也有一些共鳴，他說：「很多有點年資的審稿者往往看研究的大方向，動機和結論，然而年輕的審稿者總是挑實驗設計的毛病。」批判是必要的，但不會是最主要的目的，我們應該還是要回到研究價值，以及它可提供的社會意義為何。
 2.研究的本質
-會提到這個是因為董前輩他報告完猴子實驗後，他對動物實驗所帶來的意義感到困惑，「假如兩隻猴子，其中一隻能夠容忍延宕的酬賞，另一隻一看到較少的酬賞即取，這代表後面的猴子衝動性高，行為決策上較不理性？」以這個例子，前輩想表達的是，後面的推論非常大膽且危險，我們怎能獨斷用自己的行為模式套在其他動物身上，退一萬步說，光是情境不同，同一個人就會有不同反應，何況猴子是與人類有異的生物系統？針對這樣的問題，似乎只能從科學的本質進行探討，科學研究的目的是在尋求（簡化）世界運行的規律性，如果從演化的角度來看剛剛的議題，動物的研究可以幫助我們看不同生物體間的行為是否有延續性，能夠更穩定且深入的操弄，並且排除人類的複雜性。回到研究的本質，作為一個學者應該仍並持愛因斯坦所說的「真理就是在經驗之前站得住腳的東西; 提出問題往往比解決問題更重要」，應該多花一點時間好好想想自己的研究動機是什麼，心中的假設為何，並且如何建構一個完整的實驗來真正回答到最初的動機....，而不是資料導向的方式逆操作建構理論。但切記：科學研究是用來逼近真相，但並非真相本身，除了上帝本身，誰也不知道真相為何。&lt;/p&gt;</summary></entry><entry><title>Review-有關教學</title><link href="/review-you-guan-jiao-xue.html" rel="alternate"></link><published>2015-01-01T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2015-01-01:review-you-guan-jiao-xue.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+會提到這個是因為董前輩他報告完猴子實驗後，他對動物實驗所帶來的意義感到困惑，「假如兩隻猴子，其中一隻能夠容忍延宕的酬賞，另一隻一看到較少的酬賞即取，這代表後面的猴子衝動性高，行為決策上較不理性？」以這個例子，前輩想表達的是，後面的推論非常大膽且危險，我們怎能獨斷用自己的行為模式套在其他動物身上，退一萬步說，光是情境不同，同一個人就會有不同反應，何況猴子是與人類有異的生物系統？針對這樣的問題，似乎只能從科學的本質進行探討，科學研究的目的是在尋求（簡化）世界運行的規律性，如果從演化的角度來看剛剛的議題，動物的研究可以幫助我們看不同生物體間的行為是否有延續性，能夠更穩定且深入的操弄，並且排除人類的複雜性。回到研究的本質，作為一個學者應該仍並持愛因斯坦所說的「真理就是在經驗之前站得住腳的東西; 提出問題往往比解決問題更重要」，應該多花一點時間好好想想自己的研究動機是什麼，心中的假設為何，並且如何建構一個完整的實驗來真正回答到最初的動機....，而不是資料導向的方式逆操作建構理論。但切記：科學研究是用來逼近真相，但並非真相本身，除了上帝本身，誰也不知道真相為何。&lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>Review-有關教學</title><link href="/review-you-guan-jiao-xue.html" rel="alternate"></link><published>2015-01-01T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2015-01-01:review-you-guan-jiao-xue.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4560,4 +4560,4 @@ ga('send', 'pageview');
 &lt;p&gt;原來最難的不是拚到退伍，而是退伍後禁錮自己創造出的灰色地帶，遲遲無法踏出。&lt;/p&gt;
 &lt;p&gt;在部隊時，我總是告訴著每一梯快結訓的新兵:"真正的挑戰，退伍後才開始。"這種體會是直到自己離開了充滿心力交瘁的無聊事務、只有無止盡的懲罰、取消各種福利、威脅恐懼下保有淡定得失心才能過的舒爽的擺爛生活.....這段時間反省各種鬆散的原因，以及對自己人生的交代。自我對話的過程中，就像是憂鬱症患者一樣，尋求各種諮詢，明知這些舉動只是安慰自己，想辦法讓自己找個合理的藉口推託無賴的性格...但終究騙不了自己。熱情可能只是流浪了一陣子，期盼著回家的時刻。&lt;/p&gt;
 &lt;p&gt;關於人際，我知道自己並非容易忘記那些曾經的過客，更事實的是，在離別的一刻，我將意識到那個人的背影即將消失，然而總是在半年，甚至數年後，回憶湧現，擠爆了我的情緒記憶，但此時我卻無能為力，也不知道該為這些遺憾做些什麼樣的補償，我沒臉也沒機會用親切的招呼聲回應那轉身後的笑容....無法原諒自己卻又接受了這麼鮮明的事實。&lt;/p&gt;
-&lt;p&gt;退伍後一個月又10天，首次跑完5000M，也終於在3000M時，感覺到充實的自己，一步一步來，最基本地，做到自己的承諾。&lt;/p&gt;</summary></entry></feed>
+&lt;p&gt;退伍後一個月又10天，首次跑完5000M，也終於在3000M時，感覺到充實的自己，一步一步來，最基本地，做到自己的承諾。&lt;/p&gt;</summary><category term="Life"></category></entry></feed>
