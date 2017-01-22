@@ -43,7 +43,11 @@
 	<section id="posts">
 	<header>
 		<h1>YD's blog</h1>
-		<h3>
+		<nav id="header-nav">
+				<a id="header-nav-item"  href="/archives.html">Archives</a>
+				<a id="header-nav-item"  href="/categories.html">Categories</a>
+		</nav>
+		<h3 id="date">
 			<script type="text/javascript">
 				var currentDate = new Date();
 				var day = currentDate.getDate();
@@ -53,22 +57,18 @@
 				document.write(month + " " + day + ", " + year);
 			</script>
 		</h3>
-		<nav id="header-nav">
-				<a id="header-nav-item"  href="/archives.html">Archives</a>
-				<a id="header-nav-item"  href="/categories.html">Categories</a>
-		</nav>
 	</header>
 
 	<dl id="tag_list">
-		<ul>
-			<li><a href="/category/diary.html">Diary</a>(26)</li>
-			<li><a href="/category/julia.html">Julia</a>(1)</li>
-			<li><a href="/category/r.html">R</a>(13)</li>
-			<li><a href="/category/react.html">React</a>(1)</li>
-			<li><a href="/category/scala.html">Scala</a>(8)</li>
-			<li><a href="/category/stat.html">Stat</a>(8)</li>
-			<li><a href="/category/worknote.html">WorkNote</a>(10)</li>
-		</ul>
+		<article>
+			<dd><a href="/category/diary.html">Diary</a>(26)</dd>
+			<dd><a href="/category/julia.html">Julia</a>(1)</dd>
+			<dd><a href="/category/r.html">R</a>(13)</dd>
+			<dd><a href="/category/react.html">React</a>(1)</dd>
+			<dd><a href="/category/scala.html">Scala</a>(8)</dd>
+			<dd><a href="/category/stat.html">Stat</a>(8)</dd>
+			<dd><a href="/category/worknote.html">WorkNote</a>(10)</dd>
+		</article>
 	</dl>
 	</section>
 
