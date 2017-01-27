@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="[en]">
+<head>
+	<link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+	<!--<link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">-->
+	<!--<script src="/theme/js/less.js" type="text/javascript"></script>-->
+	<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+	<link rel="stylesheet" type="text/css" href="/theme/css/ydSetting.css">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:800,400,300|Inconsolata' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="./ico/apple-touch-icon.png">
+	<link href="aady5566.github.io/" type="application/atom+xml" rel="alternate" title="5566 ATOM Feed" />
+
+
+		<title>5566</title>
+		<meta charset="utf-8" />
+</head>
+<body>
+	<section id="sidebar">
+		<figure id="user_logo">
+            <!-- <a href=""><div class="logo">&nbsp;</div></a> -->
+						<img class="circular" src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/yd_fbas.jpg">
+		</figure>
+	</br>
+		<div class="user_meta">
+            <h1 id="user"><a href="http://aady5566.github.io" class="">YD</a></h1>
+			<h2></h2>
+			<p class="bio">lives in a cave.</p>
+			<ul>
+					<li><a href="http://aady5566.github.io/timeline/" target="_blank">timeline</a></li>
+					<li><a href="http://aady5566.bitbucket.org/" target="_blank">@_yd</a></li>
+					<li><a href="https://tw.linkedin.com/in/yd-huang-735358aa" target="_blank">linkedin</a></li>
+					<li><a href="https://github.com/aady5566" target="_blank">github</a></li>
+					<li><a href="mailto:ydhuang@ntu.edu.tw" target="_blank">mail</a></li>
+			</ul>
+		</div>
+		<footer>
+			<address>
+				&copy 2016 YD <br> Powered by Pelican.
+			</address>
+		</footer>
+	</section>
+
+	<section id="posts">
+	<header>
+		<h1>YD's blog</h1>
+		<nav id="header-nav">
+				<a id="header-nav-item"  href="/archives.html">Archives</a>
+				<a id="header-nav-item"  href="/categories.html">Categories</a>
+		</nav>
+		<h3 id="date">Posted 五 27 1月 2017</h3>
+	</header>
+	<article>
+		<h1 id="title">
+			<a href="/chu-xi-da-le-tou-yo.html" rel="bookmark"
+				title="Permalink to 除夕大樂透唷">除夕大樂透唷</a>
+		</h1>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+<iframe src='http://lottery.ydhuang.me' width=100% height=600 frameborder="0"></iframe>
+
+<p>一直被同事慫恿做一個樂透的推薦。半年前其實已經有寫好 markov chain model-step1 的預測模型，不過其實那個模型限制很多，例如不同期的算不算 sequence ，而且每期推薦的樣子都差不多，很難有大變化。這次改用 association rules 的概念來實作。雖然這裡沒有設定 support 和 confident ，但因為機率都非常低，直接比出現頻率就蠻有意思了，尤其是我做了一個設定，先判斷用戶輸入的數字個數，再用數字一層層比對過去歷史紀錄，這裡做了一個小小的假設，就是輸入的順序會影響到判斷強度，也就是說，越後面的數值越容易被過濾，以避免濾到最後沒東西了XD。
+這裡已經將 Web server + API server 的 docker container link 住了（透過 ngix設定檔），所以安全性比上一個預測股價的 api server 來得高。下一次要拉同事一起來寫驗證樂透準確度的 api 啦！</p>
+<div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+		<div id="article_meta">
+				Category:
+					<a href="/category/r.html">R</a>
+				<br />Tags:
+					<a href="/tag/web.html">Web</a>
+		</div>
+	</article>
+
+	<footer>
+		<a href="/" class="button_accent">&larr;&nbsp;&nbsp;&nbsp;Back to blog</a>
+	</footer>
+
+
+	</section>
+
+</body>
+</html>
