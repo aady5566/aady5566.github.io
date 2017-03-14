@@ -1,0 +1,10 @@
+.img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+}
+.img img{
+	max-height: 40vh;
+	box-shadow: 0 2px 4px rgba(0,0,0,.5);
+}

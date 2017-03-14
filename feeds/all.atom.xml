@@ -15,7 +15,10 @@ ga('send', 'pageview');
 
 &lt;/script&gt;
 
-&lt;p&gt;&lt;img class='shaped' src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/0219.jpg" width="100%" height="100%" /&gt;&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/0219.jpg" width="50%" height="50%" /&gt;       
+&lt;/div&gt;
+
 &lt;p&gt;今年會是特別不一樣的一年，完全進入職場也一年了，順也順，不順也不順，新創公司總是得面臨這些波折，載浮載沉一陣子，大夥才知道隨著市場的波浪擺動，若能從不安揣度航向到穩穩掌舵前行，何處是彼岸？處處是彼岸。  &lt;/p&gt;
 &lt;p&gt;生活的部分，今年會和小羽結婚，也算幸運，兩家都走簡約的路線，常態婚禮的儀式省去，留著陪自己的家人還是比較實在。  &lt;/p&gt;
 &lt;p&gt;工作、運動、家人相處、偶爾朋友聚聚，滿足的簡單生活。維持簡單生活不會是簡單的事，溫水煮青蛙，死於安樂。&lt;/p&gt;
@@ -207,7 +210,185 @@ ga('send', 'pageview');
 &lt;li&gt;
 &lt;p&gt;docker save  -o [&amp;lt;save path&amp;gt;.tar] &amp;lt;author&amp;gt;&amp;lt;imageName&amp;gt;:&amp;lt;version&amp;gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Docker"></category></entry><entry><title>關西有關係</title><link href="/guan-xi-you-guan-xi.html" rel="alternate"></link><published>2016-12-02T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-12-02:guan-xi-you-guan-xi.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/ul&gt;</summary><category term="Docker"></category></entry><entry><title>關西有關係之日本行 2</title><link href="/guan-xi-you-guan-xi-zhi-ri-ben-xing-2.html" rel="alternate"></link><published>2016-12-03T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-12-03:guan-xi-you-guan-xi-zhi-ri-ben-xing-2.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+&lt;/script&gt;
+
+&lt;p&gt;續上一篇 &lt;a href="http://blog.ydhuang.me/guan-xi-you-guan-xi-zhi-ri-ben-xing-1.html"&gt;關西有關係之日本行 1&lt;/a&gt;
+大致的花費：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;往返機票: 10,092 NTD  ( Japan Airlines )&lt;br /&gt;
+住宿: 10,005 NTD ( New Osaka Hotel Shinsaibashi ) &lt;br /&gt;
+交通: 572 NTD ( 南海電車往返票 ) + 2,610 NTD ( ICOCA )&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以下為11/24開始的流水帳：&lt;/p&gt;
+&lt;h2&gt;11/24 清水寺 &amp;amp; 伏見稻荷&lt;/h2&gt;
+&lt;p&gt;這應該是小羽非常期待的行程，原因是她可以穿上期待已久的振袖。
+這天的交通方式為 大阪地鐵-心齋橋 ( ICOCA ) → 京阪本線-淀屋橋 → 京阪本線-丹波橋 → 清水五条(租和服) → 伏見稻荷 → 清水五条(清水寺賞夜楓)。&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1124/25.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;換完和服前往伏見稻荷的路上，穿和服超難走路，步伐因為下擺而變得超侷限，然後指襪穿著木屐又很不防滑，感覺鞋子都要飛出去的狀態下走路..，不過身為歪國人穿的這個在街上換晃也是蠻有趣的。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1124/28.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;傳聞中的千鳥居，但其實沒很長，而且人蠻多的，好不容易等到幾秒沒人的空檔趕快拍。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1124/30.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;小羽在清水寺被一個日本阿婆搭訕，還要求一起合影，阿婆說了一大串她聽不懂(貌似阿婆介紹自己從哪來的)，她只聽到重點：「妳好像一幅畫。」可能就是這張照片的感覺吧！&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1124/31.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;看到這些小佛像，總覺得他們晚上會抖掉身上的水泥，變成一隻隻的熊貓瘋狂跳舞。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1124/32.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;清水寺街景。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1124/33.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;清水舞台的夜楓以及遠處的京都塔。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1124/34.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;這晚吃燒肉，原本看到菜單 5,000 yen 價格還算可接受，吃完才發現是那是一人的價格XDDD，我想我應該還記得黑毛和牛的滋味orz。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;1125 姫路城 &amp;amp; 梅田&lt;/h2&gt;
+&lt;p&gt;這天交通方式為 地鐵御堂筋線-心齋橋 ( ICOCA ) → JR神戶線-梅田/大阪 → JR姬路&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1125/36.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;原本想說昨天開始變冷，今天應該會更冷，沒想到是大好天氣，風吹起來冷冷的，但太陽很大，非常舒適的天氣！&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1125/35.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;前往姬路城的街景，一整排銀杏真的很美。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1125/40.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;姬路城。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1125/38.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;姬路城內部保留原始風貌，牆上的武士刀架，完全可以想像戰爭時眾人領刀匆促成軍的混亂感。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1125/39.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;天守閣六樓頂，君臨天下。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1125/42.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;城外煞氣ㄝ黑貓，完全不怕生，曬暖陽。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1125/45.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;姬路城邊的好古園，需要門票，不過如果跟姬路城的票一起買，只需要多加 40 yen，蠻值得逛一下。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1125/47.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;下午就去梅田買電器，晚上再去吃第二次的一蘭拉麵，這次學乖了多點小皿豬肉( 450 yen )，以這個價位再看看油花分布及其厚度，超 好 吃。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;1126 大阪城 &amp;amp; 道頓崛&lt;/h2&gt;
+&lt;p&gt;前往大阪城的交通方式為 心斎橋 ( ICOCA ) → 谷町六丁目 → 谷町四丁目( 1B、9號出口 )&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1126/48.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;大阪城外的護城河。去過姬路城，對大阪城大失所望，因為內部完全是現代博物館，但也無可厚非，畢竟豐臣時期的大阪城的天守閣被德川打爛，而德川新建的天守閣又被雷劈掉，也只能舊地新建(不然怎麼能賺觀光客的錢？)。有一點還不錯的是，他們打算募款把豐臣時期部分埋在地底下的城給挖出來，真的可以看出他們對於古蹟文化保存的用心。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1126/49.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;城內的好法大輪法，心內的法輪大法好。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1126/51.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;這幾天疲於奔命，其實還是蠻疲累的，下午回到道頓崛晃晃，經過河堤旁，總是先聽到樂隊聲，才知是觀光遊輪，如果還有機會，還蠻想上船享受一下露天音樂會。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1126/52.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;身為半隻蒼蠅當然也要來試試最新的 MacBook Pro ，鍵盤真得淺到不行，頗不習慣，不過蘋果總是在創造新的習慣，想想也不奇怪了。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1126/53.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;走回旅館的路上，鼻水一直流，看到路邊有人在發廣告面紙，想說跟他拿一下，結果他猶豫了好一陣子才給我，看了一下廣告...難怪哈！( 晚上又跑去一蘭吃這次旅程最後的晚餐，回去的路上開始下雨 )&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;1127 Back to Taiwan&lt;/h2&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1127/54.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;當地時間 05:10 a.m. 就起床準備前往機場，在南海電車上，看著昨晚開始下的雨。一直到離開日本前都還沒停。&lt;/p&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;</summary><category term="Life"></category></entry><entry><title>關西有關係之日本行 1</title><link href="/guan-xi-you-guan-xi-zhi-ri-ben-xing-1.html" rel="alternate"></link><published>2016-12-02T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-12-02:guan-xi-you-guan-xi-zhi-ri-ben-xing-1.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -233,133 +414,115 @@ ga('send', 'pageview');
 &lt;p&gt;以下為每日行程流水帳：&lt;/p&gt;
 &lt;h2&gt;11/22 1600 到達當地&lt;/h2&gt;
 &lt;p&gt;我們先在台灣訂購了&lt;a href="https://www.klook.com/zh-TW/activity/599-kansai-airport-namba-train-ticket-osaka/?aid=243"&gt;南海電鐵車票&lt;/a&gt;，一方面便宜，另一方面可以在日本直接取票搭車，非常方便，不過記得回程的也一起順便拿，這樣準備離開的時候就可以先確定回程的車次及對後座了。&lt;/p&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1122/1.png" width=100% height=100% /&gt;&lt;br /&gt;
-電鐵出入口。&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1122/1.png" width=50% height=50% /&gt;  
+&lt;/div&gt;
+
+&lt;p&gt;電鐵出入口。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1122/2.png" width=100% height=100% /&gt;&lt;br /&gt;
-南海特急電車。&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1122/2.png" width=50% height=50% /&gt;  
+&lt;/div&gt;
+
+&lt;p&gt;南海特急電車。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1122/3.png" width=100% height=100% /&gt;  &lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1122/3.png" width=50% height=50% /&gt;  
+&lt;/div&gt;
+
 &lt;p&gt;New Osaka Hotel Shinsaibashi，離心齋橋站8號出口只有2分鐘的走路路程，而且對面個街口就是心齋橋，非常方便。這是我們五天住的地方，基本上就是麻雀雖小，但該有的都有，小小的浴室內還有浴缸！小缺點是上下樓層的隔音稍差，會有走動的聲音。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1122/5.png" width=100% height=100% /&gt;  &lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1122/5.png" width=50% height=50% /&gt;  
+&lt;/div&gt;
+
 &lt;p&gt;心齋橋逛街區是個半開放區域，上面有遮雨棚，最後一晚遇到下雨，在裡面逛街其實不受影響，蠻舒服的。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1122/6.png" width=100% height=100% /&gt;  &lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1122/6.png" width=50% height=50% /&gt;  
+&lt;/div&gt;
+
 &lt;p&gt;聽說是來到此地必拍的景點，固力果，實在不知道他的魅力之處(難道是他濃密的腋毛？)。&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h2&gt;11/23 奈良 &amp;amp; 宇治&lt;/h2&gt;
 &lt;p&gt;這天開始感受到微冷的氛圍，完全不減前往奈良跟鹿玩耍的熱情，早上 0800 出門，前往方式為近鐵難波奈良線 ( ICOCA ) 的心齋橋 → 大阪難波(B3月台) → 近鐵奈良。&lt;/p&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1123/9.png" width=100% height=100% /&gt; &lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1123/9.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
 &lt;p&gt;春日大社徒步區。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1123/10.png" width=100% height=100% /&gt; &lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1123/10.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
 &lt;p&gt;春日大社徒步區。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1123/8.png" width=100% height=100% /&gt; &lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1123/8.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
 &lt;p&gt;很喜歡這裡清幽的感覺。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1123/12.png" width=100% height=100% /&gt; &lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1123/12.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
 &lt;p&gt;奈良公園，遠處拍婚紗伴隨突兀的鹿鳴，詭異的浪漫。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1123/14.png" width=100% height=100% /&gt; &lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1123/14.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
 &lt;p&gt;東大寺附近的徒步區，此時已經近午，陽光充足，楓紅綻放。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1123/15.png" width=100% height=100% /&gt;&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1123/15.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
 &lt;p&gt;東大寺附近徒步區美景。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1123/16.png" width=100% height=100% /&gt;&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1123/16.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
 &lt;p&gt;色調就是 rgb(255,0,0) 的感覺。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1123/17.png" width=100% height=100% /&gt;&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1123/17.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
 &lt;p&gt;灑落的銀杏葉也黃得很黃(語無倫次，反正就是黃的很正點！)。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1123/18.png" width=100% height=100% /&gt;&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1123/18.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
 &lt;p&gt;前往宇治的街景。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1123/19.png" width=100% height=100% /&gt;&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1123/19.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
 &lt;p&gt;世界文化遺產 - 平等院。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1123/21.png" width=100% height=100% /&gt;&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1123/21.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
 &lt;p&gt;世界文化遺產 - 自己看 (日本好多文化遺產，而且都保存的很不錯)。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1123/23.png" width=100% height=100% /&gt;&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1123/23.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
 &lt;p&gt;來宇治就是要吃抹茶加工物，中村藤吉的抹茶凍蠻推的！這次的經驗是先去領號碼牌，服務生會估一個預計等待時間，我們等待時間為2小時(估得非常準！)，剛好趁這段時間就去兩個文化遺產晃晃，時間非常充裕，回來剛好去吃！&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1123/24.png" width=100% height=100% /&gt;&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="http://aady5566.github.io/pic/japan/1123/24.png" width=50% height=50% /&gt;
+&lt;/div&gt;
+
 &lt;p&gt;晚餐我們到梅田吃牛舌丼飯，從左到右應該是牛舌香腸、牛舌餅、牛舌及牛尾湯。口感比牛肉更有嚼勁，味道很棒，兩人吃約莫 5000yen (兩丼飯加單點項目)，值得一試！&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2&gt;11/24 清水寺 &amp;amp; 伏見稻荷&lt;/h2&gt;
-&lt;p&gt;這應該是小羽非常期待的行程，原因是她可以穿上期待已久的振袖。
-這天的交通方式為 大阪地鐵-心齋橋 ( ICOCA ) → 京阪本線-淀屋橋 → 京阪本線-丹波橋 → 清水五条(租和服) → 伏見稻荷 → 清水五条(清水寺賞夜楓)。&lt;/p&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1124/25.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;換完和服前往伏見稻荷的路上，穿和服超難走路，步伐因為下擺而變得超侷限，然後指襪穿著木屐又很不防滑，感覺鞋子都要飛出去的狀態下走路..，不過身為歪國人穿的這個在街上換晃也是蠻有趣的。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1124/28.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;傳聞中的千鳥居，但其實沒很長，而且人蠻多的，好不容易等到幾秒沒人的空檔趕快拍。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1124/30.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;小羽在清水寺被一個日本阿婆搭訕，還要求一起合影，阿婆說了一大串她聽不懂(貌似阿婆介紹自己從哪來的)，她只聽到重點：「妳好像一幅畫。」可能就是這張照片的感覺吧！&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1124/31.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;看到這些小佛像，總覺得他們晚上會抖掉身上的水泥，變成一隻隻的熊貓瘋狂跳舞。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1124/32.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;清水寺街景。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1124/33.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;清水舞台的夜楓以及遠處的京都塔。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1124/34.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;這晚吃燒肉，原本看到菜單 5,000 yen 價格還算可接受，吃完才發現是那是一人的價格XDDD，我想我應該還記得黑毛和牛的滋味orz。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2&gt;1125 姫路城 &amp;amp; 梅田&lt;/h2&gt;
-&lt;p&gt;這天交通方式為 地鐵御堂筋線-心齋橋 ( ICOCA ) → JR神戶線-梅田/大阪 → JR姬路&lt;/p&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1125/36.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;原本想說昨天開始變冷，今天應該會更冷，沒想到是大好天氣，風吹起來冷冷的，但太陽很大，非常舒適的天氣！&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1125/35.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;前往姬路城的街景，一整排銀杏真的很美。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1125/40.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;姬路城。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1125/38.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;姬路城內部保留原始風貌，牆上的武士刀架，完全可以想像戰爭時眾人領刀匆促成軍的混亂感。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1125/39.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;天守閣六樓頂，君臨天下。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1125/42.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;城外煞氣ㄝ黑貓，完全不怕生，曬暖陽。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1125/45.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;姬路城邊的好古園，需要門票，不過如果跟姬路城的票一起買，只需要多加 40 yen，蠻值得逛一下。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1125/47.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;下午就去梅田買電器，晚上再去吃第二次的一蘭拉麵，這次學乖了多點小皿豬肉( 450 yen )，以這個價位再看看油花分布及其厚度，超 好 吃。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2&gt;1126 大阪城 &amp;amp; 道頓崛&lt;/h2&gt;
-&lt;p&gt;前往大阪城的交通方式為 心斎橋 ( ICOCA ) → 谷町六丁目 → 谷町四丁目( 1B、9號出口 )&lt;/p&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1126/48.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;大阪城外的護城河。去過姬路城，對大阪城大失所望，因為內部完全是現代博物館，但也無可厚非，畢竟豐臣時期的大阪城的天守閣被德川打爛，而德川新建的天守閣又被雷劈掉，也只能舊地新建(不然怎麼能賺觀光客的錢？)。有一點還不錯的是，他們打算募款把豐臣時期部分埋在地底下的城給挖出來，真的可以看出他們對於古蹟文化保存的用心。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1126/49.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;城內的好法大輪法，心內的法輪大法好。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1126/51.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;這幾天疲於奔命，其實還是蠻疲累的，下午回到道頓崛晃晃，經過河堤旁，總是先聽到樂隊聲，才知是觀光遊輪，如果還有機會，還蠻想上船享受一下露天音樂會。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1126/52.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;身為半隻蒼蠅當然也要來試試最新的 MacBook Pro ，鍵盤真得淺到不行，頗不習慣，不過蘋果總是在創造新的習慣，想想也不奇怪了。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1126/53.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;走回旅館的路上，鼻水一直流，看到路邊有人在發廣告面紙，想說跟他拿一下，結果他猶豫了好一陣子才給我，看了一下廣告...難怪哈！( 晚上又跑去一蘭吃這次旅程最後的晚餐，回去的路上開始下雨 )&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2&gt;1127 Back to Taiwan&lt;/h2&gt;
-&lt;p&gt;&lt;img class='shaped' src="http://aady5566.github.io/pic/japan/1127/54.png" width=100% height=100% /&gt;&lt;/p&gt;
-&lt;p&gt;當地時間 05:10 a.m. 就起床準備前往機場，在南海電車上，看著昨晚開始下的雨。一直到離開日本前都還沒停。&lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 
 &lt;script&gt;
@@ -918,7 +1081,7 @@ aws s3 cp [local.zipPath] s3://[bucketName]/[dir]
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="AWS"></category></entry><entry><title>Content-Based, Knowledge-Based, Time-Sensitive Recommender Systems</title><link href="/content-based-knowledge-based-time-sensitive-recommender-systems.html" rel="alternate"></link><published>2016-08-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-17:content-based-knowledge-based-time-sensitive-recommender-systems.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="AWS"></category><category term="lambda"></category></entry><entry><title>Content-Based, Knowledge-Based, Time-Sensitive Recommender Systems</title><link href="/content-based-knowledge-based-time-sensitive-recommender-systems.html" rel="alternate"></link><published>2016-08-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-17:content-based-knowledge-based-time-sensitive-recommender-systems.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -2463,7 +2626,7 @@ persistLauncher in Test := false
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="Stuff"></category></entry><entry><title>Git Tutorial (Demo on Bitbucket)</title><link href="/git-tutorial-demo-on-bitbucket.html" rel="alternate"></link><published>2016-08-02T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-02:git-tutorial-demo-on-bitbucket.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Scalajs"></category></entry><entry><title>Git Tutorial (Demo on Bitbucket)</title><link href="/git-tutorial-demo-on-bitbucket.html" rel="alternate"></link><published>2016-08-02T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-02:git-tutorial-demo-on-bitbucket.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3988,7 +4151,65 @@ ga('send', 'pageview');
 &lt;p&gt;其實面對畢業，沒有太多的自豪與欣慰。碩二開始的重心一直是兩件事: 學業和工作。這是一個挑戰，我覺得相較念書而言，工作環境反而是較大的壓力源，公司的同事各個都很強，而且很認真。我現在半路出家又是自學，覺得有想向手無寸鐵沒有打鬥經驗被丟在戰場上的感覺，非常恐懼。  我不想變成公司「可有可無」的角色，大家對我期望很高，我該盡力對得起夥伴們，也該對得起自己，這是自己選擇的路，既然有好機緣，就該好好把握。&lt;/p&gt;
 &lt;p&gt;這讓我想到，兩年前遇到的同梯預官朋友們，覺得他們都是很有想法，願意挑戰的同袍。好幾個還是持續聯絡，往各方發展，而且有領導特質的真的不在少數。比起他們我真的是保守很多，總是讓自己處在進可攻退可守的安全線內，但是沒有放下一切追求夢想的勇氣...。&lt;/p&gt;
 &lt;p&gt;下週會是真的出社會的第一步，心態上的轉換是一定要的，全力工作，看看自己的能耐到多少。秉鴻也鼓勵：「時間會改變一個人。」看到Line的執行長森川亮提到「享受不安」，才是最好的生存方式，這不是我一直以來抱持的想法嗎?&lt;/p&gt;
-&lt;p&gt;未來如何轉變誰也不知，但求問心無愧，盡自己所能。然後，別讓自己成為技術咖，脫離人性。&lt;/p&gt;</summary><category term="School"></category></entry><entry><title>DataCleaning</title><link href="/datacleaning.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:datacleaning.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;未來如何轉變誰也不知，但求問心無愧，盡自己所能。然後，別讓自己成為技術咖，脫離人性。&lt;/p&gt;</summary><category term="School"></category></entry><entry><title>Scala for the impatient: ch1</title><link href="/20160210.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:20160210.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+
+&lt;/script&gt;
+
+&lt;p&gt;a 方法 b 等同於 a.方法(b)&lt;br /&gt;
+未提供++或--（不可變動性），但可以用counter +=1 將counter遞增。scala設計者認為不值得為少按一個鍵而增加特例。&lt;br /&gt;
+有type: BigInt , BigDecimal  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;BIGINT provides 8 bytes of storage for integer values.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;沒有靜態的方法，但有類似的特性，叫做單例對象(singleton object)，通常一個類對應會有一個伴生對象(companion object)。&lt;br /&gt;
+不帶參數的方法可以不使用圓括號：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;"hello".distinct  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;若s為一個字串，s(i)就是該字串的第i個字符  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;"hello"(4)  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;()當作是操作符的重載形式，背後的實現原理是apply的方法，StringOps內有個方法 def apply(n:Int): char。因此，"hello"(4)等同於"hello".apply(4)。  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;BigInt("1234567890")  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;創造出一個新的BigInt物件  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;等同於BigInt.apply("1234567890")  &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Scaladoc: http://www.scala-lang.org/  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;C: class, O: object  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;tips:  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;數值類型查詢：RichInt, RichDouble  &lt;/li&gt;
+&lt;li&gt;字串類型查詢：SpringOps  &lt;/li&gt;
+&lt;li&gt;數學函數：scala.math package中  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;"Harry".patch(1,"ung",2)，將產出Hungry&lt;br /&gt;
+def patch(from:Int, that:GenSeq[Char], replaced: Int ):StringOps[A]&lt;br /&gt;
+比大小max(a,b) max c&lt;br /&gt;
+probablePrime(2,Random)：回傳一個bit長度為二的質數(type:BigInt)  &lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>DataCleaning</title><link href="/datacleaning.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:datacleaning.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4066,65 +4287,7 @@ fileClean &lt;- function(path,direction="",year="",department="",host=""){
   }
   return(storage)
 }
-&lt;/pre&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch1</title><link href="/scala-for-the-impatient-ch1.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch1.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
-  }
-});
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-77164531-1', 'auto');
-ga('send', 'pageview');
-
-&lt;/script&gt;
-
-&lt;p&gt;a 方法 b 等同於 a.方法(b)&lt;br /&gt;
-未提供++或--（不可變動性），但可以用counter +=1 將counter遞增。scala設計者認為不值得為少按一個鍵而增加特例。&lt;br /&gt;
-有type: BigInt , BigDecimal  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;BIGINT provides 8 bytes of storage for integer values.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;沒有靜態的方法，但有類似的特性，叫做單例對象(singleton object)，通常一個類對應會有一個伴生對象(companion object)。&lt;br /&gt;
-不帶參數的方法可以不使用圓括號：  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;"hello".distinct  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;若s為一個字串，s(i)就是該字串的第i個字符  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;"hello"(4)  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;()當作是操作符的重載形式，背後的實現原理是apply的方法，StringOps內有個方法 def apply(n:Int): char。因此，"hello"(4)等同於"hello".apply(4)。  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;BigInt("1234567890")  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;創造出一個新的BigInt物件  &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;等同於BigInt.apply("1234567890")  &lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Scaladoc: http://www.scala-lang.org/  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;C: class, O: object  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;tips:  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;數值類型查詢：RichInt, RichDouble  &lt;/li&gt;
-&lt;li&gt;字串類型查詢：SpringOps  &lt;/li&gt;
-&lt;li&gt;數學函數：scala.math package中  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;"Harry".patch(1,"ung",2)，將產出Hungry&lt;br /&gt;
-def patch(from:Int, that:GenSeq[Char], replaced: Int ):StringOps[A]&lt;br /&gt;
-比大小max(a,b) max c&lt;br /&gt;
-probablePrime(2,Random)：回傳一個bit長度為二的質數(type:BigInt)  &lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch11</title><link href="/scala-for-the-impatient-ch11.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch11.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/pre&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch11</title><link href="/scala-for-the-impatient-ch11.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch11.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
