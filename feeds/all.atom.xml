@@ -127,7 +127,7 @@ ga('send', 'pageview');
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="Web"></category></entry><entry><title>Docker指令</title><link href="/dockerzhi-ling.html" rel="alternate"></link><published>2016-12-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-12-19:dockerzhi-ling.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Web"></category><category term="R"></category><category term="React.js"></category></entry><entry><title>Docker指令</title><link href="/dockerzhi-ling.html" rel="alternate"></link><published>2016-12-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-12-19:dockerzhi-ling.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -631,7 +631,7 @@ plot(data, x=:X, y=:Y, Geom.point)
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="Stuff"></category></entry><entry><title>Opendata- 捷運人流</title><link href="/opendata-jie-yun-ren-liu.html" rel="alternate"></link><published>2016-10-28T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-10-28:opendata-jie-yun-ren-liu.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Julia"></category></entry><entry><title>Opendata- 捷運人流</title><link href="/opendata-jie-yun-ren-liu.html" rel="alternate"></link><published>2016-10-28T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-10-28:opendata-jie-yun-ren-liu.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -673,7 +673,7 @@ ga('send', 'pageview');
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="Plot"></category></entry><entry><title>無題</title><link href="/wu-ti.html" rel="alternate"></link><published>2016-10-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-10-19:wu-ti.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Plot"></category><category term="R"></category><category term="Open data"></category></entry><entry><title>無題</title><link href="/wu-ti.html" rel="alternate"></link><published>2016-10-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-10-19:wu-ti.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -812,7 +812,7 @@ ga('send', 'pageview');
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="Stuff"></category></entry><entry><title>中秋之夜</title><link href="/zhong-qiu-zhi-ye.html" rel="alternate"></link><published>2016-09-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-09-17:zhong-qiu-zhi-ye.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="React.js"></category></entry><entry><title>中秋之夜</title><link href="/zhong-qiu-zhi-ye.html" rel="alternate"></link><published>2016-09-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-09-17:zhong-qiu-zhi-ye.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -1081,7 +1081,7 @@ aws s3 cp [local.zipPath] s3://[bucketName]/[dir]
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="AWS"></category><category term="lambda"></category></entry><entry><title>Content-Based, Knowledge-Based, Time-Sensitive Recommender Systems</title><link href="/content-based-knowledge-based-time-sensitive-recommender-systems.html" rel="alternate"></link><published>2016-08-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-17:content-based-knowledge-based-time-sensitive-recommender-systems.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="AWS"></category><category term="Lambda"></category></entry><entry><title>Content-Based, Knowledge-Based, Time-Sensitive Recommender Systems</title><link href="/content-based-knowledge-based-time-sensitive-recommender-systems.html" rel="alternate"></link><published>2016-08-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-17:content-based-knowledge-based-time-sensitive-recommender-systems.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -1372,7 +1372,7 @@ https://d2mxuefqeaa7sj.cloudfront.net/s_D96ADE2D5B6D8C381E6809389134FE09038EEC45
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="RecommenderSystems"></category></entry><entry><title>Visialization of LDA</title><link href="/visialization-of-lda.html" rel="alternate"></link><published>2016-08-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-17:visialization-of-lda.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Recommender System"></category><category term="Stat"></category></entry><entry><title>Visialization of LDA</title><link href="/visialization-of-lda.html" rel="alternate"></link><published>2016-08-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-17:visialization-of-lda.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -1412,7 +1412,7 @@ ga('send', 'pageview');
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="Plot"></category></entry><entry><title>關鍵字泡泡</title><link href="/guan-jian-zi-pao-pao.html" rel="alternate"></link><published>2016-08-16T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-16:guan-jian-zi-pao-pao.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Plot"></category><category term="R"></category></entry><entry><title>關鍵字泡泡</title><link href="/guan-jian-zi-pao-pao.html" rel="alternate"></link><published>2016-08-16T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-16:guan-jian-zi-pao-pao.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -1452,7 +1452,7 @@ ga('send', 'pageview');
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="Plot"></category></entry><entry><title>地圖視覺化</title><link href="/di-tu-shi-jue-hua.html" rel="alternate"></link><published>2016-08-12T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-12:di-tu-shi-jue-hua.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Plot"></category><category term="R"></category></entry><entry><title>地圖視覺化</title><link href="/di-tu-shi-jue-hua.html" rel="alternate"></link><published>2016-08-12T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-12:di-tu-shi-jue-hua.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -1493,7 +1493,7 @@ ga('send', 'pageview');
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="Plot"></category></entry><entry><title>Model-Based Collaborative Filtering</title><link href="/model-based-collaborative-filtering.html" rel="alternate"></link><published>2016-08-12T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-12:model-based-collaborative-filtering.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Plot"></category><category term="R"></category></entry><entry><title>Model-Based Collaborative Filtering</title><link href="/model-based-collaborative-filtering.html" rel="alternate"></link><published>2016-08-12T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-12:model-based-collaborative-filtering.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -1799,7 +1799,7 @@ https://d2mxuefqeaa7sj.cloudfront.net/s_5A0D3C2B3F5143859910834F8B5BC254C1DB241D
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="RecommenderSystems"></category></entry><entry><title>Neighborhood-Based Collaborative Filtering</title><link href="/neighborhood-based-collaborative-filtering.html" rel="alternate"></link><published>2016-08-05T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-05:neighborhood-based-collaborative-filtering.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Recommender System"></category><category term="Stat"></category></entry><entry><title>Neighborhood-Based Collaborative Filtering</title><link href="/neighborhood-based-collaborative-filtering.html" rel="alternate"></link><published>2016-08-05T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-05:neighborhood-based-collaborative-filtering.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -2173,7 +2173,7 @@ https://d2mxuefqeaa7sj.cloudfront.net/s_39D2AC82C016C8120D83D40BB5D925FFA1C5CB6A
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="RecommenderSystems"></category></entry><entry><title>An Introduction to Recommender Systems</title><link href="/an-introduction-to-recommender-systems.html" rel="alternate"></link><published>2016-08-04T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-04:an-introduction-to-recommender-systems.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Recommender System"></category><category term="Scala"></category></entry><entry><title>An Introduction to Recommender Systems</title><link href="/an-introduction-to-recommender-systems.html" rel="alternate"></link><published>2016-08-04T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-04:an-introduction-to-recommender-systems.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -2270,7 +2270,7 @@ width="100%" height="100%" /&gt;  &lt;/p&gt;
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="RecommenderSystems"></category></entry><entry><title>Scala.js Tutorial</title><link href="/scalajs-tutorial.html" rel="alternate"></link><published>2016-08-04T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-04:scalajs-tutorial.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Recommender System"></category><category term="Stat"></category></entry><entry><title>Scala.js Tutorial</title><link href="/scalajs-tutorial.html" rel="alternate"></link><published>2016-08-04T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-04:scalajs-tutorial.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -2626,7 +2626,7 @@ persistLauncher in Test := false
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="Scalajs"></category></entry><entry><title>Git Tutorial (Demo on Bitbucket)</title><link href="/git-tutorial-demo-on-bitbucket.html" rel="alternate"></link><published>2016-08-02T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-02:git-tutorial-demo-on-bitbucket.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Scala"></category></entry><entry><title>Git Tutorial (Demo on Bitbucket)</title><link href="/git-tutorial-demo-on-bitbucket.html" rel="alternate"></link><published>2016-08-02T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-08-02:git-tutorial-demo-on-bitbucket.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3066,7 +3066,7 @@ ga('send', 'pageview');
 &lt;li&gt;$E_R$: $P_R(Y), ~Y= ~${$  Classification Finite~Set  $}&lt;/li&gt;
 &lt;li&gt;$H_R$ (Entropy): $-\sum_{y \in Y}(P_R(Y) \cdot \log{P_R(Y)})$&lt;/li&gt;
 &lt;li&gt;$G_R$ (Gini's index): $\sum_{y \in Y}(P_R(Y) \cdot (1-P_R(Y)))$&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Stuff"></category></entry><entry><title>K-Nearest Neighbor algorithms (KNN)</title><link href="/k-nearest-neighbor-algorithms-knn.html" rel="alternate"></link><published>2016-04-26T17:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-26:k-nearest-neighbor-algorithms-knn.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/ul&gt;</summary><category term="Stat"></category></entry><entry><title>K-Nearest Neighbor algorithms (KNN)</title><link href="/k-nearest-neighbor-algorithms-knn.html" rel="alternate"></link><published>2016-04-26T17:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-26:k-nearest-neighbor-algorithms-knn.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3120,7 +3120,7 @@ dt &lt;- rbind(predict.dt,dt)
 #plot the outcome
 qplot(x1,x2,colour=label,data=dt)
 
-&lt;/pre&gt;</summary><category term="Stuff"></category></entry><entry><title>Supervised vs. Unsupervised Learning</title><link href="/supervised-vs-unsupervised-learning.html" rel="alternate"></link><published>2016-04-26T09:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-26:supervised-vs-unsupervised-learning.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/pre&gt;</summary><category term="Stat"></category><category term="R"></category></entry><entry><title>Supervised vs. Unsupervised Learning</title><link href="/supervised-vs-unsupervised-learning.html" rel="alternate"></link><published>2016-04-26T09:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-26:supervised-vs-unsupervised-learning.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3171,7 +3171,7 @@ ga('send', 'pageview');
 &lt;li&gt;Decision Theory&lt;/li&gt;
 &lt;li&gt;Reinforcement Learning&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;自己因為碩論的關係，關注議題以 Reinforcement Learning Model 為主，但在實際運用上比較常見的機器學習屬於Supervised, Unsupervised 和 Semi-supervised Learning.&lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>北美館</title><link href="/bei-mei-guan.html" rel="alternate"></link><published>2016-04-24T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-24:bei-mei-guan.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;自己因為碩論的關係，關注議題以 Reinforcement Learning Model 為主，但在實際運用上比較常見的機器學習屬於Supervised, Unsupervised 和 Semi-supervised Learning.&lt;/p&gt;</summary><category term="Stat"></category></entry><entry><title>北美館</title><link href="/bei-mei-guan.html" rel="alternate"></link><published>2016-04-24T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-24:bei-mei-guan.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3256,7 +3256,7 @@ data&lt;- dbGetQuery(conn, paste("SELECT * FROM &lt;tableName&gt; where date_par
 #Close connection
 redshift.disconnect(conn)  
 
-&lt;/pre&gt;</summary><category term="Stuff"></category></entry><entry><title>生活意義</title><link href="/sheng-huo-yi-yi.html" rel="alternate"></link><published>2016-04-06T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-06:sheng-huo-yi-yi.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/pre&gt;</summary><category term="R"></category></entry><entry><title>生活意義</title><link href="/sheng-huo-yi-yi.html" rel="alternate"></link><published>2016-04-06T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-04-06:sheng-huo-yi-yi.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3338,7 +3338,7 @@ ga('send', 'pageview');
 
 &lt;iframe src='aady5566.github.io/html/負面詞彙社會網絡.html' width=500 height=300&gt;&lt;/iframe&gt;
 
-&lt;p&gt;這是在ptt某版上的一整年內容及推文的負面情緒詞網絡。利用別人的api畫圖很快，但有時候也蠻麻煩的，當如果要改某些小細節，就可能沒支援。但想想要自己手刻一個這樣的東西，感覺更耗時...何況還有分析端要處理，還有的磨。&lt;/p&gt;</summary><category term="Plot"></category></entry><entry><title>AWS Elastic Compute Cloud (EC2)</title><link href="/aws-elastic-compute-cloud-ec2.html" rel="alternate"></link><published>2016-03-19T13:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-19:aws-elastic-compute-cloud-ec2.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;這是在ptt某版上的一整年內容及推文的負面情緒詞網絡。利用別人的api畫圖很快，但有時候也蠻麻煩的，當如果要改某些小細節，就可能沒支援。但想想要自己手刻一個這樣的東西，感覺更耗時...何況還有分析端要處理，還有的磨。&lt;/p&gt;</summary><category term="Plot"></category><category term="R"></category></entry><entry><title>AWS Elastic Compute Cloud (EC2)</title><link href="/aws-elastic-compute-cloud-ec2.html" rel="alternate"></link><published>2016-03-19T13:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-19:aws-elastic-compute-cloud-ec2.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3418,7 +3418,7 @@ ga('send', 'pageview');
 
 &lt;iframe src='aady5566.github.io/html/map.html' width=500 height=300&gt;&lt;/iframe&gt;
 
-&lt;p&gt;今天原本下午要去看電影，結果意外取消了原本輕鬆的行程。下午的時間把公司的部分任務完成，閒閒沒事想說有一筆經、緯度的資料，應該加以利用。上網看了leaflet的教學，將ip依照經緯度定位後取得該城市的資料，並成功接上shiny!而且終於成功將html直接鑲嵌在blog文內，超開心!之後就可以分享更多成果在blog中了，哈。&lt;/p&gt;</summary><category term="Plot"></category></entry><entry><title>K-means</title><link href="/k-means.html" rel="alternate"></link><published>2016-03-12T09:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-12:k-means.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;今天原本下午要去看電影，結果意外取消了原本輕鬆的行程。下午的時間把公司的部分任務完成，閒閒沒事想說有一筆經、緯度的資料，應該加以利用。上網看了leaflet的教學，將ip依照經緯度定位後取得該城市的資料，並成功接上shiny!而且終於成功將html直接鑲嵌在blog文內，超開心!之後就可以分享更多成果在blog中了，哈。&lt;/p&gt;</summary><category term="Plot"></category><category term="R"></category></entry><entry><title>K-means</title><link href="/k-means.html" rel="alternate"></link><published>2016-03-12T09:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-12:k-means.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3442,7 +3442,7 @@ $$J=\sum_{i=1}^{k}\sum_{x_j \in S_i}(x_j-\mu_i)$$
 &lt;p&gt;簡單來說一下公式的意義，若欲分類k組，隨機選取k筆資料當做初始群中心並計算每個資料xi對應到的最短距離的群中心。再利用分類完的k群重新計算群中心。&lt;br /&gt;
 因此不難察覺，K-means的侷限為初始值，同一筆資料跑了n次的結果可能都不一樣，所以初始值落點不好可能會造成糟糕的結果。&lt;br /&gt;
 K-means當然也不只是分群及找出群中心如此而已還是有其他用途。基於資料的群中心被找出後，我們可以把這個群中心的結果當成分類器的指標，也就是說，若有新的一筆同一屬性資料進來，找出最短距離的群中心，我們就可以將這筆資料進行分類(預測)。&lt;br /&gt;
-另外也可以作為判斷此資料是否適合做為分類的判斷，因為有些特徵(feature)不適合做為分類依據。對此，我們可以先根據特徵取得群中心後，將資料找出距離最短特徵的群中心分類後，檢視分類情況，以確保該特徵為分類的是適切性。&lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>景仰對象</title><link href="/jing-yang-dui-xiang.html" rel="alternate"></link><published>2016-03-10T23:51:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-10:jing-yang-dui-xiang.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+另外也可以作為判斷此資料是否適合做為分類的判斷，因為有些特徵(feature)不適合做為分類依據。對此，我們可以先根據特徵取得群中心後，將資料找出距離最短特徵的群中心分類後，檢視分類情況，以確保該特徵為分類的是適切性。&lt;/p&gt;</summary><category term="Stat"></category></entry><entry><title>景仰對象</title><link href="/jing-yang-dui-xiang.html" rel="alternate"></link><published>2016-03-10T23:51:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-10:jing-yang-dui-xiang.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3629,7 +3629,7 @@ ga('send', 'pageview');
   &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt; ' scrolling='no' frameBorder='0' seamless class='rChart  highcharts  ' id='iframe-chart59c7b825599'&gt; &lt;/iframe&gt;
 
-&lt;p&gt;&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;&lt;/p&gt;</summary><category term="Plot"></category></entry><entry><title>Docker基礎概念、建立映像檔與下載實作</title><link href="/dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html" rel="alternate"></link><published>2016-03-04T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-04:dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;&lt;/p&gt;</summary><category term="Plot"></category><category term="R"></category></entry><entry><title>Docker基礎概念、建立映像檔與下載實作</title><link href="/dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html" rel="alternate"></link><published>2016-03-04T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-03-04:dockerji-chu-gai-nian-jian-li-ying-xiang-dang-yu-xia-zai-shi-zuo.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3782,7 +3782,7 @@ ga('send', 'pageview');
 &lt;p&gt;這兩天做了一些網絡分析並用Shiny進行互動視覺化。&lt;br /&gt;
 這是網頁間連結強度的網絡圖，下方的網絡圖會隨著上方選擇的日期與時段秀出對應結果。&lt;br /&gt;
 因為這是發佈到免費空間上，展示網頁有時可能會失效。  &lt;/p&gt;
-&lt;iframe src="https://ydhuang.shinyapps.io/mtApp/" height=350 width=450 scrolling=yes&gt;&lt;/iframe&gt;</summary><category term="Web"></category></entry><entry><title>Scala for the impatient: ch13</title><link href="/scala-for-the-impatient-ch13.html" rel="alternate"></link><published>2016-02-24T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-24:scala-for-the-impatient-ch13.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;iframe src="https://ydhuang.shinyapps.io/mtApp/" height=350 width=450 scrolling=yes&gt;&lt;/iframe&gt;</summary><category term="Web"></category><category term="R"></category></entry><entry><title>Scala for the impatient: ch13</title><link href="/scala-for-the-impatient-ch13.html" rel="alternate"></link><published>2016-02-24T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-24:scala-for-the-impatient-ch13.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -3848,7 +3848,7 @@ ga('send', 'pageview');
 &lt;li&gt;
 &lt;p&gt;位集(bit set)是集的一種實現&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Stuff"></category></entry><entry><title>影響最深的一堂課</title><link href="/ying-xiang-zui-shen-de-yi-tang-ke.html" rel="alternate"></link><published>2016-02-23T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-23:ying-xiang-zui-shen-de-yi-tang-ke.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/ul&gt;</summary><category term="Scala"></category></entry><entry><title>影響最深的一堂課</title><link href="/ying-xiang-zui-shen-de-yi-tang-ke.html" rel="alternate"></link><published>2016-02-23T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-23:ying-xiang-zui-shen-de-yi-tang-ke.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4110,7 +4110,7 @@ ga('send', 'pageview');
   &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart42e8171fb309'&gt; &lt;/iframe&gt;
 
-&lt;p&gt;&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;&lt;/p&gt;</summary><category term="Plot"></category></entry><entry><title>開工前</title><link href="/kai-gong-qian.html" rel="alternate"></link><published>2016-02-21T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-21:kai-gong-qian.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;p&gt;&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;&lt;/p&gt;</summary><category term="Plot"></category><category term="R"></category></entry><entry><title>開工前</title><link href="/kai-gong-qian.html" rel="alternate"></link><published>2016-02-21T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-21:kai-gong-qian.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4209,7 +4209,7 @@ ga('send', 'pageview');
 &lt;p&gt;"Harry".patch(1,"ung",2)，將產出Hungry&lt;br /&gt;
 def patch(from:Int, that:GenSeq[Char], replaced: Int ):StringOps[A]&lt;br /&gt;
 比大小max(a,b) max c&lt;br /&gt;
-probablePrime(2,Random)：回傳一個bit長度為二的質數(type:BigInt)  &lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>DataCleaning</title><link href="/datacleaning.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:datacleaning.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+probablePrime(2,Random)：回傳一個bit長度為二的質數(type:BigInt)  &lt;/p&gt;</summary><category term="Scala"></category></entry><entry><title>DataCleaning</title><link href="/datacleaning.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:datacleaning.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4287,7 +4287,7 @@ fileClean &lt;- function(path,direction="",year="",department="",host=""){
   }
   return(storage)
 }
-&lt;/pre&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch11</title><link href="/scala-for-the-impatient-ch11.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch11.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/pre&gt;</summary><category term="R"></category></entry><entry><title>Scala for the impatient: ch11</title><link href="/scala-for-the-impatient-ch11.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch11.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4317,7 +4317,7 @@ object Fraction{
 }
 val result =Fraction(1,2) * Fraction(3,4)
 &lt;/pre&gt;
-例類(case class)自動具備apply, unapply的方法&lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch2</title><link href="/scala-for-the-impatient-ch2.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch2.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+例類(case class)自動具備apply, unapply的方法&lt;/p&gt;</summary><category term="Scala"></category></entry><entry><title>Scala for the impatient: ch2</title><link href="/scala-for-the-impatient-ch2.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch2.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4409,7 +4409,7 @@ finally{
 finally無論try有無拋出異常都會執行
 try/catch通常是處理異常
 try/finally是異常沒被處理形況下執行某種動作(e.g. 清理工作)
-&lt;/pre&gt;&lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch3</title><link href="/scala-for-the-impatient-ch3.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch3.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/pre&gt;&lt;/p&gt;</summary><category term="Scala"></category></entry><entry><title>Scala for the impatient: ch3</title><link href="/scala-for-the-impatient-ch3.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch3.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4481,7 +4481,7 @@ ga('send', 'pageview');
 &lt;li&gt;Array.sortWith(&lt;em&gt;&amp;gt;&lt;/em&gt;)&lt;/li&gt;
 &lt;li&gt;Array.mkString("&amp;lt;",",""&amp;gt;") //前綴、中間分隔符號、後綴&lt;/li&gt;
 &lt;li&gt;Array.toString //只報告類型&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch4</title><link href="/scala-for-the-impatient-ch4.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch4.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/ul&gt;</summary><category term="Scala"></category></entry><entry><title>Scala for the impatient: ch4</title><link href="/scala-for-the-impatient-ch4.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch4.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4579,7 +4579,7 @@ scores.values //抓出value的集合&lt;br /&gt;
 &lt;ul&gt;
 &lt;li&gt;val symbols= Array("&amp;lt;","-","&amp;gt;"); val counts =Array(2,10,3); val pairs= symbols.zip(counts);for ((s,n) &amp;lt;- pairs) print(s*n) //可讓對偶同時被操作  &lt;/li&gt;
 &lt;li&gt;&lt;key&gt;.zip(&lt;value&gt;).toMap //如果分別有&lt;key&gt;, &lt;value&gt;兩個集合，就可以用.toMap轉成映射  &lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Stuff"></category></entry><entry><title>Scala for the impatient: ch8</title><link href="/scala-for-the-impatient-ch8.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch8.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/ul&gt;</summary><category term="Scala"></category></entry><entry><title>Scala for the impatient: ch8</title><link href="/scala-for-the-impatient-ch8.html" rel="alternate"></link><published>2016-02-10T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-10:scala-for-the-impatient-ch8.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -4617,7 +4617,7 @@ scala類擴展java類，他的主構造器需要調用java超類的某個構造�
 若class內有非完整定義的方法，就必須宣告為abstract
 abstract class Person(val name:String){
   def id:Int//為被完整定義
-}&lt;/p&gt;</summary><category term="Stuff"></category></entry><entry><title>Bayes Classifier</title><link href="/bayes-classifier.html" rel="alternate"></link><published>2016-02-05T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-05:bayes-classifier.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+}&lt;/p&gt;</summary><category term="Scala"></category></entry><entry><title>Bayes Classifier</title><link href="/bayes-classifier.html" rel="alternate"></link><published>2016-02-05T12:00:00+08:00</published><author><name>YD</name></author><id>tag:,2016-02-05:bayes-classifier.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
