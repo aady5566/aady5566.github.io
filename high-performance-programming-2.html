@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="[zh]">
+<head>
+	<link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+	<!--<link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">-->
+	<!--<script src="/theme/js/less.js" type="text/javascript"></script>-->
+	<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+	<link rel="stylesheet" type="text/css" href="/theme/css/ydSetting.css">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:800,400,300|Inconsolata' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="./ico/apple-touch-icon.png">
+	<link href="aady5566.github.io/" type="application/atom+xml" rel="alternate" title="5566 ATOM Feed" />
+
+
+		<title>5566</title>
+		<meta charset="utf-8" />
+</head>
+<body>
+	<section id="sidebar">
+		<figure id="user_logo">
+            <!-- <a href=""><div class="logo">&nbsp;</div></a> -->
+						<img class="circular" src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/yd_fbas.jpg">
+		</figure>
+	</br>
+		<div class="user_meta">
+            <h1 id="user"><a href="http://aady5566.github.io" class="">YD</a></h1>
+			<h2></h2>
+			<p class="bio">lives in a cave.</p>
+			<ul>
+					<li><a href="http://aady5566.github.io/timeline/" target="_blank">timeline</a></li>
+					<li><a href="http://aady5566.bitbucket.org/" target="_blank">@_yd</a></li>
+					<li><a href="https://tw.linkedin.com/in/yd-huang-735358aa" target="_blank">linkedin</a></li>
+					<li><a href="https://github.com/aady5566" target="_blank">github</a></li>
+					<li><a href="mailto:ydhuang@ntu.edu.tw" target="_blank">mail</a></li>
+			</ul>
+		</div>
+		<footer>
+			<address>
+				&copy 2016 YD <br> Powered by Pelican.
+			</address>
+		</footer>
+	</section>
+
+	<section id="posts">
+	<header>
+		<h1>YD's blog</h1>
+		<nav id="header-nav">
+				<a id="header-nav-item"  href="/archives.html">Archives</a>
+				<a id="header-nav-item"  href="/categories.html">Categories</a>
+				<a id="header-nav-item"  href="/tags.html">Tags</a>
+		</nav>
+		<h3 id="date">Posted 三 15 3月 2017</h3>
+	</header>
+	<article>
+		<h1 id="title">
+			<a href="/high-performance-programming-2.html" rel="bookmark"
+				title="Permalink to High Performance Programming 2">High Performance Programming 2</a>
+		</h1>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<h1>Variable Types</h1>
+<div class="highlight"><pre><span></span><span class="n">print_with_color</span><span class="p">(:</span><span class="n">red</span><span class="p">,</span> <span class="s">&quot;I love Julia!&quot;</span><span class="p">)</span> <span class="c"># color change in terminal</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>[1m[31mI love Julia![0m
+</pre></div>
+
+
+<h2>Types</h2>
+<div class="highlight"><pre><span></span><span class="nb">typeof</span><span class="p">(</span><span class="kt">Int64</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>DataType
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c">#Integers: Int8 to Int128</span>
+<span class="nb">typemax</span><span class="p">(</span><span class="n">Int128</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>170141183460469231731687303715884105727
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="nb">typemin</span><span class="p">(</span><span class="kt">Int8</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>-128
+</pre></div>
+
+
+<p>Example of overflow</p>
+<div class="highlight"><pre><span></span><span class="nb">typemax</span><span class="p">(</span><span class="n">Int128</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>-170141183460469231731687303715884105728
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="nb">typemax</span><span class="p">(</span><span class="n">BigInt</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">MethodError</span><span class="o">:</span> <span class="n">no</span> <span class="n">method</span> <span class="n">matching</span> <span class="n">typemax</span><span class="o">(::</span><span class="n">Type</span><span class="o">{</span><span class="n">BigInt</span><span class="o">})</span>
+<span class="n">Closest</span> <span class="n">candidates</span> <span class="n">are</span><span class="o">:</span>
+  <span class="n">typemax</span><span class="o">(::</span><span class="n">Type</span><span class="o">{</span><span class="n">Bool</span><span class="o">})</span> <span class="n">at</span> <span class="n">bool</span><span class="o">.</span><span class="na">jl</span><span class="o">:</span><span class="mi">12</span>
+  <span class="n">typemax</span><span class="o">(::</span><span class="n">Type</span><span class="o">{</span><span class="n">Int8</span><span class="o">})</span> <span class="n">at</span> <span class="n">int</span><span class="o">.</span><span class="na">jl</span><span class="o">:</span><span class="mi">314</span>
+  <span class="n">typemax</span><span class="o">(::</span><span class="n">Type</span><span class="o">{</span><span class="n">UInt8</span><span class="o">})</span> <span class="n">at</span> <span class="n">int</span><span class="o">.</span><span class="na">jl</span><span class="o">:</span><span class="mi">316</span>
+  <span class="o">...</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">2</span>
+<span class="mi">0</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>true
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="nb">typeof</span><span class="p">(</span><span class="kt">Float32</span><span class="p">);</span><span class="nb">typeof</span><span class="p">(</span><span class="kt">Float64</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>DataType
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="nb">typeof</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Float64
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="nb">typeof</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Float64
+</pre></div>
+
+
+<p>Avoiding compare number with floating point numbers</p>
+<div class="highlight"><pre><span></span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>false
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># better using &gt;= or &lt;=</span>
+<span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">&gt;=</span> <span class="mf">0.3</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>true
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># binary representation</span>
+<span class="n">bits</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&quot;0000000000000000000000000000000000000000000000000000000000000011&quot;
+</pre></div>
+
+
+<p>Assignments for different variables can be combined</p>
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">a</span>
+<span class="n">c</span>
+<span class="nb">typeof</span><span class="p">((</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Tuple{Int64,Int64}
+</pre></div>
+
+
+<blockquote>
+<p>short-circuit
+In a &amp;&amp; b, b is not evaluated when a is false
+In a || b, b is not evaluated when a is true (since || is already true)</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">n</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>2
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># complex number</span>
+<span class="n">println</span><span class="p">(</span><span class="nb">typeof</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="nb">im</span><span class="p">))</span>
+<span class="n">abs</span><span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="nb">im</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Complex{Int64}
+
+
+
+
+
+5.0
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># rationale number</span>
+<span class="n">println</span><span class="p">(</span><span class="nb">typeof</span><span class="p">(</span><span class="mi">3</span><span class="o">//</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">float</span><span class="p">(</span><span class="mi">3</span><span class="o">//</span><span class="mi">4</span><span class="p">)</span><span class="c"># convert to floating point number</span>
+<span class="n">num</span><span class="p">(</span><span class="mi">3</span><span class="o">//</span><span class="mi">4</span><span class="p">)</span> <span class="c"># numerator</span>
+<span class="n">den</span><span class="p">(</span><span class="mi">3</span><span class="o">//</span><span class="mi">4</span><span class="p">)</span> <span class="c"># denominator</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Rational{Int64}
+
+
+
+
+
+4
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># single character</span>
+<span class="nb">typeof</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Char
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="s">&quot;asdf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;123</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;44455&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>asdf
+123 44455
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c">#string</span>
+<span class="nb">typeof</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>String
+</pre></div>
+
+
+<p>A String is a succession, or an array of characters (see the Ranges and arrays section)</p>
+<div class="highlight"><pre><span></span><span class="n">str</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span>
+<span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&#39;h&#39;
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">length</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<span class="n">endof</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>5
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="k">in</span> <span class="n">str</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>hello
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">str</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="k">end</span><span class="p">]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&quot;llo&quot;
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="sc">&#39;A&#39;</span><span class="o">==</span><span class="s">&quot;A&quot;</span>
+<span class="nb">typeof</span><span class="p">(</span><span class="sc">&#39;A&#39;</span><span class="p">)</span>
+<span class="nb">typeof</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>String
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># string interpolation</span>
+<span class="n">a</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span>
+<span class="s">&quot;</span><span class="si">$a</span><span class="s"> * </span><span class="si">$b</span><span class="s"> = </span><span class="si">$(a*b)</span><span class="s">&quot;</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&quot;3 * 2 = 6&quot;
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># concatenate string</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">string</span><span class="p">(</span><span class="s">&quot;adb&quot;</span><span class="p">,</span><span class="s">&quot;12345&quot;</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>adb12345
+</pre></div>
+
+
+<p>Strings prefixed with : are of type Symbol, such as :green
+They are more efficient than strings and are used for IDs or keys</p>
+<div class="highlight"><pre><span></span><span class="n">print_with_color</span><span class="p">(:</span><span class="n">red</span><span class="p">,</span> <span class="s">&quot;I love Julia!&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>[1m[31mI love Julia![0m
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">methodwith</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">UndefVarError</span><span class="o">:</span> <span class="n">methodwith</span> <span class="n">not</span> <span class="n">defined</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;Julia&quot;</span><span class="p">,</span><span class="s">&quot;u&quot;</span><span class="p">,</span><span class="s">&quot;o&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&quot;Jolia&quot;
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="o">?</span><span class="n">replace</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>search: [1mr[22m[1me[22m[1mp[22m[1ml[22m[1ma[22m[1mc[22m[1me[22m [1mr[22m[1me[22mdis[1mp[22m[1ml[22m[1ma[22my
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>replace(string, pat, r[, n])
+</pre></div>
+
+
+<p>Search for the given pattern <code>pat</code>, and replace each occurrence with <code>r</code>. If <code>n</code> is provided, replace at most <code>n</code> occurrences. As with search, the second argument may be a single character, a vector or a set of characters, a string, or a regular expression. If <code>r</code> is a function, each occurrence is replaced with <code>r(s)</code> where <code>s</code> is the matched substring. If <code>pat</code> is a regular expression and <code>r</code> is a <code>SubstitutionString</code>, then capture group references in <code>r</code> are replaced with the corresponding matched text.</p>
+<div class="highlight"><pre><span></span><span class="n">split</span><span class="p">(</span><span class="s">&quot;1,2,3,4&quot;</span><span class="p">,</span><span class="sc">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>4-element Array{SubString{String},1}:
+ &quot;1&quot;
+ &quot;2&quot;
+ &quot;3&quot;
+ &quot;4&quot;
+</pre></div>
+
+
+<h2>Formatting numbers and strings</h2>
+<div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Pascal&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">@</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello </span><span class="si">%s</span><span class="s"> </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Hello Pascal
+
+
+
+
+
+Void
+</pre></div>
+
+
+<p>String as the return value</p>
+<div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="p">@</span><span class="n">sprintf</span><span class="p">(</span><span class="s">&quot;Hello </span><span class="si">%s</span><span class="s"> </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">typeof</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>String
+</pre></div>
+
+
+<p>Regular expression</p>
+<div class="highlight"><pre><span></span><span class="n">email_pattern</span> <span class="o">=</span> <span class="n">r</span><span class="s">&quot;.+@.+&quot;</span> <span class="c"># this pattern matches any string that contains @ somewhere in the middle</span>
+<span class="n">input</span> <span class="o">=</span> <span class="s">&quot;john.doe@mit.edu&quot;</span>
+<span class="n">println</span><span class="p">(</span><span class="n">ismatch</span><span class="p">(</span><span class="n">email_pattern</span><span class="p">,</span> <span class="n">input</span><span class="p">))</span> <span class="c">#&gt; true</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>true
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">email_pattern</span> <span class="o">=</span> <span class="n">r</span><span class="s">&quot;(.+)@(.+)&quot;</span> <span class="c"># we want to capture this specific set of characters</span>
+<span class="n">input</span> <span class="o">=</span> <span class="s">&quot;john.doe@mit.edu&quot;</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">match</span><span class="p">(</span><span class="n">email_pattern</span><span class="p">,</span> <span class="n">input</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">captures</span><span class="p">)</span> <span class="c">#&gt; [&quot;john.doe&quot;,&quot;mit.edu&quot;]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Union{SubString{String},Void}[&quot;john.doe&quot;,&quot;mit.edu&quot;]
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">match</span><span class="p">(</span><span class="n">r</span><span class="s">&quot;(ju|l)(i)?(a)&quot;</span><span class="p">,</span> <span class="s">&quot;julia&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>RegexMatch(&quot;lia&quot;, 1=&quot;l&quot;, 2=&quot;i&quot;, 3=&quot;a&quot;)
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">match</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&quot;lia&quot;
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;julia&quot;</span><span class="p">,</span><span class="n">r</span><span class="s">&quot;u[\w]*l&quot;</span><span class="p">,</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&quot;jredia&quot;
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">str</span> <span class="o">=</span> <span class="s">&quot;the sky is blue&quot;</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">r</span><span class="s">&quot;[\w]{3,}&quot;</span> <span class="c"># match more than three character</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">matchall</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span><span class="n">str</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>SubString{String}[&quot;the&quot;,&quot;sky&quot;,&quot;blue&quot;]
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">iter</span> <span class="o">=</span> <span class="n">eachmatch</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span><span class="n">str</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">iter</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>RegexMatch(&quot;the&quot;)RegexMatch(&quot;sky&quot;)RegexMatch(&quot;blue&quot;)
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># range</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">9</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">1</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>9
+7
+5
+3
+1
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># A one-dimensional array (also called a Vector in Julia)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="s">&quot;A,B,C,D&quot;</span><span class="p">,</span><span class="s">&quot;,&quot;</span><span class="p">)</span>
+<span class="nb">typeof</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># Array{Type, n}, with n number of dimensions</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Array{SubString{String},1}
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># initialize array</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="kt">Float64</span><span class="p">[]</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="p">[]</span> <span class="c"># not good cuz &#39;Any&#39; type</span>
+<span class="n">push!</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>[1.0]
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># create array using range</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>1-element Array{UnitRange{Int64},1}:
+ 1:7
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">workspace</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># create array with fixed size , improving performance</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="kt">Int64</span><span class="p">[]</span>
+<span class="n">sizehint!</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">push!</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">push!</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">push!</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>[1,2,3]
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">arr</span><span class="p">[</span><span class="k">end</span><span class="p">]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>50
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">ndims</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>1
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">length</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>3
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">eltype</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="c"># element type</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Int64
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">size</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>3
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="o">?</span><span class="n">size</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>search: [1ms[22m[1mi[22m[1mz[22m[1me[22m [1ms[22m[1mi[22m[1mz[22m[1me[22mof [1ms[22m[1mi[22m[1mz[22m[1me[22mhint! C[1ms[22m[1mi[22m[1mz[22m[1me[22m_t re[1ms[22m[1mi[22m[1mz[22m[1me[22m! file[1ms[22m[1mi[22m[1mz[22m[1me[22m C[1ms[22ms[1mi[22m[1mz[22m[1me[22m_t trailing[1ms[22m[1mi[22m[1mz[22m[1me[22m
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>size(A::AbstractArray, [dim...])
+</pre></div>
+
+
+<p>Returns a tuple containing the dimensions of <code>A</code>. Optionally you can specify the dimension(s) you want the length of, and get the length of that dimension, or a tuple of the lengths of dimensions you asked for.</p>
+<div class="highlight"><pre><span></span>julia&gt; A = ones(2,3,4);
+
+julia&gt; size(A, 2)
+3
+
+julia&gt; size(A,3,2)
+(4,3)
+</pre></div>
+
+
+<p>Collapse arr to string by ","</p>
+<div class="highlight"><pre><span></span><span class="n">join</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="s">&quot;,&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&quot;100,37,50&quot;
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">eqa</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">eqa</span><span class="p">,</span><span class="sc">&#39;,&#39;</span><span class="p">))</span>
+<span class="n">show</span><span class="p">(</span><span class="n">eqa</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>0.0,2.5,5.0,7.5,10.0
+linspace(0.0,10.0,5)
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">workspace</span><span class="p">()</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">fill!</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c"># change element to a specific value</span>
+<span class="c"># A function whose name ends in a ! changes its first argument.</span>
+<span class="n">arr</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>3-element Array{Int64,1}:
+ 0
+ 0
+ 0
+</pre></div>
+
+
+<p>Change element type</p>
+<div class="highlight"><pre><span></span><span class="n">v1</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="kt">Int32</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="nb">typeof</span><span class="p">(</span><span class="n">v1</span><span class="p">))</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">round</span><span class="p">(</span><span class="kt">Int64</span><span class="p">,</span><span class="n">v1</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="nb">typeof</span><span class="p">(</span><span class="n">v1</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Array{
+</pre></div>
+
+
+<p>Array appen</p>
+<div class="highlight"><pre><span></span><span class="n">workspace</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">440</span><span class="p">,</span><span class="mi">67</span><span class="p">]</span>
+<span class="n">append!</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="c"># ! change the first argument state, here is array &#39;b&#39;</span>
+<span class="n">b</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">MethodError</span><span class="o">:</span> <span class="n">Cannot</span> <span class="err">`</span><span class="n">convert</span><span class="err">`</span> <span class="n">an</span> <span class="n">object</span> <span class="n">of</span> <span class="n">type</span> <span class="n">Int64</span> <span class="n">to</span> <span class="n">an</span> <span class="n">object</span> <span class="n">of</span> <span class="n">type</span> <span class="n">UnitRange</span><span class="o">{</span><span class="n">Int64</span><span class="o">}</span>
+<span class="n">This</span> <span class="n">may</span> <span class="n">have</span> <span class="n">arisen</span> <span class="n">from</span> <span class="n">a</span> <span class="n">call</span> <span class="n">to</span> <span class="n">the</span> <span class="n">constructor</span> <span class="n">UnitRange</span><span class="o">{</span><span class="n">Int64</span><span class="o">}(...),</span>
+<span class="n">since</span> <span class="n">type</span> <span class="n">constructors</span> <span class="n">fall</span> <span class="n">back</span> <span class="n">to</span> <span class="n">convert</span> <span class="n">methods</span><span class="o">.</span>
+
+
+
+ <span class="k">in</span> <span class="n">copy</span><span class="o">!(::</span><span class="n">Array</span><span class="o">{</span><span class="n">UnitRange</span><span class="o">{</span><span class="n">Int64</span><span class="o">},</span><span class="mi">1</span><span class="o">},</span> <span class="o">::</span><span class="n">Int64</span><span class="o">,</span> <span class="o">::</span><span class="n">Array</span><span class="o">{</span><span class="n">Int64</span><span class="o">,</span><span class="mi">1</span><span class="o">},</span> <span class="o">::</span><span class="n">Int64</span><span class="o">,</span> <span class="o">::</span><span class="n">Int64</span><span class="o">)</span> <span class="n">at</span> <span class="o">./</span><span class="n">abstractarray</span><span class="o">.</span><span class="na">jl</span><span class="o">:</span><span class="mi">593</span>
+
+ <span class="k">in</span> <span class="n">append</span><span class="o">!(::</span><span class="n">Array</span><span class="o">{</span><span class="n">UnitRange</span><span class="o">{</span><span class="n">Int64</span><span class="o">},</span><span class="mi">1</span><span class="o">},</span> <span class="o">::</span><span class="n">Array</span><span class="o">{</span><span class="n">Int64</span><span class="o">,</span><span class="mi">1</span><span class="o">})</span> <span class="n">at</span> <span class="o">./</span><span class="n">array</span><span class="o">.</span><span class="na">jl</span><span class="o">:</span><span class="mi">494</span>
+</pre></div>
+
+
+<p>A function whose name ends in a ! changes its first argument.</p>
+<div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">pop!</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">push!</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">shift!</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">unshift!</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">MethodError</span><span class="o">:</span> <span class="n">Cannot</span> <span class="err">`</span><span class="n">convert</span><span class="err">`</span> <span class="n">an</span> <span class="n">object</span> <span class="n">of</span> <span class="n">type</span> <span class="n">Int64</span> <span class="n">to</span> <span class="n">an</span> <span class="n">object</span> <span class="n">of</span> <span class="n">type</span> <span class="n">UnitRange</span><span class="o">{</span><span class="n">Int64</span><span class="o">}</span>
+<span class="n">This</span> <span class="n">may</span> <span class="n">have</span> <span class="n">arisen</span> <span class="n">from</span> <span class="n">a</span> <span class="n">call</span> <span class="n">to</span> <span class="n">the</span> <span class="n">constructor</span> <span class="n">UnitRange</span><span class="o">{</span><span class="n">Int64</span><span class="o">}(...),</span>
+<span class="n">since</span> <span class="n">type</span> <span class="n">constructors</span> <span class="n">fall</span> <span class="n">back</span> <span class="n">to</span> <span class="n">convert</span> <span class="n">methods</span><span class="o">.</span>
+
+
+
+ <span class="k">in</span> <span class="n">push</span><span class="o">!(::</span><span class="n">Array</span><span class="o">{</span><span class="n">UnitRange</span><span class="o">{</span><span class="n">Int64</span><span class="o">},</span><span class="mi">1</span><span class="o">},</span> <span class="o">::</span><span class="n">Int64</span><span class="o">)</span> <span class="n">at</span> <span class="o">./</span><span class="n">array</span><span class="o">.</span><span class="na">jl</span><span class="o">:</span><span class="mi">479</span>
+</pre></div>
+
+
+<p>Remove element</p>
+<div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">splice!</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">b</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">BoundsError</span><span class="o">:</span> <span class="n">attempt</span> <span class="n">to</span> <span class="n">access</span> <span class="mi">1</span><span class="o">-</span><span class="n">element</span> <span class="n">Array</span><span class="o">{</span><span class="n">UnitRange</span><span class="o">{</span><span class="n">Int64</span><span class="o">},</span><span class="mi">1</span><span class="o">}</span> <span class="n">at</span> <span class="n">index</span> <span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+
+
+
+ <span class="k">in</span> <span class="n">splice</span><span class="o">!(::</span><span class="n">Array</span><span class="o">{</span><span class="n">UnitRange</span><span class="o">{</span><span class="n">Int64</span><span class="o">},</span><span class="mi">1</span><span class="o">},</span> <span class="o">::</span><span class="n">Int64</span><span class="o">,</span> <span class="o">::</span><span class="n">Array</span><span class="o">{</span><span class="n">Any</span><span class="o">,</span><span class="mi">1</span><span class="o">})</span> <span class="n">at</span> <span class="o">./</span><span class="n">array</span><span class="o">.</span><span class="na">jl</span><span class="o">:</span><span class="mi">636</span> <span class="o">(</span><span class="n">repeats</span> <span class="mi">2</span> <span class="n">times</span><span class="o">)</span>
+</pre></div>
+
+
+<p>Check whether the element exist</p>
+<div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">println</span><span class="p">(</span><span class="k">in</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+<span class="n">push!</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span>
+<span class="k">in</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>false
+
+
+
+MethodError: Cannot `convert` an object of type Int64 to an object of type UnitRange{Int64}
+This may have arisen from a call to the constructor UnitRange{Int64}(...),
+since type constructors fall back to convert methods.
+
+
+
+ in push!(::Array{UnitRange{Int64},1}, ::Int64) at ./array.jl:479
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># sort</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">74</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">58</span><span class="p">]</span>
+<span class="n">println</span><span class="p">(</span><span class="n">sort</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="n">println</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">sort!</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="k">[12,50,58,74,100]</span>
+<span class="k">[100,50,74,12,58]</span>
+<span class="k">[12,50,58,74,100]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">e</span> <span class="k">in</span> <span class="n">b</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$e</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="mi">20</span><span class="o">:</span><span class="mi">30</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># operation</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">println</span><span class="p">(</span><span class="n">a</span> <span class="o">.*</span> <span class="n">b</span><span class="p">)</span> <span class="c"># element wise computation with *</span>
+<span class="n">println</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span> <span class="o">.*</span> <span class="n">b</span><span class="p">))</span>
+<span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="c"># same as sum(a .* b)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="k">[4,10,18]</span>
+<span class="err">32</span>
+
+
+
+
+
+<span class="err">32</span>
+</pre></div>
+
+
+<p>a and a1 point to the same object</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">show</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span> <span class="c">#&gt; [1,2,4,6]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">show</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c">#&gt; [1,2,4,0]</span>
+<span class="n">show</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span> <span class="c">#&gt; [1,2,4,0]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>[1,2,4,6][1,2,4,0][1,2,4,0]
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># different object</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>4-element Array{Int64,1}:
+ 1
+ 2
+ 3
+ 6
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># array to string</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">join</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="n">string</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&quot;[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]&quot;
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># calculate time</span>
+<span class="n">pt</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="o">^</span><span class="mi">5</span>
+    <span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">end</span>
+<span class="n">time_elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">pt</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Time elapsed: </span><span class="si">$time_elapsed</span><span class="s">&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Time elapsed: 0.003777027130126953
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c">#str time</span>
+<span class="n">println</span><span class="p">(</span><span class="n">time</span><span class="p">())</span>
+<span class="n">strftime</span><span class="p">(</span><span class="n">time</span><span class="p">())</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>1.489472573601163e9
+
+
+
+UndefVarError: strftime not defined
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># date</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">Date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">Dates</span><span class="o">.</span><span class="n">year</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="n">println</span><span class="p">(</span><span class="n">Dates</span><span class="o">.</span><span class="n">month</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="n">println</span><span class="p">(</span><span class="n">Dates</span><span class="o">.</span><span class="n">day</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>2014-09-01
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># datetime</span>
+<span class="n">DateTime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">59</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>2014-09-01T12:30:59
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># scope</span>
+<span class="c"># code in chapter 2\scope.jl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c"># x is Float64</span>
+
+<span class="c"># y::Float64 = 1.0 # LoadError: &quot;y is not defined&quot;</span>
+
+<span class="k">function</span><span class="nf"> scopetest</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="c"># now x is Int in local</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c"># 1, x is known here, because it&#39;s in local scope</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;in&quot;</span><span class="p">,</span><span class="nb">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">y</span><span class="p">::</span><span class="kt">Float64</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c"># y must be Float64, this is not possible in global scope</span>
+<span class="k">end</span>
+<span class="n">scopetest</span><span class="p">()</span>
+<span class="nb">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>1
+inInt64
+
+
+
+
+
+Float64
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># compound expression</span>
+<span class="n">x</span> <span class="o">=</span> <span class="k">begin</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="mi">2</span> <span class="o">*</span><span class="n">a</span>
+<span class="k">end</span>
+<span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>10
+5
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># same as</span>
+<span class="n">workspace</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>10
+5
+</pre></div>
+
+
+<p>const variable with upperclass, value can be changed but type cannot</p>
+<div class="highlight"><pre><span></span><span class="kd">const</span> <span class="n">GC</span> <span class="o">=</span> <span class="mf">6.67e-11</span> <span class="c"># gravitational constant in m3/kg s2   </span>
+<span class="c"># Use them whenever possible in the global scope.</span>
+<span class="c"># If you try to give a global constant a new value, you get a warning, but if you change its type</span>
+<span class="n">GC</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="n">GC</span> <span class="o">=</span> <span class="mi">6</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">WARNING</span><span class="o">:</span> <span class="n">redefining</span> <span class="n">constant</span> <span class="n">GC</span>
+
+
+
+<span class="n">invalid</span> <span class="n">redefinition</span> <span class="n">of</span> <span class="n">constant</span> <span class="n">GC</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="kd">const</span> <span class="n">ARR</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">ARR</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">println</span><span class="p">(</span><span class="n">ARR</span><span class="p">)</span>
+<span class="n">ARR</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mf">5.0</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="k">[4,5,6]</span>
+
+
+<span class="err">WARNING:</span> <span class="err">redefining</span> <span class="err">constant</span> <span class="err">ARR</span>
+
+
+
+<span class="err">invalid</span> <span class="err">redefinition</span> <span class="err">of</span> <span class="err">constant</span> <span class="err">ARR</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># a newspaper headline:</span>
+<span class="n">str</span> <span class="o">=</span> <span class="s">&quot;The Gold and Blue Loses a Bit of Its Luster&quot;</span>
+<span class="n">println</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<span class="n">nchars</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;The headline counts </span><span class="si">$nchars</span><span class="s"> characters&quot;</span><span class="p">)</span> <span class="c"># 43 including space</span>
+<span class="n">str2</span> <span class="o">=</span> <span class="n">replace</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">&quot;Blue&quot;</span><span class="p">,</span> <span class="s">&quot;Red&quot;</span><span class="p">)</span>
+<span class="c"># strings are immutable</span>
+<span class="n">println</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="c"># The Gold and Blue Loses a Bit of Its Luster</span>
+<span class="n">println</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Here are the characters at position 25 to 30:&quot;</span><span class="p">)</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="mi">25</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;-</span><span class="si">$(lowercase(subs))</span><span class="s">-&quot;</span><span class="p">)</span> <span class="c"># &quot;-a bit -&quot;</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Here are all the characters:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="k">in</span> <span class="n">str</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>The Gold and Blue Loses a Bit of Its Luster
+The headline counts 43 characters
+The Gold and Blue Loses a Bit of Its Luster
+The Gold and Red Loses a Bit of Its Luster
+Here are the characters at position 25 to 30:
+-a bit -Here are all the characters:
+The Gold and Blue Loses a Bit of Its Luster
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c"># a newspaper headline:</span>
+<span class="n">str</span> <span class="o">=</span> <span class="s">&quot;The Gold and Blue Loses a Bit of Its Luster&quot;</span>
+<span class="n">println</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<span class="n">nchars</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;The headline counts </span><span class="si">$nchars</span><span class="s"> characters&quot;</span><span class="p">)</span> <span class="c"># 43</span>
+<span class="n">str2</span> <span class="o">=</span> <span class="n">replace</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">&quot;Blue&quot;</span><span class="p">,</span> <span class="s">&quot;Red&quot;</span><span class="p">)</span>
+<span class="c"># strings are immutable</span>
+<span class="n">println</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="c"># The Gold and Blue Loses a Bit of Its Luster</span>
+<span class="n">println</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Here are the characters at position 25 to 30:&quot;</span><span class="p">)</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="mi">25</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;-</span><span class="si">$(lowercase(subs))</span><span class="s">-&quot;</span><span class="p">)</span> <span class="c"># &quot;-a bit -&quot;</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Here are all the characters:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="k">in</span> <span class="n">str</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="k">end</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="sc">&#39; &#39;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>                                                         <span class="c">#[&quot;The&quot;,&quot;Gold&quot;,&quot;and&quot;,&quot;Blue&quot;,&quot;Loses&quot;,&quot;a&quot;,&quot;Bit&quot;,&quot;of&quot;,&quot;Its&quot;,&quot;Luster&quot;]</span>
+<span class="n">nwords</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;The headline counts </span><span class="si">$nwords</span><span class="s"> words&quot;</span><span class="p">)</span> <span class="c"># 10</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Here are all the words:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">word</span> <span class="k">in</span> <span class="n">arr</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="k">end</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Red&quot;</span>
+<span class="n">show</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="c"># arrays are mutable</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Convert back to a sentence:&quot;</span><span class="p">)</span>
+<span class="n">nstr</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="sc">&#39; &#39;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">nstr</span><span class="p">)</span> <span class="c"># The Gold and Red Loses a Bit of Its Luster</span>
+
+
+<span class="c"># working with arrays:</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;arrays: calculate sum, mean and standard deviation &quot;</span><span class="p">)</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span>
+<span class="nb">typeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="c">#&gt;</span>
+<span class="n">println</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span> <span class="c">#&gt; 5050</span>
+<span class="n">println</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span> <span class="c">#&gt; 50.5</span>
+<span class="n">println</span><span class="p">(</span><span class="n">std</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span> <span class="c">#&gt; 29.011491975882016</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>The Gold and Blue Loses a Bit of Its Luster
+The headline counts 43 characters
+The Gold and Blue Loses a Bit of Its Luster
+The Gold and Red Loses a Bit of Its Luster
+Here are the characters at position 25 to 30:
+-a bit -Here are all the characters:
+T
+h
+e
+
+G
+o
+l
+d
+
+a
+n
+d
+
+B
+l
+u
+e
+
+L
+o
+s
+e
+s
+
+a
+
+B
+i
+t
+
+o
+f
+
+I
+t
+s
+
+L
+u
+s
+t
+e
+r
+SubString{String}[&quot;The&quot;,&quot;Gold&quot;,&quot;and&quot;,&quot;Blue&quot;,&quot;Loses&quot;,&quot;a&quot;,&quot;Bit&quot;,&quot;of&quot;,&quot;Its&quot;,&quot;Luster&quot;]The headline counts 10 words
+Here are all the words:
+The
+Gold
+and
+Blue
+Loses
+a
+Bit
+of
+Its
+Luster
+SubString{String}[&quot;The&quot;,&quot;Gold&quot;,&quot;and&quot;,&quot;Red&quot;,&quot;Loses&quot;,&quot;a&quot;,&quot;Bit&quot;,&quot;of&quot;,&quot;Its&quot;,&quot;Luster&quot;]Convert back to a sentence:
+The Gold and Red Loses a Bit of Its Luster
+arrays: calculate sum, mean and standard deviation 
+100
+1.0:1:1.0:100.0
+
+
+
+MethodError: no method matching zero(::Type{UnitRange{Int64}})
+Closest candidates are:
+  zero(::Type{Base.LibGit2.Oid}) at libgit2/oid.jl:88
+  zero(::Type{Base.Pkg.Resolve.VersionWeights.VWPreBuildItem}) at pkg/resolve/versionweight.jl:80
+  zero(::Type{Base.Pkg.Resolve.VersionWeights.VWPreBuild}) at pkg/resolve/versionweight.jl:120
+  ...
+
+
+
+ in #var#951(::Bool, ::Void, ::Function, ::Array{UnitRange{Int64},1}) at ./statistics.jl:176
+
+ in (::Base.#kw##var)(::Array{Any,1}, ::Base.#var, ::Array{UnitRange{Int64},1}) at ./&lt;missing&gt;:0
+
+ in std(::Array{UnitRange{Int64},1}) at ./statistics.jl:220
+</pre></div>
+
+
+<div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+		<div id="article_meta">
+				Category:
+					<a href="/category/julia.html">Julia</a>
+				<br />Tags:
+					<a href="/tag/julia.html">Julia</a>
+		</div>
+	</article>
+
+	<footer>
+		<a href="/" class="button_accent">&larr;&nbsp;&nbsp;&nbsp;Back to blog</a>
+	</footer>
+
+
+	</section>
+
+</body>
+</html>
