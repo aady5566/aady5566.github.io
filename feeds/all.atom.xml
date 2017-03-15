@@ -1088,7 +1088,107 @@ Closest candidates are:
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="Julia"></category></entry><entry><title>0219</title><link href="/0219.html" rel="alternate"></link><published>2017-02-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-02-19:0219.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Julia"></category></entry><entry><title>SF - CH2. Regression Models</title><link href="/sf-ch2-regression-models.html" rel="alternate"></link><published>2017-03-15T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-03-15:sf-ch2-regression-models.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+&lt;/script&gt;
+
+&lt;h2&gt;Regression Function&lt;/h2&gt;
+&lt;p&gt;類似邊際函數的概念
+$f(x) =  E( Y | X = x )$ 理想上應要能用一個數學式表達這個世間的現象，不過因為有系統誤差，我們保守改寫為
+$Y = f(x) + error$&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_E951995ED296F27BFD79463903ABDFDDBDB80109E611EA24979BBEE8CD74A837_1479051604759_+2016-11-13+11.36.15.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;p&gt;也就是我們期待找到一個 $g(X)$ 使得所有的 $X = x$ 代入  $[Y-g(X)]^2$ 得到最小的值。其實就是在算 mean square error: $\frac{1}{n} \sum_{i=1}^{n}(Y - g(X))^2$ （等於下圖的公式），此值越小越好。&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_E951995ED296F27BFD79463903ABDFDDBDB80109E611EA24979BBEE8CD74A837_1479051954790_+2016-11-13+11.45.43.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_E951995ED296F27BFD79463903ABDFDDBDB80109E611EA24979BBEE8CD74A837_1479053559389_+2016-11-14+12.09.45.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;p&gt;我們真正在解的 $g(X)$ 其實就是上述的 $\hat{f}(x)$ ，找出最佳估計理想中的 $f(x)$ 
+下面的例子是以 nearest neighbor averaging 作為 $\hat{f}(x)$ 為例&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_E951995ED296F27BFD79463903ABDFDDBDB80109E611EA24979BBEE8CD74A837_1479053700817_+2016-11-14+12.14.45.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;h1&gt;2.2&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;the curse of dimensionality&lt;/strong&gt;: 多維度的 $x$  neighborhood 會讓區間變大，意即失準。為解決這問題，就需要有結構性的模型，最簡單的例子就是線性模型。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;trade-off&lt;/strong&gt;: Prediction accuracy vs. interpretability
+Good fit vs. over-fit vs. under-fit
+Parsimony vs. blackbox: 用少量的參數簡單的模型還是參數複雜的模型&lt;/p&gt;
+&lt;h1&gt;2.3&lt;/h1&gt;
+&lt;p&gt;mean square error: 每個訓練集代入模型後與實際結果的差異  &lt;/p&gt;
+&lt;p&gt;$MSE = AVG[y_i - \hat{f}(x_i)]^2$&lt;/p&gt;
+&lt;p&gt;其中又可以細分 訓練集的 $MSE_{TR}$ 及 測試集的 $MSE_{TE}$，我們可以利用這兩個指標（又尤其後者）來衡量模型的好壞。
+這裡要特別提到 variance 和 bias ，公式說明如下：
+假設真實世界中存在一條真理為：&lt;/p&gt;
+&lt;p&gt;$Y=f(X)+\epsilon$ （ $\epsilon$ 為 隨機誤差） &lt;/p&gt;
+&lt;p&gt;而我們現實世界能得到的為：&lt;/p&gt;
+&lt;p&gt;$\hat{f}(x)$ （ $x$ 為實際取得的資料點）&lt;/p&gt;
+&lt;p&gt;則我們得到的 expected prediction error 可以表示成：&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_E951995ED296F27BFD79463903ABDFDDBDB80109E611EA24979BBEE8CD74A837_1480332160214_+2016-11-28+7.19.37.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Variance&lt;/strong&gt;: $Var(\hat{f}(x_0))$ 是來自不同的訓練集所生成的不同 $\hat{f}()$ 帶入相同的觀察點 $x_0$ 所產生的變異量，也就是信度。
+&lt;strong&gt;Bias&lt;/strong&gt;: $[Bias(\hat{f}(x_0))]^2 = [f(x_0)-E(\hat{f}(x_0))]^2$ ，為真理與模型期望的差距，也就是效度。
+就應用面而言，我們比較不在意訓練集的誤差有多大，我們在意的是測試集的誤差（也就是預期結果），但這兩者相輔相成。依照上述的公式，可以得到下面的結論：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;彈性越大的模型，越容易受到訓練集的影響而生成差異大的 $\hat{f}()$ 而導致 variance 大&lt;/li&gt;
+&lt;li&gt;彈性越大的模型，通常參數越多，也往往 $MSE_{TR}$ 越小（但也不一定，最極端的例子就是 predictor 本身就是 y 或是一堆 random predictor ）&lt;/li&gt;
+&lt;li&gt;彈性越大的模型，越可能符合真理，也就是效度較高，Bias 較小。&lt;/li&gt;
+&lt;li&gt;無論是 &lt;em&gt;variance&lt;/em&gt; 或是 &lt;em&gt;bias&lt;/em&gt; ，兩者我們稱為 &lt;em&gt;reducible error&lt;/em&gt;。（也就是人為可控制的因素）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;2.4&lt;/h1&gt;
+&lt;p&gt;classification problem: 找出最佳的 $C(X)$
+假設有 $1,...,K$ 個分類，則觀察值 $x$ 在每個分類的機率為  $p_k(x)=Pr(Y=k|X=x), k= 1,...K$
+而 Bayes Optimal 就是找出在已知的觀察值下，最大的可能分類為何：  &lt;/p&gt;
+&lt;p&gt;$C(x)=j,\;if \; p_j(x) = max{\;p_1(x),...p_K(x)\;}$&lt;/p&gt;
+&lt;h1&gt;2.7&lt;/h1&gt;
+&lt;p&gt;A flexible model will allow us to take full advantage of our large sample size.
+when $Var(\epsilon)$ is extremely high: A flexible model will cause us to &lt;strong&gt;fit too much of the noise&lt;/strong&gt; in the problem.&lt;/p&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;</summary><category term="Stat"></category></entry><entry><title>0219</title><link href="/0219.html" rel="alternate"></link><published>2017-02-19T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-02-19:0219.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
