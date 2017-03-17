@@ -1,5 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>5566</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-03-15T00:00:00+08:00</updated><entry><title>High Performance Programming 2</title><link href="/high-performance-programming-2.html" rel="alternate"></link><published>2017-03-15T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-03-15:high-performance-programming-2.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>5566</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-03-17T00:00:00+08:00</updated><entry><title>SF3 Linear Regression</title><link href="/sf3-linear-regression.html" rel="alternate"></link><published>2017-03-17T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-03-17:sf3-linear-regression.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+&lt;/script&gt;
+
+&lt;h1&gt;Simple Linear Regression&lt;/h1&gt;
+&lt;p&gt;最簡單的線性迴歸模型： $Y = \beta_0 + \beta_1X + \epsilon$ （假設此真理）&lt;/p&gt;
+&lt;p&gt;那我們實際上能得到的是： $\hat{y} = \hat{\beta_0} + \hat{\beta_1}x$ (這裡的 $\beta$ 為用觀察值 training data 得到的估計值)&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;衡量模型的好壞，可以看殘差：
+&lt;em&gt;residual&lt;/em&gt; :  $e_i = y_i - \hat{y_i}$
+&lt;em&gt;residual sum of square (RSS)&lt;/em&gt;: $RSS = e_1^2+...+e_n^2 = [y_1-(\hat{\beta_0} + \hat{\beta_1}x_1)]+...+[y_n-(\hat{\beta_0} + \hat{\beta_1}x_n)]$&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F6E0C2FE77652F408CCC108D34A68B4BDA8B9F227676E8E534464DC7F51E5C78_1480518037424_+2016-11-30+11.00.22.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;p&gt;也就是如圖下&lt;strong&gt;每個資料點到藍色線的垂直距離平方的總和&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;評估參數估計的精準度&lt;/h2&gt;
+&lt;p&gt;由樣本標準差（ $SD = \sqrt{\sum{(x-\bar{x})}/n-1}$ ）得到樣本標準誤 （$SE = SD/\sqrt{n}$） &lt;/p&gt;
+&lt;p&gt;ref: &lt;a href="http://ncalculators.com/math-worksheets/calculate-standard-error.htm"&gt;Standard error 如何計算&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;看到 $SE(\hat{\beta_1})^2$ ，若分子和 irreducible error 有關，原始資料的變異越大，也代表斜率變異越大（越不準）。而分母則是看 predictor 的離散程度，分散程度越高，斜率會比較有鑑別度（分母的值越大，所產生的 SE 也較小）&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F6E0C2FE77652F408CCC108D34A68B4BDA8B9F227676E8E534464DC7F51E5C78_1480521057926_+2016-11-30+11.50.37.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;p&gt;SE 可用來作為判斷 CI 的指標，而 CI 代表著 估計參數所涵蓋真實參數的可能性有多少，解釋如下：&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F6E0C2FE77652F408CCC108D34A68B4BDA8B9F227676E8E534464DC7F51E5C78_1480520971162_+2016-11-30+11.49.10.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;h1&gt;Hypothesis Testing &amp;amp; Confidence Intervals&lt;/h1&gt;
+&lt;h2&gt;Residual standard error&lt;/h2&gt;
+&lt;p&gt;$RSS = \sum_{i=1}^n(y_i-\hat{y_i})^2$ ，從此公式可看出 RSS 的大小會受到樣本數的影響
+因此評估一個整體模型的好壞 ( overall accuracy of the model ) 可以用：&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Residual standard error&lt;/em&gt;: $RSE = \sqrt{RSS/n-2}$&lt;/p&gt;
+&lt;h2&gt;Confidence Intervals vs. Hypothesis Testing&lt;/h2&gt;
+&lt;p&gt;其實 CI 就已經是在做檢定了，以課堂例子 95%信賴區間為 [0.042, 0.053]，也就是說真實的參數 $\beta_1$ 沒有包含到 0 點的位置。換句話說，假設檢定虛無假設 $H_0: \hat{\beta_1} = 0$ 已經被拒絕了。而且 [0.042, 0.053] 同時也說明這個參數的&lt;strong&gt;效果&lt;/strong&gt;有多大。&lt;/p&gt;
+&lt;h2&gt;R-squared ( fraction of variance explained )，解釋變異量&lt;/h2&gt;
+&lt;p&gt;除了 RSE 可以用來衡量整體模型的好壞外，另一種方式是計算解釋變異量：&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;R-squared&lt;/em&gt;: $R^2 = \frac{TSS - RSS}{TSS} = 1 - \frac{RSS}{TSS}, TSS = \sum_{i=1}^n(y_i-\bar{y})^2$&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;TSS: total sum of square&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;上述公式不難理解， &lt;em&gt;RSS&lt;/em&gt; 說明的是誤差項，也就是模型無法解釋的部分，$\frac{RSS}{TSS}$ 即為整個模型無法解釋的比例，全部減去這個比例就是模型能解釋的比例了。&lt;/p&gt;
+&lt;p&gt;而最簡單的線性回歸的相關 r 的平方也會是線性回歸模型的解釋變異量（$r^2 = R^2$） &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;correlation r&lt;/em&gt; : 
+$\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^n(y_i-\bar{y})^2}}$&lt;/p&gt;
+&lt;h1&gt;Multiple Linear Regression&lt;/h1&gt;
+&lt;p&gt;$Y = \beta_0 + \beta_1X_1 + \beta_2X_2+ ...+ \beta_pXp +\epsilon$&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F6E0C2FE77652F408CCC108D34A68B4BDA8B9F227676E8E534464DC7F51E5C78_1481039936178_+2016-12-06+11.58.34.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;p&gt;最理想的情境是所有的 predictors 彼此是獨立無關的，如果 predictors 有相關，在解釋 coefficients 上會有問題，因為某一個 $X_i$ 對 $Y$ 有影響時，其他的 $X$ 是不固定的，很難解釋 $X_i$ 如何真正影響 $Y$ 。
+一定要&lt;strong&gt;避免因果關係&lt;/strong&gt;的宣稱！&lt;/p&gt;
+&lt;h2&gt;Coefficient&lt;/h2&gt;
+&lt;p&gt;Coefficient: A regression coefficient $\beta_j$ estimates the expected change in $Y$ per unit change in $X_j$, &lt;strong&gt;with all other predictors held fixed&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;舉個例子：
+$Y$ 是你口袋裡的銅幣金額， $X_1$ 是口袋內銅板的個數， $X_2$ 為 1 元、 5 元、10 元的個數。兩個獨變項皆會影響依變項，但獨變項卻有著某種相關存在。( interaction effect )&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Essentially, all models are wrong, but some are useful - George Box&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;Some important questions&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;是否存在至少一個獨變項可以用來預測依變項？&lt;/li&gt;
+&lt;li&gt;可以用 F 檢定回答&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;F-statistic&lt;/em&gt;: $F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}\sim F_{p,n-p-1}$ (分母的 p+1 加入了 intercept )&lt;/li&gt;
+&lt;li&gt;要如何選擇用 full model 還是 reduced model？&lt;/li&gt;
+&lt;li&gt;這問題等同於 deciding on the important variables&lt;/li&gt;
+&lt;li&gt;如何評估一個模型適配資料的程度？&lt;/li&gt;
+&lt;li&gt;如何評估模型預測的準確度？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Deciding on the important variables&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Forward selection&lt;/strong&gt;: 
+null model ( only intercept and without any predictors ) 為 based model，一次放入一個 predictors 看哪個 RSS 最小，得到解後，再加入下一個 predictors 也是比較 RSS 最小的可能，直到所有的 predictors 出現沒有顯著的結果則停止。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Backward selection&lt;/strong&gt;:
+概念相同，但反過來從 full model 開始慢慢刪去不適切的 predictors。&lt;/p&gt;
+&lt;h2&gt;Qualitative predictors&lt;/h2&gt;
+&lt;p&gt;若某獨變項有 k levels，則需要 k-1 個 dummy variable，其中一個是 baseline level，
+也就是只有截距項。&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F6E0C2FE77652F408CCC108D34A68B4BDA8B9F227676E8E534464DC7F51E5C78_1481039883460_+2016-12-06+11.57.50.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;p&gt;上述的例子就是拿 AA 當成 baseline level，檢定結果如下：&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F6E0C2FE77652F408CCC108D34A68B4BDA8B9F227676E8E534464DC7F51E5C78_1481039890873_+2016-12-06+11.57.45.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;p&gt;觀察第二列，發現 係數 -18.69 並沒有達顯著，這個顯著就是和 baseline AA 作比較，所以選取 baseline level 是很重要的事。這裡會影響的就是 contrasts ( which baseline level be chosen )，但整體的 RSS並不會因為選哪個獨變項作為 baseline level 而有所差異。&lt;/p&gt;
+&lt;h1&gt;Extensions of the Linear Model&lt;/h1&gt;
+&lt;h2&gt;Interaction&lt;/h2&gt;
+&lt;p&gt;$Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \beta_3X_1X_2 = \beta_0 + (\beta_1+\beta_3X_2)X_1 + \beta_2X_2$
+當獨變項間相關很高時，要考慮有交互作用的可能。&lt;/p&gt;
+&lt;p&gt;假如加入的交互作用項而使得模型表現 $R^2$ 從 89.7 上升至 96.8，我們可以計算上升增加解釋變異量的比例：$\frac{R_2^2-R_1^2}{100-R_1^2}$ = 69.8%（分母為原模型不可解釋變異量、分子為新模型解釋變異量的增量，結合後的意思即為&lt;strong&gt;新模型（交互作用變項）解釋原模型不可解釋的佔比&lt;/strong&gt;。）&lt;/p&gt;
+&lt;p&gt;有時會得到一這樣的結果：交互作用有顯著、主要效果沒顯著。這時候我們可以&lt;strong&gt;只放交互作用項&lt;/strong&gt;在模型中嗎？不行。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hierarchy principle: If we include an interaction in a model, we should also include the main effect, even if the p-values associated with their coefficients are not significant.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;對此，合理的解釋是因為我們很難在沒有主效果變項的情況下解釋交互作用項的變化。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Interactions between qualitative and quantitative variables&lt;/strong&gt;
+只有主效果： $Y=\beta_0+\beta_1X_1+\beta_2X_{2c}$&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F6E0C2FE77652F408CCC108D34A68B4BDA8B9F227676E8E534464DC7F51E5C78_1481039811967_+2016-12-06+11.56.01.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;p&gt;有交互作用項： $Y = \beta_0+\beta_1X_1+\beta_2X_{2c}+\beta_3X_1X_{2c}$&lt;/p&gt;
+&lt;p&gt;當 $X_{2c} = 0,1$ 可看成兩個 model :  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$Y = (\beta_0+\beta_2)+(\beta_1+\beta_3)X_1$&lt;/li&gt;
+&lt;li&gt;$Y = \beta_0+\beta_1X_1$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;這裡其實暗示著為何加入 interaction 項時，線段的截距和斜率不等值如下圖：&lt;/p&gt;
+&lt;h2&gt;Non-linearity&lt;/h2&gt;
+&lt;p&gt;Non-linear effects
+$Y = \beta_0 + \beta_1X_1 + \beta_2X_1^2 + \epsilon$ ( polynomial degree 2 多項式次數 2 )&lt;/p&gt;
+&lt;h2&gt;Generalizations of the Linear Model&lt;/h2&gt;
+&lt;p&gt;Classification problems: Logistic regression, svm
+Non-linearity: kernel smoothing, splines generalized additive models and nearest neighbor methods.
+Interactions: Tree-based models, bagging, random forests and boosting
+Regularized fitting: Ridge regression and lasso&lt;/p&gt;
+&lt;h2&gt;Note&lt;/h2&gt;
+&lt;p&gt;ISLR Section 3.3.3&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;檢查獨變項和依變項是不是線性關係&lt;/strong&gt;
+Residual plot: $\hat{e}=(y_i-\hat{y_i}), x_i$
+如果是 multiple predictors 情況下會用 $\hat{e}=(y_i-\hat{y_i}), y_i$ 如下：&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F6E0C2FE77652F408CCC108D34A68B4BDA8B9F227676E8E534464DC7F51E5C78_1481075022099_+2016-12-07+9.43.27.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;p&gt;若發現獨變項和依變項有非線性的關係，可以做一些獨變項的轉換如 $log(X),\sqrt{X},X^2$ 等&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Correlation of Error Terms&lt;/strong&gt;
+通常時間序列的資料的殘差會有相關，如何檢驗一樣是畫圖：$\hat{e}=(y_i-\hat{y_i}), x_i$
+不過這裡的話為了要檢驗殘差之間是否有相關，我們會拿鄰近的兩個 $\hat{e}$ 的所有 data 來算相關，第一張圖代表臨近的兩點的相關為 0，最後一張是鄰近的兩個點之間相關為 .9。當殘差出現相關的話，得到的標準誤會比實際的標準誤來的小，&lt;strong&gt;亦即得到的信賴區間也會比較窄&lt;/strong&gt;（根據公式）。&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F6E0C2FE77652F408CCC108D34A68B4BDA8B9F227676E8E534464DC7F51E5C78_1481120688519_+2016-12-07+10.24.34.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Non-constant Variance of Errors Terms （&lt;/strong&gt;heteroscedasticity&lt;strong&gt;，異方差性）&lt;/strong&gt;
+線性回歸有個假設： $Var(\epsilon) = \sigma^2$ 為一常數
+如果當殘差並不是常數的情況下，
+會造成&lt;strong&gt;依變項膨脹&lt;/strong&gt;，變成 funnel shape&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F6E0C2FE77652F408CCC108D34A68B4BDA8B9F227676E8E534464DC7F51E5C78_1481121520882_+2016-12-07+10.37.07.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;p&gt;解決當殘差的變異數不為定值的解法就是將依變項作轉換如：&lt;/p&gt;
+&lt;div class="img"&gt;
+&lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F6E0C2FE77652F408CCC108D34A68B4BDA8B9F227676E8E534464DC7F51E5C78_1481121677690_+2016-12-07+10.41.06.png
+" width="80%" height="80%" /&gt;       
+&lt;/div&gt;
+
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;</summary><category term="Stat"></category></entry><entry><title>High Performance Programming 2</title><link href="/high-performance-programming-2.html" rel="alternate"></link><published>2017-03-15T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-03-15:high-performance-programming-2.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
