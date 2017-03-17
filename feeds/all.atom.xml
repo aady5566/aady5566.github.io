@@ -14,7 +14,6 @@ ga('create', 'UA-77164531-1', 'auto');
 ga('send', 'pageview');
 &lt;/script&gt;
 
-&lt;h1&gt;Simple Linear Regression&lt;/h1&gt;
 &lt;p&gt;最簡單的線性迴歸模型： $Y = \beta_0 + \beta_1X + \epsilon$ （假設此真理）&lt;/p&gt;
 &lt;p&gt;那我們實際上能得到的是： $\hat{y} = \hat{\beta_0} + \hat{\beta_1}x$ (這裡的 $\beta$ 為用觀察值 training data 得到的估計值)&lt;/p&gt;
 &lt;hr /&gt;
