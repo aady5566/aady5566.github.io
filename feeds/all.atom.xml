@@ -1088,7 +1088,7 @@ Closest candidates are:
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-&lt;/script&gt;</summary><category term="Julia"></category></entry><entry><title>SF - CH2. Regression Models</title><link href="/sf-ch2-regression-models.html" rel="alternate"></link><published>2017-03-15T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-03-15:sf-ch2-regression-models.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+&lt;/script&gt;</summary><category term="Julia"></category></entry><entry><title>SF2 Regression Models</title><link href="/sf2-regression-models.html" rel="alternate"></link><published>2017-03-15T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-03-15:sf2-regression-models.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
