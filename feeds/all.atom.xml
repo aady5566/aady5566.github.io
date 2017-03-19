@@ -76,11 +76,6 @@ $Y$ 是你口袋裡的銅幣金額， $X_1$ 是口袋內銅板的個數， $X_2$
 &lt;blockquote&gt;
 &lt;p&gt;Essentially, all models are wrong, but some are useful - George Box&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;adfhk&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;code here
-&lt;/pre&gt;&lt;/div&gt;
-
-
 &lt;h1&gt;Some important questions&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;是否存在至少一個獨變項可以用來預測依變項？&lt;/li&gt;
