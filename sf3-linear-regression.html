@@ -61,6 +61,7 @@ MathJax.Hub.Config({
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
   }
 });
+
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -70,12 +71,16 @@ ga('create', 'UA-77164531-1', 'auto');
 ga('send', 'pageview');
 </script>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.3.1/markdown-it.js">
+</script>
+
 <p>最簡單的線性迴歸模型： $Y = \beta_0 + \beta_1X + \epsilon$ （假設此真理）</p>
 <p>那我們實際上能得到的是： $\hat{y} = \hat{\beta_0} + \hat{\beta_1}x$ (這裡的 $\beta$ 為用觀察值 training data 得到的估計值)</p>
 <hr />
-<p>衡量模型的好壞，可以看殘差：
-<em>residual</em> :  $e_i = y_i - \hat{y_i}$
-<em>residual sum of square (RSS)</em>: $RSS = e_1^2+...+e_n^2 = [y_1-(\hat{\beta_0} + \hat{\beta_1}x_1)]+...+[y_n-(\hat{\beta_0} + \hat{\beta_1}x_n)]$</p>
+<p>衡量模型的好壞，可以看殘差：  </p>
+<p>$\text{residual: }e_i = \ y_i - \hat{y_i}$  </p>
+<p>$\text{residual sum of square (RSS):  }$  </p>
+<p>$RSS = e_1^2+...+e_n^2 = \ [y_1-(\hat{\beta_0} + \hat{\beta_1}x_1)]+...+[y_n-(\hat{\beta_0} + \hat{\beta_1}x_n)]$  </p>
 <div class="img">
 <img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F6E0C2FE77652F408CCC108D34A68B4BDA8B9F227676E8E534464DC7F51E5C78_1480518037424_+2016-11-30+11.00.22.png
 " width="80%" height="80%" />       
@@ -101,17 +106,16 @@ ga('send', 'pageview');
 <h2>Residual standard error</h2>
 <p>$RSS = \sum_{i=1}^n(y_i-\hat{y_i})^2$ ，從此公式可看出 RSS 的大小會受到樣本數的影響
 因此評估一個整體模型的好壞 ( overall accuracy of the model ) 可以用：</p>
-<p><em>Residual standard error</em>: $RSE = \sqrt{RSS/n-2}$</p>
+<p>$\text{Residual standard error: }RSE = \sqrt{RSS/n-2}$</p>
 <h2>Confidence Intervals vs. Hypothesis Testing</h2>
 <p>其實 CI 就已經是在做檢定了，以課堂例子 95%信賴區間為 [0.042, 0.053]，也就是說真實的參數 $\beta_1$ 沒有包含到 0 點的位置。換句話說，假設檢定虛無假設 $H_0: \hat{\beta_1} = 0$ 已經被拒絕了。而且 [0.042, 0.053] 同時也說明這個參數的<strong>效果</strong>有多大。</p>
 <h2>R-squared ( fraction of variance explained )，解釋變異量</h2>
 <p>除了 RSE 可以用來衡量整體模型的好壞外，另一種方式是計算解釋變異量：</p>
-<p><em>R-squared</em>: $R^2 = \frac{TSS - RSS}{TSS} = 1 - \frac{RSS}{TSS}, TSS = \sum_{i=1}^n(y_i-\bar{y})^2$</p>
+<p>$\text{R-squared: }R^2 = \frac{TSS - RSS}{TSS} = 1 - \frac{RSS}{TSS}, TSS = \sum_{i=1}^n(y_i-\bar{y})^2$</p>
 <p><em>TSS: total sum of square</em></p>
-<p>上述公式不難理解， <em>RSS</em> 說明的是誤差項，也就是模型無法解釋的部分，$\frac{RSS}{TSS}$ 即為整個模型無法解釋的比例，全部減去這個比例就是模型能解釋的比例了。</p>
+<p>上述公式不難理解， $RSS$ 說明的是誤差項，也就是模型無法解釋的部分，$\frac{RSS}{TSS}$ 即為整個模型無法解釋的比例，全部減去這個比例就是模型能解釋的比例了。</p>
 <p>而最簡單的線性回歸的相關 r 的平方也會是線性回歸模型的解釋變異量（$r^2 = R^2$） </p>
-<p><em>correlation r</em> : 
-$\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^n(y_i-\bar{y})^2}}$</p>
+<p>$\text{Correlation R: }\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^n(y_i-\bar{y})^2}}$</p>
 <h1>Multiple Linear Regression</h1>
 <p>$Y = \beta_0 + \beta_1X_1 + \beta_2X_2+ ...+ \beta_pXp +\epsilon$</p>
 <div class="img">
@@ -128,6 +132,11 @@ $Y$ 是你口袋裡的銅幣金額， $X_1$ 是口袋內銅板的個數， $X_2$
 <blockquote>
 <p>Essentially, all models are wrong, but some are useful - George Box</p>
 </blockquote>
+<p><code>adfhk</code></p>
+<div class="highlight"><pre><span></span>code here
+</pre></div>
+
+
 <h1>Some important questions</h1>
 <ol>
 <li>是否存在至少一個獨變項可以用來預測依變項？</li>

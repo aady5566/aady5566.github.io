@@ -17,7 +17,8 @@
 
 section#posts p, ul, ol, li{
 	font-size: 16px;
-  font-family: 'Freight-Sans-Pro','cwTeXHei', sans-serif;
+  /*font-family: 'Freight-Sans-Pro','cwTeXHei', sans-serif;*/
+	color: rgba(0,0,0,.5)
 }
 /*yd_pic*/
 /*img{
@@ -137,6 +138,7 @@ section#posts blockquote {
     padding: 0 0 0 20px;
     display: inline-block;
     border-left: 5px solid rgba(255,207,87,1);
+		overflow: auto;
 }
 
 nav#header-nav{
