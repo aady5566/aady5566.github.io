@@ -141,6 +141,10 @@ section#posts blockquote {
 		overflow: auto;
 }
 
+section#posts blockquote p{
+	max-width: 520px !important;
+}
+
 nav#header-nav{
 	display:flex;
 	align-items: center;
