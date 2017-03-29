@@ -119,9 +119,9 @@ step function 常用的領域為生物統計及流行病學。這裡特別注意
 &lt;p&gt;以圖 Ａ 來說，函數 $g(t)$ 附近的斜率相當平滑，斜率變化趨近於常數，反觀圖 B，函數 $g(t)$ 附近的斜率變化大，會使得 $g''(t)$ 變得很大。因此 $\lambda$ 的目的就是就是在限制 $g''(t)$ 的收縮，如果 $\lambda \rightarrow \infty$ ，也就是把吸收了大量的懲罰效果，最後的結果就是使曲線變成直線。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Choosing the parameter&lt;/strong&gt; $\lambda$
 有兩種做法可以決定 $\lambda$&lt;/p&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;em&gt;tune effective degrees of freedom&lt;/em&gt; ($df_{\lambda}$) rather than $\lambda$&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;這裡不做證明，但可以得到結論是
 $\lambda \text{ increases from 0 to } \infty \text{ as }df_{\lambda} \text{ decreases from n to 2}$
@@ -132,13 +132,13 @@ $\lambda \text{ increases from 0 to } \infty \text{ as }df_{\lambda} \text{ decr
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;LOOCV: &lt;/p&gt;
 &lt;p&gt;$RSS_{cv}(\lambda)=\sum_{i=1}^{n}(y_i-\hat{g}_{\lambda}^{-i}(x_i))^2$, &lt;/p&gt;
 &lt;p&gt;$\hat{g}_{\lambda}^{(-i)} \text{ indicates smoothing spline function }$&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;p&gt;example R:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;smooth.spline(x, y, cv=T)
 &lt;/pre&gt;&lt;/div&gt;
