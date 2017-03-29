@@ -168,7 +168,7 @@ step function 常用的領域為生物統計及流行病學。這裡特別注意
 
 <p>好的做法是讓他在 knots 的位置能夠<strong>連續且平滑</strong>，我們必須做一些條件的限制。以此例，是 degree = 3 的函數，為了能夠使曲線<strong>連續且平滑</strong>，我們必須讓 age = 50 在一次及二次微分後的函數的值是一樣的，也就是說我們的 piecewise polynomials 會變成：</p>
 <p>$y_i = \begin{cases} \begin{align} \color{royalblue}{\beta_{0}}+ \color{royalblue}{\beta_{1}}x_i + \color{royalblue}{\beta_{2}}x_i^2+ \beta_{31}x_i^3 +\epsilon &amp; \text{ if } x_i &lt;c \newline \color{royalblue}{\beta_{0}}+ \color{royalblue}{\beta_{1}}x_i + \color{royalblue}{\beta_{2}}x_i^2+ \beta_{32}x_i^3 +\epsilon &amp; \text{ if } x_i \geq c \end{align} \end{cases}$</p>
-<p>自由度會從原本的 $df=8$ 變成 $df=5$，繪圖的結果會變成就會連續平滑了：</p>
+<p>自由度會從原本的 $df=8$ 變成 $df=5$，繪圖的結果會變成連續平滑了：</p>
 <div class="img">
 <img src="https://d2mxuefqeaa7sj.cloudfront.net/s_0F0C14060C90D53DF47003597DA26CF0958D1C97F2F1E27102920E96348CCFF1_1489736664477_+2017-03-17+3.43.46.png
 " width="80%" height="80%" />       
@@ -193,8 +193,8 @@ step function 常用的領域為生物統計及流行病學。這裡特別注意
 </div>
 
 <p>以圖 Ａ 來說，函數 $g(t)$ 附近的斜率相當平滑，斜率變化趨近於常數，反觀圖 B，函數 $g(t)$ 附近的斜率變化大，會使得 $g''(t)$ 變得很大。因此 $\lambda$ 的目的就是就是在限制 $g''(t)$ 的收縮，如果 $\lambda \rightarrow \infty$ ，也就是把吸收了大量的懲罰效果，最後的結果就是使曲線變成直線。</p>
-<p><strong>Choosing the parameter</strong> $\lambda$
-有兩種做法可以決定 $\lambda$</p>
+<p><strong>Choosing the parameter</strong> $\lambda$  </p>
+<p>有兩種做法可以決定 $\lambda$</p>
 <ul>
 <li><em>tune effective degrees of freedom</em> ($df_{\lambda}$) rather than $\lambda$</li>
 </ul>
@@ -238,11 +238,12 @@ $\lambda \text{ increases from 0 to } \infty \text{ as }df_{\lambda} \text{ decr
 <ol>
 <li>$k$ 為分群數，$n$ 樣本數，決定訓練集的比例 $s = k/n$ ，找出離目標點 $x_i$ 的 $s$ 比例的觀察值作為訓練集，$s$ 取得越小，適配模型會越區域化、曲線的跳動頻繁，反之，$s$ 取得越大，適配模型會越整體化，曲線越平滑。</li>
 <li>對於這 $s$ 的每個點 $x$ 根據離 $x_i$ 的距離重新賦值 $K_{i0}=K(x_i,x_0)$ ，離 $x_i$ 最遠的點為 0</li>
-<li>利用 2. 適配 weighted leasted squares regression:</li>
-</ol>
-<p>$\sum_{i=1}^{n}K_{i0}(y_i-\beta_0-\beta_1x_i)^2$</p>
-<ol>
-<li>由 $\hat{f}(x_0)=\hat{\beta_0}+\hat{\beta_1}x_0$ 得到點估計 $\hat{x}_0$ </li>
+<li>
+<p>利用 2. 適配 weighted leasted squares regression: $\sum_{i=1}^{n}K_{i0}(y_i-\beta_0-\beta_1x_i)^2$  </p>
+</li>
+<li>
+<p>由 $\hat{f}(x_0)=\hat{\beta}_0+\hat{\beta}_1x_0$ 得到點估計 $\hat{x}_0$ </p>
+</li>
 </ol>
 <p>這種過程屬於 memory-based procedure，除此之外，考量 step-size 也是蠻重要的，也就是選擇 moving fitting 的過程需要多少個目標點 $x_i$。
 另外一點要注意的是，<strong>不建議</strong>在高維度（$p&gt;3 \text{ or } 4$）的回歸進行臨近點分群回歸，因為隨著維度增加，鄰近目標點 $x_0$ 的 $x$ 會越來越少，適配模型效果會非常的差</p>
