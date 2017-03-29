@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="[zh]">
+<head>
+	<link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+	<!--<link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">-->
+	<!--<script src="/theme/js/less.js" type="text/javascript"></script>-->
+	<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+	<link rel="stylesheet" type="text/css" href="/theme/css/ydSetting.css">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:800,400,300|Inconsolata' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="./ico/apple-touch-icon.png">
+	<link href="aady5566.github.io/" type="application/atom+xml" rel="alternate" title="5566 ATOM Feed" />
+
+
+		<title>5566</title>
+		<meta charset="utf-8" />
+</head>
+<body>
+	<section id="sidebar">
+		<figure id="user_logo">
+            <!-- <a href=""><div class="logo">&nbsp;</div></a> -->
+						<img class="circular" src="https://raw.githubusercontent.com/aady5566/aady5566.github.io/master/pic/yd_fbas.jpg">
+		</figure>
+	</br>
+		<div class="user_meta">
+            <h1 id="user"><a href="http://aady5566.github.io" class="">YD</a></h1>
+			<h2></h2>
+			<p class="bio">lives in a cave.</p>
+			<ul>
+					<li><a href="http://aady5566.github.io/timeline/" target="_blank">timeline</a></li>
+					<li><a href="http://aady5566.bitbucket.org/" target="_blank">@_yd</a></li>
+					<li><a href="https://tw.linkedin.com/in/yd-huang-735358aa" target="_blank">linkedin</a></li>
+					<li><a href="https://github.com/aady5566" target="_blank">github</a></li>
+					<li><a href="mailto:ydhuang@ntu.edu.tw" target="_blank">mail</a></li>
+			</ul>
+		</div>
+		<footer>
+			<address>
+				&copy 2016 YD <br> Powered by Pelican.
+			</address>
+		</footer>
+	</section>
+
+	<section id="posts">
+	<header>
+		<h1>YD's blog</h1>
+		<nav id="header-nav">
+				<a id="header-nav-item"  href="/archives.html">Archives</a>
+				<a id="header-nav-item"  href="/categories.html">Categories</a>
+				<a id="header-nav-item"  href="/tags.html">Tags</a>
+		</nav>
+		<h3 id="date">Posted 三 29 3月 2017</h3>
+	</header>
+	<article>
+		<h1 id="title">
+			<a href="/sf7-beyond-linearity.html" rel="bookmark"
+				title="Permalink to SF7 Beyond Linearity">SF7 Beyond Linearity</a>
+		</h1>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.3.1/markdown-it.js">
+</script>
+
+<p>雖然感覺光研究線性模型就能做出很多變化，不過事實是它永遠不夠（科學家也不會甘於用線性模型解釋所有世俗現象）</p>
+<blockquote>
+<p>The truth is never linearity, yet the linearity assumption is good enough (sometimes)</p>
+</blockquote>
+<p>這裡稍微整理一下非線性模型的做法及評估方式：</p>
+<ul>
+<li>Basis Functions</li>
+<li>special case:<ul>
+<li>Polynomial Regression</li>
+<li>Step Functions: cut the variable into distinct regions</li>
+</ul>
+</li>
+<li>Regression Splines</li>
+<li>keyword: knots, $df$</li>
+<li>In R: <code>lm(wage ~ bs(age, knots = c(25, 40, 60)), data = Wage)</code> </li>
+<li>Smoothing Splines</li>
+<li>keyword: $\lambda$, $df_\lambda$ (effective degree of freedom)</li>
+<li>In R: <code>fit = smooth.spline(age, wage, df = 16)</code> </li>
+<li>Local Regression</li>
+<li>In R: <code>loess()</code> </li>
+<li>Generalized Addictive Models (GAM)</li>
+<li>In R: <code>lm(y ~ f_1(x_1)+ f_2(x_2)+f_3(x_3))</code> ; <code>plot.gam()</code> </li>
+<li>In R: MGCB package</li>
+</ul>
+<hr />
+<h2>Polynomial Regression</h2>
+<p>我們將一般的回歸式進行延伸：</p>
+<p>$y_i = \beta_0+ \beta_1x_i + \beta_2x_i^2+ \beta_3x_i^3+ ... + \beta_dx_i^d + \epsilon_i$</p>
+<p>一般來說，我們不會讓 $d$ 大於 3 或 4，因為太大的指數會使得模型過於彈性，曲線會長得非常奇怪。</p>
+<div class="img">
+<img src="https://d2mxuefqeaa7sj.cloudfront.net/s_0F0C14060C90D53DF47003597DA26CF0958D1C97F2F1E27102920E96348CCFF1_1489731662936_+2017-03-17+2.20.38.png
+" width="80%" height="80%" />       
+</div>
+
+<p>根據 $x_i$ 我們已經得到實線適配的結果，接著我們想要得到該線的信賴區間（虛線）。其實利用最小平方法計算時，就可以得到係數 $\hat{\beta_j}$ 的變異量了，而估計的信賴區間可藉由 <em>pointwise</em> standard error ($Var[\hat{f}(x_0)]$) 就能得到。實際上，兩倍標準誤就是信賴區間了。</p>
+<p>如果我們再敏感一點，其實會看到原始資料在 Wage 250 的位置有明顯的分群，假如我們想看各個年齡層在收入大於250的機率，可以用 logistic regression model:</p>
+<p>$Pr(y_i &gt; 250|x_i)=\frac{exp(\beta_0+ \beta_1x_i + \beta_2x_i^2+ \beta_3x_i^3)}{1+exp(\beta_0+ \beta_1x_i + \beta_2x_i^2+ \beta_3x_i^3)}$</p>
+<p>在 R 的實作上：</p>
+<div class="highlight"><pre><span></span>fit <span class="o">=</span> glm<span class="p">(</span><span class="kp">I</span><span class="p">(</span>wage<span class="o">&gt;</span><span class="m">250</span><span class="p">)</span> <span class="o">~</span> poly<span class="p">(</span>age<span class="p">,</span><span class="m">3</span><span class="p">),</span> data<span class="o">=</span>Wage<span class="p">,</span> family<span class="o">=</span><span class="s">&quot;binomial&quot;</span><span class="p">)</span>
+preds <span class="o">=</span> predict<span class="p">(</span>fit<span class="p">,</span><span class="kt">list</span><span class="p">(</span>age<span class="o">=</span>age.grid<span class="p">),</span>se<span class="o">=</span><span class="bp">T</span><span class="p">)</span>
+preds<span class="o">$</span>se.fit
+se.bands <span class="o">&lt;-</span> preds<span class="o">$</span>fit <span class="o">+</span> <span class="kp">cbind</span><span class="p">(</span>fit<span class="o">=</span><span class="m">0</span><span class="p">,</span>lower<span class="o">=</span><span class="m">-2</span><span class="o">*</span>preds<span class="o">$</span>se.fit<span class="p">,</span>upper<span class="o">=</span><span class="m">2</span><span class="o">*</span>preds<span class="o">$</span>se.fit<span class="p">)</span>
+prob.bands <span class="o">&lt;-</span> <span class="kp">exp</span><span class="p">(</span>se.bands<span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="m">1</span><span class="o">+</span><span class="kp">exp</span><span class="p">(</span>se.bands<span class="p">))</span>
+matplot<span class="p">(</span>age.grid<span class="p">,</span>prob.bands<span class="p">,</span>col<span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">,</span>lwd<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span>lty<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">),</span>type<span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">,</span>ylim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+</pre></div>
+
+
+<p>就能繪出類似這樣的結果</p>
+<div class="img">
+<img src="https://d2mxuefqeaa7sj.cloudfront.net/s_0F0C14060C90D53DF47003597DA26CF0958D1C97F2F1E27102920E96348CCFF1_1489732046752_+2017-03-17+2.27.09.png
+" width="80%" height="80%" />       
+</div>
+
+<hr />
+<h2>Step function</h2>
+<p>有時也被稱作 piece-wise constant function。概念其實和 Polynomial Regression 類似，只是將資料進行人為的分類，也就是把<strong>連續變項轉成次序類別變項</strong>，用新的變數 (dummy variable) 來進行模型適配。</p>
+<div class="img">
+<img src="https://d2mxuefqeaa7sj.cloudfront.net/s_0F0C14060C90D53DF47003597DA26CF0958D1C97F2F1E27102920E96348CCFF1_1489732571779_+2017-03-17+2.35.57.png
+" width="80%" height="80%" />       
+</div>
+
+<p>$I(\cdot)$ 稱為 indicator function, 當條件成立為 1 不成立 0，其實就是 dummy variable。
+step function 常用的領域為生物統計及流行病學。這裡特別注意，<strong>除非這些斷點本身有意義，否則不建議用 step function 對原始資料進行切割</strong>，因為這樣可能會有資訊遺漏的風險。  </p>
+<h2>Regression Splines</h2>
+<p>可以看成是 polynomial regression 和 step function 結合的進階版：</p>
+<p>$y_i = \begin{cases} \begin{align} \beta_{01}+ \beta_{11}x_i + \beta_{21}x_i^2+ \beta_{31}x_i^3 +\epsilon &amp; \text{ if } x_i &lt;c \newline \beta_{02}+ \beta_{12}x_i + \beta_{22}x_i^2+ \beta_{32}x_i^3 +\epsilon &amp; \text{ if } x_i \geq c \end{align} \end{cases}$</p>
+<p>從上圖可看到，原本的 polynomial regression 因為後面的條件 (knot)，被分拆成兩個新的 regression models，因此我們又稱之為 piecewise polynomials。不過光這樣切，其實會有個問題，圖形會變得不連續：</p>
+<div class="img">
+<img src="https://d2mxuefqeaa7sj.cloudfront.net/s_0F0C14060C90D53DF47003597DA26CF0958D1C97F2F1E27102920E96348CCFF1_1489734662113_+2017-03-17+3.10.48.png
+" width="80%" height="80%" />       
+</div>
+
+<p>好的做法是讓他在 knots 的位置能夠<strong>連續且平滑</strong>，我們必須做一些條件的限制。以此例，是 degree = 3 的函數，為了能夠使曲線<strong>連續且平滑</strong>，我們必須讓 age = 50 在一次及二次微分後的函數的值是一樣的，也就是說我們的 piecewise polynomials 會變成：</p>
+<p>$y_i = \begin{cases} \begin{align} \color{royalblue}{\beta_{0}}+ \color{royalblue}{\beta_{1}}x_i + \color{royalblue}{\beta_{2}}x_i^2+ \beta_{31}x_i^3 +\epsilon &amp; \text{ if } x_i &lt;c \newline \color{royalblue}{\beta_{0}}+ \color{royalblue}{\beta_{1}}x_i + \color{royalblue}{\beta_{2}}x_i^2+ \beta_{32}x_i^3 +\epsilon &amp; \text{ if } x_i \geq c \end{align} \end{cases}$</p>
+<p>自由度會從原本的 $df=8$ 變成 $df=5$，繪圖的結果會變成就會連續平滑了：</p>
+<div class="img">
+<img src="https://d2mxuefqeaa7sj.cloudfront.net/s_0F0C14060C90D53DF47003597DA26CF0958D1C97F2F1E27102920E96348CCFF1_1489736664477_+2017-03-17+3.43.46.png
+" width="80%" height="80%" />       
+</div>
+
+<p>不過到底要怎麼決定節點數及節點的位置呢？</p>
+<ol>
+<li>最簡單的方式就是讓電腦算給你（不負責任的做法…）</li>
+<li>直接肉眼觀察曲線的長相</li>
+<li>進行交叉驗證：90% 資料做訓練，去比對不同的節點位置或節點數的模型平均的 test RSS 大小，選擇最小 RSS 模型。</li>
+</ol>
+<p>通常 regression splines 的結果會優於 polynomial regression，由於兩者的自由度都一樣，但是 splines 多了節點使得曲線更彈性。</p>
+<hr />
+<h2>Smoothing Splines</h2>
+<p>除了上述平滑曲線的方式，還有另外一種做法：<strong>在有限制的情況下</strong>使 $RSS$ 越小越好。如果我們只用原始的 $RSS$ 概念，$RSS \text{ (loss function)} = \sum_{i=1}^{n} (y_i - g(x_i))^{2}$ ，因為要符合最小的結果，一定能透過內差法找出最適合的 $g(x_i)$ 使 $RSS$ 為零，這會導致<strong>過度適配</strong>。
+其中一種方式就是，加入一個非負整數的調節參數 $\lambda$：</p>
+<p>$RSS=\sum_{i=1}^{n} (y_i - g(x_i))^{2}+\lambda\int g''(t)^2dt$</p>
+<p>$\lambda\int g''(t)^2dt$ 作為懲罰項（限制 $g()$ 的變動大小），二次微分的用意就是看曲線的凹凸性，也就是<strong>斜率的變化</strong>，我們假想兩種情況，如下圖所示：</p>
+<div class="img">
+<img src="https://d2mxuefqeaa7sj.cloudfront.net/s_0F0C14060C90D53DF47003597DA26CF0958D1C97F2F1E27102920E96348CCFF1_1489980932597_+2017-03-20+11.35.17.png
+" width="80%" height="80%" />       
+</div>
+
+<p>以圖 Ａ 來說，函數 $g(t)$ 附近的斜率相當平滑，斜率變化趨近於常數，反觀圖 B，函數 $g(t)$ 附近的斜率變化大，會使得 $g''(t)$ 變得很大。因此 $\lambda$ 的目的就是就是在限制 $g''(t)$ 的收縮，如果 $\lambda \rightarrow \infty$ ，也就是把吸收了大量的懲罰效果，最後的結果就是使曲線變成直線。</p>
+<p><strong>Choosing the parameter</strong> $\lambda$
+有兩種做法可以決定 $\lambda$</p>
+<ol>
+<li><em>tune effective degrees of freedom</em> ($df_{\lambda}$) rather than $\lambda$</li>
+</ol>
+<blockquote>
+<p>這裡不做證明，但可以得到結論是
+$\lambda \text{ increases from 0 to } \infty \text{ as }df_{\lambda} \text{ decreases from n to 2}$
+ $n \text{: the number of unique }x_i$</p>
+</blockquote>
+<p>example R: </p>
+<div class="highlight"><pre><span></span>smooth.spline(x, y, df=16) # max df: length(unique(x), min df: 2
+</pre></div>
+
+
+<ol>
+<li>
+<p>LOOCV: </p>
+<p>$RSS_{cv}(\lambda)=\sum_{i=1}^{n}(y_i-\hat{g}_{\lambda}^{-i}(x_i))^2$, </p>
+<p>$\hat{g}_{\lambda}^{(-i)} \text{ indicates smoothing spline function }$</p>
+</li>
+</ol>
+<p>example R:</p>
+<div class="highlight"><pre><span></span>smooth.spline(x, y, cv=T)
+</pre></div>
+
+
+<p>下圖我們可以看到兩種方式的結果：</p>
+<div class="img">
+<img src="https://d2mxuefqeaa7sj.cloudfront.net/s_0F0C14060C90D53DF47003597DA26CF0958D1C97F2F1E27102920E96348CCFF1_1488941055307_+2017-03-08+10.43.51.png
+" width="80%" height="80%" />       
+</div>
+
+<hr />
+<h2>Local Regression</h2>
+<p>這非常有意思，我們先看圖：</p>
+<div class="img">
+<img src="https://d2mxuefqeaa7sj.cloudfront.net/s_0F0C14060C90D53DF47003597DA26CF0958D1C97F2F1E27102920E96348CCFF1_1489983340362_+2017-03-20+12.15.30.png
+" width="80%" height="80%" />       
+</div>
+
+<p>可以把它看成是單點估計的回歸，作法如下：</p>
+<ol>
+<li>$k$ 為分群數，$n$ 樣本數，決定訓練集的比例 $s = k/n$ ，找出離目標點 $x_i$ 的 $s$ 比例的觀察值作為訓練集，$s$ 取得越小，適配模型會越區域化、曲線的跳動頻繁，反之，$s$ 取得越大，適配模型會越整體化，曲線越平滑。</li>
+<li>對於這 $s$ 的每個點 $x$ 根據離 $x_i$ 的距離重新賦值 $K_{i0}=K(x_i,x_0)$ ，離 $x_i$ 最遠的點為 0</li>
+<li>利用 2. 適配 weighted leasted squares regression:</li>
+</ol>
+<p>$\sum_{i=1}^{n}K_{i0}(y_i-\beta_0-\beta_1x_i)^2$</p>
+<ol>
+<li>由 $\hat{f}(x_0)=\hat{\beta_0}+\hat{\beta_1}x_0$ 得到點估計 $\hat{x}_0$ </li>
+</ol>
+<p>這種過程屬於 memory-based procedure，除此之外，考量 step-size 也是蠻重要的，也就是選擇 moving fitting 的過程需要多少個目標點 $x_i$。
+另外一點要注意的是，<strong>不建議</strong>在高維度（$p&gt;3 \text{ or } 4$）的回歸進行臨近點分群回歸，因為隨著維度增加，鄰近目標點 $x_0$ 的 $x$ 會越來越少，適配模型效果會非常的差</p>
+<blockquote>
+<p>Theoretically the same approach can be implemented in higher dimensions, using linear regressions fit to p-dimensional neighborhoods. However, local regression can perform poorly if p is much larger than about 3 or 4 because there will generally be very few training observations close to $x_0$.  </p>
+</blockquote>
+<h2>Generalized Addictive Models (GAM)</h2>
+<p>GAM 概念其實蠻直覺的，原始的線性迴歸公式：</p>
+<p>$y_i = \beta_0+ \beta_1x_i + \beta_2x_i^2+ \beta_3x_i^3+ ... + \beta_dx_i^d + \epsilon_i$</p>
+<p>我們可以直接針對各獨變項給予非線性函數：</p>
+<p>$y_i=\beta_0+\sum_{j=1}^{p}f_j(x_{ij})+\epsilon = \beta_0+ f_1(x_{i1})+ f_2(x_{i2})+...+f_p(x_{ip})+\epsilon_i$</p>
+<p>但有沒有發現，變項間的交互作用項消失了，當然我們可以自己將 $f_{jk}(X_j,X_k)$ 放入模型，這個而適配交互作用項，可以透過上述的 local regression 或是 splines 做法啦！</p>
+<div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//aady5566github.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+		<div id="article_meta">
+				Category:
+					<a href="/category/stat.html">Stat</a>
+				<br />Tags:
+					<a href="/tag/stat.html">Stat</a>
+		</div>
+	</article>
+
+	<footer>
+		<a href="/" class="button_accent">&larr;&nbsp;&nbsp;&nbsp;Back to blog</a>
+	</footer>
+
+
+	</section>
+
+</body>
+</html>
