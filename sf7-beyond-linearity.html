@@ -80,23 +80,43 @@ ga('send', 'pageview');
 </blockquote>
 <p>這裡稍微整理一下非線性模型的做法及評估方式：</p>
 <ul>
-<li>Basis Functions</li>
-<li>special case:<ul>
-<li>Polynomial Regression</li>
-<li>Step Functions: cut the variable into distinct regions</li>
+<li>
+<p>Basis Functions</p>
+<ul>
+<li>Special case<ul>
+<li>Polynomial Regression  </li>
+<li>Step Functions: cut the variable into distinct regions  </li>
 </ul>
 </li>
-<li>Regression Splines</li>
-<li>keyword: knots, $df$</li>
-<li>In R: <code>lm(wage ~ bs(age, knots = c(25, 40, 60)), data = Wage)</code> </li>
-<li>Smoothing Splines</li>
+</ul>
+</li>
+<li>
+<p>Regression Splines</p>
+<ul>
+<li>keyword: knots, $df$  </li>
+<li>In R: <code>lm(wage ~ bs(age, knots = c(25, 40, 60)), data = Wage)</code>  </li>
+</ul>
+</li>
+<li>
+<p>Smoothing Splines</p>
+<ul>
 <li>keyword: $\lambda$, $df_\lambda$ (effective degree of freedom)</li>
 <li>In R: <code>fit = smooth.spline(age, wage, df = 16)</code> </li>
-<li>Local Regression</li>
+</ul>
+</li>
+<li>
+<p>Local Regression</p>
+<ul>
 <li>In R: <code>loess()</code> </li>
-<li>Generalized Addictive Models (GAM)</li>
+</ul>
+</li>
+<li>
+<p>Generalized Addictive Models (GAM)  </p>
+<ul>
 <li>In R: <code>lm(y ~ f_1(x_1)+ f_2(x_2)+f_3(x_3))</code> ; <code>plot.gam()</code> </li>
 <li>In R: MGCB package</li>
+</ul>
+</li>
 </ul>
 <hr />
 <h2>Polynomial Regression</h2>
