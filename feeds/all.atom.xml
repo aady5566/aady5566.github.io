@@ -1720,7 +1720,7 @@ ga('send', 'pageview');
 
 &lt;/script&gt;
 
-&lt;iframe src='http://52.192.231.190/' width=100% height=600 frameborder="0"&gt;&lt;/iframe&gt;
+&lt;iframe src='http://stock.ydhuang.me/' width=100% height=600 frameborder="0"&gt;&lt;/iframe&gt;
 
 &lt;p&gt;這個是上週自幹的 side project- &lt;strong&gt;即時股價的預測系統&lt;/strong&gt; ，數據每天更新，提供最新的預測結果，歡迎大家玩玩看XD&lt;/p&gt;
 &lt;p&gt;因為剛好學到 ReactJS 框架開發前端，就不想再用 R Shiny 開發了，畢竟 Shiny 不是人人都會開發起來只能自幹...套件相對也少很多。  &lt;/p&gt;
