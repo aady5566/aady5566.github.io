@@ -6,6 +6,7 @@
 	<!--<script src="/theme/js/less.js" type="text/javascript"></script>-->
 	<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
 	<link rel="stylesheet" type="text/css" href="/theme/css/ydSetting.css">
+	<link href="/theme/dist/css/lightbox.css" rel="stylesheet">
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:800,400,300|Inconsolata' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" href="./ico/apple-touch-icon.png">
 	<link href="aady5566.github.io/" type="application/atom+xml" rel="alternate" title="5566 ATOM Feed" />
@@ -123,8 +124,9 @@ ga('send', 'pageview');
 <p>$y_i = \beta_0+ \beta_1x_i + \beta_2x_i^2+ \beta_3x_i^3+ ... + \beta_dx_i^d + \epsilon_i$</p>
 <p>一般來說，我們不會讓 $d$ 大於 3 或 4，因為太大的指數會使得模型過於彈性，曲線會長得非常奇怪。</p>
 <div class="img">
-<img src="https://d2mxuefqeaa7sj.cloudfront.net/s_0F0C14060C90D53DF47003597DA26CF0958D1C97F2F1E27102920E96348CCFF1_1489731662936_+2017-03-17+2.20.38.png
-" width="80%" height="80%" />       
+    <a href="https://d2mxuefqeaa7sj.cloudfront.net/s_0F0C14060C90D53DF47003597DA26CF0958D1C97F2F1E27102920E96348CCFF1_1489731662936_+2017-03-17+2.20.38.png" data-lightbox="image-1" data-title="" width="80%" height="80%">
+            <img src="https://d2mxuefqeaa7sj.cloudfront.net/s_0F0C14060C90D53DF47003597DA26CF0958D1C97F2F1E27102920E96348CCFF1_1489731662936_+2017-03-17+2.20.38.png" alt="20170000-1" width="80%" height="80%">
+    </a>
 </div>
 
 <p>根據 $x_i$ 我們已經得到實線適配的結果，接著我們想要得到該線的信賴區間（虛線）。其實利用最小平方法計算時，就可以得到係數 $\hat{\beta_j}$ 的變異量了，而估計的信賴區間可藉由 <em>pointwise</em> standard error ($Var[\hat{f}(x_0)]$) 就能得到。實際上，兩倍標準誤就是信賴區間了。</p>
@@ -295,3 +297,6 @@ $\lambda \text{ increases from 0 to } \infty \text{ as }df_{\lambda} \text{ decr
 
 </body>
 </html>
+
+<script   src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
+<script src="./theme/dist/js/lightbox.js"></script>

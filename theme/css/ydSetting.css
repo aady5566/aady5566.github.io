@@ -42,6 +42,12 @@ section#posts article > p{
     align-items: center;
     padding: 10px;
 }
+.img a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+		border-bottom: none;
+}
 
 .img img{
 		/*max-height: 40vh;*/
