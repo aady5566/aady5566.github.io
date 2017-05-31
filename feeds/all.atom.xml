@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>5566</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-05-31T00:00:00+08:00</updated><entry><title>出遠門</title><link href="/chu-yuan-men.html" rel="alternate"></link><published>2017-05-31T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-05-31:chu-yuan-men.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>5566</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-05-31T00:00:00+08:00</updated><entry><title>出遠門.</title><link href="/chu-yuan-men.html" rel="alternate"></link><published>2017-05-31T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-05-31:chu-yuan-men.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -23,7 +23,9 @@ ga('send', 'pageview');
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&amp;version=v2.9&amp;appId=407685469594276";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));&lt;/script&gt;</summary><category term="Life"></category></entry><entry><title>第一份工作的心得</title><link href="/di-yi-fen-gong-zuo-de-xin-de.html" rel="alternate"></link><published>2017-04-16T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-04-16:di-yi-fen-gong-zuo-de-xin-de.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+}(document, 'script', 'facebook-jssdk'));&lt;/script&gt;
+
+&lt;div class="fb-comments" data-href="http://blog.ydhuang.me/" data-numposts="5"&gt;&lt;/div&gt;</summary><category term="Life"></category></entry><entry><title>第一份工作的心得</title><link href="/di-yi-fen-gong-zuo-de-xin-de.html" rel="alternate"></link><published>2017-04-16T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-04-16:di-yi-fen-gong-zuo-de-xin-de.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
