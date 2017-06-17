@@ -1,5 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>5566</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-05-31T00:00:00+08:00</updated><entry><title>出遠門.</title><link href="/chu-yuan-men.html" rel="alternate"></link><published>2017-05-31T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-05-31:chu-yuan-men.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>5566</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-06-18T00:00:00+08:00</updated><entry><title>奧地利、捷克、波蘭自助蜜月</title><link href="/ao-di-li-jie-ke-bo-lan-zi-zhu-mi-yue.html" rel="alternate"></link><published>2017-06-18T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-06-18:ao-di-li-jie-ke-bo-lan-zi-zhu-mi-yue.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+&lt;/script&gt;
+
+&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.3.1/markdown-it.js"&gt;
+&lt;/script&gt;
+
+&lt;p&gt;這次旅行 16 天，搭飛機去頭尾為 14天 行程，去了奧地利、捷克和波蘭三個國家，花費大致如下：&lt;/p&gt;
+&lt;p&gt;機票：  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;來回都坐阿聯酋，杜拜轉機一次，從維也納進、華沙出。杜拜機場24小時營業但東西沒有想像的那麼多，待個 4 &amp;gt;小&amp;gt;時稍嫌有點長
+住宿：&lt;br /&gt;
+住的地方除了在哈爾施塔特是用 booking.com 找的酒店外，其他都用 airbnb 找整層公寓，相對便宜而且多有廚&amp;gt;房其他雜項（食、展覽、交通和部分紀念品）：  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="img"&gt;
+    &lt;a href="https://paper.dropbox.com/ep/redirect/image?url=https%3A%2F%2Fd2mxuefqeaa7sj.cloudfront.net%2Fs_77D0ABF6D3405E5DF72262744C9432E527D1BB63F8FC1A673DAD66E1CD1F8875_1497653473271_for%2Bblog_170617_0003.jpg&amp;hmac=ZBztZVMso7QxxweNOrUn9N3I0d%2FQtp7F3DCRqE%2BKYqk%3D" data-lightbox="image-1" data-title="" width="80%" height="80%"&gt;
+            &lt;img src="https://paper.dropbox.com/ep/redirect/image?url=https%3A%2F%2Fd2mxuefqeaa7sj.cloudfront.net%2Fs_77D0ABF6D3405E5DF72262744C9432E527D1BB63F8FC1A673DAD66E1CD1F8875_1497653473271_for%2Bblog_170617_0003.jpg&amp;hmac=ZBztZVMso7QxxweNOrUn9N3I0d%2FQtp7F3DCRqE%2BKYqk%3D" alt="20170000-1" width="80%" height="80%"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;杜拜機場賣的神燈，就想到以前阿拉丁裡的藍藍米其林（忘了叫啥），頗懷念。&lt;/p&gt;
+&lt;div class="img"&gt;
+    &lt;a href="https://paper.dropbox.com/ep/redirect/image?url=https%3A%2F%2Fd2mxuefqeaa7sj.cloudfront.net%2Fs_77D0ABF6D3405E5DF72262744C9432E527D1BB63F8FC1A673DAD66E1CD1F8875_1497653473271_for%2Bblog_170617_0003.jpg" data-lightbox="image-1" data-title="" width="80%" height="80%"&gt;
+            &lt;img src="https://paper.dropbox.com/ep/redirect/image?url=https%3A%2F%2Fd2mxuefqeaa7sj.cloudfront.net%2Fs_77D0ABF6D3405E5DF72262744C9432E527D1BB63F8FC1A673DAD66E1CD1F8875_1497653473271_for%2Bblog_170617_0003.jpg" alt="20170000-1" width="80%" height="80%"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;test1 jpg ... rm&lt;/p&gt;
+&lt;div class="img"&gt;
+    &lt;a href="" data-lightbox="image-1" data-title="" width="80%" height="80%"&gt;
+            &lt;img src="https://paper.dropbox.com/ep/redirect/image?url=https%3A%2F%2Fd2mxuefqeaa7sj.cloudfront.net%2Fs_77D0ABF6D3405E5DF72262744C9432E527D1BB63F8FC1A673DAD66E1CD1F8875_1497653473271_for%2Bblog_170617_0003.jpg&amp;hmac=ZBztZVMso7QxxweNOrUn9N3I0d%2FQtp7F3DCRqE%2BKYqk%3D" alt="20170000-1" width="80%" height="80%"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;test2 no href&lt;/p&gt;
+&lt;div class="img"&gt;
+    &lt;a href="https://paper.dropbox.com/ep/redirect/image?url=https%3A%2F%2Fd2mxuefqeaa7sj.cloudfront.net%2Fs_77D0ABF6D3405E5DF72262744C9432E527D1BB63F8FC1A673DAD66E1CD1F8875_1497653473271_for%2Bblog_170617_0003.jpg&amp;hmac=ZBztZVMso7QxxweNOrUn9N3I0d%2FQtp7F3DCRqE%2BKYqk%3D" data-lightbox="image-1" data-title="" width="80%" height="80%"&gt;
+            &lt;img src="" alt="20170000-1" width="80%" height="80%"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;test3 no img&lt;/p&gt;
+&lt;div id="fb-root"&gt;&lt;/div&gt;
+
+&lt;script&gt;(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&amp;version=v2.9&amp;appId=407685469594276";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));&lt;/script&gt;
+
+&lt;div class="fb-comments" data-href="http://blog.ydhuang.me/" data-numposts="5"&gt;&lt;/div&gt;</summary><category term="Life"></category></entry><entry><title>出遠門.</title><link href="/chu-yuan-men.html" rel="alternate"></link><published>2017-05-31T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-05-31:chu-yuan-men.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
