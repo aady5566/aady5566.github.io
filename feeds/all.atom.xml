@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>5566</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-06-18T00:00:00+08:00</updated><entry><title>奧地利、捷克、波蘭自助蜜月</title><link href="/ao-di-li-jie-ke-bo-lan-zi-zhu-mi-yue.html" rel="alternate"></link><published>2017-06-18T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-06-18:ao-di-li-jie-ke-bo-lan-zi-zhu-mi-yue.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>5566</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-08-03T00:00:00+08:00</updated><entry><title>3 months at appier</title><link href="/3-months-at-appier.html" rel="alternate"></link><published>2017-08-03T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-08-03:3-months-at-appier.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+  }
+});
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77164531-1', 'auto');
+ga('send', 'pageview');
+&lt;/script&gt;
+
+&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.3.1/markdown-it.js"&gt;
+&lt;/script&gt;
+
+&lt;div class="img"&gt;
+    &lt;a href="https://d2mxuefqeaa7sj.cloudfront.net/s_9141558A86073355AF5AC0463EA08551093F7218CC006FCA9B53E87A86CCA033_1501681530062_+2017-08-02+9.45.11.png" data-lightbox="image-1" data-title="" width="100%" height="100%"&gt;
+            &lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_9141558A86073355AF5AC0463EA08551093F7218CC006FCA9B53E87A86CCA033_1501681530062_+2017-08-02+9.45.11.png" alt="" width="100%" height="100%"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在 appier 三個多月了，是時候分享一下這段時間的小小心得。&lt;/p&gt;
+&lt;h3&gt;關於工作內容&lt;/h3&gt;
+&lt;p&gt;我的部門為 CM (Campaign Management)，中文的部分沒有特別明確的定義，姑且就稱為「廣告活動管理部門」。在這裡，我們多數的時間就是在監控廣告。監控廣告這詞兒非常攏統卻又精準，基本上我們在做的事情非常類似股票交易員的角色，只是操控的物件改為數位廣告而已。舉個具體的例子，某企業和 appier 簽了合約，客戶提供了一筆預算 $x$，並提供他所期待的目標，例如客戶希望在廣告的走期內，達到 $y$ 千個曝光、$z$ 個點擊。在這樣的前提下，我們開始投放廣告，並作監控。對於客戶而言最重要的，就是在我們達到這樣的廣告效益後，最終能轉換成他們實質的營收。而我們從中賺什麼呢？就是賺廣告投放的差價，事實上我們能夠達到客戶的 KPI 但也許不需要花足 $x$ ，這中間的差價就是獲利源。當然，廣告計價的方式很多種，剛剛提到的客戶就有兩種計價的可能 CPM (Cost Per Mille)，CPC (Cost Per Click)，也就是說，合約上除了客戶提供的預算外，加上提供的目標，就可以根據 $x$、$y$ 和 $z$ 得到 CPM: $\frac{x}{y}$ 及 CPC: $\frac{x}{z}$，當然，隨著數位行銷的成熟，演變出更多不同種的計價方式如 CPI (Cost Per Install)、CPL (Cost Per Lead) 或 CPCV (Cost per Complete View) 甚至是 CPx optimize CPx' 等。廣告競價的過程，也是非常多元，行之有年又算主流之一的當然就是所謂的「即時競價」&lt;a href="https://www.inside.com.tw/2014/05/30/every-local-advertiser-needs-rtb" target="_blank"&gt; (RTB, Real Time Bidding)&lt;/a&gt;，有興趣的可以看一下連結的文章，算是對 RTB 有深入淺出的介紹。&lt;/p&gt;
+&lt;p&gt;以上的工作內容和以往的性質差異甚大，還是會覺得偶爾也是要寫寫程式練練手感。所以後來在第一個月就開發了一個簡單的監控平台，隨著使用者（好同事）的需求變多，後來的功能也越來越多越複雜，除了對接公司的 API 外，又去串接 Google spreadsheet，也算是小有收穫（也因此得到公司的一台虛擬主機，就不用花自己的錢了哈哈哈）。&lt;/p&gt;
+&lt;h3&gt;關於工作環境&lt;/h3&gt;
+&lt;p&gt;論工作環境，有常態性的零食、飲料冰箱和水果，但常常吃完（葡萄串不到一小時變枯枝）。每月可以享有一次15分鐘的肩頸背按摩，開立社團每半年每人有五百元補助，實報實銷 ; 每季補助部門聚餐費用 ; 業績好員工聚餐 ; 每年出國員旅全額補助。打到這裡，覺得有這樣的福利在台灣應該真的算少了。&lt;/p&gt;
+&lt;p&gt;個人覺得，硬體設備是附加價值而已，最主要還是自己工作的氣氛和工作內容才是能不能久待的關鍵之一（當然還有待遇XD），論周遭同事，我們部門應該是最年輕的，年紀幾乎都在 $26\pm3$ 歲，組成以國企、財金、經濟、會計、統計居多，少數數位行銷和唯一心理系XD。各個都有特殊專長或特殊嗜好，比較可貴的是，大家都是好相處的人，完全不會有勾心鬥角的現象，有困難大家都很樂意互相支援，工作上要展現專業時都很有架勢（這點真該好好學習），私底下該屁的時候也是屁到不行的屁孩，尤其是我的小主管，能放能收，令人折服。&lt;/p&gt;
+&lt;h3&gt;後話&lt;/h3&gt;
+&lt;p&gt;當時在離開上一份工作時，其實有點猶豫，寫程式，是考驗及驗證自己的思維邏輯以及無止盡的解 bug 。在一定的時間內，不一定有任何收穫，一旦突破，一切豁然開朗，我喜歡這種感覺。彈性工時與做自己喜歡的事，確實是非常吸引人，對我來說真是完美的舒適圈。而在此時，我卻選擇新的工作，新的制度與新的工作內容，一切未知的情況下，我還是想去試試。
+現階段算是過了摸索期，正處於成長期，先好好努力茁壯（半年？），等到了平穩期後，再來思考下一階段的探索之旅。&lt;/p&gt;
+&lt;div id="fb-root"&gt;&lt;/div&gt;
+
+&lt;script&gt;(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&amp;version=v2.9&amp;appId=407685469594276";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));&lt;/script&gt;
+
+&lt;div class="fb-comments" data-href="http://blog.ydhuang.me/" data-numposts="5"&gt;&lt;/div&gt;</summary><category term="Life"></category></entry><entry><title>奧地利、捷克、波蘭自助蜜月</title><link href="/ao-di-li-jie-ke-bo-lan-zi-zhu-mi-yue.html" rel="alternate"></link><published>2017-06-18T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-06-18:ao-di-li-jie-ke-bo-lan-zi-zhu-mi-yue.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
