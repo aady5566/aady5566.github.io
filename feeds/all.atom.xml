@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>5566</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-08-03T00:00:00+08:00</updated><entry><title>3 months at appier</title><link href="/3-months-at-appier.html" rel="alternate"></link><published>2017-08-03T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-08-03:3-months-at-appier.html</id><summary type="html">&lt;p&gt;&lt;meta property="fb:admins" content="1031937241"/&gt;
-&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [ ['$','$'], ['\(','\)'] ]
-  }
-});&lt;/p&gt;
-&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>5566</title><link href="/" rel="alternate"></link><link href="aady5566.github.io/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-08-03T00:00:00+08:00</updated><entry><title>3 months at appier</title><link href="/3-months-at-appier.html" rel="alternate"></link><published>2017-08-03T00:00:00+08:00</published><author><name>YD</name></author><id>tag:,2017-08-03:3-months-at-appier.html</id><summary type="html">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
@@ -24,12 +17,6 @@ ga('send', 'pageview');
 
 &lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.3.1/markdown-it.js"&gt;
 &lt;/script&gt;
-
-&lt;div class="img"&gt;
-    &lt;a href="https://d2mxuefqeaa7sj.cloudfront.net/s_9141558A86073355AF5AC0463EA08551093F7218CC006FCA9B53E87A86CCA033_1501681530062_+2017-08-02+9.45.11.png" data-lightbox="image-1" data-title="" width="100%" height="100%"&gt;
-            &lt;img src="https://d2mxuefqeaa7sj.cloudfront.net/s_9141558A86073355AF5AC0463EA08551093F7218CC006FCA9B53E87A86CCA033_1501681530062_+2017-08-02+9.45.11.png" alt="" width="100%" height="100%"&gt;
-    &lt;/a&gt;
-&lt;/div&gt;
 
 &lt;p&gt;在 appier 三個多月了，是時候分享一下這段時間的小小心得。&lt;/p&gt;
 &lt;h3&gt;關於工作內容&lt;/h3&gt;
