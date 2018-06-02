@@ -26,7 +26,10 @@
 - 2015/01~2015/04 程曦語意分析實習 
 - 2015/04~2016/02 雲圖科學計算實習
 - 2016/02~2017/04/14 雲圖科學計算
-- 2017/04/17 Appier #job
+- 2017/04/17~2017/10/31 Appier #CampaignAnalyst
+- 2017/11/01~2018/03/31 Appier #CampaignTechProjectManager
+- 2018/04/01 Appier #ProductManager
+- 2018/05/31 Honor of the Best Appiers
 
 ## Something special
 [//]: <> (- 1990/09/12 YD 出生)
@@ -40,3 +43,6 @@
 - 2016/11/22~2016/11/27 [關西輕旅行](http://blog.ydhuang.me/guan-xi-you-guan-xi-zhi-ri-ben-xing-1.html)
 - 2016/12/17 Zombie Run
 - 2017/04/22 走入婚姻的墳墓
+- 2017/11/03~2017/11/06 員旅 Bintan Island
+- 2017/12/22~2017/12/25 日本東京
+- 2018/04/20~2018/04/24 日本岡山
